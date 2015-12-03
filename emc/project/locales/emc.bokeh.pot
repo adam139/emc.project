@@ -1,0 +1,97 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2015-11-25 13:09+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ./content/glyphs.py:90
+msgid "Attach your figure data report file(csv format)."
+msgstr ""
+
+#: ./content/glyphs.py:101
+msgid "Data source"
+msgstr ""
+
+#: ./vocabulary.py:26
+msgid "Date time"
+msgstr ""
+
+#: ./profiles/default/types/emc.bokeh.fearture.xml
+msgid "Fearture"
+msgstr ""
+
+#: ./vocabulary.py:24
+msgid "Linear coordinate"
+msgstr ""
+
+#: ./content/glyphs.py:70
+msgid "Where the source data that will composing the plot come from ?"
+msgstr ""
+
+#: ./content/glyphs.py:33
+msgid "X Coordinate"
+msgstr ""
+
+#: ./content/glyphs.py:34
+msgid "Y Coordinate"
+msgstr ""
+
+#: ./content/glyphs.py:51
+msgid "a legend of the  figure"
+msgstr ""
+
+#: ./profiles/default/types/emc.bokeh.fearture.xml
+msgid "fearture content type"
+msgstr ""
+
+#: ./content/glyphs.py:89
+msgid "figure data"
+msgstr ""
+
+#: ./vocabulary.py:10
+msgid "inline"
+msgstr ""
+
+#: ./vocabulary.py:25
+msgid "logarithmic coordinate"
+msgstr ""
+
+#: ./content/glyphs.py:110
+msgid "modify standard parameters for Plotting the figure"
+msgstr ""
+
+#: ./content/glyphs.py:95
+#: ./vocabulary.py:12
+msgid "reference"
+msgstr ""
+
+#: ./content/glyphs.py:47
+msgid "standard description"
+msgstr ""
+
+#: ./content/glyphs.py:43
+msgid "standard name"
+msgstr ""
+
+#: ./vocabulary.py:11
+msgid "upload"
+msgstr ""
+
+#: ./content/glyphs.py:56
+msgid "x axis type"
+msgstr ""
+
+#: ./content/glyphs.py:62
+msgid "y axis type?"
+msgstr ""
+
