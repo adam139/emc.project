@@ -8,18 +8,25 @@
 
     <!-- Include configuration for dependencies listed in setup.py -->
     <includeDependencies package="." />
-    <!-- Grok the package to initialise schema interfaces and content classes 
-    <grok:grok package="." /> -->
+    <!-- Grok the package to initialise schema interfaces and content classes  -->
+    <grok:grok package="." />
 
   <i18n:registerTranslations directory="locales" />
 
-    <!-- Register an extension profile to make the product installable 
-  <include package=".behavior" />-->
+    <!-- Register an extension profile to make the product installable --> 
+  <include package=".behavior" />
 
   <genericsetup:registerProfile
       name="default"
       title="a project management system for emc project"
       directory="profiles/default"
+      description="Extension profile for a project management system for emc project"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+  <genericsetup:registerProfile
+      name="test"
+      title="a project management system test profile for emc project"
+      directory="profiles/test"
       description="Extension profile for a project management system for emc project"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />

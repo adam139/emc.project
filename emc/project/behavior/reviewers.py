@@ -16,22 +16,22 @@ from borg.localrole.interfaces import ILocalRoleProvider
 from plone.indexer.interfaces import IIndexer
 from Products.ZCatalog.interfaces import IZCatalog
 
-from eisoo.behaviors import MessageFactory as _
+from emc.project import MessageFactory as _
 
 class IReviewers(form.Schema):
     """pass"""
 #    form.mode(next_reviewer='hidden')
     next_reviewer = schema.TextLine(
-        title=_(u"next_reviewer"),
+        title=(u"next_reviewer"),
 #        value_type=schema.TextLine(),
 #        value_type=schema.Choice(title=_(u"User id"),
 #                                  source="plone.principalsource.Users",),
-        required=False
+        required=False,
     )
     next_obj= schema.Int(
-                     title=_(u"next_obj"),
+                     title=(u"next_obj"),
                      default = -1,
-                     required=False
+                     required=False,
                      )
 
 alsoProvides(IReviewers, form.IFormFieldProvider)
