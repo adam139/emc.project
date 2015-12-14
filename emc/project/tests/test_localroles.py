@@ -81,17 +81,9 @@ class TestLocalRoles(unittest.TestCase):
 
         self.assertTrue('Manager' in member1.getRolesInContext(portal['folder1']))
    
-# local roles will inherit parent object.
-
-    
-
+# local roles will inherit parent object.  
         self.assertTrue('Manager' in member1.getRolesInContext(portal['folder1']['doc1']))        
 
-#         
-#         from emc.project.channel import Ichannel
-#         portal['areamanaged1'].invokeFactory('emc.project.channel', 'channel1')
-#         self.assertTrue('area_manager' in member1.getRolesInContext(portal['areamanaged1']['channel1']))
-        
-        
+
         
         

@@ -1,6 +1,6 @@
 import unittest as unittest
 
-from emc.bokeh.testing import INTEGRATION_TESTING
+from emc.project.testing import INTEGRATION_TESTING
 from plone.app.testing import TEST_USER_ID, setRoles
 #from plone.namedfile.file import NamedImage
 
@@ -11,11 +11,14 @@ class Allcontents(unittest.TestCase):
         portal = self.layer['portal']
         setRoles(portal, TEST_USER_ID, ('Manager',))
 
-        portal.invokeFactory('emc.bokeh.fearture', 'fearture1')
+        portal.invokeFactory('emc.project.projectFolder', 'folder1')
+        portal['folder1'].invokeFactory('emc.project.project', 'project1')  
+        portal['folder1']['project1'].invokeFactory('emc.project.team', 'team1')                
 
         self.portal = portal
     
     def test_item_types(self):
-        self.assertEqual(self.portal['fearture1'].id,'fearture1')
-    
+        self.assertEqual(self.portal['folder1'].id,'folder1')
+        self.assertEqual(self.portal['folder1']['project1'].id,'project1')   
+        self.assertEqual(self.portal['folder1']['project1']['team1'].id,'team1')           
         
