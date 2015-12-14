@@ -15,19 +15,12 @@
 
     <plone:behavior
         title="localroles"
-        description="localroles for eisoo kom"
+        description="localroles for emc project"
         provides=".localroles.Ilocalroles"
         factory="plone.behavior.AnnotationStorage"
 		 marker=".localroles.IlocalrolesMarker"
         />
 		
-	<plone:behavior
-        title="reviewers"
-        description="reviewers for eisoo kom"
-        provides=".reviewers.IReviewers"
-        factory=".reviewers.Reviewers"
-		 for="plone.dexterity.interfaces.IDexterityContent"
-		 marker=".reviewers.IReviewersMarker"
-        />
+
 
 </configure>

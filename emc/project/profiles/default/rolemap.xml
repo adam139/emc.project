@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<rolemap>
+  <roles>
+    <role name="EMCDesigner" />
+    <role name="Designer" /> 
+    <role name="Commander" />
+    <role name="DeputyCommander" />
+    <role name="ChiefDesigner" />
+    <role name="DeputyChiefDesigner" /> 
+    <role name="ChiefQE" />
+    <role name="DeputyChiefQE" /> 
+    <role name="ProcessStaff" /> 
+    <role name="QualityManageStaff" />
+    <role name="DispatchStaff" /> 
+    <role name="EMCExpert" />                
+  </roles>	
+  <permissions>
+    <!-- Map the "add" permissions for the various content types. Note that
+         we let the "Contributor" role (in a folder) be allowed to add content
+         when the "Owner" is, so that we can effectively delegate control
+         over a folder. Some content types, such as project folders  are considered to be so "structural" that only administrators
+         can add them.
+      -->
+	<permission name="View" acquire="True">
+    <role name="Owner" />		
+    <role name="Contributor"/>
+    <role name="Editor"/>
+    <role name="Reader"/>
+    <role name="Reviewer"/>
+		<role name="Manager"/>
+		<role name="Member"/>		
+		<role name="Site Administrator"/>		
+		<role name="EMCDesigner"/>
+		<role name="Designer"/>		
+    </permission>
+	
+    <permission name="Access contents information" acquire="True">
+    <role name="Contributor"/>
+    <role name="Editor"/>
+    <role name="Reader"/>
+    <role name="Reviewer"/>
+		<role name="Manager"/>
+		<role name="Member"/>		
+		<role name="Site Administrator"/>		
+		<role name="Project Master"/>
+		<role name="Designer"/>			  
+    </permission>
+	
+	<permission name="emc project:Add project folder" acquire="False">
+		<role name="Site Administrator"/>
+		<role name="Manager"/>		
+	</permission>
+	
+	<permission name="emc project:Add project" acquire="False">
+		<role name="Site Administrator"/>
+		<role name="Manager"/>
+		<role name="EMCDesigner"/>
+	</permission>
+	
+	<permission name="emc project:Add team" acquire="False">
+		<role name="Site Administrator"/>
+		<role name="Manager"/>
+		<role name="EMCDesigner"/>
+	</permission>
+		
+	<permission name="emc project:View project summary" acquire="False">
+		<role name="Site Administrator"/>
+		<role name="Manager"/>
+		<role name="EMCDesigner"/>
+	</permission>
+
+			
+  </permissions>
+</rolemap>

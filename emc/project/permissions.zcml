@@ -1,0 +1,49 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="emc.project">
+
+    <!-- Define new permissions -->
+
+	<permission
+        id="emc.project.addprojectfolder"
+		title="emc project:Add project folder"
+        />	
+
+	<permission
+       id="emc.project.addproject"
+		title="emc project:Add project"
+        />
+
+	<permission
+       id="emc.project.addteam"
+		title="emc project:Add team"
+        />
+		
+	<permission
+       id="emc.project.setupproject"
+		title="emc project:Setup project"
+        />
+		
+	<permission
+       id="emc.project.setupteam"
+		title="emc project:Setup team"
+        />
+		
+	<permission
+       id="emc.project.viewprojectsummary"
+		title="emc project:View project summary"
+        />	
+		
+	<permission
+       id="emc.project.viewproject"
+		title="emc project:View project"
+        />
+	
+	<permission
+       id="emc.project.viewteam"
+		title="emc project:View team"
+        />
+		
+	
+</configure>

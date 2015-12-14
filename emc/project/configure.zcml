@@ -15,7 +15,7 @@
 
     <!-- Register an extension profile to make the product installable --> 
   <include package=".behavior" />
-
+  <include file="permissions.zcml" />  
   <genericsetup:registerProfile
       name="default"
       title="a project management system for emc project"
