@@ -11,8 +11,15 @@
 
   <!-- -*- extra stuff goes here -*-  -->
 <include package="plone.behavior" file="meta.zcml" />
-
-
+<!--    <plone:behavior
+            title="File Preview"
+            description="Enables Products.ARFilePreview for dexterity content types"
+            provides="collective.filepreviewbehavior.interfaces.IPreviewAware"
+            for="plone.dexterity.interfaces.IDexterityContent"
+            factory="collective.filepreviewbehavior.adapters.ToPreviewableObject" 
+            marker="collective.filepreviewbehavior.interfaces.IPreviewable"
+            />
+-->
     <plone:behavior
         title="localroles"
         description="localroles for emc project"

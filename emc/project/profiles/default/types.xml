@@ -10,5 +10,8 @@
   <object name="emc.project.projectFolder" meta_type="Dexterity FTI" />	
   <object name="emc.project.project" meta_type="Dexterity FTI" />	 
   <object name="emc.project.team" meta_type="Dexterity FTI" />	  
-
+  <object name="emc.project.analysisDoc" meta_type="Dexterity FTI" />	
+  <object name="emc.project.auditDoc" meta_type="Dexterity FTI" />	 
+  <object name="emc.project.diagonoseDoc" meta_type="Dexterity FTI" />
+  <object name="emc.project.designDoc" meta_type="Dexterity FTI" />	
 </object>

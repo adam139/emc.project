@@ -23,15 +23,78 @@ class Ilocalroles(form.Schema):
     """
     form.widget(Manager=AutocompleteMultiFieldWidget)
 #    form.write_permission(Manager='iz.EditOfficialReviewers')
-    Manager = schema.Tuple(
-        title=_(u"Manager"),
+    Editor = schema.Tuple(
+        title=_(u"Designer"),
         value_type=schema.Choice(title=_(u"User id"),
                                   source=u"plone.principalsource.Users"),
         required=False,
         missing_value=(), # important!
     )
-    Editor = schema.Tuple(
-        title=_(u"Editor"),
+    Reader1 = schema.Tuple(
+        title=_(u"Commander"),
+        value_type=schema.Choice(title=_(u"User id"),
+                                  source=u"plone.principalsource.Users"),
+        required=False,
+        missing_value=(), # important!
+    )
+    Reader2 = schema.Tuple(
+        title=_(u"Deputy Commander"),
+        value_type=schema.Choice(title=_(u"User id"),
+                                  source=u"plone.principalsource.Users"),
+        required=False,
+        missing_value=(), # important!
+    )
+    Reader3 = schema.Tuple(
+        title=_(u"Chief Designer"),
+        value_type=schema.Choice(title=_(u"User id"),
+                                  source=u"plone.principalsource.Users"),
+        required=False,
+        missing_value=(), # important!
+    )     
+    Reader4 = schema.Tuple(
+        title=_(u"Deputy Chief Designer"),
+        value_type=schema.Choice(title=_(u"User id"),
+                                  source=u"plone.principalsource.Users"),
+        required=False,
+        missing_value=(), # important!
+    )    
+    Reader5 = schema.Tuple(
+        title=_(u"Chief quality engineer"),
+        value_type=schema.Choice(title=_(u"User id"),
+                                  source=u"plone.principalsource.Users"),
+        required=False,
+        missing_value=(), # important!
+    ) 
+    Reader6 = schema.Tuple(
+        title=_(u"Deputy Chief quality engineer"),
+        value_type=schema.Choice(title=_(u"User id"),
+                                  source=u"plone.principalsource.Users"),
+        required=False,
+        missing_value=(), # important!
+    )
+    Reader7 = schema.Tuple(
+        title=_(u"process staff"),
+        value_type=schema.Choice(title=_(u"User id"),
+                                  source=u"plone.principalsource.Users"),
+        required=False,
+        missing_value=(), # important!
+    )   
+    Reader8 = schema.Tuple(
+        title=_(u"quality manage staff"),
+        value_type=schema.Choice(title=_(u"User id"),
+                                  source=u"plone.principalsource.Users"),
+        required=False,
+        missing_value=(), # important!
+    )   
+    Reader9 = schema.Tuple(
+        title=_(u"dispatch staff"),
+        value_type=schema.Choice(title=_(u"User id"),
+                                  source=u"plone.principalsource.Users"),
+        required=False,
+        missing_value=(), # important!
+    )                               
+    Manager = schema.Tuple(
+        title=_(u"Manager"),
         value_type=schema.Choice(title=_(u"User id"),
                                   source=u"plone.principalsource.Users"),
         required=False,
@@ -43,9 +106,9 @@ class Ilocalroles(form.Schema):
                                   source=u"plone.principalsource.Users"),
         required=False,
         missing_value=(), # important!
-    )
-    Reader = schema.Tuple(
-        title=_(u"Reader"),
+    )    
+    Reader10 = schema.Tuple(
+        title=_(u"EMC expert"),
         value_type=schema.Choice(title=_(u"User id"),
                                   source=u"plone.principalsource.Users"),
         required=False,
@@ -53,9 +116,14 @@ class Ilocalroles(form.Schema):
     )        
     form.fieldset(
                   'permission',
-                  label=_(u'permission'),
-                  fields=['Manager','Reviewer','Editor','Reader'],
+                  label=_(u'permissions'),
+                  fields=['Editor','Reader1','Reader2','Reader3','Reader4','Reader5','Reader6'],
                   )
+    form.fieldset(
+                  'other permissions',
+                  label=_(u'the third user permission'),
+                  fields=['Manager','Reviewer','Reader7','Reader8','Reader9','Reader10'],
+                  )    
 
 alsoProvides(Ilocalroles, form.IFormFieldProvider)
        
@@ -73,7 +141,29 @@ class AddLocalRoles(grok.Adapter):
     
     def __init__(self, context):
         self.context = context
+        self.readers = set()
     
+    def getReaders(self):
+        if self.readers != set(): return self.readers
+        localrole = Ilocalroles(self.context, None)
+        if localrole == None:return set()
+        tp = set()
+        for i in xrange(1,11):
+
+            attrname = 'Reader%s' % i
+#             import pdb
+#             pdb.set_trace()
+            item = getattr(localrole , attrname, ())
+            if type(item) == type(''):
+                tp.add(item)
+            else:
+            # set join set
+                tp = set(getattr(localrole , attrname, ())) | tp 
+
+        self.readers = tp
+        return tp         
+        
+        
     def getRoles(self, principal_id):
         """If the user is in the list of Reviewers for this item, grant
         the Reader, Editor and Contributor local roles.
@@ -86,11 +176,12 @@ class AddLocalRoles(grok.Adapter):
   
         if principal_id in localrole.Manager:
             roles.add('Manager')
-        if principal_id in localrole.Reviewer:         
-            roles.add('Reviewer')
+
         if principal_id in localrole.Editor:
             roles.add('Editor')
-        if principal_id in localrole.Reader :
+          
+            
+        if principal_id in self.getReaders():
             roles.add('Reader')
         return roles
         
@@ -101,8 +192,8 @@ class AddLocalRoles(grok.Adapter):
 
         localrole = Ilocalroles(self.context, None)
 
-        if localrole is None  or (not localrole.Manager and not localrole.Reviewer and not localrole.Editor \
-                         and not localrole.Reader):
+        if localrole is None  or (not localrole.Manager and not localrole.Reviewer \
+                                   and not localrole.Editor and not self.getReaders()):
             return       
 
 
@@ -113,7 +204,7 @@ class AddLocalRoles(grok.Adapter):
             yield (principal_id, ('Reviewer',),)
         for principal_id in localrole.Editor:
             yield (principal_id, ('Editor',),)
-        for principal_id in localrole.Reader:
+        for principal_id in self.getReaders():
             yield (principal_id, ('Reader',),)
 
             

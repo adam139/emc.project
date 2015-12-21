@@ -27,7 +27,7 @@ class Fixture(PloneSandboxLayer):
     
     def setUpPloneSite(self, portal):
      
-        applyProfile(portal, 'emc.project:test')
+        applyProfile(portal, 'emc.project:default')
 #        applyProfile(portal, 'xtshzz.policy:default')
      
 

@@ -12,7 +12,11 @@
   <property name="filter_content_types">True</property>  
   <property name="allowed_content_types">
   	 <element value="emc.project.team" />  
-  	 <element value="Document" />    	 
+  	 <element value="Document" />
+  	 <element value="emc.project.analysisDoc" />
+  	 <element value="emc.project.auditDoc" />
+  	 <element value="emc.project.designDoc" />
+  	 <element value="emc.project.diagonoseDoc" />  	     	 
   </property>
   <property name="allow_discussion">False</property>
 

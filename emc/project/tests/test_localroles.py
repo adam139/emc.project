@@ -104,10 +104,15 @@ class TestProjectLocalRoles(unittest.TestCase):
         portal['folder1']['project1'].invokeFactory('emc.project.team','team1')        
  
          
-         
-        Ilocalroles(portal['folder1']['project1']).Manager = ('member1','member3')
-        Ilocalroles(portal['folder1']['project1']['team1']).Editor = ('member2')        
- 
+         # 给元组赋值时，单个值要加","
+        Ilocalroles(portal['folder1']['project1']).Manager = ('member1',)
+        Ilocalroles(portal['folder1']['project1']).Reader2 = ('member2','member3')
+         #child will  inherit parents sets.
+        Ilocalroles(portal['folder1']['project1']['team1']).Manager = ('member2',)
+                       
+        Ilocalroles(portal['folder1']['project1']['team1']).Editor = ('member2',)        
+        Ilocalroles(portal['folder1']['project1']['team1']).Reader1 = ('member3',)
+
  
         import transaction
         transaction.commit()
@@ -116,13 +121,15 @@ class TestProjectLocalRoles(unittest.TestCase):
         member1 = acl_users.getUserById('member1')
         member2 = acl_users.getUserById('member2')
         member3 = acl_users.getUserById('member3')
- 
 
-        self.assertTrue('Manager' in member1.getRolesInContext(portal['folder1']['project1']))                                          
-    
+
+        self.assertTrue('Manager' in member1.getRolesInContext(portal['folder1']['project1']))
+        self.assertTrue('Reader' in member2.getRolesInContext(portal['folder1']['project1']))                                                   
+     
 # local roles will inherit parent object.
-  
+   
         self.assertTrue('Manager' in member1.getRolesInContext(portal['folder1']['project1']['team1']))   
-        self.assertTrue('Editor' in member2.getRolesInContext(portal['folder1']['project1']['team1'])) 
-#         
+        self.assertTrue('Editor' in member2.getRolesInContext(portal['folder1']['project1']['team1']))
+        self.assertTrue('Manager' in member2.getRolesInContext(portal['folder1']['project1']['team1']))         
+        self.assertTrue('Reader' in member3.getRolesInContext(portal['folder1']['project1']['team1']))          
 #         
