@@ -16,15 +16,17 @@
   <property name="allow_discussion">False</property>
 
  <!-- schema interface FIXME: this is ugly -->
- <property name="schema">emc.project.content.project.IAuditDoc</property> 
+ <property name="schema">emc.project.content.AuditDoc.IAuditDoc</property> 
 
  <!-- class used for content items -->
- <property name="klass">plone.dexterity.content.Container</property>
+ <property name="klass">plone.dexterity.content.Item</property>
 
  <property name="add_permission">cmf.AddPortalContent</property>
  <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
      <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
+     <element value="plone.app.cotenttypes.behaviors.richtext.IRichText"/>
+     <element value="emc.project.behaviors.richtext.IRichText"/>           
  </property>
 
   <!-- View information -->

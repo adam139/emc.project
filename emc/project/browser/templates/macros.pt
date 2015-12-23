@@ -1,0 +1,57 @@
+<metal:block define-macro="title-description-macro" i18n:domain="emc.project">
+       <div class="row">
+       	<div class="col-xs-12">
+       		<h1 class="text-center">           	
+           	<strong><span tal:replace="python:context.title">title</span></strong>
+           </h1>
+       </div>
+
+       <div class="row">
+       	<div class="col-xs-12">
+        	
+           	<p class="description" tal:replace="python:context.description">description</p>
+
+       	</div>      	
+       </div>
+</metal:block>        
+<metal:block define-macro="doc-view-macro" i18n:domain="emc.project">
+       <div class="row">
+       	<div class="col-xs-12">
+       		<h1 class="text-center">           	
+           	<strong><span tal:replace="python:context.title">title</span></strong>
+           </h1>
+       </div>
+
+       <div class="row">
+       	<div class="col-xs-12">
+        	
+           	<div class="description" tal:replace="python:context.description">description</div>
+
+       	</div>      	
+       </div>
+       <div class="row">
+       	<div class="col-xs-12">
+       		<div class="body" tal:content="structure python:context.text">body text      	
+      			</div> 		     	 		
+       	</div>
+       </div>     
+       <div class="row">
+       	<div class="col-xs-12">
+       		<div class="report" tal:content="structure python:context.report">brief report      	
+      			</div> 		     	 		
+       	</div>				
+       </div>         	
+</metal:block>  
+
+<metal:block define-macro="report-body-macro" i18n:domain="emc.project">
+       <div class="row report">
+       	<div class="col-xs-12">
+
+       		<span class="label"><strong> 故障报告表：</strong></span>
+       		<span>
+       			<a tal:attributes="href string:${context/absolute_url}/@@download/report/${context/report/filename}">
+       				点击查看</a>
+       		</span>
+       	</div>       	
+       </div> 	
+</metal:block>  

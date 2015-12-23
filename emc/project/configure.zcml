@@ -15,6 +15,7 @@
 
     <!-- Register an extension profile to make the product installable --> 
   <include package=".behavior" />
+  <include package=".browser" />  
   <include file="permissions.zcml" />  
   <genericsetup:registerProfile
       name="default"
@@ -23,13 +24,7 @@
       description="Extension profile for a project management system for emc project"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
-  <genericsetup:registerProfile
-      name="test"
-      title="a project management system test profile for emc project"
-      directory="profiles/test"
-      description="Extension profile for a project management system for emc project"
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      />
+
 
   <!-- -*- extra stuff goes here -*- -->
 

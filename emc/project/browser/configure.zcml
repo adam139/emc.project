@@ -1,0 +1,16 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:z3c="http://namespaces.zope.org/z3c"  
+    i18n_domain="emc.project">
+
+  <!-- Register static resource directory -->
+	<browser:resourceDirectory
+  		name="emc.project"
+  		directory="static" />
+    <browser:page
+        name="emc-project-macros"
+        for="*"
+        permission="zope2.View"
+        class=".macros.Macros"/> 
+</configure>

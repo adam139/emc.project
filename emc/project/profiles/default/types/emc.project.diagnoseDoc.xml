@@ -1,22 +1,22 @@
 <?xml version="1.0"?>
-<object name="emc.project.diagonoseDoc"
+<object name="emc.project.diagnoseDoc"
    meta_type="Dexterity FTI"
    i18n:domain="emc.project" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
   <!-- Basic metadata -->
-  <property name="title" i18n:translate="">diagonose document</property>
+  <property name="title" i18n:translate="">diagnose document</property>
   <property name="description"
-    i18n:translate="">diagonose document</property>
-  <property name="content_icon">document_icon.png</property>
+    i18n:translate="">diagnose document</property>
+  <property name="content_icon">folder_icon.png</property>
   <property name="global_allow">False</property>
   <property name="filter_content_types">True</property>  
   <property name="allowed_content_types">
-   	 
+  	 <element value="File" />   	 
   </property>
   <property name="allow_discussion">False</property>
 
  <!-- schema interface FIXME: this is ugly -->
- <property name="schema">emc.project.content.project.IDiagonoseDoc</property> 
+ <property name="schema">emc.project.content.DiagnoseDoc.IDiagnoseDoc</property> 
 
  <!-- class used for content items -->
  <property name="klass">plone.dexterity.content.Container</property>
@@ -25,6 +25,8 @@
  <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
      <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
+     <element value="plone.app.cotenttypes.behaviors.richtext.IRichText"/>
+     <element value="emc.project.behaviors.richtext.IRichText"/>             
  </property>
 
   <!-- View information -->

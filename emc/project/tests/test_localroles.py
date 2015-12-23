@@ -13,7 +13,7 @@ from plone.app.testing import TEST_USER_ID, login, TEST_USER_NAME, \
     TEST_USER_PASSWORD, setRoles
 from Products.CMFCore.utils import getToolByName
 
-from plone.app.contenttypes.interfaces import IFolder,IDocument
+# from plone.app.contenttypes.interfaces import IFolder,IDocument
 from emc.project.content.projectfolder import IProjectFolder
 from emc.project.content.project import IProject
 from emc.project.content.team import ITeam
@@ -28,8 +28,8 @@ from zope.component import provideAdapter,adapts,queryUtility
 class AssignRoles(object):
     
     implements(IBehaviorAssignable)
-#     adapts(Interface)
-    adapts(IFolder)    
+    adapts(Interface)
+#     adapts(IFolder)    
 #     adapts(IProject)    
     enabled = [Ilocalroles]
 
@@ -43,46 +43,7 @@ class AssignRoles(object):
         for e in self.enabled:
             yield queryUtility(IBehavior, name=e.__identifier__)
 
-class TestLocalRoles(unittest.TestCase):
-    
-    layer =  FUNCTIONAL_TESTING
-      
-    def test_LocalRoles(self):
-        portal = self.layer['portal']
-        app = self.layer['app']
-        setRoles(portal, TEST_USER_ID, ('Manager',))
-        membership = getToolByName(portal, 'portal_membership')
-        membership.addMember('member1', 'secret', ('Member',), ())
-        membership.addMember('member2', 'secret', ('Member',), ())
-        membership.addMember('member3', 'secret', ('Member',), ()) 
-               
-        provideAdapter(AssignRoles)
-        portal.invokeFactory('Folder','folder1')        
-        portal['folder1'].invokeFactory('Document','project1')
-          
-
-        
-        
-        Ilocalroles(portal['folder1']).Manager = ('member1','member3')
-
-
-        import transaction
-        transaction.commit()
-                      
-        acl_users = getToolByName(portal, 'acl_users')
-        member1 = acl_users.getUserById('member1')
-        member2 = acl_users.getUserById('member2')
-        member3 = acl_users.getUserById('member3')
-
-#         import pdb
-#         pdb.set_trace()
-                                        
-
-        self.assertTrue('Manager' in member1.getRolesInContext(portal['folder1']))
-        self.assertFalse('Manager' in member2.getRolesInContext(portal['folder1']))        
-   
-# local roles will inherit parent object.  
-        self.assertTrue('Manager' in member1.getRolesInContext(portal['folder1']['project1']))        
+  
 
 
 class TestProjectLocalRoles(unittest.TestCase):
@@ -111,20 +72,16 @@ class TestProjectLocalRoles(unittest.TestCase):
         Ilocalroles(portal['folder1']['project1']['team1']).Manager = ('member2',)
                        
         Ilocalroles(portal['folder1']['project1']['team1']).Editor = ('member2',)        
-        Ilocalroles(portal['folder1']['project1']['team1']).Reader1 = ('member3',)
-
- 
+        Ilocalroles(portal['folder1']['project1']['team1']).Reader1 = ('member3',) 
         import transaction
-        transaction.commit()
-                       
+        transaction.commit()                       
         acl_users = getToolByName(portal, 'acl_users')
         member1 = acl_users.getUserById('member1')
         member2 = acl_users.getUserById('member2')
         member3 = acl_users.getUserById('member3')
 
-
         self.assertTrue('Manager' in member1.getRolesInContext(portal['folder1']['project1']))
-        self.assertTrue('Reader' in member2.getRolesInContext(portal['folder1']['project1']))                                                   
+        self.assertTrue('Reader' in member2.getRolesInContext(portal['folder1']['project1']))                                                
      
 # local roles will inherit parent object.
    

@@ -12,6 +12,6 @@
   <object name="emc.project.team" meta_type="Dexterity FTI" />	  
   <object name="emc.project.analysisDoc" meta_type="Dexterity FTI" />	
   <object name="emc.project.auditDoc" meta_type="Dexterity FTI" />	 
-  <object name="emc.project.diagonoseDoc" meta_type="Dexterity FTI" />
+  <object name="emc.project.diagnoseDoc" meta_type="Dexterity FTI" />
   <object name="emc.project.designDoc" meta_type="Dexterity FTI" />	
 </object>

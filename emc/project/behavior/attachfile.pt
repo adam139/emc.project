@@ -1,0 +1,19 @@
+<div class="attachFile"
+     tal:condition="view/available"
+     tal:define="download_url string:${context/absolute_url}/@@download/file/${context/file/filename};
+                 content_type context/file/contentType|nothing">
+
+  <p>
+    <a tal:attributes="href download_url">
+      <img tal:attributes="src view/get_mimetype_icon;
+                           alt content_type;" border="0" />
+      <tal:name tal:content="context/file/filename" >Filename</tal:name>
+    </a>
+    <span class="discreet"
+        tal:define="size context/file/getSize;
+                    kb python:size/1024">
+      &mdash; <span tal:replace="kb" /> KB</span>
+  </p>
+
+</div>
+

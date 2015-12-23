@@ -5,6 +5,7 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:grok="http://namespaces.zope.org/grok"
     xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="emc.project">
 
 
@@ -20,6 +21,39 @@
             marker="collective.filepreviewbehavior.interfaces.IPreviewable"
             />
 -->
+  <browser:page
+    name="getText"
+    for=".richtext.IRichText"
+    class=".richtext.WidgetView"
+    permission="zope2.View"
+    template="richtext_gettext.pt"
+    /> 
+  <browser:viewlet
+    name="belowcontentfile"
+    for=".belowcontentfile.IAttachFile"
+    view="plone.app.layout.globals.interfaces.IViewView"
+    class=".viewlets.AttachFileViewlet"
+    manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+    template="attachfile.pt"
+    permission="zope2.View"
+    />       
+  <plone:behavior
+    title="Attach File"
+    description="Adds file field"
+    provides=".belowcontentfile.IAttachFile"
+    factory=".belowcontentfile.AttachFile"
+    for="plone.dexterity.interfaces.IDexterityContent"
+    marker=".belowcontentfile.IAttachFile"
+    />
+
+  <plone:behavior
+    title="Brief Report"
+    description="Adds Brief Report behavior"
+    provides=".richtext.IRichText"
+    factory=".richtext.RichText"
+    for="plone.dexterity.interfaces.IDexterityContent"
+    marker=".richtext.IRichText"
+    />    
     <plone:behavior
         title="localroles"
         description="localroles for emc project"
