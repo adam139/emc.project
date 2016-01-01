@@ -58,35 +58,60 @@ class TestProjectLocalRoles(unittest.TestCase):
         membership.addMember('member1', 'secret', ('Member',), ())
         membership.addMember('member2', 'secret', ('Member',), ())
         membership.addMember('member3', 'secret', ('Member',), ()) 
+        membership.addMember('member4', 'secret', ('Member',), ())
+        membership.addMember('member5', 'secret', ('Member',), ())         
                 
         provideAdapter(AssignRoles)
         portal.invokeFactory('emc.project.projectFolder','folder1')        
         portal['folder1'].invokeFactory('emc.project.project','project1')
-        portal['folder1']['project1'].invokeFactory('emc.project.team','team1')        
+        portal['folder1']['project1'].invokeFactory('emc.project.team','team1')
+        portal['folder1']['project1']['team1'].invokeFactory('emc.project.team','team1_1')                
  
          
          # 给元组赋值时，单个值要加","
-        Ilocalroles(portal['folder1']['project1']).Manager = ('member1',)
-        Ilocalroles(portal['folder1']['project1']).Reader2 = ('member2','member3')
+        Ilocalroles(portal['folder1']['project1']).emc_designer = ('member1',)
+        Ilocalroles(portal['folder1']['project1']).reader7 = ('member4',)
+# the third members        
+        Ilocalroles(portal['folder1']['project1']).reader8 = ('member5',)
          #child will  inherit parents sets.
-        Ilocalroles(portal['folder1']['project1']['team1']).Manager = ('member2',)
-                       
-        Ilocalroles(portal['folder1']['project1']['team1']).Editor = ('member2',)        
-        Ilocalroles(portal['folder1']['project1']['team1']).Reader1 = ('member3',) 
+        Ilocalroles(portal['folder1']['project1']['team1']).designer = ('member2',)
+      
+        Ilocalroles(portal['folder1']['project1']['team1']).reader1 = ('member3',)
+        
+       
+         
         import transaction
         transaction.commit()                       
         acl_users = getToolByName(portal, 'acl_users')
         member1 = acl_users.getUserById('member1')
         member2 = acl_users.getUserById('member2')
         member3 = acl_users.getUserById('member3')
-
+        member4 = acl_users.getUserById('member4')
+        member5 = acl_users.getUserById('member5')        
+        
+# local roles will inherit parent object.        
+# member1 is emc designer,it is Manager role in all child objects
         self.assertTrue('Manager' in member1.getRolesInContext(portal['folder1']['project1']))
-        self.assertTrue('Reader' in member2.getRolesInContext(portal['folder1']['project1']))                                                
-     
-# local roles will inherit parent object.
-   
-        self.assertTrue('Manager' in member1.getRolesInContext(portal['folder1']['project1']['team1']))   
+        self.assertTrue('Manager' in member1.getRolesInContext(portal['folder1']['project1']['team1']))        
+        self.assertTrue('Manager' in member1.getRolesInContext(portal['folder1']['project1']['team1']['team1_1']))                                                
+
+# member2 is designer,it has Contributor role and Editor role in all child objects  
+        self.assertFalse('Reader' in member2.getRolesInContext(portal['folder1']['project1']))    
+        self.assertTrue('Contributor' in member2.getRolesInContext(portal['folder1']['project1']['team1']))   
         self.assertTrue('Editor' in member2.getRolesInContext(portal['folder1']['project1']['team1']))
-        self.assertTrue('Manager' in member2.getRolesInContext(portal['folder1']['project1']['team1']))         
-        self.assertTrue('Reader' in member3.getRolesInContext(portal['folder1']['project1']['team1']))          
-#         
+        self.assertTrue('Contributor' in member2.getRolesInContext(portal['folder1']['project1']['team1']['team1_1']))        
+        self.assertTrue('Editor' in member2.getRolesInContext(portal['folder1']['project1']['team1']['team1_1']))                  
+
+# member3 is reader,it has Reader role in all child objects  
+        self.assertFalse('Reader' in member3.getRolesInContext(portal['folder1']['project1']))    
+        self.assertTrue('Reader' in member3.getRolesInContext(portal['folder1']['project1']['team1']))  
+        self.assertTrue('Reader' in member3.getRolesInContext(portal['folder1']['project1']['team1']['team1_1']))
+# member4 is the first members,it is Reader role in all child objects
+        self.assertTrue('Reader' in member4.getRolesInContext(portal['folder1']['project1']))
+        
+# member5 is the third members,it is TempReader role in all child objects,not Reader role
+        self.assertFalse('Reader' in member5.getRolesInContext(portal['folder1']['project1']))
+
+        self.assertTrue('EMCExpert' in member5.getRolesInContext(portal['folder1']['project1']))                        
+                
+ 

@@ -53,15 +53,29 @@
     factory=".richtext.RichText"
     for="plone.dexterity.interfaces.IDexterityContent"
     marker=".richtext.IRichText"
-    />    
+    />  
+  <plone:behavior
+    title="Task type"
+    description="Adds task type field behavior"
+    provides=".task_type.ITaskType"
+    factory=".task_type.TaskType"
+    for="plone.dexterity.interfaces.IDexterityContent"
+    marker=".task_type.ITaskType"
+    />  
+  <plone:behavior
+    title="Security Level"
+    description="Adds security level field behavior"
+    provides=".security_level.ISecurityLevel"
+    factory=".security_level.SecurityLevel"
+    for="plone.dexterity.interfaces.IDexterityContent"
+    marker=".security_level.ISecurityLevel"
+    />            
     <plone:behavior
         title="localroles"
         description="localroles for emc project"
         provides=".localroles.Ilocalroles"
         factory="plone.behavior.AnnotationStorage"
 		 marker=".localroles.IlocalrolesMarker"
-        />
-		
-
+        />	
 
 </configure>

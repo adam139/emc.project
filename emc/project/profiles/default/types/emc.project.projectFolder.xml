@@ -11,10 +11,7 @@
   <property name="global_allow">True</property>
   <property name="filter_content_types">True</property>  
   <property name="allowed_content_types">
-
-  	 <element value="emc.project.project" />
-
- 
+  	 <element value="emc.project.project" /> 
   </property>
   <property name="allow_discussion">False</property>
 
@@ -24,7 +21,7 @@
  <!-- class used for content items -->
  <property name="klass">plone.dexterity.content.Container</property>
 
- <property name="add_permission">emc.project.addprojectfolder</property>
+ <property name="add_permission">emc.project.add_projectfolder</property>
  <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
      <element value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer"/> 

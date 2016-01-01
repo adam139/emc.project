@@ -11,6 +11,7 @@
   <property name="global_allow">False</property>
   <property name="filter_content_types">True</property>  
   <property name="allowed_content_types">
+  	 <element value="emc.bokeh.glyphs" />  	
   	 <element value="emc.project.team" />
   	 <element value="emc.project.analysisDoc" />
   	 <element value="emc.project.auditDoc" />
@@ -26,7 +27,7 @@
  <!-- class used for content items -->
  <property name="klass">plone.dexterity.content.Container</property>
 
- <property name="add_permission">cmf.AddPortalContent</property>
+ <property name="add_permission">emc.project.add_team</property>
  <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
      <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
@@ -54,6 +55,6 @@
 
   <action title="Edit" action_id="edit" category="object" condition_expr=""
     url_expr="string:${object_url}/edit" visible="True">
-    <permission value="Modify portal content" />
+    <permission value="emc.project:Modify team" />
   </action>
 </object>

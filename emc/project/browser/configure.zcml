@@ -8,6 +8,7 @@
 	<browser:resourceDirectory
   		name="emc.project"
   		directory="static" />
+    
     <browser:page
         name="emc-project-macros"
         for="*"

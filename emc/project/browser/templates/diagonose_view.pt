@@ -11,7 +11,7 @@
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main">
     		<metal:block use-macro="context/@@emc-project-macros/macros/doc-view-macro"/> 
-    	<hr></hr>
+    	<hr/>
     </tal:main-macro>
 </metal:main>
 </body>

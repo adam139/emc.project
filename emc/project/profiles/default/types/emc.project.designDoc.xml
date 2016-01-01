@@ -21,7 +21,7 @@
  <!-- class used for content items -->
  <property name="klass">plone.dexterity.content.Item</property>
 
- <property name="add_permission">cmf.AddPortalContent</property>
+ <property name="add_permission">emc.project.add_design_doc</property>
  <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
      <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
@@ -50,6 +50,6 @@
 
   <action title="Edit" action_id="edit" category="object" condition_expr=""
     url_expr="string:${object_url}/edit" visible="True">
-    <permission value="Modify portal content" />
+    <permission value="emc.project:Modify document" />
   </action>
 </object>
