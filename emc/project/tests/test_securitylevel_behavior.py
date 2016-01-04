@@ -9,7 +9,7 @@ from plone.testing.z2 import Browser
 from plone.dexterity.fti import DexterityFTI
 
 from plone.app.contenttypes.behaviors.richtext import IRichText
-from emc.project.behavior.security_level import ISecurityLevel
+from emc.project.behaviors.security_level import ISecurityLevel
 from emc.project.testing import FUNCTIONAL_TESTING
 
 
@@ -32,7 +32,7 @@ class RichTextBehaviorFunctionalTest(RichTextBase, unittest.TestCase):
     layer = FUNCTIONAL_TESTING
 
     _behaviors = (
-        'emc.project.behavior.security_level.ISecurityLevel',)
+        'emc.project.behaviors.security_level.ISecurityLevel',)
     _portal_type = 'SomeDocument'
 
     def setUp(self):

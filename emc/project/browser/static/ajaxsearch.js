@@ -1,7 +1,7 @@
 /*jshint sub:true*/
 function closeEventMore() {
-    $("#cata_more_div").hide();
-    $("#address_more_div").hide();
+//    $("#cata_more_div").hide();
+//   $("#address_more_div").hide();
 }
 
 function innerMoreArea() {        
@@ -27,19 +27,25 @@ function closeSearchEventsDiv(flag) {
     if (flag == 1) {
         $("#dateSearch").val("0");
         $("#dateRangeSearchUl > .over").removeClass("over");
-        $("#dateRangeSearchUl").find("li[name='0']").addClass("over");
+        $("#dateRangeSearchUl").find("li[data-name='0']").addClass("over");
         searchEvent();
     } else if (flag == 2) {
-        $("#addressSearch").val("0");
-        $("#addressSelectSearch li> .over").removeClass("over");
-        $("#addressSelectSearch").find("li span[name='0']").addClass("over");
+        $("#securityLevelSearch").val("0");
+        $("#securityLevelSelectSearch li> .over").removeClass("over");
+        $("#securityLevelSelectSearch").find("li span[data-name='0']").addClass("over");
         searchEvent();
     } else if (flag == 3) {
         $("#categorySearch").val("0");
         $("#categorySelectSearch li> .over").removeClass("over");
-        $("#categorySelectSearch").find("li span[name='0']").addClass("over");
+        $("#categorySelectSearch").find("li span[data-name='0']").addClass("over");
         searchEvent();
     }
+    else if (flag == 4) {
+        $("#tagSearch").val("0");
+        $("#tagSelectSearch li> .over").removeClass("over");
+        $("#tagSelectSearch").find("li span[data-name='0']").addClass("over");
+        searchEvent();
+    }    
 }
 
 // base lib
@@ -72,12 +78,13 @@ var searchEvent = function(jumpPage, rows, initKeyword) {
         keyword = $("#searchKeyword").val()
     }
     var dateSearchType = $("#dateSearch").val();
-    var address = $("#addressSearch").val();
-    var categoryId = $("#categorySearch").val();   
+    var level = $("#securityLevelSearch").val();
+    var categoryId = $("#categorySearch").val();
+    var tagId = $("#tagSearch").val();     
     var sortColumn = $("#solrSortColumn").val();    
     var sortDirection = $("#solrSortDirection").val();
         
-    var data = {'datetype':dateSearchType,'province':address,'type':categoryId};
+    var data = {'datetype':dateSearchType,'security':level,'type':categoryId,'tag':tagId};
     data['sortcolumn'] = sortColumn;
     data['sortdirection'] = sortDirection;    
     
@@ -95,18 +102,20 @@ var searchEvent = function(jumpPage, rows, initKeyword) {
         data['size'] =10;
     }        
        var action = $("#ajaxsearch").attr('data-ajax-target');
+       // tag selected item's data-name value
+       var taged = $("#tagSelectSearch li span.over").attr("data-name");
        $.post(action, 
            data,
            function(resp) {
                        try {
                 showSearchEventResult(resp, true, keyword)
-                showResultRemind(keyword, dateSearchType, address, categoryId)
+                showResultRemind(keyword, dateSearchType, level, categoryId,taged)
             }
                        catch(e){alert(e)}
                        },
             'json'); 
 //    var searchCount = 0;
-//    showResultRemind(keyword, dateSearchType, address, categoryId)
+//    showResultRemind(keyword, dateSearchType, level, categoryId,tagId)
 };
 var totalCountSearchEvent = 0;
 var showSearchEventResult = function(D, u, C) {
@@ -130,7 +139,7 @@ var showSearchEventResult = function(D, u, C) {
         generatePageLink(l, o, p); 
        a +=  D['searchresult']; 
     } else {
-     document.getElementById("bottomPageId").innerHTML = "";
+     $("#bottomPageId").html("");
 
         a += '<tr class="div_tip">';
         a += '<td class="alert alert-block span12" colspan="7">警告！：没有搜索到您要找的信息。</td></tr>'
@@ -139,24 +148,25 @@ var showSearchEventResult = function(D, u, C) {
 $("#searchResultDiv").html(a);
 };
 
-function showResultRemind(d, a, c, e) {
+function showResultRemind(d, a, c, e,m) {
 // d search by keyword
 // a search by Date
-// c search by Address
+// c search by security level
 // e search by type
+// m search by tag, tag number	
     var b = "";
-    if (d === "" && (a != "0" || c != "0" || e != "0")) {
-        b = createStringSearch(d, a, c, e)
+    if (d === "" && (a != "0" || c != "0" || e != "0" || m != "0")) {
+        b = createStringSearch(d, a, c, e,m)
     } else {
-        if (d !== "" && (a != "0" || c != "0" || e != "0")) {
-            b = createStringSearch(d, a, c, e)
+        if (d !== "" && (a != "0" || c != "0" || e != "0" || m != "0")) {
+            b = createStringSearch(d, a, c, e,m)
         }
     }
-    if (d === "" && a == "0" && c == "0" && e == "0") {
-        b = "<li class='a'>已选择：</li><li id='show_site_result'></li><li class='info' id='searchresultinfor'>“<span id='keyworkshow'>所有</span>”的社会组织信息有“<span id='searchresult_count'>" + totalCountSearchEvent + "</span>”条！</li>"
+    if (d === "" && a == "0" && c == "0" && e == "0" && m=="0") {
+        b = "<li class='a'>已选择：</li><li id='show_site_result'></li><li class='info' id='searchresultinfor'>“<span id='keyworkshow'>所有</span>”的信息有“<span id='searchresult_count'>" + totalCountSearchEvent + "</span>”条！</li>"
     }
-    if (d !== "" && a == "0" && c == "0" && e == "0") {
-        b = "<li class='a'>已选择：</li><li id='show_site_result'></li><li class='info' id='searchresultinfor'>有关“<span id='keyworkshow'>" + d + "</span>”的社会组织信息有“<span id='searchresult_count'>" + totalCountSearchEvent + "</span>”条！</li>"
+    if (d !== "" && a == "0" && c == "0" && e == "0" && m=="0") {
+        b = "<li class='a'>已选择：</li><li id='show_site_result'></li><li class='info' id='searchresultinfor'>有关“<span id='keyworkshow'>" + d + "</span>”的信息有“<span id='searchresult_count'>" + totalCountSearchEvent + "</span>”条！</li>"
     }
 //    document.getElementById("all_result_recordinfo").innerHTML = b
     $("#all_result_recordinfo").html(b)
@@ -184,14 +194,14 @@ var generatePageLink = function(c, n, a) {
     }
     if (l <= 1) {
         e += "<li class='previous'><a href='javascript:void(0)'>" +
-        		"<span aria-hidden='true'>&larr;</span> 前一页</a></li>";
-        d += "<li class='disabled'><a href='javascript:void(0)' >首页</a></li>";
-        d += "<li class='disabled'><a aria-label='Previous' href='javascript:void(0)' >" +
+        		"<span aria-hidden='true'>&larr;</span>前一页</a></li>";
+        d += "<li class='disabled'><a href='javascript:void(0)'>首页</a></li>";
+        d += "<li class='disabled'><a aria-label='Previous' href='javascript:void(0)'>" +
         		"<span aria-hidden='true'>&laquo;</span></a></li>"
     } else {
         e += "<li class='previous'><a href='javascript:searchEvent(" +
-        (l - 1) + ",10)'><span aria-hidden='true'>&larr;</span> 前一页</a></li>";
-        d += "<li><a href=javascript:searchEvent(1,10) >首页</a></li>" +
+        (l - 1) + ",10)'><span aria-hidden='true'>&larr;</span>前一页</a></li>";
+        d += "<li><a href=javascript:searchEvent(1,10)>首页</a></li>" +
         		"<li><a page_over num active href=javascript:searchEvent(" + (l - 1) + ",10) >" +
         		"<span aria-hidden='true'>&laquo;</span></a></li>"
     }
@@ -238,7 +248,8 @@ var generatePageLink = function(c, n, a) {
 };
 
 
-function createStringSearch(d, a, c, g) {
+function createStringSearch(d, a, c, g,m) {
+	// a:selected date number,c:selected security level ,g:task type key,m:tag number 
     var b = "<li class='a'>已选择：</li><li id='show_site_result'>";
     var h = "";
     switch (a) {
@@ -263,20 +274,32 @@ function createStringSearch(d, a, c, g) {
         b += "<div class='select' onclick=\"closeSearchEventsDiv(1)\">时间：<span style='cursor: pointer;vertical-align: middle;'>" + h + " </span></div>";
         break
     }
+    // security level
     var f = "";
     if (c == "0") {
         f = "所有"
     } else {
-        f = $(document.getElementById("addressSelectSearch")).find("span[name='" + c + "'] a").html();
-        b += "<div class='select' onclick=\"closeSearchEventsDiv(2)\">公告类别：<span style='cursor: pointer;vertical-align: middle;' >" + f + " </span></div>"
+        f = $("#securityLevelSelectSearch").find("span[data-name='" + c + "'] a").html();
+        b += "<div class='select' onclick=\"closeSearchEventsDiv(2)\">安全等级：<span style='cursor: pointer;vertical-align: middle;' >" + f + " </span></div>"
     }
+    //task type
     var e = "";
     if (g == "0") {
         e = "所有"
     } else {
-        e = $(document.getElementById("categorySelectSearch")).find("span[name='" + g + "'] a").html();
-        b += "<div class='select' onclick=\"closeSearchEventsDiv(3)\">分类：<span style='cursor: pointer;vertical-align: middle;' >" + e + " </span></div>"
+        e = $("#categorySelectSearch").find("span[data-name='" + g + "'] a").html();
+        b += "<div class='select' onclick=\"closeSearchEventsDiv(3)\">任务类别：<span style='cursor: pointer;vertical-align: middle;' >" + e + " </span></div>"
     }
+    //tag
+    var n = "";
+    if (m == "0") {
+        n = "所有"
+    } else {
+        n = $("#tagSelectSearch").find("span[data-name='" + m + "'] a").html();
+        b += "<div class='select' onclick=\"closeSearchEventsDiv(4)\">标签：<span style='cursor: pointer;vertical-align: middle;' >" + n + " </span></div>"
+    }    
+    
+    // keyword
     if (d === "") {
         b += "</li><li class='info' id='searchresultinfor'>的信息有“<span id='searchresult_count'>" + totalCountSearchEvent + "</span>”条！</li>"
     } else {
@@ -302,34 +325,46 @@ $(document).ready(function(){
                  if ($(this).attr("class") == "title") {} else {
                     $("#dateRangeSearchUl > .over").removeClass("over");
                     $(this).addClass("over");
-                    $("#dateSearch").attr("value", $(this).attr("name"));
+                    $("#dateSearch").attr("value", $(this).attr("data-name"));
                     searchEvent();}       
        return false;
     });
-
-   $("#addressSelectSearch li").on("click","span",function() {
+    // security level
+   $("#securityLevelSelectSearch li").on("click","span",function() {
                 if ($(this).attr("class") == "title" || $(this).attr("class") == "more") {} else 
                 {
-                    $("#addressSelectSearch li> .over").removeClass("over");
+                    $("#securityLevelSelectSearch li> .over").removeClass("over");
                     $(this).addClass("over");
-                    $("#addressSearch").attr("value", $(this).attr("name"));
+                    $("#securityLevelSearch").attr("value", $(this).attr("data-name"));
                     searchEvent();
                 }
        return false; 
     }); 
+   // task type
    $("#categorySelectSearch li").on("click","span",function() {    
                     if ($(this).attr("class") == "title" || $(this).attr("class") == "more") {} else 
                     {
                     $("#categorySelectSearch li> .over").removeClass("over");
                     $(this).addClass("over");
-                    $("#categorySearch").attr("value", $(this).attr("name"));
+                    $("#categorySearch").attr("value", $(this).attr("data-name"));
                     searchEvent();
                 }
        return false; 
     });                 
-
+   // tag area 
+   $("#tagSelectSearch li").on("click","span",function() {    
+                    if ($(this).attr("class") == "title" || $(this).attr("class") == "more") {} else 
+                    {
+                    $("#tagSelectSearch li> .over").removeClass("over");
+                    $(this).addClass("over");
+                    $("#tagSearch").attr("value", $(this).find("a").html());
+                    searchEvent();
+                }
+       return false; 
+    });   
+   
    $("#eventListSort").on("click","a",function() {             
-                $("#solrSortColumn").attr("value", $(this).attr("name"));
+                $("#solrSortColumn").attr("value", $(this).attr("data-name"));
                 if ($(this).attr("class") == "a") {
                     $(this).attr("class", "b");
                     $("#solrSortDirection").attr("value", "ascending")

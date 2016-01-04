@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from emc.project.behavior.belowcontentfile import IAttachFile
+from emc.project.behaviors.belowcontentfile import IAttachFile
 from plone.app.layout.viewlets import ViewletBase
 
 

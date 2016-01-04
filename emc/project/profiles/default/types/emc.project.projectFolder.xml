@@ -7,7 +7,7 @@
   <property name="title" i18n:translate="">projetFolder</property>
   <property name="description"
     i18n:translate="">project folder content type</property>
-  <property name="content_icon">folder_icon.png</property>
+  <property name="content_icon">++resource++emc.project/folder.png</property>
   <property name="global_allow">True</property>
   <property name="filter_content_types">True</property>  
   <property name="allowed_content_types">
@@ -24,7 +24,7 @@
  <property name="add_permission">emc.project.add_projectfolder</property>
  <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
-     <element value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer"/> 
+     <element value="plone.app.dexterity.behaviors.metadata.IBasic"/> 
  </property>
 
   <!-- View information -->

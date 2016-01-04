@@ -30,11 +30,5 @@ class Allcontents(unittest.TestCase):
         self.assertEqual(self.portal['folder1']['project1']['team1']['dia1'].id,'dia1') 
         self.assertEqual(self.portal['folder1']['project1']['team1']['des1'].id,'des1')                                             
         
-#     def test_behavior_field(self):
-#         from emc.project.behavior.localroles import Ilocalroles
-#         item = self.portal['folder1']['project1']['team1']
-#         import pdb
-#         pdb.set_trace()
-#         adr = Ilocalroles(item)
-#         self.assertEqual(adr,None)          
+        
         

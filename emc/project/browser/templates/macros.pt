@@ -1,3 +1,37 @@
+<metal:block define-macro="action-bar-macro" i18n:domain="emc.project">
+   <div class="row action-bar" tal:condition="python:view.canbeRead()">
+		<div class="col-md-3 col-md-offset-3">
+			<div id="base_view">
+					<span>
+						<a  tal:attributes="href python:context.absolute_url() +'/@@view'" 
+						title="基本视图" 
+						class="btn btn-primary">基本视图</a>
+					</span>					
+		  	</div>
+		</div>		  	
+		<div class="col-md-3">		  		
+			<div id="listing_view">
+					<span tal:condition="python:view.hasListingView()">
+						<a  tal:attributes="href python:context.absolute_url() +'/@@listing_view'" 
+						title="列表视图" 
+						class="btn btn-primary">列表视图</a>
+					</span>					
+		  	</div>
+		</div>		  	
+		<div class="col-md-3">
+			<div id="summary_view">
+					<span tal:condition="python:view.hasSummaryView()">
+						<a  tal:attributes="href python:context.absolute_url() +'/@@summary_view'" 
+						title="摘要视图" 
+						class="btn btn-primary">摘要视图</a>
+					</span>					
+		  	</div>			  			  					
+		</div>
+	</div>					
+</metal:block> 
+	
+
+
 <metal:block define-macro="title-description-macro" i18n:domain="emc.project">
        <div class="row">
        	<div class="col-xs-12">
@@ -5,12 +39,9 @@
            	<strong><span tal:replace="python:context.title">title</span></strong>
            </h1>
        </div>
-
        <div class="row">
-       	<div class="col-xs-12">
-        	
+       	<div class="col-xs-12">        	
            	<p class="description" tal:replace="python:context.description">description</p>
-
        	</div>      	
        </div>
 </metal:block>        
@@ -31,13 +62,13 @@
        </div>
        <div class="row">
        	<div class="col-xs-12">
-       		<div class="body" tal:content="structure python:context.text">body text      	
+       		<div class="body" tal:condition="python:context.text" tal:content="structure python:context.text.output">body text      	
       			</div> 		     	 		
        	</div>
        </div>     
        <div class="row">
        	<div class="col-xs-12">
-       		<div class="report" tal:content="structure python:context.report">brief report      	
+       		<div class="report" tal:condition="python:context.text" tal:content="structure python:context.report.output">brief report      	
       			</div> 		     	 		
        	</div>				
        </div>         	

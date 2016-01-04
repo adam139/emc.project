@@ -1,7 +1,7 @@
 #-*- coding: UTF-8 -*-
-from plone.directives import form, dexterity
+from emc.project.indexer import IProjectContent
 
-class IDiagnoseDoc(form.Schema):
+class IDiagnoseDoc(IProjectContent):
     """
     emc project diagnose document content type
     """

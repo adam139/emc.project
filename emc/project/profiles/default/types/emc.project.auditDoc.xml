@@ -7,7 +7,7 @@
   <property name="title" i18n:translate="">audit document</property>
   <property name="description"
     i18n:translate="">audit document</property>
-  <property name="content_icon">folder_icon.png</property>
+  <property name="content_icon">document_icon.png</property>
   <property name="global_allow">False</property>
   <property name="filter_content_types">True</property>  
   <property name="allowed_content_types">
@@ -22,12 +22,19 @@
  <property name="klass">plone.dexterity.content.Item</property>
 
  <property name="add_permission">emc.project.add_audit_doc</property>
+
  <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
      <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
-     <element value="plone.app.cotenttypes.behaviors.richtext.IRichText"/>
-     <element value="emc.project.behaviors.richtext.IRichText"/>           
- </property>
+     <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>     
+     <element value="emc.project.behaviors.security_level.ISecurityLevel"/> 
+     <element value="emc.project.behaviors.task_type.ITaskType"/>
+     <element value="plone.app.contenttypes.behaviors.richtext.IRichText"/>               
+     <element value="emc.project.behaviors.richtext.IRichText"/>
+     <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
+     <element value="plone.app.lockingbehavior.behaviors.ILocking" />          
+ </property>           
+
 
   <!-- View information -->
   <property name="default_view">view</property>

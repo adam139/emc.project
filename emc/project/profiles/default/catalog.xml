@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<object name="portal_catalog" meta_type="Plone Catalog Tool">
+    <index name="security_level" meta_type="FieldIndex">
+        <indexed_attr value="security_level"/>
+    </index>
+    <column value="security_level"/>
+    <index name="task_type" meta_type="FieldIndex">
+        <indexed_attr value="task_type"/>
+    </index>
+    <column value="task_type"/>    
+</object>

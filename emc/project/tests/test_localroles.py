@@ -3,7 +3,7 @@ import unittest
 from borg.localrole.interfaces import ILocalRoleProvider
 
 from emc.project.testing import FUNCTIONAL_TESTING
-from emc.project.behavior.localroles import Ilocalroles,IlocalrolesMarker
+from emc.project.behaviors.localroles import Ilocalroles,IlocalrolesMarker
 
 
 from zope.component import createObject

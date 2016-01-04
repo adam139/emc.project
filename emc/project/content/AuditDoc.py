@@ -1,7 +1,7 @@
 #-*- coding: UTF-8 -*-
-from plone.directives import form, dexterity
+from emc.project.indexer import IProjectContent
 
-class IAuditDoc(form.Schema):
+class IAuditDoc(IProjectContent):
     """
     emc project  audit document content type
     """

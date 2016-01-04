@@ -8,8 +8,8 @@ from plone.app.testing import SITE_OWNER_PASSWORD
 from plone.testing.z2 import Browser
 from plone.dexterity.fti import DexterityFTI
 
-
-from emc.project.behaviors.task_type import ITaskType
+from plone.app.contenttypes.behaviors.richtext import IRichText
+from emc.project.behaviors.richtext import IRichText
 from emc.project.testing import FUNCTIONAL_TESTING
 
 
@@ -32,7 +32,7 @@ class RichTextBehaviorFunctionalTest(RichTextBase, unittest.TestCase):
     layer = FUNCTIONAL_TESTING
 
     _behaviors = (
-        'emc.project.behaviors.task_type.ITaskType',)
+        'emc.project.behaviors.richtext.IRichText',)
     _portal_type = 'SomeDocument'
 
     def setUp(self):
@@ -55,9 +55,9 @@ class RichTextBehaviorFunctionalTest(RichTextBase, unittest.TestCase):
             'Basic %s:%s' % (SITE_OWNER_NAME, SITE_OWNER_PASSWORD,)
         )
 
-#     def test_richtext_in_edit_form(self):
-#         self.browser.open(self.portal_url + '/doc1/edit')
-#         self.assertTrue('pat-tinymce' in self.browser.contents)
+    def test_richtext_in_edit_form(self):
+        self.browser.open(self.portal_url + '/doc1/edit')
+        self.assertTrue('pat-tinymce' in self.browser.contents)
 
     def test_richtext_behavior(self):
-        ITaskType.providedBy(self.portal.doc1)
+        IRichText.providedBy(self.portal.doc1)

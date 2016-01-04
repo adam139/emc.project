@@ -7,13 +7,13 @@
   <property name="title" i18n:translate="">project</property>
   <property name="description"
     i18n:translate="">project content type</property>
-  <property name="content_icon">folder_icon.png</property>
+  <property name="content_icon">++resource++emc.project/folder.png</property>
   <property name="global_allow">False</property>
   <property name="filter_content_types">True</property>  
   <property name="allowed_content_types">
   	 <element value="emc.project.team" />  
   	 <element value="Document" />
-  	 <element value="emc.bokeh.glyphs" />  	 
+  	 <element value="emc.bokeh.fearture" />  	 
   	 <element value="emc.project.analysisDoc" />
   	 <element value="emc.project.auditDoc" />
   	 <element value="emc.project.designDoc" />
@@ -31,6 +31,10 @@
  <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
      <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
+     <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>
+     <element value="emc.project.behaviors.localroles.Ilocalroles" /> 
+     <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
+  	 <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation"/>              
  </property>
 
   <!-- View information -->

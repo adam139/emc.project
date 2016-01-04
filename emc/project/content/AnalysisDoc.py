@@ -1,7 +1,7 @@
 #-*- coding: UTF-8 -*-
-from plone.directives import form, dexterity
+from emc.project.indexer import IProjectContent
 
-class IAnalysisDoc(form.Schema):
+class IAnalysisDoc(IProjectContent):
     """
     emc project  analysis document content type
     """

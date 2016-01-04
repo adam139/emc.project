@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: emc bokeh\n"
-"POT-Creation-Date: 2016-01-01 04:46+0000\n"
-"PO-Revision-Date: 2015-12-26 21:05+0800\n"
+"POT-Creation-Date: 2016-01-04 12:21+0000\n"
+"PO-Revision-Date: 2016-01-04 20:26+0800\n"
 "Last-Translator: adam <yuejun.tang@gmail.com>\n"
 "Language-Team: LANGUAGE <yuejun.tang@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -15,65 +15,69 @@ msgstr ""
 "Domain: my315ok.socialorgnization\n"
 "X-Poedit-Language: Chinese\n"
 
-#: ./behavior/richtext.py:19
+#: ./behaviors/richtext.py:19
 msgid "Brief Report"
 msgstr "简报"
 
-#: ./behavior/localroles.py:57
+#: ./behaviors/localroles.py:57
 msgid "Chief Designer"
 msgstr "总设计师"
 
-#: ./behavior/localroles.py:73
+#: ./behaviors/localroles.py:73
 msgid "Chief quality engineer"
 msgstr "总质量师"
 
-#: ./behavior/localroles.py:41
+#: ./behaviors/localroles.py:41
 msgid "Commander"
 msgstr "总指挥"
 
-#: ./behavior/localroles.py:65
+#: ./behaviors/localroles.py:65
 msgid "Deputy Chief Designer"
 msgstr "副总设计师"
 
-#: ./behavior/localroles.py:89
+#: ./behaviors/localroles.py:89
 msgid "Deputy Chief Process"
 msgstr "副总工艺师"
 
-#: ./behavior/localroles.py:81
+#: ./behaviors/localroles.py:81
 msgid "Deputy Chief quality engineer"
 msgstr "副总质量师"
 
-#: ./behavior/localroles.py:49
+#: ./behaviors/localroles.py:49
 msgid "Deputy Commander"
 msgstr "副总指挥"
 
-#: ./behavior/localroles.py:25
+#: ./behaviors/localroles.py:25
 msgid "EMC Designer"
 msgstr "电磁兼容设计师"
 
-#: ./behavior/localroles.py:122
+#: ./behaviors/localroles.py:122
 msgid "EMC expert"
 msgstr "电磁兼容专家"
 
-#: ./behavior/localroles.py:33
+#: ./behaviors/localroles.py:33
 msgid "Product Designer"
 msgstr "产品设计师"
 
-#: ./behavior/localroles.py:130
+#: ./behaviors/localroles.py:130
 msgid "The first members"
 msgstr "第一类人员"
 
-#: ./behavior/localroles.py:135
+#: ./behaviors/localroles.py:135
 msgid "The second members"
 msgstr "第二类人员"
 
-#: ./behavior/localroles.py:141
+#: ./behaviors/localroles.py:141
 msgid "The third members"
 msgstr "第三类人员"
 
-#: ./behavior/localroles.py:26
+#: ./behaviors/localroles.py:26
 msgid "User id"
 msgstr "用户id"
+
+#: ./vocabulary.py:11
+msgid "analysis"
+msgstr "分析"
 
 #: ./profiles/default/types/emc.project.analysisDoc.xml
 msgid "analysis document"
@@ -83,6 +87,10 @@ msgstr "电磁兼容分析文档"
 msgid "audit document"
 msgstr "电磁兼容综合评估文档"
 
+#: ./vocabulary.py:12
+msgid "design"
+msgstr "设计"
+
 #: ./profiles/default/types/emc.project.designDoc.xml
 msgid "design document"
 msgstr "电磁兼容设计文档"
@@ -91,20 +99,28 @@ msgstr "电磁兼容设计文档"
 msgid "diagnose document"
 msgstr "电磁兼容故障诊断"
 
-#: ./behavior/localroles.py:113
+#: ./behaviors/localroles.py:113
 msgid "dispatch staff"
-msgstr "调度"
+msgstr "计划调度人员"
 
-#: ./behavior/belowcontentfile.py:18
+#: ./vocabulary.py:15
+msgid "experiment"
+msgstr "实验"
+
+#: ./behaviors/belowcontentfile.py:18
 msgid "help_attachfile"
 msgstr ""
 
+#: ./vocabulary.py:29
+msgid "inner"
+msgstr "内部"
+
 #. Default: "attach file below content body"
-#: ./behavior/belowcontentfile.py:17
+#: ./behaviors/belowcontentfile.py:17
 msgid "label_attachfile"
 msgstr "追加文件在主内容下面"
 
-#: ./behavior/localroles.py:97
+#: ./behaviors/localroles.py:97
 msgid "process staff"
 msgstr "工艺师"
 
@@ -124,9 +140,26 @@ msgstr "项目容器类型"
 msgid "projetFolder"
 msgstr "项目容器"
 
-#: ./behavior/localroles.py:105
+#: ./vocabulary.py:28
+msgid "public"
+msgstr "公开"
+
+#: ./behaviors/localroles.py:105
 msgid "quality manage staff"
 msgstr "质量管理人员"
+
+#: ./vocabulary.py:30
+msgid "secret"
+msgstr "加密"
+
+#: ./vocabulary.py:14
+msgid "simulation"
+msgstr "仿真"
+
+#: ./behaviors/security_level.py:18
+#: ./behaviors/task_type.py:18
+msgid "task type"
+msgstr "任务类型"
 
 #: ./profiles/default/types/emc.project.team.xml
 msgid "team"
@@ -135,4 +168,8 @@ msgstr "项目组"
 #: ./profiles/default/types/emc.project.team.xml
 msgid "team content type"
 msgstr "项目组类型"
+
+#: ./vocabulary.py:13
+msgid "train"
+msgstr "培训"
 

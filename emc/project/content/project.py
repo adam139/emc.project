@@ -1,7 +1,7 @@
 #-*- coding: UTF-8 -*-
-from plone.directives import form, dexterity
+from emc.project.indexer import IProjectContent
 
-class IProject(form.Schema):
+class IProject(IProjectContent):
     """
     emc project  project content type
     """

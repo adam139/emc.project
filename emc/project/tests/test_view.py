@@ -9,7 +9,9 @@ import unittest
 from plone.namedfile.file import NamedImage
 import os
 import datetime
-
+from zope.component import getUtility
+from plone.registry.interfaces import IRegistry
+from collective.gtags.interfaces import ITagSettings
 def getFile(filename):
     """ return contents of the file with the given name """
     filename = os.path.join(os.path.dirname(__file__), filename)
@@ -50,6 +52,32 @@ class TestView(unittest.TestCase):
                                                              report="this is report")       
             
         self.portal = portal
+        settings = getUtility(IRegistry).forInterface(ITagSettings)
+#         import pdb
+#         pdb.set_trace()
+        tags = ["python","php","java","language-c#"]
+        tags = [tag.encode("utf-8") for tag in tags]
+        settings.tags = settings.tags.update(tags)        
+        
+    def test_ajaxlistingview(self):
+        
+
+
+        app = self.layer['app']
+        portal = self.layer['portal']       
+        browser = Browser(app)
+        browser.handleErrors = False
+        browser.addHeader('Authorization', 'Basic %s:%s' % (TEST_USER_NAME, TEST_USER_PASSWORD,))        
+        import transaction
+        transaction.commit()
+        page = portal['folder1']['project1'].absolute_url() + '/@@ajax_listing'        
+
+        browser.open(page)
+        outstr = '<span data-name="1"><a href="javascript:void(0)">python</a></span>'
+#         outstr2 = "project folder"       
+        self.assertTrue(outstr in browser.contents)        
+#         self.assertTrue(outstr2 in browser.contents)
+
              
     def test_projectfolderview(self):
 
