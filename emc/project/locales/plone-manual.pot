@@ -1,0 +1,57 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: xtshzz.policy\n"
+"POT-Creation-Date: 2015-02-14 00:52+0000\n"
+"PO-Revision-Date: 2015-02-14 09:20+0800\n"
+"Last-Translator: adam <yuejun.tang@gmail.com>\n"
+"Language-Team: 315ok.org <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: zh_CN\n"
+"Language-Name: Chinese\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+
+#: rolemap.xml
+msgid "ChiefQE"
+msgstr ""
+
+msgid "DeputyChiefQE"
+msgstr ""
+
+msgid "DeputyChiefProcess"
+msgstr ""
+
+msgid "ProcessStaff"
+msgstr ""
+
+msgid "QualityManageStaff"
+msgstr ""
+
+msgid "DispatchStaff"
+msgstr ""
+ 
+msgid "EMCExpert"
+msgstr "" 
+
+msgid "EMCDesigner"
+msgstr ""
+
+msgid "Designer"
+msgstr ""
+
+msgid "Commander"
+msgstr ""
+
+msgid "DeputyCommander"
+msgstr ""
+
+msgid "ChiefDesigner"
+msgstr ""
+
+msgid "DeputyChiefDesigner"
+msgstr ""
+
+
