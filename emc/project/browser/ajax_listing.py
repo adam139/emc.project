@@ -87,9 +87,9 @@ class BaseView(grok.View):
     def getAllTags(self):
         """fetch system all predefine tags"""
         settings = getUtility(IRegistry).forInterface(ITagSettings)
-
 #         source = TagsSourceBinder(allow_uncommon=False)
-        tags = [self.splitTag(value) for value in settings.tags]
+        tags = [self.splitTag(value) for value in settings.tags if value != ""]
+        tags.sort()
         return tags
     def getAllTagsHtml(self):
         """
