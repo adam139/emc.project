@@ -120,7 +120,7 @@
                     	<span data-name="sortable_title" class="glyphicon glyphicon-arrow-up">标题</span>
                     	</a></li><!-- 开始时间 -->
                     <li><a class="a" id="publishTimestamp" href="javascript:void(0)">
-                    	<span data-name="created" class="glyphicon glyphicon-arrow-up">发布时间</span>
+                    	<span data-name="created" class="glyphicon glyphicon-arrow-up">时间</span>
                     	</a></li>
                 </ul>
                 <!--快速翻页-->
