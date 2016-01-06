@@ -255,23 +255,23 @@ function createStringSearch(d, a, c, g,m) {
     switch (a) {
     case "1":
         h = "最近一周";
-        b += "<div class='select'  onclick=\"closeSearchEventsDiv(1)\" >时间：<span id='search_site_desc' style='cursor: pointer;vertical-align: middle;'>" + h + " </span></div>";
+        b += "<div class='select' onclick=\"closeSearchEventsDiv(1)\" >时间：<button type='button' class='close' aria-label='Close'><span aria-hidden='true'>" + h + "&times;</span></button></div>";
         break;
     case "2":
         h = "最近一月";
-        b += "<div class='select'  onclick=\"closeSearchEventsDiv(1)\" >时间：<span  style='cursor: pointer;vertical-align: middle;'>" + h + " </span></div>";
+        b += "<div class='select' onclick=\"closeSearchEventsDiv(1)\" >时间：<button type='button' class='close' aria-label='Close'><span aria-hidden='true'>" + h + "&times;</span></button></div>";
         break;
     case "3":
         h = "最近一年";
-        b += "<div class='select' onclick=\"closeSearchEventsDiv(1)\">时间：<span  style='cursor: pointer;vertical-align: middle;'>" + h + " </span></div>";
+        b += "<div class='select' onclick=\"closeSearchEventsDiv(1)\">时间：<button type='button' class='close' aria-label='Close'><span aria-hidden='true'>" + h + "&times;</span></button></div>";
         break;
     case "4":
         h = "30天内";
-        b += "<div class='select' onclick=\"closeSearchEventsDiv(1)\">时间：<span style='cursor: pointer;vertical-align: middle;'>" + h + " </span></div>";
+        b += "<div class='select' onclick=\"closeSearchEventsDiv(1)\">时间：<button type='button' class='close' aria-label='Close'><span aria-hidden='true'>" + h + "&times;</span></button></div>";
         break;
     case "5":
         h = "30天后";
-        b += "<div class='select' onclick=\"closeSearchEventsDiv(1)\">时间：<span style='cursor: pointer;vertical-align: middle;'>" + h + " </span></div>";
+        b += "<div class='select' onclick=\"closeSearchEventsDiv(1)\">时间：<button type='button' class='close' aria-label='Close'><span aria-hidden='true'>" + h + "&times;</span></button></div>";
         break
     }
     // security level
@@ -280,7 +280,7 @@ function createStringSearch(d, a, c, g,m) {
         f = "所有"
     } else {
         f = $("#securityLevelSelectSearch").find("span[data-name='" + c + "'] a").html();
-        b += "<div class='select' onclick=\"closeSearchEventsDiv(2)\">安全等级：<span style='cursor: pointer;vertical-align: middle;' >" + f + " </span></div>"
+        b += "<div class='select' onclick=\"closeSearchEventsDiv(2)\">安全等级：<button type='button' class='close' aria-label='Close'><span aria-hidden='true'>" + f + "&times;</span></button></div>"
     }
     //task type
     var e = "";
@@ -288,7 +288,7 @@ function createStringSearch(d, a, c, g,m) {
         e = "所有"
     } else {
         e = $("#categorySelectSearch").find("span[data-name='" + g + "'] a").html();
-        b += "<div class='select' onclick=\"closeSearchEventsDiv(3)\">任务类别：<span style='cursor: pointer;vertical-align: middle;' >" + e + " </span></div>"
+        b += "<div class='select' onclick=\"closeSearchEventsDiv(3)\">任务类别：<button type='button' class='close' aria-label='Close'><span aria-hidden='true'>" + e + "&times;</span></button></div>"
     }
     //tag
     var n = "";
@@ -296,14 +296,14 @@ function createStringSearch(d, a, c, g,m) {
         n = "所有"
     } else {
         n = $("#tagSelectSearch").find("span[data-name='" + m + "'] a").html();
-        b += "<div class='select' onclick=\"closeSearchEventsDiv(4)\">标签：<span style='cursor: pointer;vertical-align: middle;' >" + n + " </span></div>"
+        b += "<div class='select' onclick=\"closeSearchEventsDiv(4)\">标签：<button type='button' class='close' aria-label='Close'><span aria-hidden='true'>" + n + "&times;</span></button></div>"
     }    
     
     // keyword
     if (d === "") {
         b += "</li><li class='info' id='searchresultinfor'>的信息有“<span id='searchresult_count'>" + totalCountSearchEvent + "</span>”条！</li>"
     } else {
-        b += "</li><li class='info' id='searchresultinfor'>中有关“<span>" + d + "</span>”的信息有“<span id='searchresult_count'>" + totalCountSearchEvent + "</span>”条！</li>"
+        b += "</li><li class='info' id='searchresultinfor'>中有关“<span>" + d + "</span>”的信息有“<span id='searchresult_count'>" + totalCountSearchEvent + "</span>”条！<button type='button' class='close' aria-label='Close'><span aria-hidden='true'>&times;</span></button></li>"
     }
     return b
 	}
