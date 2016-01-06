@@ -8,8 +8,7 @@
 <head>
       <metal:block fill-slot="top_slot">
         <tal:insert tal:replace="nothing"
-              tal:define="dummy python:request.set('enable_border', 0);
-                          disable_column_one python:request.set('disable_plone.leftcolumn', 1);
+              tal:define="disable_column_one python:request.set('disable_plone.leftcolumn', 1);
                           disable_column_two python:request.set('disable_plone.rightcolumn', 1);" />
       </metal:block>
   </head>
@@ -17,8 +16,9 @@
 	<div metal:fill-slot="main">
 		<div id="ajaxsearch" style="display: none" tal:attributes="data-ajax-target python:context.absolute_url() + '/@@ajaxsearch'"></div>
 		<div id="ajaxmorearea" style="display: none" tal:attributes="data-ajax-target string:${portal_url}/@@ajax-conference-province"></div>		
-		<div id="ajaxmoretype" style="display: none" tal:attributes="data-ajax-target string:${portal_url}/@@ajax-conference-type"></div>			
-    	<metal:block use-macro="context/@@emc-project-macros/macros/action-bar-macro"/>
+		<div id="ajaxmoretype" style="display: none" tal:attributes="data-ajax-target string:${portal_url}/@@ajax-conference-type"></div>
+		<!--			
+    	<metal:block use-macro="context/@@emc-project-macros/macros/action-bar-macro"/> -->
         <!--左边内容-->
         <div class="container">
             <!--搜索框、搜索条件选择-->
@@ -114,10 +114,10 @@
             </div>
             <!--搜索选择结果 End-->
             <!--搜索选择结果排序-->
-            <div class=" hidden row"><ul id="eventListSort" class="col-xs-12 col-sm-9 list-inline">
+            <div class="row"><ul id="eventListSort" class="col-xs-12 col-sm-9 list-inline">
                     <li><span>排序：</span></li><!-- 排序： -->                    
                     <li><a id="startTimestamp" href="javascript:void(0)">
-                    	<span data-name="orgnization_passDate" class="glyphicon glyphicon-arrow-up">批准时间</span>
+                    	<span data-name="sortable_title" class="glyphicon glyphicon-arrow-up">批标题</span>
                     	</a></li><!-- 开始时间 -->
                     <li><a id="publishTimestamp" href="javascript:void(0)">
                     	<span data-name="created" class="glyphicon glyphicon-arrow-down">发布时间</span>

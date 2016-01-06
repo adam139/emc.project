@@ -30,9 +30,9 @@ class BaseView(grok.View):
     grok.require('zope2.View')    
     
 
-    def update(self):
-        # Hide the editable-object border
-        self.request.set('disable_border', True)
+#     def update(self):
+#         # Hide the editable-object border
+#         self.request.set('disable_border', True)
 
     @memoize    
     def catalog(self):
@@ -87,6 +87,7 @@ class BaseView(grok.View):
     def getAllTags(self):
         """fetch system all predefine tags"""
         settings = getUtility(IRegistry).forInterface(ITagSettings)
+        if settings.tags ==None:return None
 #         source = TagsSourceBinder(allow_uncommon=False)
         tags = [self.splitTag(value) for value in settings.tags if value != ""]
         tags.sort()
@@ -101,6 +102,8 @@ class BaseView(grok.View):
         """
         out = ""
         i = 1
+        tags = self.getAllTags()
+        if tags == None: return "no any tag"
         for tag in self.getAllTags():
             num = str(i)                       
             out2 = """<span data-name="%s"><a class="btn btn-default" href="javascript:void(0)" role="button">%s</a></span>""" % (num,tag)

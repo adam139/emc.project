@@ -70,10 +70,10 @@ class TestView(unittest.TestCase):
         browser.addHeader('Authorization', 'Basic %s:%s' % (TEST_USER_NAME, TEST_USER_PASSWORD,))        
         import transaction
         transaction.commit()
-        page = portal['folder1']['project1'].absolute_url() + '/@@ajax_listing'        
+        page = portal['folder1']['project1'].absolute_url() + '/@@ajax_listings'        
 
         browser.open(page)
-        outstr = '<span data-name="1"><a href="javascript:void(0)">python</a></span>'
+        outstr = 'no any tag'
 #         outstr2 = "project folder"       
         self.assertTrue(outstr in browser.contents)        
 #         self.assertTrue(outstr2 in browser.contents)
