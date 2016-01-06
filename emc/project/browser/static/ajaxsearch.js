@@ -365,25 +365,19 @@ $(document).ready(function(){
    
    $("#eventListSort").on("click","a",function() {             
                 $("#solrSortColumn").attr("value", $(this).attr("data-name"));
+                //a reverse,will be ascending
                 if ($(this).attr("class") == "a") {
                     $(this).attr("class", "b");
+                    $(this).find("span.glyphicon").addClass("glyphicon-arrow-down").removeClass("glyphicon-arrow-up");
                     $("#solrSortDirection").attr("value", "ascending")
                 } else {
                     $(this).attr("class", "a");
+                    $(this).find("span.glyphicon").addClass("glyphicon-arrow-up").removeClass("glyphicon-arrow-down");
                     $("#solrSortDirection").attr("value", "reverse")
                 }
                 searchEvent();
        return false; 
         });
-        
-   $("#eventListSort").on("click","a",function() {
-                $("#eventListSort > .over").removeClass("over");
-                $("#eventListSort a").attr("style", "");
-                $(this).attr("style", "font-weight:bold;color:#279006;");
-       return false;               
-        });
-   $("#search").on("click","button",function() {searchEventParent();
-return false;               
-});    
+  
                  
 });
