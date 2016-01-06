@@ -146,6 +146,7 @@ class TestView(unittest.TestCase):
         outstr2 = "this is report"       
         self.assertTrue(outstr in browser.contents)        
         self.assertTrue(outstr2 in browser.contents)
+    
     def test_analysisview(self):
 
         app = self.layer['app']
@@ -155,7 +156,10 @@ class TestView(unittest.TestCase):
         browser.addHeader('Authorization', 'Basic %s:%s' % (TEST_USER_NAME, TEST_USER_PASSWORD,))        
         import transaction
         transaction.commit()
-        page = portal['folder1']['project1']['team1']['analysis1'].absolute_url() + '/@@view'        
+        obj = portal['folder1']['project1']['team1']['analysis1']
+        import pdb
+        pdb.set_trace()
+        page = obj.absolute_url() + '/@@view'        
 
         browser.open(page)
         outstr = "here is rich text"

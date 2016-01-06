@@ -12,7 +12,7 @@
                           disable_column_two python:request.set('disable_plone.rightcolumn', 1);" />
       </metal:block>
   </head>
-<body tal:condition="python:view.canbeRead()">
+<body>
 	<div metal:fill-slot="main">
 		<div id="ajaxsearch" style="display: none" tal:attributes="data-ajax-target python:context.absolute_url() + '/@@ajaxsearch'"></div>
 		<div id="ajaxmorearea" style="display: none" tal:attributes="data-ajax-target string:${portal_url}/@@ajax-conference-province"></div>		
@@ -175,8 +175,5 @@
      tal:attributes="src string:${navroot}/++resource++emc.project/ajaxsearch.js">		
 	</script>	
 	</metal:js>
-</body>
-<body tal:condition="python:not view.canbeRead()">
-	<div class="row"><span class="text-center text-warning">你当前没有权限查看该页面。</span></div>
 </body>
 </html>

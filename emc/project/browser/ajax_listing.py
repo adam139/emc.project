@@ -14,6 +14,7 @@ from emc.project import _
 from emc.project.content.projectfolder import IProjectFolder
 from emc.project.content.project import IProject
 from emc.project.content.team import ITeam
+from Products.Five.browser import BrowserView
 
 # from collective.gtags.source import TagsSourceBinder
 from zope.component import getUtility
@@ -73,6 +74,32 @@ class BaseView(grok.View):
         else:
             return id
         
+
+
+class ajaxListingView(BrowserView):
+    """
+    AJAX 查询，返回分页结果
+    """
+#     grok.context(Interface)
+#     grok.template('ajax_listings')
+#     grok.name('ajax_listings')
+     
+#     def update(self):
+#         # Hide the editable-object border
+#         self.request.set('disable_border', True)                
+    @memoize    
+    def catalog(self):
+        context = aq_inner(self.context)
+        pc = getToolByName(context, "portal_catalog")
+        return pc
+    
+    @memoize    
+    def pm(self):
+        context = aq_inner(self.context)
+        pm = getToolByName(context, "portal_membership")
+        return pm         
+    
+    
     def splitTag(self,value):
             """Split a tag into (category, tag) parts. category may be None.
             """
@@ -109,20 +136,8 @@ class BaseView(grok.View):
             out2 = """<span data-name="%s"><a class="btn btn-default" href="javascript:void(0)" role="button">%s</a></span>""" % (num,tag)
             out = "%s%s" %(out,out2)
             i = i + 1
-        return out
-
-class SiteRootajaxListingView(BaseView):
-    """
-    AJAX 查询，返回分页结果
-    """
-    grok.context(Interface)
-    grok.template('ajax_listings')
-    grok.name('ajax_listings')
-     
-    def update(self):
-        # Hide the editable-object border
-        self.request.set('disable_border', True)                
-        
+        return out    
+    
     def canbeRead(self):
 #        status = self.workflow_state()
 # checkPermission function must be use Title style permission

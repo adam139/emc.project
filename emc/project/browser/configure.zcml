@@ -13,5 +13,11 @@
         name="emc-project-macros"
         for="*"
         permission="zope2.View"
-        class=".macros.Macros"/> 
+        class=".macros.Macros"/>
+    <browser:page
+        name="ajax_listings"
+        template="templates/ajax_listings.pt"
+        for="*"
+        permission="emc.project.view_projectsummary"
+        class=".ajax_listing.ajaxListingView"/>          
 </configure>

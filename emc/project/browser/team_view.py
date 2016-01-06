@@ -15,7 +15,7 @@ class TeamView(grok.View):
     grok.context(ITeam)
     grok.template('team_view')
     grok.name('view')
-    grok.require('zope2.View') 
+    grok.require('emc.project.view_team') 
 
     @memoize    
     def catalog(self):

@@ -15,7 +15,7 @@ class ProjectView(grok.View):
     grok.context(IProject)
     grok.template('project_view')
     grok.name('view')
-    grok.require('zope2.View') 
+    grok.require('emc.project.view_project') 
 
     @memoize    
     def catalog(self):

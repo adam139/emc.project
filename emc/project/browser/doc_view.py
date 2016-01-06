@@ -17,7 +17,7 @@ class DocView(grok.View):
     grok.context(IAnalysisDoc)
     grok.template('analysis_view')
     grok.name('view')
-    grok.require('zope2.View') 
+    grok.require('emc.project.view_doc') 
 
     @memoize    
     def catalog(self):

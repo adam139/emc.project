@@ -68,7 +68,7 @@
        </div>     
        <div class="row">
        	<div class="col-xs-12">
-       		<div class="report" tal:condition="python:context.text" tal:content="structure python:context.report.output">brief report      	
+       		<div class="report" tal:condition="python:context.report" tal:content="structure python:context.report.output">brief report      	
       			</div> 		     	 		
        	</div>				
        </div>         	
