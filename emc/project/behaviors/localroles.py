@@ -202,7 +202,7 @@ class AddLocalRoles(grok.Adapter):
 # the third members will be assigned EMCExpert role            
 
         if principal_id in self.getreaders(8,12):
-            roles.add('EMCExpert')            
+            roles.add('Reader')            
         return roles
         
     def getAllRoles(self):
@@ -225,7 +225,7 @@ class AddLocalRoles(grok.Adapter):
         for principal_id in self.getreaders(1,8):
             yield (principal_id, ('Reader',),)
         for principal_id in self.getreaders(8,12):
-            yield (principal_id, ('EMCExpert',),)            
+            yield (principal_id, ('Reader',),)            
 
             
 # class localrolesIndexer(grok.MultiAdapter):

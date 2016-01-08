@@ -141,7 +141,7 @@ def content(context):
     for item in STRUCTURE:
         _create_content(item, portal)
 #     from plone import api
-    for i in range(1,10): 
+    for i in range(1,15): 
         user = api.user.create(
                                username='test%s' % i,
                                email='test%s@plone.org' % i,
@@ -156,6 +156,7 @@ def _create_content(item, container):
             type=item['type'],
             container=container,
             title=item['title'],
+            description=item['description'],
             id=item['id'],
             safe_id=False)
         logger.info('Created item {}'.format(new.absolute_url()))

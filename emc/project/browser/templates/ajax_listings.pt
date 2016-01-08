@@ -138,9 +138,9 @@
             		<thead>
             			<tr data-toggle="tooltip" title="点击排序">
             					<th class="col-md-1 text-center">序号</th>
-            					<th class="col-md-2 text-left">标题</th>
+            					<th class="col-md-3 text-left">标题</th>
             					<th class="col-md-7 text-left">摘要</th>
-            					<th class="col-md-2">日期</th>
+            					<th class="col-md-1 text-center">日期</th>
             				</tr>
             			</thead>
             			<tbody id="searchResultDiv">

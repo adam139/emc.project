@@ -297,10 +297,10 @@ class ajaxsearch(grok.View):
         for i in braindata:
           
             out = """<tr class="text-left">
-                                <td class="col-md-1">%(num)s</td>
-                                <td class="col-md-2 text-left"><a href="%(objurl)s">%(title)s</a></td>
+                                <td class="col-md-1 text-center">%(num)s</td>
+                                <td class="col-md-3 text-left"><a href="%(objurl)s">%(title)s</a></td>
                                 <td class="col-md-7">%(description)s</td>
-                                <td class="col-md-2">%(date)s</td>                                
+                                <td class="col-md-1 text-center">%(date)s</td>                                
                             </tr> """% dict(objurl="%s/@@view" % i.getURL(),
                                             num=str(k + 1),
                                             title=i.Title,
