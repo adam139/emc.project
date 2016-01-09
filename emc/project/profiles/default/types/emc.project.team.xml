@@ -33,7 +33,6 @@
      <element value="plone.app.content.interfaces.INameFromTitle" />
      <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
      <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>
-     <element value="emc.project.behaviors.localroles.Ilocalroles" />
      <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
   	 <element value="emc.memberArea.interfaces.IFavoriting" />
   	 <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation"/>              
