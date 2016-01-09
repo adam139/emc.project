@@ -31,6 +31,7 @@
      <element value="emc.project.behaviors.task_type.ITaskType"/>
      <element value="plone.app.contenttypes.behaviors.richtext.IRichText"/>               
      <element value="emc.project.behaviors.richtext.IRichText"/>
+     <element value="emc.memberArea.interfaces.IFavoriting" />     
      <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
      <element value="plone.app.lockingbehavior.behaviors.ILocking" />          
  </property>           

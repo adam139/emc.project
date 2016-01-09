@@ -193,8 +193,8 @@ class AddLocalRoles(grok.Adapter):
             
 # the product designer will be assigned Contributor and Editor roles
         if principal_id in localrole.designer:
-            roles.add('Contributor')
-            roles.add('Editor')
+            roles.add('Manager')
+#             roles.add('Editor')
           
 # the first members will be assigned Reader role            
         if principal_id in self.getreaders(1,8):
@@ -221,7 +221,7 @@ class AddLocalRoles(grok.Adapter):
             yield (principal_id, ('Manager',),)
 
         for principal_id in localrole.designer:
-            yield (principal_id, ('Editor','Contributor'),)
+            yield (principal_id, ('Manager',),)
         for principal_id in self.getreaders(1,8):
             yield (principal_id, ('Reader',),)
         for principal_id in self.getreaders(8,12):
