@@ -26,21 +26,6 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-    <genericsetup:registerProfile
-        name="content"
-        title="a project management with initial content"
-        directory="profiles/content"
-        description="Extension profile for PloneConf Talk to add initial content"
-        provides="Products.GenericSetup.interfaces.EXTENSION"
-        />
-
-    <genericsetup:importStep
-        name="emc.site-content"
-        title="emc.site dummy content"
-        description="Post install import step from emc.site with initial content"
-        handler=".setuphandlers.content">
-    </genericsetup:importStep>
-
   <!-- -*- extra stuff goes here -*- -->
 <!-- register indexer -->
   		<adapter name="SearchableText" factory=".indexer.SearchableText_projectcontent" />
