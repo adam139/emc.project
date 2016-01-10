@@ -14,10 +14,19 @@
         for="*"
         permission="zope2.View"
         class=".macros.Macros"/>
+        
     <browser:page
         name="ajax_listings"
         template="templates/ajax_listings.pt"
         for="*"
         permission="emc.project.view_projectsummary"
-        class=".ajax_listing.ajaxListingView"/>          
+        class=".ajax_listing.ajaxListingView"/>
+        
+  <browser:viewlet
+    name="emc.project.reviewhistory"
+    manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+    class=".review_history.ReviewViewlet"
+    layer="emc.theme.interfaces.IThemeSpecific"
+    permission="zope2.View"
+/>                   
 </configure>

@@ -9,10 +9,475 @@
 
 <body>
 <metal:main fill-slot="main">
-    <tal:main-macro metal:define-macro="main">
-    		<metal:block use-macro="context/@@emc-project-macros/macros/title-description-macro"/> 
-    	
+	<tal:main-macro metal:define-macro="main">
+    	<!-- jquery ajax callback function update status notify -->
+    	<div class="row" id="ajax-status-notify" style="display:none;">
+    		<div class="col-xs-12">notify message</div>
+    	</div>		
+		<tal:block tal:define="wf_status python:view.workflow_state()"			
+			<div class="page-header">
+           <h3>           	
+           	<span tal:replace="python:context.title">Organization administration</span>
+           </h3>
+           <h5 class="text-right">
+           	<span class="label">工作流状态：</span>
+           <span class="text-warning workflow-status"  
+           	i18n:domain="plone" 
+           	i18n:translate="" 
+           	tal:content="python:wf_status">草稿</span>
+           </h5>           
+       </div>	
+       <div class="row action-bar" tal:define="iseditable python:view.isEditable">
+			  <tal:group tal:condition="python:wf_status =='fangan'">	
+				<div class="col-md-3 col-md-offset-3">
+					<div class="workflow-action">
+					<span>
+						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
+							data-action-id string:chuyang" 
+						title="同意" 
+						class="btn btn-primary" i18n:translate="">submit to chuyang</a>
+					</span>
+					<form class="ajaxform" style=" display:none;">                          
+			 			<div class="form-group">
+			 				<label for="InputComment" i18n:translate="">submit comments</label>
+							<textarea class="form-control" rows="3" i18n:attributes="placeholder" i18n:attributes="placeholder" tal:attributes="placeholder string:submit comments"/>
+						</div>
+						<button class="btn btn-default" name="ok">确定</button>
+						<button class="btn btn-default" name="cancel">取消</button>
+			 		</form>
+		  		</div>		  							
+				</div>
+
+				<div class="col-md-3">
+					<div class="workflow-action">
+					<span>
+						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
+							data-action-id string:chuyang1" 
+						title="同意" 
+						class="btn btn-primary" i18n:translate="">submit to chuyang1</a>
+					</span>
+					<form class="ajaxform" style=" display:none;">                          
+			 			<div class="form-group">
+			 				<label for="InputComment" i18n:translate="">submit comments</label>
+							<textarea class="form-control" rows="3" i18n:attributes="placeholder" i18n:attributes="placeholder" tal:attributes="placeholder string:submit comments"/>
+						</div>
+						<button class="btn btn-default" name="ok">确定</button>
+						<button class="btn btn-default" name="cancel">取消</button>
+			 		</form>
+		  		</div>		  							
+				</div>				
+				
+				<div class="col-md-3">
+					<div class="workflow-action">
+					<span>
+						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
+							data-action-id string:shiyang" 
+						title="同意" 
+						class="btn btn-primary" i18n:translate="">submit to shiyang</a>
+					</span>
+					<form class="ajaxform" style=" display:none;">                          
+			 			<div class="form-group">
+			 				<label for="InputComment" i18n:translate="">submit comments</label>
+							<textarea class="form-control" rows="3" i18n:attributes="placeholder" i18n:attributes="placeholder" tal:attributes="placeholder string:submit comments"/>
+						</div>
+						<button class="btn btn-default" name="ok">确定</button>
+						<button class="btn btn-default" name="cancel">取消</button>
+			 		</form>
+		  		</div>		  							
+				</div>						
+				<div class="col-md-3">
+					<div class="workflow-action">
+					<span>
+						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
+							data-action-id string:zhengyang" 
+						title="同意" 
+						class="btn btn-primary" i18n:translate="">submit to zhengyang</a>
+					</span>
+					<form class="ajaxform" style=" display:none;">                          
+			 			<div class="form-group">
+			 				<label for="InputComment" i18n:translate="">submit comments</label>
+							<textarea class="form-control" rows="3" i18n:attributes="placeholder" tal:attributes="placeholder string:submit comments"/>
+						</div>
+						<button class="btn btn-default" name="ok">确定</button>
+						<button class="btn btn-default" name="cancel">取消</button>
+			 		</form>
+		  		</div>		  							
+				</div>
+				</tal:group>				
+				
+				<tal:group tal:condition="python:wf_status =='chuyang'">
+				<div class="col-md-3">
+					<div class="workflow-action">
+					<span>
+						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
+							data-action-id string:shiyang" 
+						title="同意" 
+						class="btn btn-primary" i18n:translate="">submit to shiyang</a>
+					</span>
+					<form class="ajaxform" style=" display:none;">                          
+			 			<div class="form-group">
+			 				<label for="InputComment" i18n:translate="">submit comments</label>
+							<textarea class="form-control" rows="3" i18n:attributes="placeholder" tal:attributes="placeholder string:submit comments"/>
+						</div>
+						<button class="btn btn-default" name="ok">确定</button>
+						<button class="btn btn-default" name="cancel">取消</button>
+			 		</form>
+		  		</div>		  							
+				</div>
+
+				<div class="col-md-3">
+					<div class="workflow-action">
+					<span>
+						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
+							data-action-id string:zhengyang" 
+						title="同意" 
+						class="btn btn-primary" i18n:translate="">submit to zhengyang</a>
+					</span>
+					<form class="ajaxform" style=" display:none;">                          
+			 			<div class="form-group">
+			 				<label for="InputComment" i18n:translate="">submit comments</label>
+							<textarea class="form-control" rows="3" i18n:attributes="placeholder" tal:attributes="placeholder string:submit comments"/>
+						</div>
+						<button class="btn btn-default" name="ok">确定</button>
+						<button class="btn btn-default" name="cancel">取消</button>
+			 		</form>
+		  		</div>		  							
+				</div>				
+				
+				<div class="col-md-3">
+					<div class="workflow-action">
+					<span>
+						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
+							data-action-id string:shiyang1" 
+						title="同意" 
+						class="btn btn-primary" i18n:translate="">submit to shiyang1</a>
+					</span>
+					<form class="ajaxform" style=" display:none;">                          
+			 			<div class="form-group">
+			 				<label for="InputComment" i18n:translate="">submit comments</label>
+							<textarea class="form-control" rows="3" i18n:attributes="placeholder" tal:attributes="placeholder string:submit comments"/>
+						</div>
+						<button class="btn btn-default" name="ok">确定</button>
+						<button class="btn btn-default" name="cancel">取消</button>
+			 		</form>
+		  		</div>		  							
+				</div>							
+				<div class="col-md-3">
+					<div class="workflow-action">
+					<span>
+						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
+							data-action-id string:zhengyang1" 
+						title="同意" 
+						class="btn btn-primary" i18n:translate="">submit to zhengyang1</a>
+					</span>
+					<form class="ajaxform" style=" display:none;">                          
+			 			<div class="form-group">
+			 				<label for="InputComment" i18n:translate="">submit comments</label>
+							<textarea class="form-control" rows="3" i18n:attributes="placeholder" tal:attributes="placeholder string:submit comments"/>
+						</div>
+						<button class="btn btn-default" name="ok">确定</button>
+						<button class="btn btn-default" name="cancel">取消</button>
+			 		</form>
+		  		</div>		  							
+				</div>					
+				</tal:group>	
+
+				<tal:group tal:condition="python:wf_status =='chuyang1'">
+				<div class="col-md-3">
+					<div class="workflow-action">
+					<span>
+						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
+							data-action-id string:chuyang2" 
+						title="同意" 
+						class="btn btn-primary" i18n:translate="">submit to chuyang2</a>
+					</span>
+					<form class="ajaxform" style=" display:none;">                          
+			 			<div class="form-group">
+			 				<label for="InputComment" i18n:translate="">submit comments</label>
+							<textarea class="form-control" rows="3" i18n:attributes="placeholder" tal:attributes="placeholder string:submit comments"/>
+						</div>
+						<button class="btn btn-default" name="ok">确定</button>
+						<button class="btn btn-default" name="cancel">取消</button>
+			 		</form>
+		  		</div>		  							
+				</div>						
+				</tal:group>	
+				
+				<tal:group tal:condition="python:wf_status =='chuyang2'">
+				<div class="col-md-3">
+					<div class="workflow-action">
+					<span>
+						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
+							data-action-id string:shiyang" 
+						title="同意" 
+						class="btn btn-primary" i18n:translate="">submit to shiyang</a>
+					</span>
+					<form class="ajaxform" style=" display:none;">                          
+			 			<div class="form-group">
+			 				<label for="InputComment" i18n:translate="">submit comments</label>
+							<textarea class="form-control" rows="3" i18n:attributes="placeholder" tal:attributes="placeholder string:submit comments"/>
+						</div>
+						<button class="btn btn-default" name="ok">确定</button>
+						<button class="btn btn-default" name="cancel">取消</button>
+			 		</form>
+		  		</div>		  							
+				</div>	
+				<div class="col-md-3">
+					<div class="workflow-action">
+					<span>
+						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
+							data-action-id string:shiyang1" 
+						title="同意" 
+						class="btn btn-primary" i18n:translate="">submit to shiyang1</a>
+					</span>
+					<form class="ajaxform" style=" display:none;">                          
+			 			<div class="form-group">
+			 				<label for="InputComment" i18n:translate="">submit comments</label>
+							<textarea class="form-control" rows="3" i18n:attributes="placeholder" tal:attributes="placeholder string:submit comments"/>
+						</div>
+						<button class="btn btn-default" name="ok">确定</button>
+						<button class="btn btn-default" name="cancel">取消</button>
+			 		</form>
+		  		</div>		  							
+				</div>										
+				<div class="col-md-3">
+					<div class="workflow-action">
+					<span>
+						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
+							data-action-id string:zhengyang" 
+						title="同意" 
+						class="btn btn-primary" i18n:translate="">submit to zhengyang</a>
+					</span>
+					<form class="ajaxform" style=" display:none;">                          
+			 			<div class="form-group">
+			 				<label for="InputComment" i18n:translate="">submit comments</label>
+							<textarea class="form-control" rows="3" i18n:attributes="placeholder" tal:attributes="placeholder string:submit comments"/>
+						</div>
+						<button class="btn btn-default" name="ok">确定</button>
+						<button class="btn btn-default" name="cancel">取消</button>
+			 		</form>
+		  		</div>		  							
+				</div>					
+				<div class="col-md-3">
+					<div class="workflow-action">
+					<span>
+						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
+							data-action-id string:zhengyang1" 
+						title="同意" 
+						class="btn btn-primary" i18n:translate="">submit to zhengyang1</a>
+					</span>
+					<form class="ajaxform" style=" display:none;">                          
+			 			<div class="form-group">
+			 				<label for="InputComment" i18n:translate="">submit comments</label>
+							<textarea class="form-control" rows="3" i18n:attributes="placeholder" tal:attributes="placeholder string:submit comments"/>
+						</div>
+						<button class="btn btn-default" name="ok">确定</button>
+						<button class="btn btn-default" name="cancel">取消</button>
+			 		</form>
+		  		</div>		  							
+				</div>						
+				</tal:group>
+				
+				<tal:group tal:condition="python:wf_status =='shiyang'">
+				<div class="col-md-3 col-offset-9">
+					<div class="workflow-action">
+					<span>
+						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
+							data-action-id string:dingxing" 
+						title="同意" 
+						class="btn btn-primary" i18n:translate="">submit to dingxing</a>
+					</span>
+					<form class="ajaxform" style=" display:none;">                          
+			 			<div class="form-group">
+			 				<label for="InputComment" i18n:translate="">submit comments</label>
+							<textarea class="form-control" rows="3" i18n:attributes="placeholder" tal:attributes="placeholder string:submit comments"/>
+						</div>
+						<button class="btn btn-default" name="ok">确定</button>
+						<button class="btn btn-default" name="cancel">取消</button>
+			 		</form>
+		  		</div>		  							
+				</div>						
+				</tal:group>	
+
+				<tal:group tal:condition="python:wf_status =='shiyang1'">
+				<div class="col-md-3 col-offset-9">
+					<div class="workflow-action">
+					<span>
+						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
+							data-action-id string:shiyang2" 
+						title="同意" 
+						class="btn btn-primary" i18n:translate="">submit to shiyang2</a>
+					</span>
+					<form class="ajaxform" style=" display:none;">                          
+			 			<div class="form-group">
+			 				<label for="InputComment" i18n:translate="">submit comments</label>
+							<textarea class="form-control" rows="3" i18n:attributes="placeholder" tal:attributes="placeholder string:submit comments"/>
+						</div>
+						<button class="btn btn-default" name="ok">确定</button>
+						<button class="btn btn-default" name="cancel">取消</button>
+			 		</form>
+		  		</div>		  							
+				</div>						
+				</tal:group>	
+				
+				<tal:group tal:condition="python:wf_status =='shiyang2'">
+				<div class="col-md-3 col-offset-9">
+					<div class="workflow-action">
+					<span>
+						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
+							data-action-id string:dingxing" 
+						title="同意" 
+						class="btn btn-primary" i18n:translate="">submit to dingxing</a>
+					</span>
+					<form class="ajaxform" style=" display:none;">                          
+			 			<div class="form-group">
+			 				<label for="InputComment" i18n:translate="">submit comments</label>
+							<textarea class="form-control" rows="3" i18n:attributes="placeholder" tal:attributes="placeholder string:submit comments"/>
+						</div>
+						<button class="btn btn-default" name="ok">确定</button>
+						<button class="btn btn-default" name="cancel">取消</button>
+			 		</form>
+		  		</div>		  							
+				</div>						
+				</tal:group>																									 
+       
+ 				<tal:group tal:condition="python:wf_status =='zhengyang'">
+				<div class="col-md-3 col-offset-9">
+					<div class="workflow-action">
+					<span>
+						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
+							data-action-id string:dingxing" 
+						title="同意" 
+						class="btn btn-primary" i18n:translate="">submit to dingxing</a>
+					</span>
+					<form class="ajaxform" style=" display:none;">                          
+			 			<div class="form-group">
+			 				<label for="InputComment" i18n:translate="">submit comments</label>
+							<textarea class="form-control" rows="3" i18n:attributes="placeholder" tal:attributes="placeholder string:submit comments"/>
+						</div>
+						<button class="btn btn-default" name="ok">确定</button>
+						<button class="btn btn-default" name="cancel">取消</button>
+			 		</form>
+		  		</div>		  							
+				</div>
+										
+				</tal:group>	
+
+				<tal:group tal:condition="python:wf_status =='zhengyang1'">
+				<div class="col-md-3 col-offset-9">
+					<div class="workflow-action">
+					<span>
+						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
+							data-action-id string:zhengyang2" 
+						title="同意" 
+						class="btn btn-primary" i18n:translate="">submit to zhengyang2</a>
+					</span>
+					<form class="ajaxform" style=" display:none;">                          
+			 			<div class="form-group">
+			 				<label for="InputComment" i18n:translate="">submit comments</label>
+							<textarea class="form-control" rows="3" i18n:attributes="placeholder" tal:attributes="placeholder string:submit comments"/>
+						</div>
+						<button class="btn btn-default" name="ok">确定</button>
+						<button class="btn btn-default" name="cancel">取消</button>
+			 		</form>
+		  		</div>		  							
+				</div>						
+				</tal:group>	
+				
+				<tal:group tal:condition="python:wf_status =='zhengyang2'">
+				<div class="col-md-3 col-offset-9">
+					<div class="workflow-action">
+					<span>
+						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
+							data-action-id string:dingxing" 
+						title="同意" 
+						class="btn btn-primary" i18n:translate="">submit to dingxing</a>
+					</span>
+					<form class="ajaxform" style=" display:none;">                          
+			 			<div class="form-group">
+			 				<label for="InputComment" i18n:translate="">submit comments</label>
+							<textarea class="form-control" rows="3" i18n:attributes="placeholder" tal:attributes="placeholder string:submit comments"/>
+						</div>
+						<button class="btn btn-default" name="ok">确定</button>
+						<button class="btn btn-default" name="cancel">取消</button>
+			 		</form>
+		  		</div>		  							
+				</div>					
+				</tal:group>      
+       
+				<tal:group tal:condition="python:wf_status =='dingxing'">
+					
+				</tal:group> 
+       
+       </div>
+			<table class="row table table-striped table-bordered table-condensed listing">
+        <thead>
+          <tr data-toggle="tooltip" title="点击排序">
+             <th class="col-md-1 text-center">序号</th>
+            	<th class="col-md-3 text-left">标题</th>
+            	<th class="col-md-6 text-left">摘要</th>
+            	<th class="col-md-1 text-center">状态</th>
+            	<th class="col-md-1 text-center">日期</th>            	
+          </tr>
+        </thead>
+        <tbody id="searchResultDiv" tal:content="python:view.getAllTeams()">
+           <tr>
+            	<td class="col-md-1">1</td>
+            	<td class="col-md-4">市宝庆商会</td>
+            	<td class="col-md-6">建设北路55号</td>
+            	<td class="col-md-1">M</td>             	
+            	<td class="col-md-1">2013-07-13</td>            					
+           </tr>            				
+         </tbody>            			
+       </table>        
+       <div class="row" tal:content="structure context/@@view/emc.project.reviewhistory" />	
+	       
+    		</tal:block>    	
     </tal:main-macro>
 </metal:main>
+<metal:js fill-slot="javascript_bottom_slot">
+<script>
+	$(document).ready(function(){
+		//click a triger
+		$(".workflow-action").on("click","a",function() {
+		//display ajax input form
+		$(".workflow-action form").show();
+		//hide submit buttom
+		$(".workflow-action span").hide();
+		return false;	
+		});
+	$(".workflow-action button[name='ok']").on("click",function() {
+		var action = $(".workflow-action span a").attr('href');
+		var actionid = $(".workflow-action span a").attr('data-action-id');		
+		var formval = $(".workflow-action textarea").val();
+//		var quality = $(".workflow-action [name=optionsQuality]:checked").val();
+		if (formval ==="") {
+		alert( "must input comment" );
+		return false;
+		}
+		var data = {'subject':formval,'actionid':actionid};
+		$.post(action,data,function(callback) {
+			$(".workflow-action form").hide();
+			$(".workflow-action span").show();
+			if (callback['result']) {
+//			  location.reload(true);
+				$(".workflow-status").html(callback['status']);
+				$("#ajax-status-notify div").html(callback['message']);
+				$("#ajax-status-notify").show();
+			}				
+		},'json');
+		return false;
+	});
+
+	$(".workflow-action button[name='cancel']").on("click",function() {
+			$(".workflow-action form").hide();
+			$(".workflow-action span").show();
+			return false;
+	});		
+			
+}
+)
+</script>
+</metal:js>
 </body>
 </html>
