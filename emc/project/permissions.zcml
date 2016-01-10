@@ -22,7 +22,11 @@
 	<permission
        id="emc.project.add_audit_doc"
 		title="emc.project:Add audit document"
-        />        
+        />
+	<permission
+       id="emc.project.add_doc"
+		title="emc.project:Add document"
+        />                 
 	<permission
        id="emc.project.add_design_doc"
 		title="emc.project:Add design document"

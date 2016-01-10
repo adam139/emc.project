@@ -15,18 +15,19 @@ class Fixture(PloneSandboxLayer):
     
     def setUpZope(self, app, configurationContext):
         # Load ZCML
+        import emc.bokeh        
         import emc.project
 #        import xtshzz.policy
 #        self.loadZCML(package=xtshzz.policy)
   
         xmlconfig.file('configure.zcml', emc.project, context=configurationContext)        
-#        xmlconfig.file('configure.zcml', xtshzz.policy, context=configurationContext)
+        xmlconfig.file('configure.zcml', emc.bokeh, context=configurationContext)
                       
     def tearDownZope(self, app):
         pass
     
     def setUpPloneSite(self, portal):
-     
+        applyProfile(portal, 'emc.bokeh:default')     
         applyProfile(portal, 'emc.project:default')
 #        applyProfile(portal, 'xtshzz.policy:default')
      

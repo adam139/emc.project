@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<object name="portal_workflow">
+		<object name="emc_project_workflow" meta_type="Workflow"/>
+    <bindings>
+    	    <type type_id="emc.project.project">
+            <bound-workflow workflow_id="emc_project_workflow"/>
+        </type>
+    	    <type type_id="emc.project.team">
+            <bound-workflow workflow_id="emc_project_workflow"/>
+        </type>
+    	    <type type_id="emc.project.analysisDoc">
+            <bound-workflow workflow_id="emc_project_workflow"/>
+        </type>
+    	    <type type_id="emc.project.auditDoc">
+            <bound-workflow workflow_id="emc_project_workflow"/>
+        </type>
+    	    <type type_id="emc.project.designDoc">
+            <bound-workflow workflow_id="emc_project_workflow"/>
+        </type>
+    	    <type type_id="emc.project.diagnoseDoc">
+            <bound-workflow workflow_id="emc_project_workflow"/>
+        </type> 
+    	    <type type_id="emc.bokeh.fearture">
+            <bound-workflow workflow_id="emc_project_workflow"/>
+        </type>                                
+    </bindings>
+</object>
