@@ -1,12 +1,18 @@
 #-*- coding: UTF-8 -*-
 from five import grok
+from Acquisition import aq_inner
 from z3c.form import field
 from plone.directives import dexterity
 from plone.memoize.instance import memoize
+from Products.CMFCore.utils import getToolByName
+from zope.publisher.interfaces.browser import IBrowserRequest
+from zope.viewlet.interfaces import IViewlet
+from plone.app.customerize import registration
 from emc.project.content.project import IProject
-
+from emc.project.content.team import ITeam
 
 from emc.project import _
+from Products.CMFPlone import PloneMessageFactory as _p
 
 grok.templatedir('templates')
 
@@ -27,28 +33,40 @@ class ProjectView(grok.View):
     def pm(self):
         context = aq_inner(self.context)
         pm = getToolByName(context, "portal_membership")
-        return pm    
+        return pm
+    
+    def wf(self):
+        context = aq_inner(self.context)
+        wf = getToolByName(context, 'portal_workflow')
+        return wf    
             
     @property
     def isEditable(self):
-        return self.pm().checkPermission(permissions.ManagePortal,self.context)
+        return self.pm().checkPermission("emc.project.add_project",self.context)
     
     def getText(self):
         raw = self.context.text
         return raw
     
-    @memoize    
+    def workflow_state(self):
+        "workflow status"
+        review_state = self.wf().getInfoFor(self.context, 'review_state')
+        return review_state        
+    
+    @memoize       
     def getAllTeams(self):
         query = {"object_provides":ITeam.__identifier__,
-                 'path': '/'.join(context.getPhysicalPath())}
-        brains = self.catalog(query)
+                 'path': '/'.join(self.context.getPhysicalPath())}
+        brains = self.catalog()(query)
         return self.output(brains)
         
     def output(self,braindata):
         "根据参数total,braindata,返回jason 输出"
         outhtml = ""      
         k = 0
-        for i in braindata:          
+        for i in braindata:
+
+            status =  self.context.translate(_p(i.review_state))         
             out = """<tr class="text-left">
                                 <td class="col-md-1 text-center">%(num)s</td>
                                 <td class="col-md-3 text-left"><a href="%(objurl)s">%(title)s</a></td>
@@ -59,7 +77,7 @@ class ProjectView(grok.View):
                                             num=str(k + 1),
                                             title=i.Title,
                                             description= i.Description,
-                                            status = i.review_status,
+                                            status = status.encode('utf-8'),
                                             date = i.created.strftime('%Y-%m-%d'))           
             outhtml = "%s%s" %(outhtml ,out)
             k = k + 1           

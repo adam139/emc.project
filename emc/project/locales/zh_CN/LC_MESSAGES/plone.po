@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xtshzz.policy\n"
-"POT-Creation-Date: 2015-02-14 00:52+0000\n"
+"POT-Creation-Date: 2016-01-11 00:57+0000\n"
 "PO-Revision-Date: 2015-02-14 09:20+0800\n"
 "Last-Translator: adam <yuejun.tang@gmail.com>\n"
 "Language-Team: 315ok.org <LL@li.org>\n"
@@ -14,15 +14,41 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 
+
+msgid "ChiefDesigner"
+msgstr "总设计师"
+
 #: rolemap.xml
 msgid "ChiefQE"
 msgstr "总质量师"
 
-msgid "DeputyChiefQE"
-msgstr "副总质量师"
+#: ./behaviors/localroles.py:41
+msgid "Commander"
+msgstr "总指挥"
+
+msgid "DeputyChiefDesigner"
+msgstr "副总设计师"
 
 msgid "DeputyChiefProcess"
 msgstr "副总工艺师"
+
+msgid "DeputyChiefQE"
+msgstr "副总质量师"
+
+msgid "DeputyCommander"
+msgstr "副总指挥"
+
+msgid "Designer"
+msgstr "产品设计师"
+
+msgid "DispatchStaff"
+msgstr "计划调度人员"
+
+msgid "EMCDesigner"
+msgstr "电磁兼容设计师"
+
+msgid "EMCExpert"
+msgstr "电磁兼容专家"
 
 msgid "ProcessStaff"
 msgstr "工艺师"
@@ -30,26 +56,36 @@ msgstr "工艺师"
 msgid "QualityManageStaff"
 msgstr "质量管理人员"
 
-msgid "DispatchStaff"
-msgstr "计划调度人员"
- 
-msgid "EMCExpert"
-msgstr "电磁兼容专家" 
+msgid "chuyang"
+msgstr "C"
 
-msgid "EMCDesigner"
-msgstr "电磁兼容设计师"
+msgid "chuyang1"
+msgstr "C1"
 
-msgid "Designer"
-msgstr "产品设计师"
+msgid "chuyang2"
+msgstr "C2"
 
-msgid "Commander"
-msgstr "总指挥"
+msgid "dingxing"
+msgstr "D"
 
-msgid "DeputyCommander"
-msgstr "副总指挥"
+msgid "fangan"
+msgstr "M"
 
-msgid "ChiefDesigner"
-msgstr "总设计师"
+msgid "shiyang"
+msgstr "S"
 
-msgid "DeputyChiefDesigner"
-msgstr "副总设计师"
+msgid "shiyang1"
+msgstr "S1"
+
+msgid "shiyang2"
+msgstr "S2"
+
+msgid "zhengyang"
+msgstr "Z"
+
+msgid "zhengyang1"
+msgstr "Z1"
+
+msgid "zhengyang2"
+msgstr "Z2"
+

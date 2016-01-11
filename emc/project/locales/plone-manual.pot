@@ -54,4 +54,40 @@ msgstr ""
 msgid "DeputyChiefDesigner"
 msgstr ""
 
+#workflow status
+
+msgid "chuyang"
+msgstr ""
+
+msgid "chuyang1"
+msgstr ""
+
+
+msgid "chuyang2"
+msgstr ""
+
+
+msgid "fangan"
+msgstr ""
+
+msgid "shiyang"
+msgstr ""
+
+msgid "shiyang1"
+msgstr ""
+
+msgid "shiyang2"
+msgstr ""
+
+msgid "zhengyang"
+msgstr ""
+
+msgid "zhengyang1"
+msgstr ""
+
+msgid "zhengyang2"
+msgstr ""
+
+msgid "dingxing"
+msgstr ""
 

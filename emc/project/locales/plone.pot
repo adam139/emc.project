@@ -1,18 +1,18 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-01-04 12:21+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: xtshzz.policy\n"
+"POT-Creation-Date: 2016-01-11 00:57+0000\n"
+"PO-Revision-Date: 2015-02-14 09:20+0800\n"
+"Last-Translator: adam <yuejun.tang@gmail.com>\n"
+"Language-Team: 315ok.org <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: en\n"
-"Language-Name: English\n"
+"Language-Code: zh_CN\n"
+"Language-Name: Chinese\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: DOMAIN\n"
+"Domain: plone\n"
 
 #: ./behaviors/richtext.py:19
 msgid "Brief Report"
@@ -24,6 +24,13 @@ msgstr ""
 
 #: ./behaviors/localroles.py:73
 msgid "Chief quality engineer"
+msgstr ""
+
+msgid "ChiefDesigner"
+msgstr ""
+
+#: rolemap.xml
+msgid "ChiefQE"
 msgstr ""
 
 #: ./behaviors/localroles.py:41
@@ -46,6 +53,24 @@ msgstr ""
 msgid "Deputy Commander"
 msgstr ""
 
+msgid "DeputyChiefDesigner"
+msgstr ""
+
+msgid "DeputyChiefProcess"
+msgstr ""
+
+msgid "DeputyChiefQE"
+msgstr ""
+
+msgid "DeputyCommander"
+msgstr ""
+
+msgid "Designer"
+msgstr ""
+
+msgid "DispatchStaff"
+msgstr ""
+
 #: ./behaviors/localroles.py:25
 msgid "EMC Designer"
 msgstr ""
@@ -54,8 +79,24 @@ msgstr ""
 msgid "EMC expert"
 msgstr ""
 
+msgid "EMCDesigner"
+msgstr ""
+
+msgid "EMCExpert"
+msgstr ""
+
+#: ./browser/workflow_ajax.py:110
+msgid "Not able to send notifications"
+msgstr ""
+
+msgid "ProcessStaff"
+msgstr ""
+
 #: ./behaviors/localroles.py:33
 msgid "Product Designer"
+msgstr ""
+
+msgid "QualityManageStaff"
 msgstr ""
 
 #: ./behaviors/localroles.py:130
@@ -78,24 +119,21 @@ msgstr ""
 msgid "analysis"
 msgstr ""
 
-#: ./profiles/default/types/emc.project.analysisDoc.xml
-msgid "analysis document"
+# workflow status
+msgid "chuyang"
 msgstr ""
 
-#: ./profiles/default/types/emc.project.auditDoc.xml
-msgid "audit document"
+msgid "chuyang1"
+msgstr ""
+
+msgid "chuyang2"
 msgstr ""
 
 #: ./vocabulary.py:12
 msgid "design"
 msgstr ""
 
-#: ./profiles/default/types/emc.project.designDoc.xml
-msgid "design document"
-msgstr ""
-
-#: ./profiles/default/types/emc.project.diagnoseDoc.xml
-msgid "diagnose document"
+msgid "dingxing"
 msgstr ""
 
 #: ./behaviors/localroles.py:113
@@ -104,6 +142,9 @@ msgstr ""
 
 #: ./vocabulary.py:15
 msgid "experiment"
+msgstr ""
+
+msgid "fangan"
 msgstr ""
 
 #: ./behaviors/belowcontentfile.py:18
@@ -119,24 +160,38 @@ msgstr ""
 msgid "label_attachfile"
 msgstr ""
 
+#. Default: "effective"
+#: ./browser/templates/review_history.pt:58
+msgid "label_publishing_effective"
+msgstr ""
+
+#. Default: "Action"
+#: ./browser/templates/review_history.pt:23
+msgid "listingheader_action"
+msgstr ""
+
+#. Default: "Comment"
+#: ./browser/templates/review_history.pt:26
+msgid "listingheader_comment"
+msgstr ""
+
+#. Default: "Date and Time"
+#: ./browser/templates/review_history.pt:25
+msgid "listingheader_date_and_time"
+msgstr ""
+
+#. Default: "Performed by"
+#: ./browser/templates/review_history.pt:24
+msgid "listingheader_performed_by"
+msgstr ""
+
+#. Default: "No comments."
+#: ./browser/templates/review_history.pt:68
+msgid "no_comments"
+msgstr ""
+
 #: ./behaviors/localroles.py:97
 msgid "process staff"
-msgstr ""
-
-#: ./profiles/default/types/emc.project.project.xml
-msgid "project"
-msgstr ""
-
-#: ./profiles/default/types/emc.project.project.xml
-msgid "project content type"
-msgstr ""
-
-#: ./profiles/default/types/emc.project.projectFolder.xml
-msgid "project folder content type"
-msgstr ""
-
-#: ./profiles/default/types/emc.project.projectFolder.xml
-msgid "projetFolder"
 msgstr ""
 
 #: ./vocabulary.py:28
@@ -151,8 +206,22 @@ msgstr ""
 msgid "secret"
 msgstr ""
 
+msgid "shiyang"
+msgstr ""
+
+msgid "shiyang1"
+msgstr ""
+
+msgid "shiyang2"
+msgstr ""
+
 #: ./vocabulary.py:14
 msgid "simulation"
+msgstr ""
+
+#. Default: "Review History"
+#: ./browser/templates/review_history.pt:19
+msgid "summary_review_history"
 msgstr ""
 
 #: ./behaviors/security_level.py:18
@@ -160,15 +229,16 @@ msgstr ""
 msgid "task type"
 msgstr ""
 
-#: ./profiles/default/types/emc.project.team.xml
-msgid "team"
-msgstr ""
-
-#: ./profiles/default/types/emc.project.team.xml
-msgid "team content type"
-msgstr ""
-
 #: ./vocabulary.py:13
 msgid "train"
+msgstr ""
+
+msgid "zhengyang"
+msgstr ""
+
+msgid "zhengyang1"
+msgstr ""
+
+msgid "zhengyang2"
 msgstr ""
 

@@ -14,7 +14,7 @@
     	<div class="row" id="ajax-status-notify" style="display:none;">
     		<div class="col-xs-12">notify message</div>
     	</div>		
-		<tal:block tal:define="wf_status python:view.workflow_state()"			
+		<tal:block tal:define="wf_status python:view.workflow_state()">			
 			<div class="page-header">
            <h3>           	
            	<span tal:replace="python:context.title">Organization administration</span>
@@ -29,7 +29,7 @@
        </div>	
        <div class="row action-bar" tal:define="iseditable python:view.isEditable">
 			  <tal:group tal:condition="python:wf_status =='fangan'">	
-				<div class="col-md-3 col-md-offset-3">
+				<div class="buttonarea col-md-3">
 					<div class="workflow-action">
 					<span>
 						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
@@ -40,7 +40,7 @@
 					<form class="ajaxform" style=" display:none;">                          
 			 			<div class="form-group">
 			 				<label for="InputComment" i18n:translate="">submit comments</label>
-							<textarea class="form-control" rows="3" i18n:attributes="placeholder" i18n:attributes="placeholder" tal:attributes="placeholder string:submit comments"/>
+							<textarea class="form-control" rows="3" i18n:attributes="placeholder" tal:attributes="placeholder string:submit comments"/>
 						</div>
 						<button class="btn btn-default" name="ok">确定</button>
 						<button class="btn btn-default" name="cancel">取消</button>
@@ -48,7 +48,7 @@
 		  		</div>		  							
 				</div>
 
-				<div class="col-md-3">
+				<div class="buttonarea col-md-3">
 					<div class="workflow-action">
 					<span>
 						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
@@ -59,7 +59,7 @@
 					<form class="ajaxform" style=" display:none;">                          
 			 			<div class="form-group">
 			 				<label for="InputComment" i18n:translate="">submit comments</label>
-							<textarea class="form-control" rows="3" i18n:attributes="placeholder" i18n:attributes="placeholder" tal:attributes="placeholder string:submit comments"/>
+							<textarea class="form-control" rows="3" i18n:attributes="placeholder" tal:attributes="placeholder string:submit comments"/>
 						</div>
 						<button class="btn btn-default" name="ok">确定</button>
 						<button class="btn btn-default" name="cancel">取消</button>
@@ -67,7 +67,7 @@
 		  		</div>		  							
 				</div>				
 				
-				<div class="col-md-3">
+				<div class="buttonarea col-md-3">
 					<div class="workflow-action">
 					<span>
 						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
@@ -78,14 +78,14 @@
 					<form class="ajaxform" style=" display:none;">                          
 			 			<div class="form-group">
 			 				<label for="InputComment" i18n:translate="">submit comments</label>
-							<textarea class="form-control" rows="3" i18n:attributes="placeholder" i18n:attributes="placeholder" tal:attributes="placeholder string:submit comments"/>
+							<textarea class="form-control" rows="3" i18n:attributes="placeholder" tal:attributes="placeholder string:submit comments"/>
 						</div>
 						<button class="btn btn-default" name="ok">确定</button>
 						<button class="btn btn-default" name="cancel">取消</button>
 			 		</form>
 		  		</div>		  							
 				</div>						
-				<div class="col-md-3">
+				<div class="buttonarea col-md-3">
 					<div class="workflow-action">
 					<span>
 						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
@@ -106,7 +106,7 @@
 				</tal:group>				
 				
 				<tal:group tal:condition="python:wf_status =='chuyang'">
-				<div class="col-md-3">
+				<div class="buttonarea col-md-3">
 					<div class="workflow-action">
 					<span>
 						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
@@ -125,7 +125,7 @@
 		  		</div>		  							
 				</div>
 
-				<div class="col-md-3">
+				<div class="buttonarea col-md-3">
 					<div class="workflow-action">
 					<span>
 						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
@@ -144,7 +144,7 @@
 		  		</div>		  							
 				</div>				
 				
-				<div class="col-md-3">
+				<div class="buttonarea col-md-3">
 					<div class="workflow-action">
 					<span>
 						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
@@ -162,7 +162,7 @@
 			 		</form>
 		  		</div>		  							
 				</div>							
-				<div class="col-md-3">
+				<div class="buttonarea col-md-3">
 					<div class="workflow-action">
 					<span>
 						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
@@ -183,7 +183,7 @@
 				</tal:group>	
 
 				<tal:group tal:condition="python:wf_status =='chuyang1'">
-				<div class="col-md-3">
+				<div class="buttonarea col-md-3">
 					<div class="workflow-action">
 					<span>
 						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
@@ -204,7 +204,7 @@
 				</tal:group>	
 				
 				<tal:group tal:condition="python:wf_status =='chuyang2'">
-				<div class="col-md-3">
+				<div class="buttonarea col-md-3">
 					<div class="workflow-action">
 					<span>
 						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
@@ -222,7 +222,7 @@
 			 		</form>
 		  		</div>		  							
 				</div>	
-				<div class="col-md-3">
+				<div class="buttonarea col-md-3">
 					<div class="workflow-action">
 					<span>
 						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
@@ -240,7 +240,7 @@
 			 		</form>
 		  		</div>		  							
 				</div>										
-				<div class="col-md-3">
+				<div class="buttonarea col-md-3">
 					<div class="workflow-action">
 					<span>
 						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
@@ -258,7 +258,7 @@
 			 		</form>
 		  		</div>		  							
 				</div>					
-				<div class="col-md-3">
+				<div class="buttonarea col-md-3">
 					<div class="workflow-action">
 					<span>
 						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
@@ -279,8 +279,8 @@
 				</tal:group>
 				
 				<tal:group tal:condition="python:wf_status =='shiyang'">
-				<div class="col-md-3 col-offset-9">
-					<div class="workflow-action">
+				<div class="buttonarea col-md-3 col-offset-9">
+					<div  class="workflow-action">
 					<span>
 						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
 							data-action-id string:dingxing" 
@@ -300,7 +300,7 @@
 				</tal:group>	
 
 				<tal:group tal:condition="python:wf_status =='shiyang1'">
-				<div class="col-md-3 col-offset-9">
+				<div class="buttonarea col-md-3 col-offset-9">
 					<div class="workflow-action">
 					<span>
 						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
@@ -321,7 +321,7 @@
 				</tal:group>	
 				
 				<tal:group tal:condition="python:wf_status =='shiyang2'">
-				<div class="col-md-3 col-offset-9">
+				<div class="buttonarea col-md-3 col-offset-9">
 					<div class="workflow-action">
 					<span>
 						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
@@ -342,7 +342,7 @@
 				</tal:group>																									 
        
  				<tal:group tal:condition="python:wf_status =='zhengyang'">
-				<div class="col-md-3 col-offset-9">
+				<div class="buttonarea col-md-3 col-offset-9">
 					<div class="workflow-action">
 					<span>
 						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
@@ -364,7 +364,7 @@
 				</tal:group>	
 
 				<tal:group tal:condition="python:wf_status =='zhengyang1'">
-				<div class="col-md-3 col-offset-9">
+				<div class="buttonarea col-md-3 col-offset-9">
 					<div class="workflow-action">
 					<span>
 						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
@@ -385,7 +385,7 @@
 				</tal:group>	
 				
 				<tal:group tal:condition="python:wf_status =='zhengyang2'">
-				<div class="col-md-3 col-offset-9">
+				<div class="buttonarea col-md-3 col-offset-9">
 					<div class="workflow-action">
 					<span>
 						<a  tal:attributes="href python:context.absolute_url() +'/@@workflow_ajax';
@@ -420,7 +420,7 @@
             	<th class="col-md-1 text-center">日期</th>            	
           </tr>
         </thead>
-        <tbody id="searchResultDiv" tal:content="python:view.getAllTeams()">
+        <tbody id="searchResultDiv" tal:content=" structure python:view.getAllTeams()">
            <tr>
             	<td class="col-md-1">1</td>
             	<td class="col-md-4">市宝庆商会</td>
@@ -439,26 +439,34 @@
 <script>
 	$(document).ready(function(){
 		//click a triger
-		$(".workflow-action").on("click","a",function() {
-		//display ajax input form
-		$(".workflow-action form").show();
+		$(".workflow-action").on("click","a",function(e) {
+		e.preventDefault();
+		//$("#current").attr('id',"");
+		//located parent object and add css id
+		$(this).parent().parent().addClass("current");
+		// close old form
+	  $(".workflow-action form").hide();
 		//hide submit buttom
-		$(".workflow-action span").hide();
+		$(".workflow-action span").show();		
+		//display ajax input form
+		$(".current form").show();
+		//hide submit buttom
+		$(".current span").hide();
 		return false;	
 		});
-	$(".workflow-action button[name='ok']").on("click",function() {
-		var action = $(".workflow-action span a").attr('href');
-		var actionid = $(".workflow-action span a").attr('data-action-id');		
-		var formval = $(".workflow-action textarea").val();
-//		var quality = $(".workflow-action [name=optionsQuality]:checked").val();
+	$(".buttonarea").on("click",".current button[name='ok']",function(e) {
+		e.preventDefault();	
+		var action = $(".current span a").attr('href');
+		var actionid = $(".current span a").attr('data-action-id');		
+		var formval = $(".current  textarea").val();
 		if (formval ==="") {
 		alert( "must input comment" );
 		return false;
 		}
 		var data = {'subject':formval,'actionid':actionid};
 		$.post(action,data,function(callback) {
-			$(".workflow-action form").hide();
-			$(".workflow-action span").show();
+			$(".current form").hide();
+			$(".current span").show();
 			if (callback['result']) {
 //			  location.reload(true);
 				$(".workflow-status").html(callback['status']);
@@ -469,11 +477,12 @@
 		return false;
 	});
 
-	$(".workflow-action button[name='cancel']").on("click",function() {
-			$(".workflow-action form").hide();
-			$(".workflow-action span").show();
+	$(".buttonarea").on("click",".current button[name='cancel']",function(e) {
+			e.preventDefault();
+			$(".current form").hide();
+			$(".current span").show();
 			return false;
-	});		
+	});	
 			
 }
 )

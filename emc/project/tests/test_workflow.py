@@ -52,6 +52,18 @@ class TestView(unittest.TestCase):
         # m/c/s/d chain
         app = self.layer['app']
         portal = self.layer['portal']
+      
+        browser = Browser(app)
+        browser.handleErrors = False
+        browser.addHeader('Authorization', 'Basic %s:%s' % (TEST_USER_NAME, TEST_USER_PASSWORD,))        
+        import transaction
+        transaction.commit()
+        page = portal['folder1']['project1'].absolute_url() + '/@@view'        
+
+        browser.open(page)
+        outstr = "submit to chuyang"
+      
+        self.assertTrue(outstr in browser.contents)            
         wf = getToolByName(portal, 'portal_workflow')
 
         wt = wf.emc_project_workflow
@@ -71,12 +83,20 @@ class TestView(unittest.TestCase):
         self.assertEqual(review_state,'chuyang')
         comment = wf.getInfoFor(dummy, 'comments')
         self.assertEqual(comment,'submit to chu yang')
+        
+        browser.open(page)
+        outstr = "submit to shiyang"      
+        self.assertTrue(outstr in browser.contents)         
                  
         wf.doActionFor(dummy, 'submit2shiyang', comment='submit to shiyang')
         review_state = wf.getInfoFor(dummy, 'review_state')
         self.assertEqual(review_state,'shiyang')
         comment = wf.getInfoFor(dummy, 'comments')
-        self.assertEqual(comment,'submit to shiyang')   
+        self.assertEqual(comment,'submit to shiyang')
+        
+        browser.open(page)
+        outstr = "submit to dingxing"      
+        self.assertTrue(outstr in browser.contents)           
         
         wf.doActionFor(dummy, 'submit2dingxing', comment='submit to dingxing')
         review_state = wf.getInfoFor(dummy, 'review_state')

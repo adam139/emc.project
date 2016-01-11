@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-01-04 12:21+0000\n"
+"POT-Creation-Date: 2016-01-11 02:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,6 +52,10 @@ msgstr ""
 
 #: ./behaviors/localroles.py:122
 msgid "EMC expert"
+msgstr ""
+
+#: ./browser/workflow_ajax.py:110
+msgid "Not able to send notifications"
 msgstr ""
 
 #: ./behaviors/localroles.py:33
@@ -153,6 +157,50 @@ msgstr ""
 
 #: ./vocabulary.py:14
 msgid "simulation"
+msgstr ""
+
+#: ./browser/templates/project_view.pt:42
+msgid "submit comments"
+msgstr ""
+
+#: ./browser/templates/project_view.pt:35
+msgid "submit to chuyang"
+msgstr ""
+
+#: ./browser/templates/project_view.pt:54
+msgid "submit to chuyang1"
+msgstr ""
+
+#: ./browser/templates/project_view.pt:189
+msgid "submit to chuyang2"
+msgstr ""
+
+#: ./browser/templates/project_view.pt:285
+msgid "submit to dingxing"
+msgstr ""
+
+#: ./browser/templates/project_view.pt:73
+msgid "submit to shiyang"
+msgstr ""
+
+#: ./browser/templates/project_view.pt:150
+msgid "submit to shiyang1"
+msgstr ""
+
+#: ./browser/templates/project_view.pt:306
+msgid "submit to shiyang2"
+msgstr ""
+
+#: ./browser/templates/project_view.pt:91
+msgid "submit to zhengyang"
+msgstr ""
+
+#: ./browser/templates/project_view.pt:168
+msgid "submit to zhengyang1"
+msgstr ""
+
+#: ./browser/templates/project_view.pt:370
+msgid "submit to zhengyang2"
 msgstr ""
 
 #: ./behaviors/security_level.py:18

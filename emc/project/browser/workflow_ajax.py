@@ -46,7 +46,7 @@ class Workflow(grok.View):
     
     def wf(self):
         context = aq_inner(self.context)
-        return getToolByName(portal, 'portal_workflow')
+        return getToolByName(context, 'portal_workflow')
         
     def sendMail(self,subject,mailbody,send_to,send_to_bcc=[],sender=None,debug_mode=False):
         notify_encode = 'utf-8'
@@ -117,11 +117,13 @@ class Workflow(grok.View):
         """
 class ProjectWorkfow(Workflow):
     "接受前台ajax 事件，处理工作流，提交状态转换"
+    
+    grok.context(IProject)
     grok.name('workflow_ajax')
     
     def getChildrens(self,context):
         query = {'path': '/'.join(context.getPhysicalPath())}
-        brains = self.catalog(query)
+        brains = self.catalog()(query)
         return [brain for brain in brains if brain.id !=context.id]    
           
 
@@ -139,6 +141,8 @@ class ProjectWorkfow(Workflow):
         transition = "submit2%s" % actionid
         context = aq_inner(self.context)
         brains = self.getChildrens(context)
+#         import pdb
+#         pdb.set_trace()
         for bn in brains:
             try:
                 obj = bn.getObject()
@@ -148,8 +152,7 @@ class ProjectWorkfow(Workflow):
 
         try:
             self.wf().doActionFor(context, transition, comment=subject )
-            status_msgid = _p(actionid)
-            newstatus = self.context.translate(status_msgid)
+            newstatus = self.context.translate(_p(actionid))
             ajaxtext = u"%(project)s项目已成功切换到：<strong>%(status)s</strong>状态。" % ({"project":context.title,
                                                            "status":newstatus})
             callback = {"result":True,"status":newstatus,"message":ajaxtext}

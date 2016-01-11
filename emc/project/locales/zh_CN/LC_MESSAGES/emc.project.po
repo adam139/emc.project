@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: emc bokeh\n"
-"POT-Creation-Date: 2016-01-04 12:21+0000\n"
-"PO-Revision-Date: 2016-01-04 20:26+0800\n"
+"POT-Creation-Date: 2016-01-11 02:58+0000\n"
+"PO-Revision-Date: 2016-01-11 11:11+0800\n"
 "Last-Translator: adam <yuejun.tang@gmail.com>\n"
 "Language-Team: LANGUAGE <yuejun.tang@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -54,6 +54,10 @@ msgstr "电磁兼容设计师"
 #: ./behaviors/localroles.py:122
 msgid "EMC expert"
 msgstr "电磁兼容专家"
+
+#: ./browser/workflow_ajax.py:110
+msgid "Not able to send notifications"
+msgstr ""
 
 #: ./behaviors/localroles.py:33
 msgid "Product Designer"
@@ -155,6 +159,50 @@ msgstr "加密"
 #: ./vocabulary.py:14
 msgid "simulation"
 msgstr "仿真"
+
+#: ./browser/templates/project_view.pt:42
+msgid "submit comments"
+msgstr "工作流提交备注"
+
+#: ./browser/templates/project_view.pt:35
+msgid "submit to chuyang"
+msgstr "提交到C"
+
+#: ./browser/templates/project_view.pt:54
+msgid "submit to chuyang1"
+msgstr "提交到C1"
+
+#: ./browser/templates/project_view.pt:189
+msgid "submit to chuyang2"
+msgstr "提交到C2"
+
+#: ./browser/templates/project_view.pt:285
+msgid "submit to dingxing"
+msgstr "提交到D"
+
+#: ./browser/templates/project_view.pt:73
+msgid "submit to shiyang"
+msgstr "提交到S"
+
+#: ./browser/templates/project_view.pt:150
+msgid "submit to shiyang1"
+msgstr "提交到S1"
+
+#: ./browser/templates/project_view.pt:306
+msgid "submit to shiyang2"
+msgstr "提交到S2"
+
+#: ./browser/templates/project_view.pt:91
+msgid "submit to zhengyang"
+msgstr "提交到Z"
+
+#: ./browser/templates/project_view.pt:168
+msgid "submit to zhengyang1"
+msgstr "提交到Z1"
+
+#: ./browser/templates/project_view.pt:370
+msgid "submit to zhengyang2"
+msgstr "提交到Z2"
 
 #: ./behaviors/security_level.py:18
 #: ./behaviors/task_type.py:18
