@@ -2,6 +2,7 @@
 <object name="portal_workflow">
 		<object name="emc_project_workflow" meta_type="Workflow"/>
     <bindings>
+    	<default/>
     	    <type type_id="emc.project.project">
             <bound-workflow workflow_id="emc_project_workflow"/>
         </type>

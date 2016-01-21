@@ -24,6 +24,7 @@
         
   <browser:viewlet
     name="emc.project.reviewhistory"
+    for=" emc.project.indexer.IProjectContent" 
     manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
     class=".review_history.ReviewViewlet"
     layer="emc.theme.interfaces.IThemeSpecific"
