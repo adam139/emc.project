@@ -52,7 +52,7 @@
            	<strong><span tal:replace="python:context.title">title</span></strong>
            </h1>
        </div>
-
+<div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" />
        <div class="row">
        	<div class="col-xs-12">
         	
