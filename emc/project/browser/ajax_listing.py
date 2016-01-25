@@ -23,67 +23,17 @@ from collective.gtags.interfaces import ITagSettings
 from emc.project import viewReport
 grok.templatedir('templates') 
 
-class BaseView(grok.View):
-    "social organizations list page"
-    grok.context(Interface)
-    grok.template('ajax_listings')
-    grok.name('listview')
-    grok.require('zope2.View')    
-    
-
-#     def update(self):
-#         # Hide the editable-object border
-#         self.request.set('disable_border', True)
-
-    @memoize    
-    def catalog(self):
-        context = aq_inner(self.context)
-        pc = getToolByName(context, "portal_catalog")
-        return pc
-    
-    @memoize    
-    def pm(self):
-        context = aq_inner(self.context)
-        pm = getToolByName(context, "portal_membership")
-        return pm    
-            
-    @property
-    def isEditable(self):
-        return self.pm().checkPermission(permissions.ManagePortal,self.context) 
-
-    def tranVoc(self,value):
-        """ translate vocabulary value to title"""
-        translation_service = getToolByName(self.context,'translation_service')
-
-        title = translation_service.translate(
-                                                  value,
-                                                  domain='emc.project',
-                                                  mapping={},
-                                                  target_language='zh_CN',
-                                                  context=self.context,
-                                                  default="")
-        return title   
-        
-    def fromid2title(self,id):
-        """根据对象id，获得对象title"""
        
-        
-        brains = self.catalog()({'id':id})
-        if len(brains) >0:
-            return brains[0].Title
-        else:
-            return id
-        
 
 
 class ajaxListingView(BrowserView):
     """
     AJAX 查询，返回分页结果
     """
-#     grok.context(Interface)
-#     grok.template('ajax_listings')
-#     grok.name('ajax_listings')
-     
+    grok.context(Interface)
+    grok.template('ajax_listings_novocabulary')
+    grok.name('ajax_listings')
+    grok.require('zope2.View')     
 #     def update(self):
 #         # Hide the editable-object border
 #         self.request.set('disable_border', True)                
@@ -102,24 +52,53 @@ class ajaxListingView(BrowserView):
     
     def splitTag(self,value):
             """Split a tag into (category, tag) parts. category may be None.
+            input: value like abc-a1 or a1
+            output:dict like  {'category':abc,'value':a1}
             """
-            parts = value.split("-")        
+            parts = value.split("-")
+            output = {'category':'','value':''}        
     
             if len(parts) == 1:
-                return value
+                output['value'] = value
+                return output
             else:
-                return parts[1:][0]
-    
-        
-    def getAllTags(self):
-        """fetch system all predefine tags"""
+                output['category'] = parts[0]
+                output['value'] = parts[1]
+                return output
+            
+    def getTagregistryProxy(self):
         settings = getUtility(IRegistry).forInterface(ITagSettings)
-        if settings.tags ==None:return None
-#         source = TagsSourceBinder(allow_uncommon=False)
-        tags = [self.splitTag(value) for value in settings.tags if value != ""]
-        tags.sort()
-        return tags
-    def getAllTagsHtml(self):
+        return settings.tags
+    
+    def getTagGroups(self):
+        "fetch all tag groups ,it is category part of 'category-value'" 
+        tagsets = self.getTagregistryProxy()
+        if tagsets ==None:return None
+#         import pdb
+#         pdb.set_trace()
+        groups = set(self.splitTag(value)['category'] for value in tagsets if value != "")
+        groups = list(groups)
+        groups.sort()
+        return groups           
+    
+    def getAllTags(self,category):
+        """fetch all predefine  tags under the specify category"""
+        tagsets = self.getTagregistryProxy()
+#         import pdb
+#         pdb.set_trace()
+        out = []
+        if tagsets ==None:return None
+        for value in tagsets:
+            if value == '':continue
+            if self.splitTag(value)['category'] != category:
+                continue
+            else:
+              out.append(self.splitTag(value)['value']) 
+        out.sort()              
+        return out
+            
+
+    def getTagHtml(self,category):
         """
                         <span data-name="1"><a href="javascript:void(0)">分析</a></span>
                         <span data-name="2"><a href="javascript:void(0)">设计</a></span>
@@ -129,15 +108,42 @@ class ajaxListingView(BrowserView):
         """
         out = ""
         i = 1
-        tags = self.getAllTags()
+        tags = self.getAllTags(category)
+#         import pdb
+#         pdb.set_trace()
         if tags == None: return "no any tag"
-        for tag in self.getAllTags():
+        for tag in tags:
             num = str(i)                       
             out2 = """<span data-name="%s"><a class="btn btn-default" href="javascript:void(0)" role="button">%s</a></span>""" % (num,tag)
             out = "%s%s" %(out,out2)
             i = i + 1
         return out    
     
+    def getAllTagsHtml(self):
+        "output all tag groups html"
+        groups = self.getTagGroups()
+#         i= 0
+        out = ""
+        prefix = """
+                    <ul class="row list-inline tagSelectSearch">                    
+                    <li class="title">按%s：</li>
+                    <li class="all">
+                        <span class="over" data-name="0"><a class="btn btn-default" href="javascript:void(0)" role="button">所有</a></span><!-- 所有 -->
+                    </li>
+                    <li class="tag_list_div fenlei_a">
+        """
+        postfix = "</li></ul>"
+        for group in groups:
+#             import pdb
+#             pdb.set_trace()
+#             i = i + 1
+            prefixing = prefix % (group)
+            loopitem = self.getTagHtml(group)
+            loopitem = "%s%s%s" % (prefixing,loopitem,postfix)
+            out = "%s%s" % (out,loopitem)
+        return out                                  
+        
+         
     def canbeRead(self):
 #        status = self.workflow_state()
 # checkPermission function must be use Title style permission
@@ -195,13 +201,7 @@ class ajaxListingView(BrowserView):
             return "secret"
          
     def search_multicondition(self,query):  
-        return self.catalog()(query)        
-
-   
-
-
-
-        
+        return self.catalog()(query)
 
  # ajax multi-condition search       
 class ajaxsearch(grok.View):
@@ -269,7 +269,11 @@ class ajaxsearch(grok.View):
 #         import pdb
 #         pdb.set_trace()
         if tag !=all and tag !="0":
-            rule = {"query":tag,"operator":"or"}
+#             import pdb
+#             pdb.set_trace()
+            tag = tag.split(',')
+            if '0' in tag:tag.remove('0')
+            rule = {"query":tag,"operator":"and"}
             origquery['Subject'] = rule
                       
 #totalquery  search all 
