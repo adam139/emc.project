@@ -42,8 +42,12 @@ function closeSearchEventsDiv(flag) {
     }
     else if (flag == 4) {
         $("#tagSearch").val("0");
-        $(".tagSelectSearch li> .over").removeClass("over");
-        $(".tagSelectSearch").find("li span[data-name='0']").addClass("over");
+        $(".tagSelectSearch").each(function(){
+        	$(this).find("li> .over").removeClass("over");
+        }); 
+        $(".tagSelectSearch").each(function(){
+    	$(this).find("li span[data-name='0']").addClass("over");
+    	$(this).find(".hidden input").val("0");});
         searchEvent();
     }    
 }

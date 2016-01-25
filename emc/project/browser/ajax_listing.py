@@ -63,10 +63,12 @@ class ajaxListingView(BrowserView):
                 output['value'] = parts[1]
                 return output
             
+    @memoize
     def getTagregistryProxy(self):
         settings = getUtility(IRegistry).forInterface(ITagSettings)
         return settings.tags
     
+    @memoize
     def getTagGroups(self):
         "fetch all tag groups ,it is category part of 'category-value'" 
         tagsets = self.getTagregistryProxy()
@@ -114,6 +116,7 @@ class ajaxListingView(BrowserView):
             i = i + 1
         return out    
     
+    @memoize
     def getAllTagsHtml(self):
         "output all tag groups html"
         groups = self.getTagGroups()
@@ -132,9 +135,7 @@ class ajaxListingView(BrowserView):
         """
         postfix = "</li></ul>"
         for group in groups:
-#             import pdb
-#             pdb.set_trace()
-#             i = i + 1
+
             prefixing = prefix % (group)
             loopitem = self.getTagHtml(group)
             loopitem = "%s%s%s" % (prefixing,loopitem,postfix)
@@ -242,8 +243,8 @@ class ajaxsearch(grok.View):
         start = int(datadic['start']) # batch search start position
         datekey = int(datadic['datetype'])  # 对应 最近一周，一月，一年……
         size = int(datadic['size'])      # batch search size          
-        securitykey = int(datadic['security'])  #密级属性：公开/内部/机密
-        tasktypekey = int(datadic['type']) #任务类型属性：分析/设计/实验/仿真/培训 
+#         securitykey = int(datadic['security'])  #密级属性：公开/内部/机密
+#         tasktypekey = int(datadic['type']) #任务类型属性：分析/设计/实验/仿真/培训 
         tag = datadic['tag'].strip()
         sortcolumn = datadic['sortcolumn']
         sortdirection = datadic['sortdirection']
@@ -257,12 +258,12 @@ class ajaxsearch(grok.View):
         if keyword != "":
             origquery['SearchableText'] = '*'+keyword+'*'        
 
-        if securitykey != 0:
-            origquery['security_level'] = searchview.getSecurityLevel(securitykey)
+#         if securitykey != 0:
+#             origquery['security_level'] = searchview.getSecurityLevel(securitykey)
         if datekey != 0:
             origquery['created'] = self.Datecondition(datekey)           
-        if tasktypekey != 0:
-            origquery['task_type'] = searchview.getTaskType(tasktypekey)
+#         if tasktypekey != 0:
+#             origquery['task_type'] = searchview.getTaskType(tasktypekey)
         all = u"所有".encode("utf-8")
 #         import pdb
 #         pdb.set_trace()
