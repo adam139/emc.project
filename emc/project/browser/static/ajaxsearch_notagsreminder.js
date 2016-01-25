@@ -6,7 +6,7 @@ function closeEventMore() {
 
 function innerMoreArea() {        
      var action = $("#ajaxmorearea").attr('data-ajax-target');
-     var senddata = {"demo":2}	;
+     var senddata = {"demo":2};
      $.post(action, 
            senddata,
            function(data) {
@@ -50,7 +50,7 @@ function closeSearchEventsDiv(flag) {
 
 // base lib
 function searchEventParent() {
-    searchEvent()
+    searchEvent();
 }
 // read query string
 $.extend({
@@ -80,7 +80,11 @@ var searchEvent = function(jumpPage, rows, initKeyword) {
     var dateSearchType = $("#dateSearch").val();
     var level = $("#securityLevelSearch").val();
     var categoryId = $("#categorySearch").val();
-    var tagId = $("#tagSearch").val();     
+    
+    // this is list value
+    var tagId = "0";   
+    var tagvalues = $("#taggroups input").each(function(){
+    	tagId = tagId + "," + $(this).val();});    
     var sortColumn = $("#solrSortColumn").val();    
     var sortDirection = $("#solrSortDirection").val();
         
@@ -356,9 +360,11 @@ $(document).ready(function(){
       if ($(this).attr("class") == "title" || $(this).attr("class") == "more") {} else 
                     {
                     $(this).parent().parent().find(".over").removeClass("over");
+                    var newval = $(this).find("a").html();
+                    $(this).parent().parent().find("input").attr("value",newval);
                     $(this).addClass("over");
-                    var old = $("#tagSearch").val();
-                    var newval = old + ',' +  $(this).find("a").html();
+                    //var old = $("#tagSearch").val();
+                    
                     $("#tagSearch").attr("value",newval );
                     searchEvent();
                 }

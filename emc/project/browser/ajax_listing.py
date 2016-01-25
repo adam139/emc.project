@@ -30,10 +30,7 @@ class ajaxListingView(BrowserView):
     """
     AJAX 查询，返回分页结果
     """
-    grok.context(Interface)
-    grok.template('ajax_listings_novocabulary')
-    grok.name('ajax_listings')
-    grok.require('zope2.View')     
+   
 #     def update(self):
 #         # Hide the editable-object border
 #         self.request.set('disable_border', True)                
@@ -102,9 +99,7 @@ class ajaxListingView(BrowserView):
         """
                         <span data-name="1"><a href="javascript:void(0)">分析</a></span>
                         <span data-name="2"><a href="javascript:void(0)">设计</a></span>
-                        <span data-name="3"><a href="javascript:void(0)">实验</a></span>
-                        <span data-name="4"><a href="javascript:void(0)">仿真</a></span> 
-                        <span data-name="5"><a href="javascript:void(0)">培训</a></span>  
+
         """
         out = ""
         i = 1
@@ -125,8 +120,11 @@ class ajaxListingView(BrowserView):
 #         i= 0
         out = ""
         prefix = """
-                    <ul class="row list-inline tagSelectSearch">                    
+                    <ul class="row tagSelectSearch list-inline">                    
                     <li class="title">按%s：</li>
+                    <li class="hidden">
+                        <input type="hidden" value="0" class="taggroup">                            
+                    </li>                    
                     <li class="all">
                         <span class="over" data-name="0"><a class="btn btn-default" href="javascript:void(0)" role="button">所有</a></span><!-- 所有 -->
                     </li>
@@ -272,9 +270,14 @@ class ajaxsearch(grok.View):
 #             import pdb
 #             pdb.set_trace()
             tag = tag.split(',')
-            if '0' in tag:tag.remove('0')
-            rule = {"query":tag,"operator":"and"}
-            origquery['Subject'] = rule
+            # remove repeat values            
+            tag = set(tag)            
+            tag = list(tag)
+            if all in tag:tag.remove(all)
+            if '0' in tag and len(tag) > 1:
+                tag.remove('0')
+                rule = {"query":tag,"operator":"and"}
+                origquery['Subject'] = rule
                       
 #totalquery  search all 
         totalquery = origquery.copy()

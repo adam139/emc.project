@@ -15,42 +15,35 @@
 <body>
 	<div metal:fill-slot="main">
 		<div id="ajaxsearch" style="display: none" tal:attributes="data-ajax-target python:context.absolute_url() + '/@@ajaxsearch'"></div>
-
-		<!--			
-    	<metal:block use-macro="context/@@emc-project-macros/macros/action-bar-macro"/> -->
-        <!--左边内容-->
-        <div class="container">
-            <!--搜索框、搜索条件选择-->
-      		<div class="row ajaxsearch">
-      			<div class="form-group col-xs-9 col-sm-6 col-sm-offset-3">
-        			<input type="text"
-        	      onkeypress="if(event.keyCode==13) {searchEventParent();return false}" 
-        	      placeholder="输入关键词" 
-        	      name="SearchableText"
-        	      id="searchKeyword" 
-        	      class="form-control search-query">
-           </div>
-      		  <div id="search" class="col-sm-3 col-xs-3">
-      			  <button value="搜索" class="btn btn-default " type="submit">
-      				  <span class="glyphicon glyphicon-search"></span>
-      			  </button>
-      		  </div>
-			  </div>
-
-                <input type="hidden" value="0" id="dateSearch">
-                <input type="hidden" value="0" id="securityLevelSearch">
-                <input type="hidden" value="0" id="categorySearch">
-                <input type="hidden" value="0" id="tagSearch">                	                      	                
-                <input type="hidden" value="created" id="solrSortColumn">
-                <input type="hidden" value="reverse" id="solrSortDirection">                
-                <!-- 按日期： -->
-                <ul class="row" id="dateRangeSearchUl">
-                    <li class="title">按日期：</li>
-                    <li class="all">
-                        <span class="over" data-name="0"><a class="btn btn-default" href="javascript:void(0)" role="button">所有</a></span><!-- 所有 -->
-                    </li>
-                    <li class="list_span" class="fenlei_a">
-                    <span data-name="1">
+		<div class="container">
+			<div class="row ajaxsearch">
+				<div class="form-group col-xs-9 col-sm-6 col-sm-offset-3">
+					<input type="text"
+						onkeypress="if(event.keyCode==13) {searchEventParent();return false}"
+						placeholder="输入关键词"
+						name="SearchableText"
+						id="searchKeyword"
+						class="form-control search-query">
+				</div>
+				<div id="search" class="col-sm-3 col-xs-3">
+					<button value="搜索" class="btn btn-default " type="submit">
+						<span class="glyphicon glyphicon-search"></span>
+					</button>
+				</div>
+			</div>
+			<input type="hidden" value="0" id="dateSearch">
+			<input type="hidden" value="0" id="securityLevelSearch">
+			<input type="hidden" value="0" id="categorySearch">
+			<input type="hidden" value="0" id="tagSearch">
+			<input type="hidden" value="created" id="solrSortColumn">
+			<input type="hidden" value="reverse" id="solrSortDirection">
+			<ul class="row list-inline" id="dateRangeSearchUl">
+				<li class="title">按日期：</li>
+				<li class="all">
+					<span class="over" data-name="0"><a class="btn btn-default" href="javascript:void(0)" role="button">所有</a></span>
+				</li>
+				<li class="list_span" class="fenlei_a">
+					<span data-name="1">
                         <a class="btn btn-default" href="javascript:void(0)" role="button">最近一周</a><!-- 今天 -->
                     </span>
                     <span data-name="2">
@@ -59,13 +52,14 @@
                     <span data-name="3">
                         <a class="btn btn-default" href="javascript:void(0)" role="button">最近一年</a><!-- 7天内 -->
                     </span>
-                   </li>
-                </ul>
-
-				<!--按标签-->
-				<div id="taggroups" tal:content="structure python:view.getAllTagsHtml()">
-                <ul class="row tagSelectSearch">                	
+                 </li>
+               </ul>
+               <div id="taggroups" tal:content="structure python:view.getAllTagsHtml()">
+                <ul class="row list-inline tagSelectSearch">                	
                     <li class="title">按标签：</li>
+                    <li class="hidden">
+                    	<input type="hidden" value="0" class="taggroup">                    		
+                    </li>
                     <li class="all">
                         <span class="over" data-name="0"><a class="btn btn-default" href="javascript:void(0)" role="button">所有</a></span><!-- 所有 -->
                     </li>
@@ -77,19 +71,17 @@
                     	<span data-name="5"><a class="btn btn-default" href="javascript:void(0)" role="button">培训</a></span>                     	                   	
                     </li>                   
                 </ul>
-                </div>                
-
-            <!--搜索框、搜索条件选择 End-->
-            <!--搜索选择结果start-->
-            <div class="row">
-                <ul id="all_result_recordinfo" class="list-inline col-xs-12 col-sm-4 col-sm-offset-4">
+              </div><!--搜索框、搜索条件选择 End--><!--搜索选择结果start-->
+              <div class="row">
+              	<ul id="all_result_recordinfo" class="list-inline col-xs-12 col-sm-4 col-sm-offset-4">
                 	<li class="a">已选择：</li>
                 	<li id="searchresultinfor" class="info">的信息有“<span id="searchresult_count">0</span>”条！</li>
                 </ul>
-            </div>
+              </div>
             <!--搜索选择结果 End-->
             <!--搜索选择结果排序-->
-            <div class="row"><ul id="eventListSort" class="col-xs-12 col-sm-9 list-inline">
+            <div class="row">
+            	<ul id="eventListSort" class="col-xs-12 col-sm-9 list-inline">
                     <li><span>排序：</span></li><!-- 排序： -->                    
                     <li><a class="a" id="startTimestamp" href="javascript:void(0)">
                     	<span data-name="sortable_title" class="glyphicon glyphicon-arrow-up">标题</span>
@@ -102,36 +94,36 @@
                 <div class="col-xs-12 col-sm-3">
                 <ul id="fastPageList" class="pager">
                 	<li><a class="btn btn-default" href="javascript:void(0)" role="button"></a>
-                </li>
+                	</li>
                 	<li><span>1/16</span></li>
                 	<li><a class="btn btn-default" href="javascript:searchEvent(2,10)" role="button"></a>
-                </li>
+                	</li>
                 </ul>
-                </div>
-            </div>            
-<table class="row table table-striped table-bordered table-condensed listing">
-            		<thead>
-            			<tr data-toggle="tooltip" title="点击排序">
-            					<th class="col-md-1 text-center">序号</th>
-            					<th class="col-md-3 text-left">标题</th>
-            					<th class="col-md-7 text-left">摘要</th>
-            					<th class="col-md-1 text-center">日期</th>
-            				</tr>
-            			</thead>
-            			<tbody id="searchResultDiv">
-            				<tr>
-            					<td class="col-md-1">1</td>
-            					<td class="col-md-2">市宝庆商会</td>
-            					<td class="col-md-7">建设北路55号</td>
-            					<td class="col-md-2">2013-07-13</td>            					
-            				</tr>            				
-            			</tbody>            			
-            		</table>            
+               </div>
+            </div>
+            <table class="row table table-striped table-bordered table-condensed listing">
+            	<thead>
+            		<tr data-toggle="tooltip" title="点击排序">
+            			<th class="col-md-1 text-center">序号</th>
+            			<th class="col-md-3 text-left">标题</th>
+            			<th class="col-md-7 text-left">摘要</th>
+            			<th class="col-md-1 text-center">日期</th>
+            		</tr>
+            	</thead>
+            	<tbody id="searchResultDiv">
+            		<tr>
+            			<td class="col-md-1">1</td>
+            			<td class="col-md-2">市宝庆商会</td>
+            			<td class="col-md-7">建设北路55号</td>
+            			<td class="col-md-2">2013-07-13</td>
+            		</tr>
+            	</tbody>
+            </table>            
 					
             <!--搜索结果列表 End-->
             <!--分页-->
-           <nav class="row">          	
-            <ul id="bottomPageId" class="col-xs-11 pagination col-sm-3 center">
+           <nav class="text-center">          	
+            <ul id="bottomPageId" class="pagination">
             	<li><a class="page" href="javascript:void(0)">首页</a></li>
             	<li><a class="page" href="javascript:void(0)">上一页</a></li>
             	<li><a class="page_over num" href="#">1</a></li>
@@ -140,7 +132,7 @@
             	<li><a class="page" href="javascript:searchEvent(2,10)">下一页</a></li>
             	<li><a class="page" href="javascript:searchEvent(16,10)">末页</a></li>
             </ul>
-				  </nav>
+           </nav>
 		</div>
         <!--左边内容 End-->		
 	</div>

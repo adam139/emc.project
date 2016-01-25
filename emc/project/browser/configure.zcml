@@ -17,7 +17,7 @@
         
     <browser:page
         name="ajax_listings"
-        template="templates/ajax_listings.pt"
+        template="templates/ajax_listings_novocabulary.pt"
         for="*"
         permission="emc.project.view_projectsummary"
         class=".ajax_listing.ajaxListingView"/>
