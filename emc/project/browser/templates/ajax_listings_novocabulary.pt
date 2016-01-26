@@ -8,14 +8,13 @@
 <head>
       <metal:block fill-slot="top_slot">
         <tal:insert tal:replace="nothing"
-              tal:define="disable_column_one python:request.set('disable_plone.leftcolumn', 1);
-                          disable_column_two python:request.set('disable_plone.rightcolumn', 1);" />
+              tal:define="disable_column_two python:request.set('disable_plone.rightcolumn', 1)" />
       </metal:block>
   </head>
 <body>
 	<div metal:fill-slot="main">
 		<div id="ajaxsearch" style="display: none" tal:attributes="data-ajax-target python:context.absolute_url() + '/@@ajaxsearch'"></div>
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row ajaxsearch">
 				<div class="form-group col-xs-9 col-sm-6 col-sm-offset-3">
 					<input type="text"
@@ -81,7 +80,8 @@
             <!--搜索选择结果 End-->
             <!--搜索选择结果排序-->
             <div class="row">
-            	<ul id="eventListSort" class="col-xs-12 col-sm-9 list-inline">
+            	<div class="col-xs-12 col-sm-6">
+            	<ul id="eventListSort" class="pager">
                     <li><span>排序：</span></li><!-- 排序： -->                    
                     <li><a class="a" id="startTimestamp" href="javascript:void(0)">
                     	<span data-name="sortable_title" class="glyphicon glyphicon-arrow-up">标题</span>
@@ -90,8 +90,9 @@
                     	<span data-name="created" class="glyphicon glyphicon-arrow-up">时间</span>
                     	</a></li>
                 </ul>
+                </div>
                 <!--快速翻页-->
-                <div class="col-xs-12 col-sm-3">
+                <div class="col-xs-12 col-sm-6">
                 <ul id="fastPageList" class="pager">
                 	<li><a class="btn btn-default" href="javascript:void(0)" role="button"></a>
                 	</li>

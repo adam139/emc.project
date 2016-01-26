@@ -1,4 +1,4 @@
-<div class="reviewHistory col-md-12"
+<div class="reviewHistory"
      id="review-history"
      i18n:domain="plone"
      tal:define="history view/workflowHistory;">

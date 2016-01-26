@@ -328,7 +328,7 @@ $(document).ready(function(){
                $("#searchKeyword").val(byName2);    
                searchEvent();
     }
-
+	$("#search").on("click","button",function(){ searchEvent();});
     $("#dateRangeSearchUl li").on("click","span",function() {        
                  if ($(this).attr("class") == "title") {} else {
                     $("#dateRangeSearchUl li> .over").removeClass("over");
