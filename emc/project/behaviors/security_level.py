@@ -15,7 +15,7 @@ from emc.project import _
 class ISecurityLevel(model.Schema):
 
     security_level = schema.Choice(
-        title=_(u"task type"),
+        title=_(u"security level"),
         vocabulary="emc.project.vocabulary.securitylevel",
         default ="public"
     )
