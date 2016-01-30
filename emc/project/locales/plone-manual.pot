@@ -54,40 +54,50 @@ msgstr ""
 msgid "DeputyChiefDesigner"
 msgstr ""
 
-#workflow status
-
-msgid "chuyang"
+#workflow  transition
+msgid "Submit to dingxing"
+msgstr ""
+msgid "Submit to zhengyang2"
+msgstr ""
+msgid "Submit to zhengyang1"
+msgstr ""
+msgid "Submit to zhengyang"
+msgstr ""
+msgid "Submit to shiyang2"
+msgstr ""
+msgid "Submit to shiyang1"
+msgstr ""
+msgid "Submit to shiyang"
+msgstr ""
+msgid "Submit to chuyang"
+msgstr ""
+msgid "Submit to chuyang1"
+msgstr ""
+msgid "Submit to chuyang2"
+msgstr ""
+msgid "Submit to fangan"
 msgstr ""
 
-msgid "chuyang1"
+#workflow  status
+msgid "FangAn"
 msgstr ""
-
-
-msgid "chuyang2"
+msgid "ChuYang"
 msgstr ""
-
-
-msgid "fangan"
+msgid "ChuYang1"
 msgstr ""
-
-msgid "shiyang"
+msgid "ChuYang2"
 msgstr ""
-
-msgid "shiyang1"
+msgid "ShiYang"
 msgstr ""
-
-msgid "shiyang2"
+msgid "ShiYang1"
 msgstr ""
-
-msgid "zhengyang"
+msgid "ShiYang2"
 msgstr ""
-
-msgid "zhengyang1"
+msgid "ZhengYang"
 msgstr ""
-
-msgid "zhengyang2"
+msgid "ZhengYang1"
 msgstr ""
-
-msgid "dingxing"
+msgid "ZhengYang2"
 msgstr ""
-
+msgid "DingXing"
+msgstr ""

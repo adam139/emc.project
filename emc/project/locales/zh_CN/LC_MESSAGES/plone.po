@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xtshzz.policy\n"
-"POT-Creation-Date: 2016-01-11 00:57+0000\n"
+"POT-Creation-Date: 2015-02-14 00:52+0000\n"
 "PO-Revision-Date: 2015-02-14 09:20+0800\n"
 "Last-Translator: adam <yuejun.tang@gmail.com>\n"
 "Language-Team: 315ok.org <LL@li.org>\n"
@@ -14,7 +14,6 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 
-
 msgid "ChiefDesigner"
 msgstr "总设计师"
 
@@ -22,7 +21,15 @@ msgstr "总设计师"
 msgid "ChiefQE"
 msgstr "总质量师"
 
-#: ./behaviors/localroles.py:41
+msgid "ChuYang"
+msgstr "C"
+
+msgid "ChuYang1"
+msgstr "C1"
+
+msgid "ChuYang2"
+msgstr "C2"
+
 msgid "Commander"
 msgstr "总指挥"
 
@@ -41,6 +48,9 @@ msgstr "副总指挥"
 msgid "Designer"
 msgstr "产品设计师"
 
+msgid "DingXing"
+msgstr "D"
+
 msgid "DispatchStaff"
 msgstr "计划调度人员"
 
@@ -50,42 +60,64 @@ msgstr "电磁兼容设计师"
 msgid "EMCExpert"
 msgstr "电磁兼容专家"
 
+msgid "FangAn"
+msgstr "M"
+
 msgid "ProcessStaff"
 msgstr "工艺师"
 
 msgid "QualityManageStaff"
 msgstr "质量管理人员"
 
-msgid "chuyang"
-msgstr "C"
-
-msgid "chuyang1"
-msgstr "C1"
-
-msgid "chuyang2"
-msgstr "C2"
-
-msgid "dingxing"
-msgstr "D"
-
-msgid "fangan"
-msgstr "M"
-
-msgid "shiyang"
+msgid "ShiYang"
 msgstr "S"
 
-msgid "shiyang1"
+msgid "ShiYang1"
 msgstr "S1"
 
-msgid "shiyang2"
+msgid "ShiYang2"
 msgstr "S2"
 
-msgid "zhengyang"
+msgid "Submit to chuyang"
+msgstr "提交到C"
+
+msgid "Submit to chuyang1"
+msgstr "提交到C1"
+
+msgid "Submit to chuyang2"
+msgstr "提交到C2"
+
+# workflow  transition
+msgid "Submit to dingxing"
+msgstr "提交到D"
+
+msgid "Submit to fangan"
+msgstr "提交到M"
+
+msgid "Submit to shiyang"
+msgstr "提交到S"
+
+msgid "Submit to shiyang1"
+msgstr "提交到S1"
+
+msgid "Submit to shiyang2"
+msgstr "提交到S2"
+
+msgid "Submit to zhengyang"
+msgstr "提交到Z"
+
+msgid "Submit to zhengyang1"
+msgstr "提交到Z1"
+
+msgid "Submit to zhengyang2"
+msgstr "提交到Z2"
+
+msgid "ZhengYang"
 msgstr "Z"
 
-msgid "zhengyang1"
+msgid "ZhengYang1"
 msgstr "Z1"
 
-msgid "zhengyang2"
+msgid "ZhengYang2"
 msgstr "Z2"
 

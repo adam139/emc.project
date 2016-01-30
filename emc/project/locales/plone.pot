@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xtshzz.policy\n"
-"POT-Creation-Date: 2016-01-11 00:57+0000\n"
+"POT-Creation-Date: 2015-02-14 00:52+0000\n"
 "PO-Revision-Date: 2015-02-14 09:20+0800\n"
 "Last-Translator: adam <yuejun.tang@gmail.com>\n"
 "Language-Team: 315ok.org <LL@li.org>\n"
@@ -14,231 +14,90 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 
-#: ./behaviors/richtext.py:19
-msgid "Brief Report"
-msgstr ""
-
-#: ./behaviors/localroles.py:57
-msgid "Chief Designer"
-msgstr ""
-
-#: ./behaviors/localroles.py:73
-msgid "Chief quality engineer"
-msgstr ""
-
-msgid "ChiefDesigner"
-msgstr ""
-
 #: rolemap.xml
 msgid "ChiefQE"
-msgstr ""
-
-#: ./behaviors/localroles.py:41
-msgid "Commander"
-msgstr ""
-
-#: ./behaviors/localroles.py:65
-msgid "Deputy Chief Designer"
-msgstr ""
-
-#: ./behaviors/localroles.py:89
-msgid "Deputy Chief Process"
-msgstr ""
-
-#: ./behaviors/localroles.py:81
-msgid "Deputy Chief quality engineer"
-msgstr ""
-
-#: ./behaviors/localroles.py:49
-msgid "Deputy Commander"
-msgstr ""
-
-msgid "DeputyChiefDesigner"
-msgstr ""
-
-msgid "DeputyChiefProcess"
 msgstr ""
 
 msgid "DeputyChiefQE"
 msgstr ""
 
-msgid "DeputyCommander"
-msgstr ""
-
-msgid "Designer"
-msgstr ""
-
-msgid "DispatchStaff"
-msgstr ""
-
-#: ./behaviors/localroles.py:25
-msgid "EMC Designer"
-msgstr ""
-
-#: ./behaviors/localroles.py:122
-msgid "EMC expert"
-msgstr ""
-
-msgid "EMCDesigner"
-msgstr ""
-
-msgid "EMCExpert"
-msgstr ""
-
-#: ./browser/workflow_ajax.py:110
-msgid "Not able to send notifications"
+msgid "DeputyChiefProcess"
 msgstr ""
 
 msgid "ProcessStaff"
 msgstr ""
 
-#: ./behaviors/localroles.py:33
-msgid "Product Designer"
-msgstr ""
-
 msgid "QualityManageStaff"
 msgstr ""
 
-#: ./behaviors/localroles.py:130
-msgid "The first members"
+msgid "DispatchStaff"
+msgstr ""
+ 
+msgid "EMCExpert"
+msgstr "" 
+
+msgid "EMCDesigner"
 msgstr ""
 
-#: ./behaviors/localroles.py:135
-msgid "The second members"
+msgid "Designer"
 msgstr ""
 
-#: ./behaviors/localroles.py:141
-msgid "The third members"
+msgid "Commander"
 msgstr ""
 
-#: ./behaviors/localroles.py:26
-msgid "User id"
+msgid "DeputyCommander"
 msgstr ""
 
-#: ./vocabulary.py:11
-msgid "analysis"
+msgid "ChiefDesigner"
 msgstr ""
 
-# workflow status
-msgid "chuyang"
+msgid "DeputyChiefDesigner"
 msgstr ""
 
-msgid "chuyang1"
+#workflow  transition
+msgid "Submit to dingxing"
+msgstr ""
+msgid "Submit to zhengyang2"
+msgstr ""
+msgid "Submit to zhengyang1"
+msgstr ""
+msgid "Submit to zhengyang"
+msgstr ""
+msgid "Submit to shiyang2"
+msgstr ""
+msgid "Submit to shiyang1"
+msgstr ""
+msgid "Submit to shiyang"
+msgstr ""
+msgid "Submit to chuyang"
+msgstr ""
+msgid "Submit to chuyang1"
+msgstr ""
+msgid "Submit to chuyang2"
+msgstr ""
+msgid "Submit to fangan"
 msgstr ""
 
-msgid "chuyang2"
+#workflow  status
+msgid "FangAn"
 msgstr ""
-
-#: ./vocabulary.py:12
-msgid "design"
+msgid "ChuYang"
 msgstr ""
-
-msgid "dingxing"
+msgid "ChuYang1"
 msgstr ""
-
-#: ./behaviors/localroles.py:113
-msgid "dispatch staff"
+msgid "ChuYang2"
 msgstr ""
-
-#: ./vocabulary.py:15
-msgid "experiment"
+msgid "ShiYang"
 msgstr ""
-
-msgid "fangan"
+msgid "ShiYang1"
 msgstr ""
-
-#: ./behaviors/belowcontentfile.py:18
-msgid "help_attachfile"
+msgid "ShiYang2"
 msgstr ""
-
-#: ./vocabulary.py:29
-msgid "inner"
+msgid "ZhengYang"
 msgstr ""
-
-#. Default: "attach file below content body"
-#: ./behaviors/belowcontentfile.py:17
-msgid "label_attachfile"
+msgid "ZhengYang1"
 msgstr ""
-
-#. Default: "effective"
-#: ./browser/templates/review_history.pt:58
-msgid "label_publishing_effective"
+msgid "ZhengYang2"
 msgstr ""
-
-#. Default: "Action"
-#: ./browser/templates/review_history.pt:23
-msgid "listingheader_action"
+msgid "DingXing"
 msgstr ""
-
-#. Default: "Comment"
-#: ./browser/templates/review_history.pt:26
-msgid "listingheader_comment"
-msgstr ""
-
-#. Default: "Date and Time"
-#: ./browser/templates/review_history.pt:25
-msgid "listingheader_date_and_time"
-msgstr ""
-
-#. Default: "Performed by"
-#: ./browser/templates/review_history.pt:24
-msgid "listingheader_performed_by"
-msgstr ""
-
-#. Default: "No comments."
-#: ./browser/templates/review_history.pt:68
-msgid "no_comments"
-msgstr ""
-
-#: ./behaviors/localroles.py:97
-msgid "process staff"
-msgstr ""
-
-#: ./vocabulary.py:28
-msgid "public"
-msgstr ""
-
-#: ./behaviors/localroles.py:105
-msgid "quality manage staff"
-msgstr ""
-
-#: ./vocabulary.py:30
-msgid "secret"
-msgstr ""
-
-msgid "shiyang"
-msgstr ""
-
-msgid "shiyang1"
-msgstr ""
-
-msgid "shiyang2"
-msgstr ""
-
-#: ./vocabulary.py:14
-msgid "simulation"
-msgstr ""
-
-#. Default: "Review History"
-#: ./browser/templates/review_history.pt:19
-msgid "summary_review_history"
-msgstr ""
-
-#: ./behaviors/security_level.py:18
-#: ./behaviors/task_type.py:18
-msgid "task type"
-msgstr ""
-
-#: ./vocabulary.py:13
-msgid "train"
-msgstr ""
-
-msgid "zhengyang"
-msgstr ""
-
-msgid "zhengyang1"
-msgstr ""
-
-msgid "zhengyang2"
-msgstr ""
-
