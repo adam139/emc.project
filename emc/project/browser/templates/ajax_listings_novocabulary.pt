@@ -114,8 +114,8 @@
             	<tbody id="searchResultDiv">
             		<tr>
             			<td class="col-md-1">1</td>
-            			<td class="col-md-2">市宝庆商会</td>
-            			<td class="col-md-7">建设北路55号</td>
+            			<td class="col-md-2">这是标题</td>
+            			<td class="col-md-7">这是摘要</td>
             			<td class="col-md-2">2013-07-13</td>
             		</tr>
             	</tbody>
