@@ -138,7 +138,12 @@ class ProjectWorkfow(Workflow):
         subject = data['subject']
         #workflow transition id
         actionid = data['actionid']
-        transition = "submit2%s" % actionid
+        actiontype = data['actiontype']
+        if actiontype == 'submit':
+            transition = "submit2%s" % actionid
+        else:
+            transition = "retract2%s" % actionid
+            
         context = aq_inner(self.context)
         brains = self.getChildrens(context)
 #         import pdb

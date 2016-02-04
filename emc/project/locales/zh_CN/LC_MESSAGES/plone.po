@@ -69,6 +69,36 @@ msgstr "工艺师"
 msgid "QualityManageStaff"
 msgstr "质量管理人员"
 
+msgid "Retract to chuyang"
+msgstr "回退到C"
+
+msgid "Retract to chuyang1"
+msgstr "回退到C1"
+
+msgid "Retract to chuyang2"
+msgstr "回退到C2"
+
+msgid "Retract to fangan"
+msgstr "回退到M"
+
+msgid "Retract to shiyang"
+msgstr "回退到S"
+
+msgid "Retract to shiyang1"
+msgstr "回退到S1"
+
+msgid "Retract to shiyang2"
+msgstr "回退到S2"
+
+msgid "Retract to zhengyang"
+msgstr "回退到Z"
+
+msgid "Retract to zhengyang1"
+msgstr "回退到Z1"
+
+msgid "Retract to zhengyang2"
+msgstr "回退到Z2"
+
 msgid "ShiYang"
 msgstr "S"
 
@@ -119,5 +149,38 @@ msgid "ZhengYang1"
 msgstr "Z1"
 
 msgid "ZhengYang2"
+msgstr "Z2"
+
+msgid "chuyang"
+msgstr "C"
+
+msgid "chuyang1"
+msgstr "C1"
+
+msgid "chuyang2"
+msgstr "C2"
+
+msgid "dingxing"
+msgstr "D"
+
+msgid "fangan"
+msgstr "M"
+
+msgid "shiyang"
+msgstr "S"
+
+msgid "shiyang1"
+msgstr "S1"
+
+msgid "shiyang2"
+msgstr "S2"
+
+msgid "zhengyang"
+msgstr "Z"
+
+msgid "zhengyang1"
+msgstr "Z1"
+
+msgid "zhengyang2"
 msgstr "Z2"
 

@@ -16,9 +16,7 @@
   	 <element value="emc.project.analysisDoc" />
   	 <element value="emc.project.auditDoc" />
   	 <element value="emc.project.designDoc" />
-  	 <element value="emc.project.diagnoseDoc" />
-
-  	   	   	   
+  	 <element value="emc.project.diagnoseDoc" />  	   	   	   
   </property>
   <property name="allow_discussion">False</property>
 
@@ -33,6 +31,7 @@
      <element value="plone.app.content.interfaces.INameFromTitle" />
      <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
      <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>
+     <element value="emc.project.behaviors.localroles.Ilocalroles" />     
      <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
   	 <element value="emc.memberArea.interfaces.IFavoriting" />
   	 <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation"/>              
