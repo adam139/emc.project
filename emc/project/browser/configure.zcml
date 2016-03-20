@@ -2,7 +2,9 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:z3c="http://namespaces.zope.org/z3c"  
-    i18n_domain="emc.project">
+    i18n_domain="plone">
+    
+	<include package="plone.app.contentmenu" />    
 
   <!-- Register static resource directory -->
 	<browser:resourceDirectory
@@ -14,14 +16,145 @@
         for="*"
         permission="zope2.View"
         class=".macros.Macros"/>
+
+  <!-- VIEWS FOR PROJECT -->
+  <browser:pages
+      for="emc.project.content.project.IProject"
+      class="plone.app.contenttypes.browser.folder.FolderView"
+      layer="plone.app.contenttypes.interfaces.IPloneAppContenttypesLayer"
+      permission="emc.project.view_project">
+    <browser:page
+        name="listing_view"
+        template="templates/listing.pt"
+        menu="plone_displayviews"
+        title="Standard view"
+        />
+    <browser:page
+        name="summary_view"
+        template="templates/listing_summary.pt"
+        menu="plone_displayviews"
+        title="Summary view"
+        />
+    <browser:page
+        name="tabular_view"
+        template="templates/listing_tabular.pt"
+        menu="plone_displayviews"
+        title="Tabular view"
+        />
+    <browser:page
+        name="full_view"
+        template="templates/full_view.pt"
+        menu="plone_displayviews"
+        title="All content"
+        />
+    <browser:page
+        name="album_view"
+        template="templates/listing_album.pt"
+        menu="plone_displayviews"
+        title="Album view"
+        />
+  </browser:pages>
+    <browser:page
+        name="view"
+        template="templates/project_view.pt"
+        for="emc.project.content.project.IProject"
+        permission="emc.project.view_project"
+        class=".project_view.ProjectView"
+        menu="plone_displayviews"
+        title="Status view"/>
         
     <browser:page
         name="ajax_listings"
         template="templates/ajax_listings_novocabulary.pt"
         for="*"
         permission="emc.project.view_projectsummary"
-        class=".ajax_listing.ajaxListingView"/>
-        
+        class=".ajax_listing.ajaxListingView"
+        menu="plone_displayviews"
+        title="Ajax view"/>  
+  <!-- VIEWS FOR TEAM -->
+  <browser:pages
+      for="emc.project.content.team.ITeam"
+      class="plone.app.contenttypes.browser.folder.FolderView"
+      layer="plone.app.contenttypes.interfaces.IPloneAppContenttypesLayer"
+      permission="emc.project.view_team">
+    <browser:page
+        name="listing_view"
+        template="templates/listing.pt"
+        menu="plone_displayviews"
+        title="Standard view"
+        />
+    <browser:page
+        name="summary_view"
+        template="templates/listing_summary.pt"
+        menu="plone_displayviews"
+        title="Summary view"
+        />
+    <browser:page
+        name="tabular_view"
+        template="templates/listing_tabular.pt"
+        menu="plone_displayviews"
+        title="Tabular view"
+        />
+    <browser:page
+        name="full_view"
+        template="templates/full_view.pt"
+        menu="plone_displayviews"
+        title="All content"
+        />
+    <browser:page
+        name="album_view"
+        template="templates/listing_album.pt"
+        menu="plone_displayviews"
+        title="Album view"
+        />
+  </browser:pages>        
+    <browser:page
+        name="view"
+        template="templates/team_view.pt"
+        for="emc.project.content.team.ITeam"
+        permission="emc.project.view_team"
+        class=".team_view.TeamView"
+        menu="plone_displayviews"
+        title="Status view"/>        
+
+  <!-- VIEWS FOR projectfolder -->
+  <browser:pages
+      for="emc.project.content.projectfolder.IProjectFolder"
+      class="plone.app.contenttypes.browser.folder.FolderView"
+      layer="plone.app.contenttypes.interfaces.IPloneAppContenttypesLayer"
+      permission="emc.project.view_team">
+    <browser:page
+        name="listing_view"
+        template="templates/listing.pt"
+        menu="plone_displayviews"
+        title="Standard view"
+        />
+    <browser:page
+        name="summary_view"
+        template="templates/listing_summary.pt"
+        menu="plone_displayviews"
+        title="Summary view"
+        />
+    <browser:page
+        name="tabular_view"
+        template="templates/listing_tabular.pt"
+        menu="plone_displayviews"
+        title="Tabular view"
+        />
+    <browser:page
+        name="full_view"
+        template="templates/full_view.pt"
+        menu="plone_displayviews"
+        title="All content"
+        />
+    <browser:page
+        name="album_view"
+        template="templates/listing_album.pt"
+        menu="plone_displayviews"
+        title="Album view"
+        />
+  </browser:pages>        
+
   <browser:viewlet
     name="emc.project.reviewhistory"
     for=" emc.project.indexer.IProjectContent" 
@@ -29,5 +162,5 @@
     class=".review_history.ReviewViewlet"
     layer="emc.theme.interfaces.IThemeSpecific"
     permission="zope2.View"
-/>                   
+	/>                   
 </configure>

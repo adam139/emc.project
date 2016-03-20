@@ -184,3 +184,12 @@ msgstr "Z1"
 msgid "zhengyang2"
 msgstr "Z2"
 
+msgid "Status view"
+msgstr "状态视图"
+
+msgid "Ajax view"
+msgstr "Ajax视图"
+
+msgid "ModificationDate"
+msgstr "修改时间"
+

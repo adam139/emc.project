@@ -1,5 +1,5 @@
 #-*- coding: UTF-8 -*-
-from five import grok
+# from five import grok
 from Acquisition import aq_inner
 from z3c.form import field
 from plone.directives import dexterity
@@ -10,18 +10,20 @@ from zope.viewlet.interfaces import IViewlet
 from plone.app.customerize import registration
 from emc.project.content.project import IProject
 from emc.project.content.team import ITeam
+from Products.Five.browser import BrowserView
+# from plone.app.contenttypes.browser.folder import FolderView
 
 from emc.project import _
 from Products.CMFPlone import PloneMessageFactory as _p
 
-grok.templatedir('templates')
+# grok.templatedir('templates')
 
-class ProjectView(grok.View):
+class ProjectView(BrowserView):
     "emc analysis doc view"
-    grok.context(IProject)
-    grok.template('project_view')
-    grok.name('view')
-    grok.require('emc.project.view_project') 
+#     grok.context(IProject)
+#     grok.template('project_view')
+#     grok.name('view')
+#     grok.require('emc.project.view_project') 
 
     @memoize    
     def catalog(self):

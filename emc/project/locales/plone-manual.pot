@@ -101,3 +101,12 @@ msgid "ZhengYang2"
 msgstr ""
 msgid "DingXing"
 msgstr ""
+
+#menu item
+msgid "Status view"
+msgstr ""
+msgid "Ajax view"
+msgstr ""
+msgid "ModificationDate"
+msgstr ""
+

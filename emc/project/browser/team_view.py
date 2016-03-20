@@ -1,21 +1,21 @@
 #-*- coding: UTF-8 -*-
-from five import grok
+# from five import grok
 from z3c.form import field
 from plone.directives import dexterity
 from plone.memoize.instance import memoize
 from emc.project.content.team import ITeam
-
+from Products.Five.browser import BrowserView
 
 from emc.project import _
 
-grok.templatedir('templates')
+# grok.templatedir('templates')
 
-class TeamView(grok.View):
+class TeamView(BrowserView):
     "emc analysis doc view"
-    grok.context(ITeam)
-    grok.template('team_view')
-    grok.name('view')
-    grok.require('emc.project.view_team') 
+#     grok.context(ITeam)
+#     grok.template('team_view')
+#     grok.name('view')
+#     grok.require('emc.project.view_team') 
 
     @memoize    
     def catalog(self):
