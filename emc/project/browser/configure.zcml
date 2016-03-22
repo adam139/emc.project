@@ -71,6 +71,7 @@
         class=".ajax_listing.ajaxListingView"
         menu="plone_displayviews"
         title="Ajax view"/>  
+  
   <!-- VIEWS FOR TEAM -->
   <browser:pages
       for="emc.project.content.team.ITeam"

@@ -193,3 +193,6 @@ msgstr "Ajax视图"
 msgid "ModificationDate"
 msgstr "修改时间"
 
+msgid "Folder view"
+msgstr "文件夹视图"
+

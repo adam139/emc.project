@@ -44,6 +44,7 @@
   <property name="view_methods">
     <element value="view" />
     <element value="ajax_listings" />
+    <element value="folder_contents" />
   	<element value="listing_view"/>
   	<element value="summary_view"/>
   	<element value="tabular_view"/>

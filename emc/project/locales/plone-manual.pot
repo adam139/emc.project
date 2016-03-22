@@ -109,4 +109,6 @@ msgid "Ajax view"
 msgstr ""
 msgid "ModificationDate"
 msgstr ""
+msgid "Folder view"
+msgstr ""
 
