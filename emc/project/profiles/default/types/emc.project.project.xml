@@ -12,7 +12,8 @@
   <property name="filter_content_types">True</property>  
   <property name="allowed_content_types">
   	 <element value="emc.project.team" />
-  	 <element value="Image" />  
+  	 <element value="Image" />
+  	 <element value="File" />  
   	 <element value="Document" />
   	 <element value="emc.bokeh.fearture" />  	 
   	 <element value="emc.project.analysisDoc" />
