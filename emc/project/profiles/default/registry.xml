@@ -1,0 +1,19 @@
+<registry>
+   <record name="emc.project.interface.IDocTypeSettings.types" 
+  	interface="emc.project.interface.IDocTypeSettings" field="types">
+  	<default/> 
+    <field type="plone.registry.field.Set">
+      <description xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="emc.project" ns0:translate="">List document types here. </description>
+      <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="emc.project" ns0:translate="">document types</title>
+      <value_type type="plone.registry.field.TextLine">
+        <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="emc.project" ns0:translate="">document type</title>
+      </value_type>
+    </field>
+    <value>
+      <element>电磁兼容分析文档</element>
+      <element>电磁兼容设计文档</element>
+      <element>电磁兼容故障诊断文档</element>
+      <element>电磁兼容综合评估文档</element>
+    </value>
+  </record>  
+</registry>

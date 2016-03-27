@@ -163,5 +163,13 @@
     class=".review_history.ReviewViewlet"
     layer="emc.theme.interfaces.IThemeSpecific"
     permission="zope2.View"
-	/>                   
+	/>
+	
+    <!-- Control panel form -->
+    <browser:page 
+        name="type-settings"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".controlpanel.DocTypeSettingsControlPanel"
+        permission="cmf.ManagePortal"
+        />	                   
 </configure>

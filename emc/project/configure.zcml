@@ -11,7 +11,7 @@
     <!-- Grok the package to initialise schema interfaces and content classes  -->
 
   <include file="permissions.zcml" />
-    <grok:grok package="." />    
+  <grok:grok package="." />    
   <i18n:registerTranslations directory="locales" />
 
     <!-- Register an extension profile to make the product installable --> 
@@ -28,8 +28,9 @@
 
   <!-- -*- extra stuff goes here -*- -->
 <!-- register indexer -->
-  		<adapter name="SearchableText" factory=".indexer.SearchableText_projectcontent" />
+   <adapter name="SearchableText" factory=".indexer.SearchableText_projectcontent" />
+   <!--
    <adapter name="security_level" factory=".indexer.indexer_security_level"/>
-   <adapter name="task_type" factory=".indexer.indexer_task_type"/>  
+   <adapter name="task_type" factory=".indexer.indexer_task_type"/>  -->
 
 </configure>

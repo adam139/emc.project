@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: emc bokeh\n"
-"POT-Creation-Date: 2016-01-11 02:58+0000\n"
+"POT-Creation-Date: 2016-03-27 04:02+0000\n"
 "PO-Revision-Date: 2016-01-11 11:11+0800\n"
 "Last-Translator: adam <yuejun.tang@gmail.com>\n"
 "Language-Team: LANGUAGE <yuejun.tang@gmail.com>\n"
@@ -47,6 +47,14 @@ msgstr "副总质量师"
 msgid "Deputy Commander"
 msgstr "副总指挥"
 
+#: ./profiles/default/controlpanel.xml
+msgid "Document Types"
+msgstr "项目文档类型"
+
+#: ./browser/controlpanel.py:14
+msgid "Document types settings"
+msgstr "项目设置"
+
 #: ./behaviors/localroles.py:25
 msgid "EMC Designer"
 msgstr "电磁兼容设计师"
@@ -55,9 +63,21 @@ msgstr "电磁兼容设计师"
 msgid "EMC expert"
 msgstr "电磁兼容专家"
 
+#: ./profiles/default/registry.xml
+msgid "List document types here."
+msgstr "在下面列出可以添加到项目或项目组的文档类型"
+
+#: ./interface.py:17
+msgid "List project folder allow add document types."
+msgstr "在下面列出可以添加到项目或项目组的文档类型，每行一个"
+
 #: ./browser/workflow_ajax.py:110
 msgid "Not able to send notifications"
 msgstr ""
+
+#: ./browser/controlpanel.py:16
+msgid "Please enter details of available types"
+msgstr "设置可以添加到项目或项目组的文档类型"
 
 #: ./behaviors/localroles.py:33
 msgid "Product Designer"
@@ -75,54 +95,40 @@ msgstr "第二类人员"
 msgid "The third members"
 msgstr "第三类人员"
 
+#: ./interface.py:20
+msgid "Type"
+msgstr "类型"
+
 #: ./behaviors/localroles.py:26
 msgid "User id"
 msgstr "用户id"
-
-#: ./vocabulary.py:11
-msgid "analysis"
-msgstr "分析"
-
-#: ./profiles/default/types/emc.project.analysisDoc.xml
-msgid "analysis document"
-msgstr "电磁兼容分析文档"
-
-#: ./profiles/default/types/emc.project.auditDoc.xml
-msgid "audit document"
-msgstr "电磁兼容综合评估文档"
-
-#: ./vocabulary.py:12
-msgid "design"
-msgstr "设计"
-
-#: ./profiles/default/types/emc.project.designDoc.xml
-msgid "design document"
-msgstr "电磁兼容设计文档"
-
-#: ./profiles/default/types/emc.project.diagnoseDoc.xml
-msgid "diagnose document"
-msgstr "电磁兼容故障诊断"
 
 #: ./behaviors/localroles.py:113
 msgid "dispatch staff"
 msgstr "计划调度人员"
 
-#: ./vocabulary.py:15
-msgid "experiment"
-msgstr "实验"
+#: ./profiles/default/registry.xml
+msgid "document type"
+msgstr "文档类型"
+
+#: ./interface.py:16
+#: ./profiles/default/registry.xml
+msgid "document types"
+msgstr "文档类型"
 
 #: ./behaviors/belowcontentfile.py:18
 msgid "help_attachfile"
-msgstr ""
+msgstr "追加文件在主内容下面"
 
-#: ./vocabulary.py:29
-msgid "inner"
-msgstr "内部"
+#. Default: "Used in item listings and search results."
+#: ./content/document.py:29
+msgid "help_description"
+msgstr ""
 
 #. Default: "attach file below content body"
 #: ./behaviors/belowcontentfile.py:17
 msgid "label_attachfile"
-msgstr "追加文件在主内容下面"
+msgstr "附件"
 
 #: ./behaviors/localroles.py:97
 msgid "process staff"
@@ -136,6 +142,10 @@ msgstr "项目"
 msgid "project content type"
 msgstr "项目类型"
 
+#: ./profiles/default/types/emc.project.doc.xml
+msgid "project document"
+msgstr "项目文档"
+
 #: ./profiles/default/types/emc.project.projectFolder.xml
 msgid "project folder content type"
 msgstr "项目容器类型"
@@ -144,23 +154,15 @@ msgstr "项目容器类型"
 msgid "projetFolder"
 msgstr "项目容器"
 
-#: ./vocabulary.py:28
-msgid "public"
-msgstr "公开"
-
 #: ./behaviors/localroles.py:105
 msgid "quality manage staff"
 msgstr "质量管理人员"
 
-#: ./vocabulary.py:30
-msgid "secret"
-msgstr "加密"
+#: ./behaviors/security_level.py:18
+msgid "security level"
+msgstr "安全级别"
 
-#: ./vocabulary.py:14
-msgid "simulation"
-msgstr "仿真"
-
-#: ./browser/templates/project_view.pt:42
+#: ./browser/templates/project_view.pt:43
 msgid "submit comments"
 msgstr "工作流提交备注"
 
@@ -168,43 +170,42 @@ msgstr "工作流提交备注"
 msgid "submit to chuyang"
 msgstr "提交到C"
 
-#: ./browser/templates/project_view.pt:54
+#: ./browser/templates/project_view.pt:55
 msgid "submit to chuyang1"
 msgstr "提交到C1"
 
-#: ./browser/templates/project_view.pt:189
+#: ./browser/templates/project_view.pt:216
 msgid "submit to chuyang2"
 msgstr "提交到C2"
 
-#: ./browser/templates/project_view.pt:285
+#: ./browser/templates/project_view.pt:355
 msgid "submit to dingxing"
 msgstr "提交到D"
 
-#: ./browser/templates/project_view.pt:73
+#: ./browser/templates/project_view.pt:75
 msgid "submit to shiyang"
 msgstr "提交到S"
 
-#: ./browser/templates/project_view.pt:150
+#: ./browser/templates/project_view.pt:156
 msgid "submit to shiyang1"
 msgstr "提交到S1"
 
-#: ./browser/templates/project_view.pt:306
+#: ./browser/templates/project_view.pt:434
 msgid "submit to shiyang2"
 msgstr "提交到S2"
 
-#: ./browser/templates/project_view.pt:91
+#: ./browser/templates/project_view.pt:94
 msgid "submit to zhengyang"
 msgstr "提交到Z"
 
-#: ./browser/templates/project_view.pt:168
+#: ./browser/templates/project_view.pt:175
 msgid "submit to zhengyang1"
 msgstr "提交到Z1"
 
-#: ./browser/templates/project_view.pt:370
+#: ./browser/templates/project_view.pt:595
 msgid "submit to zhengyang2"
 msgstr "提交到Z2"
 
-#: ./behaviors/security_level.py:18
 #: ./behaviors/task_type.py:18
 msgid "task type"
 msgstr "任务类型"
@@ -216,8 +217,4 @@ msgstr "项目组"
 #: ./profiles/default/types/emc.project.team.xml
 msgid "team content type"
 msgstr "项目组类型"
-
-#: ./vocabulary.py:13
-msgid "train"
-msgstr "培训"
 

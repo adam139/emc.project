@@ -1,39 +1,37 @@
 <?xml version="1.0"?>
-<object name="emc.project.diagnoseDoc"
+<object name="emc.project.analysisdoc"
    meta_type="Dexterity FTI"
    i18n:domain="emc.project" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
   <!-- Basic metadata -->
-  <property name="title" i18n:translate="">diagnose document</property>
+  <property name="title" i18n:translate="">project document</property>
   <property name="description"
-    i18n:translate="">diagnose document</property>
+    i18n:translate="">project document</property>
   <property name="content_icon">document_icon.png</property>
   <property name="global_allow">False</property>
   <property name="filter_content_types">True</property>  
   <property name="allowed_content_types">
-  	 <element value="File" />   	 
+   	 
   </property>
   <property name="allow_discussion">False</property>
 
  <!-- schema interface FIXME: this is ugly -->
- <property name="schema">emc.project.content.DiagnoseDoc.IDiagnoseDoc</property> 
+ <property name="schema">emc.project.content.document.IDocument</property> 
 
  <!-- class used for content items -->
- <property name="klass">plone.dexterity.content.Container</property>
+ <property name="klass">plone.dexterity.content.Item</property>
 
- <property name="add_permission">emc.project.add_diagnose_doc</property>
-
+ <property name="add_permission">emc.project.add_doc</property>
  <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
-     <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
-     <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>
+     <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>        
      <element value="plone.app.contenttypes.behaviors.richtext.IRichText"/>               
      <element value="emc.project.behaviors.richtext.IRichText"/>
-     <element value="emc.memberArea.interfaces.IFavoriting" />     
      <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
-     <element value="plone.app.lockingbehavior.behaviors.ILocking" />          
- </property>             
-
+     <element value="plone.app.lockingbehavior.behaviors.ILocking" />
+  	 <element value="emc.memberArea.interfaces.IFavoriting" />
+  	 <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation"/>   	                
+ </property>
 
   <!-- View information -->
   <property name="default_view">view</property>
