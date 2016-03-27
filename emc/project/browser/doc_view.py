@@ -3,6 +3,7 @@ from five import grok
 from z3c.form import field
 from plone.directives import dexterity
 from plone.memoize.instance import memoize
+from emc.project.content.document import IDocument
 from emc.project.content.AnalysisDoc import IAnalysisDoc
 from emc.project.content.AuditDoc import IAuditDoc
 from emc.project.content.DesignDoc import IDesignDoc
@@ -14,8 +15,8 @@ grok.templatedir('templates')
 
 class DocView(grok.View):
     "emc analysis doc view"
-    grok.context(IAnalysisDoc)
-    grok.template('analysis_view')
+    grok.context(IDocument)
+    grok.template('doc_view')
     grok.name('view')
     grok.require('emc.project.view_doc') 
 
@@ -38,7 +39,11 @@ class DocView(grok.View):
     def getText(self):
         raw = self.context.text
         return raw
-    
+
+class AnalysisDocView(DocView):
+    grok.context(IAnalysisDoc)
+    grok.template('analysis_view')     
+
 class AuditDocView(DocView):
     grok.context(IAuditDoc)
     grok.template('audit_view') 
