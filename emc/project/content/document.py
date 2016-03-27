@@ -10,7 +10,7 @@ from emc.project.browser.vocabulary import DocTitle
 try:
     from plone.app.dexterity import _ as _p
 except:
-    from plone.app.dexterity import MessageFactory as _p
+    from plone.app.dexterity import PloneMessageFactory as _p
 
 
 class IDocument(IProjectContent):
