@@ -3,10 +3,15 @@ from zope import schema
 from plone.autoform import directives
 from z3c.form.interfaces import IAddForm
 from z3c.form.interfaces import IEditForm
-from plone.app.dexterity import _ as _p
 
 from emc.project.indexer import IProjectContent
 from emc.project.browser.vocabulary import DocTitle
+
+try:
+    from plone.app.dexterity import _ as _p
+except:
+    from plone.app.dexterity import MessageFactory as _p
+
 
 class IDocument(IProjectContent):
     """
