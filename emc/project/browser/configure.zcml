@@ -53,7 +53,18 @@
         menu="plone_displayviews"
         title="Album view"
         />
+       
+       
   </browser:pages>
+    <browser:page
+        name="listing_report"
+        for="emc.project.content.project.IProject"
+        class=".report_view.ReportView"
+        template="templates/listing_report.pt"
+        permission="emc.project.view_projectsummary"
+        menu="plone_displayviews"
+        title="Report view"
+        />   
     <browser:page
         name="view"
         template="templates/project_view.pt"
@@ -62,7 +73,8 @@
         class=".project_view.ProjectView"
         menu="plone_displayviews"
         title="Status view"/>
-        
+     
+    
     <browser:page
         name="ajax_listings"
         template="templates/ajax_listings_novocabulary.pt"
@@ -108,7 +120,18 @@
         menu="plone_displayviews"
         title="Album view"
         />
-  </browser:pages>        
+ 
+                
+  </browser:pages>
+    <browser:page
+        name="listing_report"
+        for="emc.project.content.team.ITeam"
+        class=".report_view.ReportView"
+        template="templates/listing_report.pt"
+        permission="emc.project.view_team"
+        menu="plone_displayviews"
+        title="Report view"
+        />          
     <browser:page
         name="view"
         template="templates/team_view.pt"

@@ -111,4 +111,8 @@ msgid "ModificationDate"
 msgstr ""
 msgid "Folder view"
 msgstr ""
+msgid "Report view"
+msgstr ""
+
+
 

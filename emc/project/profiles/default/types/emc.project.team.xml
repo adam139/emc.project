@@ -48,6 +48,7 @@
     <element value="ajax_listings" />
     <element value="folder_contents" />
   	<element value="listing_view"/>
+  	<element value="listing_report"/>
   	<element value="summary_view"/>
   	<element value="tabular_view"/>
   	<element value="full_view"/>

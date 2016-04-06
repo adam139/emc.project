@@ -196,3 +196,7 @@ msgstr "修改时间"
 msgid "Folder view"
 msgstr "文件夹视图"
 
+msgid "Report view"
+msgstr "简报视图"
+
+
