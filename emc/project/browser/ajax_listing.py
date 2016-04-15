@@ -309,7 +309,7 @@ class ajaxsearch(grok.View):
                                 <td class="col-md-3 text-left"><a href="%(objurl)s">%(title)s</a></td>
                                 <td class="col-md-7">%(description)s</td>
                                 <td class="col-md-1 text-center">%(date)s</td>                                
-                            </tr> """% dict(objurl="%s/@@view" % i.getURL(),
+                            </tr> """% dict(objurl="%s/view" % i.getURL(),
                                             num=str(k + 1),
                                             title=i.Title,
                                             description= i.Description,
