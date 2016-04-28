@@ -16,6 +16,7 @@
   	 <element value="File" />  
   	 <element value="Document" />
   	 <element value="emc.bokeh.fearture" />
+  	 <element value="emc.bokeh.codefile" />
   	 <element value="emc.project.doc" />  	 
   	 <element value="emc.project.analysisDoc" />
   	 <element value="emc.project.auditDoc" />
