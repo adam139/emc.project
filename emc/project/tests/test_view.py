@@ -34,22 +34,11 @@ class TestView(unittest.TestCase):
         portal['folder1']['project1'].invokeFactory('emc.project.team', 'team1',
                                                     title=u"this is team",
                                                     description="team is permission defense container")
-        portal['folder1']['project1']['team1'].invokeFactory('emc.project.auditDoc', 'audit1',
+        portal['folder1']['project1']['team1'].invokeFactory('emc.project.doc', 'audit1',
                                                              text=u"here is rich text",
                                                              title="analysis document",
                                                              report="this is report")  
-        portal['folder1']['project1']['team1'].invokeFactory('emc.project.analysisDoc', 'analysis1',
-                                                             text=u"here is rich text",
-                                                             title="analysis document",
-                                                             report="this is report") 
-        portal['folder1']['project1']['team1'].invokeFactory('emc.project.designDoc', 'design1',
-                                                             text=u"here is rich text",
-                                                             title="analysis document",
-                                                             report="this is report")  
-        portal['folder1']['project1']['team1'].invokeFactory('emc.project.diagnoseDoc', 'diagnose1',
-                                                             text=u"here is rich text",
-                                                             title="analysis document",
-                                                             report="this is report")       
+      
             
         self.portal = portal
         settings = getUtility(IRegistry).forInterface(ITagSettings)
@@ -146,55 +135,4 @@ class TestView(unittest.TestCase):
         outstr2 = "this is report"       
         self.assertTrue(outstr in browser.contents)        
         self.assertTrue(outstr2 in browser.contents)
-    
-    def test_analysisview(self):
-
-        app = self.layer['app']
-        portal = self.layer['portal']       
-        browser = Browser(app)
-        browser.handleErrors = False
-        browser.addHeader('Authorization', 'Basic %s:%s' % (TEST_USER_NAME, TEST_USER_PASSWORD,))        
-        import transaction
-        transaction.commit()
-        obj = portal['folder1']['project1']['team1']['analysis1']
-        import pdb
-        pdb.set_trace()
-        page = obj.absolute_url() + '/@@view'        
-
-        browser.open(page)
-        outstr = "here is rich text"
-        outstr2 = "this is report"       
-        self.assertTrue(outstr in browser.contents)        
-        self.assertTrue(outstr2 in browser.contents)
-    def test_designview(self):
-
-        app = self.layer['app']
-        portal = self.layer['portal']       
-        browser = Browser(app)
-        browser.handleErrors = False
-        browser.addHeader('Authorization', 'Basic %s:%s' % (TEST_USER_NAME, TEST_USER_PASSWORD,))        
-        import transaction
-        transaction.commit()
-        page = portal['folder1']['project1']['team1']['design1'].absolute_url() + '/@@view'        
-
-        browser.open(page)
-        outstr = "here is rich text"
-        outstr2 = "this is report"       
-        self.assertTrue(outstr in browser.contents)        
-        self.assertTrue(outstr2 in browser.contents)
-    def test_diagnoseview(self):
-
-        app = self.layer['app']
-        portal = self.layer['portal']       
-        browser = Browser(app)
-        browser.handleErrors = False
-        browser.addHeader('Authorization', 'Basic %s:%s' % (TEST_USER_NAME, TEST_USER_PASSWORD,))        
-        import transaction
-        transaction.commit()
-        page = portal['folder1']['project1']['team1']['diagnose1'].absolute_url() + '/@@view'        
-
-        browser.open(page)
-        outstr = "here is rich text"
-        outstr2 = "this is report"       
-        self.assertTrue(outstr in browser.contents)        
-        self.assertTrue(outstr2 in browser.contents)                        
+                       

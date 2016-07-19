@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <object name="portal_workflow">
 		<object name="emc_project_workflow" meta_type="Workflow"/>
+		<object name="emc_doc_workflow" meta_type="Workflow"/>		
     <bindings>
     	<default/>
     	    <type type_id="emc.project.project">
@@ -9,20 +10,17 @@
     	    <type type_id="emc.project.team">
             <bound-workflow workflow_id="emc_project_workflow"/>
         </type>
-    	    <type type_id="emc.project.analysisDoc">
-            <bound-workflow workflow_id="emc_project_workflow"/>
+    	    <type type_id="emc.project.doc">
+            <bound-workflow workflow_id="emc_doc_workflow"/>
         </type>
-    	    <type type_id="emc.project.auditDoc">
-            <bound-workflow workflow_id="emc_project_workflow"/>
-        </type>
-    	    <type type_id="emc.project.designDoc">
-            <bound-workflow workflow_id="emc_project_workflow"/>
-        </type>
-    	    <type type_id="emc.project.diagnoseDoc">
-            <bound-workflow workflow_id="emc_project_workflow"/>
-        </type> 
+    	    <type type_id="Document">
+            <bound-workflow workflow_id="emc_doc_workflow"/>
+        </type>                
     	    <type type_id="emc.bokeh.fearture">
             <bound-workflow workflow_id="emc_project_workflow"/>
-        </type>                                
+        </type>
+    	    <type type_id="emc.bokeh.codefile">
+            <bound-workflow workflow_id="emc_project_workflow"/>
+        </type>                                        
     </bindings>
 </object>

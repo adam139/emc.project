@@ -1,5 +1,9 @@
 #-*- coding: UTF-8 -*-
-from Products.CMFCore.utils import getToolByName
+from plone import api
+
+from zope.component import provideAdapter,adapts,queryUtility
+from zope.event import notify
+from emc.project.behaviors.localroles import Ilocalroles
 from emc.project.testing import FUNCTIONAL_TESTING
 from emc.project.testing import INTEGRATION_TESTING
 from plone.app.testing import TEST_USER_ID, login, TEST_USER_NAME, \
@@ -8,6 +12,8 @@ from plone.testing.z2 import Browser
 import unittest
 
 from Products.CMFCore.utils import getToolByName
+from emc.memberArea.events import BackMessageCreatedEvent
+from emc.project.tests.test_localroles import AssignRoles
 
 class TestView(unittest.TestCase):
     
@@ -16,10 +22,30 @@ class TestView(unittest.TestCase):
     def setUp(self):
         portal = self.layer['portal']
         setRoles(portal, TEST_USER_ID, ('Manager',))
+        portal.invokeFactory('Folder', 'Members',
+                             title=u"this is memberarea folder",
+                             description=u"members folder")        
+        pm = getToolByName(portal, 'portal_membership')
+        pm.addMember('member1', 'secret', ('Member',), ())
+        pm.addMember('member2', 'secret', ('Member',), ())
+        pm.addMember('member3', 'secret', ('Member',), ()) 
+        pm.addMember('member4', 'secret', ('Member',), ())
+        pm.addMember('member5', 'secret', ('Member',), ())
+        pm.memberareaCreationFlag = True
+        for i in range(5):
+            j = str(i + 1)
+            username = 'member%s' % j            
+            user = api.user.get(username=username)
+            pm.createMemberarea(member_id= username)
+            notify(BackMessageCreatedEvent(user))
+        
+        provideAdapter(AssignRoles)          
+        
 
         portal.invokeFactory('emc.project.projectFolder', 'folder1',
                              title=u"this is project folder",
                              description=u"project folder")
+        
                              
         portal['folder1'].invokeFactory('emc.project.project', 'project1',
                                         title=u"this is project",
@@ -41,6 +67,13 @@ class TestView(unittest.TestCase):
         portal['folder1']['project1']['team1'].invokeFactory('emc.bokeh.codefile', 'code2file1',
                                                              text=u"code to file",
                                                              title="code file")                     
+        Ilocalroles(portal['folder1']['project1']).emc_designer = ('member1',)
+        Ilocalroles(portal['folder1']['project1']).reader7 = ('member4',)
+# the third members        
+        Ilocalroles(portal['folder1']['project1']).reader8 = ('member5',)
+         #child will  inherit parents sets.
+        Ilocalroles(portal['folder1']['project1']['team1']).designer = ('member2',)          
+        
         self.portal = portal                               
     
     def test_project_workflow(self):
@@ -108,8 +141,7 @@ class TestView(unittest.TestCase):
         wt = wf.emc_project_workflow
         dummy = portal['folder1']['project1']['team1']
 
-        import pdb
-        pdb.set_trace()
+
         wf.notifyCreated(dummy)
 
         chain = wf.getChainFor(dummy)

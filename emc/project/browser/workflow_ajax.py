@@ -1,4 +1,5 @@
 #-*- coding: UTF-8 -*-
+from zope import event
 from zope.i18n.interfaces import ITranslationDomain
 from zope.component import queryUtility
 from zope.component import getMultiAdapter
@@ -11,11 +12,15 @@ from Products.CMFCore.utils import getToolByName
 from plone.app.layout.navigation.interfaces import INavigationRoot
 from plone.memoize.instance import memoize
 import datetime
-
+from emc.memberArea.events import TodoitemWillCreateEvent
 from emc.project import _
 from Products.CMFPlone import PloneMessageFactory as _p
 from zope.interface import Interface
 from emc.project.content.project import IProject
+from emc.project.content.team import ITeam
+from emc.project.content.document import IDocument
+from emc.bokeh.content.code2plot import ICodeFile
+from emc.bokeh.content.glyphs import IFearture
 
 
 try:
@@ -47,7 +52,15 @@ class Workflow(grok.View):
     def wf(self):
         context = aq_inner(self.context)
         return getToolByName(context, 'portal_workflow')
-        
+
+    def sendTodoitem(self,title,userid,text):
+        """parameters:
+        title:todoitem 's title,
+        userid:will create todoitem in the user's workspace,
+        text:rich text description of todoitem
+        """
+        event.notify(TodoitemWillCreateEvent(title=title,userid=id,text=text))
+                
     def sendMail(self,subject,mailbody,send_to,send_to_bcc=[],sender=None,debug_mode=False):
         notify_encode = 'utf-8'
         object = aq_inner(self.context)
@@ -122,7 +135,7 @@ class ProjectWorkfow(Workflow):
     grok.name('workflow_ajax')
     
     def getChildrens(self,context):
-        query = {'path': '/'.join(context.getPhysicalPath())}
+        query = {'object_provides':[IFearture.__identifier__,ITeam.__identifier__,ICodeFile.__identifier__],'path': '/'.join(context.getPhysicalPath())}
         brains = self.catalog()(query)
         return [brain for brain in brains if brain.id !=context.id]    
           
@@ -166,5 +179,9 @@ class ProjectWorkfow(Workflow):
             
         self.request.response.setHeader('Content-Type', 'application/json')
         return json.dumps(callback)
+   
+class DocWorkfow(Workflow):
+    "接受前台ajax 事件，处理doc工作流，提供状态转换"
     
+    grok.context(IDocument)    
 

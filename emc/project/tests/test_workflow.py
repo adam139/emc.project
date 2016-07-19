@@ -1,11 +1,17 @@
 #-*- coding: UTF-8 -*-
 from Products.CMFCore.utils import getToolByName
+from zope.interface import implements,Interface
+from zope.component import provideAdapter,adapts,queryUtility
 from emc.project.testing import FUNCTIONAL_TESTING
 from emc.project.testing import INTEGRATION_TESTING
 from plone.app.testing import TEST_USER_ID, login, TEST_USER_NAME, \
     TEST_USER_PASSWORD, setRoles,logout
 from plone.testing.z2 import Browser
 import unittest
+
+from emc.project.behaviors.localroles import Ilocalroles,IlocalrolesMarker
+
+from emc.project.tests.test_localroles import AssignRoles
 
 from Products.CMFCore.utils import getToolByName
 
@@ -16,11 +22,22 @@ class TestView(unittest.TestCase):
     def setUp(self):
         portal = self.layer['portal']
         setRoles(portal, TEST_USER_ID, ('Manager',))
+        
+        membership = getToolByName(portal, 'portal_membership')
+        membership.addMember('member1', 'secret', ('Member',), ())
+        membership.addMember('member2', 'secret', ('Member',), ())
+        membership.addMember('member3', 'secret', ('Member',), ()) 
+        membership.addMember('member4', 'secret', ('Member',), ())
+        membership.addMember('member5', 'secret', ('Member',), ())
+        
+        provideAdapter(AssignRoles)         
 
         portal.invokeFactory('emc.project.projectFolder', 'folder1',
                              title=u"this is project folder",
                              description=u"project folder")
                              
+        import pdb
+        pdb.set_trace()       
         portal['folder1'].invokeFactory('emc.project.project', 'project1',
                                         title=u"this is project",
                                         description=u"project")  
@@ -46,6 +63,15 @@ class TestView(unittest.TestCase):
         portal['folder1']['project1']['team1'].invokeFactory('emc.bokeh.fearture', 'fearture1',
                                                              text=u"here is rich text",
                                                              title="analysis document")            
+         # 给元组赋值时，单个值要加","
+
+        Ilocalroles(portal['folder1']['project1']).emc_designer = ('member1',)
+        Ilocalroles(portal['folder1']['project1']).reader7 = ('member4',)
+# the third members        
+        Ilocalroles(portal['folder1']['project1']).reader8 = ('member5',)
+         #child will  inherit parents sets.
+        Ilocalroles(portal['folder1']['project1']['team1']).designer = ('member2',)        
+        
         self.portal = portal                               
     
     def test_project_workflow(self):

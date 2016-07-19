@@ -28,6 +28,7 @@
      <element value="plone.app.contenttypes.behaviors.richtext.IRichText"/>               
      <element value="emc.project.behaviors.richtext.IRichText"/>
      <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
+	 <element value="plone.app.contenttypes.behaviors.tableofcontents.ITableOfContents"/>     
      <element value="plone.app.lockingbehavior.behaviors.ILocking" />
   	 <element value="emc.memberArea.interfaces.IFavoriting" />
   	 <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation"/>   	                

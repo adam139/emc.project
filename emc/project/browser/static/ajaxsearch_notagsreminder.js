@@ -1,27 +1,4 @@
 /*jshint sub:true*/
-function closeEventMore() {
-//    $("#cata_more_div").hide();
-//   $("#address_more_div").hide();
-}
-
-function innerMoreArea() {        
-     var action = $("#ajaxmorearea").attr('data-ajax-target');
-     var senddata = {"demo":2};
-     $.post(action, 
-           senddata,
-           function(data) {
-           try {
-                $("#addressSearchMore1").html("");
-                var str = data['provincelist'];
-                $(str).appendTo("#province_list_div");
-                $("#li_province_more").hide();              
-
-            } catch (e) {
-                alert(e);
-            }
-            },
-            'json');
-}
 
 function closeSearchEventsDiv(flag) {
     if (flag == 1) {
@@ -56,7 +33,7 @@ function closeSearchEventsDiv(flag) {
 function searchEventParent() {
     searchEvent();
 }
-// read query string
+// read query string from url
 $.extend({
   getUrlVars: function(){
     var vars = [], hash;
@@ -73,7 +50,7 @@ $.extend({
     return $.getUrlVars()[name];
   }
 });
-
+// main search function
 var searchEvent = function(jumpPage, rows, initKeyword) {
     var keyword;
     if (initKeyword !== undefined && initKeyword !== "") {
@@ -328,7 +305,9 @@ $(document).ready(function(){
                $("#searchKeyword").val(byName2);    
                searchEvent();
     }
+	// click search button
 	$("#search").on("click","button",function(){ searchEvent();});
+	//select date range search
     $("#dateRangeSearchUl li").on("click","span",function() {        
                  if ($(this).attr("class") == "title") {} else {
                     $("#dateRangeSearchUl li> .over").removeClass("over");
@@ -374,7 +353,7 @@ $(document).ready(function(){
                 }
        return false; 
     });   
-   
+   // sort operation
    $("#eventListSort").on("click","a",function() {             
                 $("#solrSortColumn").attr("value", $(this).attr("data-name"));
                 //a reverse,will be ascending

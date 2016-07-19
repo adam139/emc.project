@@ -77,33 +77,34 @@
 	<permission name="emc.project:Add project" acquire="True">
 		<role name="Site Administrator"/>
 		<role name="Manager"/>
-    <role name="Contributor"/>		
+    	<role name="Contributor"/>		
 		<role name="EMCDesigner"/>
 	</permission>
 	
 	<permission name="emc.project:Add team" acquire="True">
 		<role name="Site Administrator"/>
-    <role name="Contributor"/>		
+    	<role name="Contributor"/>		
 		<role name="Manager"/>
-    <role name="EMCDesigner" />
-    <role name="Designer" /> 
+    	<role name="EMCDesigner" />
+    	<role name="Designer" /> 
 	</permission>
 	<permission name="emc.project:Add document" acquire="True">
 		<role name="Site Administrator"/>
 		<role name="Manager"/>
 		<role name="EMCDesigner"/>
+    	<role name="Designer" /> 		
 	</permission>	
 
 	<permission name="emc.project:Add audit document" acquire="True">
 		<role name="Site Administrator"/>
-    <role name="Contributor"/>		
+    	<role name="Contributor"/>		
 		<role name="Manager"/>
 		<role name="EMCDesigner"/>
 		<role name="Designer"/>		
 	</permission>
 	<permission name="emc.project:Add analysis document" acquire="True">
 		<role name="Site Administrator"/>
-    <role name="Contributor"/>		
+    	<role name="Contributor"/>		
 		<role name="Manager"/>
 		<role name="EMCDesigner"/>
 		<role name="Designer"/>		
@@ -116,93 +117,93 @@
 	</permission>	
 	<permission name="emc.project:Add design document" acquire="True">
 		<role name="Site Administrator"/>
-    <role name="Contributor"/>		
+    	<role name="Contributor"/>		
 		<role name="Manager"/>
 		<role name="EMCDesigner"/>
 		<role name="Designer"/>		
 	</permission>	
 	<permission name="emc.project:Modify project" acquire="True">
 		<role name="Site Administrator"/>
-    <role name="Editor"/>		
+    	<role name="Editor"/>		
 		<role name="Manager"/>
-    <role name="Owner" />			
+    	<role name="Owner" />			
 		<role name="EMCDesigner"/>
 	</permission>	
 	<permission name="emc.project:Modify team" acquire="True">
 		<role name="Site Administrator"/>
-    <role name="Editor"/>		
+    	<role name="Editor"/>		
 		<role name="Manager"/>
-    <role name="Owner" />			
-    <role name="EMCDesigner" />
-    <role name="Designer" /> 
+    	<role name="Owner" />			
+    	<role name="EMCDesigner" />
+    	<role name="Designer" /> 
 	</permission>	
 	<permission name="emc.project:Modify document" acquire="True">
 		<role name="Site Administrator"/>
-    <role name="Editor"/>		
+   		<role name="Editor"/>		
 		<role name="Manager"/>
-    <role name="Owner" />			
-    <role name="EMCDesigner" />
-    <role name="Designer" /> 
+    	<role name="Owner" />			
+    	<role name="EMCDesigner" />
+    	<role name="Designer" /> 
 	</permission>						
 		
 	<permission name="emc.project:View projectsummary" acquire="True">
 		<role name="Site Administrator"/>
 		<role name="Manager"/>
-    <role name="Reader"/>		
-    <role name="EMCDesigner" />
-    <role name="Designer" /> 
-    <role name="Commander" />
-    <role name="DeputyCommander" />
-    <role name="ChiefDesigner" />
-    <role name="DeputyChiefDesigner" /> 
-    <role name="ChiefQE" />
-    <role name="DeputyChiefQE" />
-    <role name="DeputyChiefProcess" /> 		
+    	<role name="Reader"/>		
+    	<role name="EMCDesigner" />
+    	<role name="Designer" /> 
+    	<role name="Commander" />
+    	<role name="DeputyCommander" />
+    	<role name="ChiefDesigner" />
+    	<role name="DeputyChiefDesigner" /> 
+    	<role name="ChiefQE" />
+    	<role name="DeputyChiefQE" />
+    	<role name="DeputyChiefProcess" /> 		
 	</permission>
 	<permission name="emc.project:View project" acquire="True">
 		<role name="Site Administrator"/>
 		<role name="Manager"/>
-    <role name="Reader"/>		
-    <role name="Owner" />			
-    <role name="EMCDesigner" />
-    <role name="Designer" /> 
-    <role name="Commander" />
-    <role name="DeputyCommander" />
-    <role name="ChiefDesigner" />
-    <role name="DeputyChiefDesigner" /> 
-    <role name="ChiefQE" />
-    <role name="DeputyChiefQE" />
-    <role name="DeputyChiefProcess" /> 		
+    	<role name="Reader"/>		
+    	<role name="Owner" />			
+    	<role name="EMCDesigner" />
+    	<role name="Designer" /> 
+   	 	<role name="Commander" />
+    	<role name="DeputyCommander" />
+    	<role name="ChiefDesigner" />
+    	<role name="DeputyChiefDesigner" /> 
+    	<role name="ChiefQE" />
+    	<role name="DeputyChiefQE" />
+    	<role name="DeputyChiefProcess" /> 		
 	</permission>
 	<permission name="emc.project:View team" acquire="True">
 		<role name="Site Administrator"/>
-    <role name="Reader"/>		
+    	<role name="Reader"/>		
 		<role name="Manager"/>
-    <role name="Owner" />			
-    <role name="EMCDesigner" />
-    <role name="Designer" /> 
-    <role name="Commander" />
-    <role name="DeputyCommander" />
-    <role name="ChiefDesigner" />
-    <role name="DeputyChiefDesigner" /> 
-    <role name="ChiefQE" />
-    <role name="DeputyChiefQE" />
-    <role name="DeputyChiefProcess" /> 		
+    	<role name="Owner" />			
+    	<role name="EMCDesigner" />
+    	<role name="Designer" /> 
+    	<role name="Commander" />
+    	<role name="DeputyCommander" />
+    	<role name="ChiefDesigner" />
+    	<role name="DeputyChiefDesigner" /> 
+    	<role name="ChiefQE" />
+    	<role name="DeputyChiefQE" />
+    	<role name="DeputyChiefProcess" /> 		
 	</permission>
 	<permission name="emc.project:View document" acquire="True">
 		<role name="Site Administrator"/>
 		<role name="Manager"/>
-    <role name="Reader"/>		
-    <role name="Owner" />			
-    <role name="EMCDesigner" />
-    <role name="Designer" /> 
-    <role name="Commander" />
-    <role name="DeputyCommander" />
-    <role name="ChiefDesigner" />
-    <role name="DeputyChiefDesigner" /> 
-    <role name="ChiefQE" />
-    <role name="DeputyChiefQE" />
-    <role name="DeputyChiefProcess" /> 		
+    	<role name="Reader"/>		
+    	<role name="Owner" />			
+    	<role name="EMCDesigner" />
+    	<role name="Designer" /> 
+    	<role name="Commander" />
+    	<role name="DeputyCommander" />
+    	<role name="ChiefDesigner" />
+    	<role name="DeputyChiefDesigner" /> 
+    	<role name="ChiefQE" />
+    	<role name="DeputyChiefQE" />
+    	<role name="DeputyChiefProcess" /> 		
 	</permission>
   </permissions>		
 </rolemap>

@@ -75,6 +75,8 @@ class TestProjectLocalRoles(unittest.TestCase):
         Ilocalroles(portal['folder1']['project1']).reader8 = ('member5',)
          #child will  inherit parents sets.
         Ilocalroles(portal['folder1']['project1']['team1']).designer = ('member2',)
+        import pdb
+        pdb.set_trace()
       
         Ilocalroles(portal['folder1']['project1']['team1']).reader1 = ('member3',)
         
