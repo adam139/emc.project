@@ -5,6 +5,8 @@ from zope.component import adapts
 from Products.CMFCore.utils import getToolByName
 from zope.interface import alsoProvides, Interface
 from plone.directives import form
+from plone.app.z3cform.widget import AjaxSelectFieldWidget
+from plone.autoform import directives
 from zope import schema
 
 from plone.formwidget.autocomplete.widget import AutocompleteMultiFieldWidget
@@ -20,111 +22,172 @@ class Ilocalroles(form.Schema):
     Description of the localroles
     source 字段不能有缺省值的
     """
-    form.widget(emc_designer=AutocompleteMultiFieldWidget)    
+#     form.widget(emc_designer=AutocompleteMultiFieldWidget)    
     emc_designer = schema.Tuple(
         title=_(u"EMC Designer"),
-        value_type=schema.Choice(title=_(u"User id"),
-                                  source=u"plone.principalsource.Users"),
+        value_type=schema.TextLine(),
+#         value_type=schema.Choice(title=_(u"User id"),
+#                                   source=u"plone.principalsource.Users"),
         required=False,
         missing_value=(), # important!
-    )    
-    form.widget(designer=AutocompleteMultiFieldWidget)
+    )
+        
+#     form.widget(designer=AutocompleteMultiFieldWidget)
     designer = schema.Tuple(
         title=_(u"Product Designer"),
-        value_type=schema.Choice(title=_(u"User id"),
-                                  source=u"plone.principalsource.Users"),
+        value_type=schema.TextLine(),
+#         value_type=schema.Choice(title=_(u"User id"),
+#                                   source=u"plone.principalsource.Users"),
         required=False,
         missing_value=(), # important!
     )
-    form.widget(reader1=AutocompleteMultiFieldWidget)    
+#     form.widget(reader1=AutocompleteMultiFieldWidget)    
     reader1 = schema.Tuple(
         title=_(u"Commander"),
-        value_type=schema.Choice(title=_(u"User id"),
-                                  source=u"plone.principalsource.Users"),
+        value_type=schema.TextLine(),
+#         value_type=schema.Choice(title=_(u"User id"),
+#                                   source=u"plone.principalsource.Users"),
         required=False,
         missing_value=(), # important!
     )
-    form.widget(reader2=AutocompleteMultiFieldWidget)    
+#     form.widget(reader2=AutocompleteMultiFieldWidget)    
     reader2 = schema.Tuple(
         title=_(u"Deputy Commander"),
-        value_type=schema.Choice(title=_(u"User id"),
-                                  source=u"plone.principalsource.Users"),
+        value_type=schema.TextLine(),
+#         value_type=schema.Choice(title=_(u"User id"),
+#                                   source=u"plone.principalsource.Users"),
         required=False,
         missing_value=(), # important!
     )
     form.widget(reader3=AutocompleteMultiFieldWidget)    
     reader3 = schema.Tuple(
         title=_(u"Chief Designer"),
-        value_type=schema.Choice(title=_(u"User id"),
-                                  source=u"plone.principalsource.Users"),
+        value_type=schema.TextLine(),
         required=False,
         missing_value=(), # important!
     )     
     form.widget(reader4=AutocompleteMultiFieldWidget)    
     reader4 = schema.Tuple(
         title=_(u"Deputy Chief Designer"),
-        value_type=schema.Choice(title=_(u"User id"),
-                                  source=u"plone.principalsource.Users"),
+        value_type=schema.TextLine(),
         required=False,
         missing_value=(), # important!
     )    
-    form.widget(reader5=AutocompleteMultiFieldWidget)    
+#     form.widget(reader5=AutocompleteMultiFieldWidget)    
     reader5 = schema.Tuple(
         title=_(u"Chief quality engineer"),
-        value_type=schema.Choice(title=_(u"User id"),
-                                  source=u"plone.principalsource.Users"),
+        value_type=schema.TextLine(),
         required=False,
         missing_value=(), # important!
     ) 
-    form.widget(reader6=AutocompleteMultiFieldWidget)    
+#     form.widget(reader6=AutocompleteMultiFieldWidget)    
     reader6 = schema.Tuple(
         title=_(u"Deputy Chief quality engineer"),
-        value_type=schema.Choice(title=_(u"User id"),
-                                  source=u"plone.principalsource.Users"),
+        value_type=schema.TextLine(),
         required=False,
         missing_value=(), # important!
     )
-    form.widget(reader7=AutocompleteMultiFieldWidget)    
+#     form.widget(reader7=AutocompleteMultiFieldWidget)    
     reader7 = schema.Tuple(
         title=_(u"Deputy Chief Process"),
-        value_type=schema.Choice(title=_(u"User id"),
-                                  source=u"plone.principalsource.Users"),
+        value_type=schema.TextLine(),
         required=False,
         missing_value=(), # important!
     )       
-    form.widget(reader8=AutocompleteMultiFieldWidget)    
+#     form.widget(reader8=AutocompleteMultiFieldWidget)    
     reader8 = schema.Tuple(
         title=_(u"process staff"),
-        value_type=schema.Choice(title=_(u"User id"),
-                                  source=u"plone.principalsource.Users"),
+        value_type=schema.TextLine(),
         required=False,
         missing_value=(), # important!
     )   
-    form.widget(reader9=AutocompleteMultiFieldWidget)    
+#     form.widget(reader9=AutocompleteMultiFieldWidget)    
     reader9 = schema.Tuple(
         title=_(u"quality manage staff"),
-        value_type=schema.Choice(title=_(u"User id"),
-                                  source=u"plone.principalsource.Users"),
+        value_type=schema.TextLine(),   
         required=False,
         missing_value=(), # important!
     )   
-    form.widget(reader10=AutocompleteMultiFieldWidget)    
+#     form.widget(reader10=AutocompleteMultiFieldWidget)    
     reader10 = schema.Tuple(
         title=_(u"dispatch staff"),
-        value_type=schema.Choice(title=_(u"User id"),
-                                  source=u"plone.principalsource.Users"),
+        value_type=schema.TextLine(),
         required=False,
         missing_value=(), # important!
     )                               
  
-    form.widget(reader11=AutocompleteMultiFieldWidget)    
+#     form.widget(reader11=AutocompleteMultiFieldWidget)    
     reader11 = schema.Tuple(
         title=_(u"EMC expert"),
-        value_type=schema.Choice(title=_(u"User id"),
-                                  source=u"plone.principalsource.Users"),
+        value_type=schema.TextLine(),
         required=False,
         missing_value=(), # important!
-    )        
+    )
+    directives.widget(
+        'emc_designer',
+        AjaxSelectFieldWidget,
+        vocabulary='plone.principalsource.Users'
+    )
+    directives.widget(
+        'designer',
+        AjaxSelectFieldWidget,
+        vocabulary='plone.principalsource.Users'
+    )
+    directives.widget(
+        'reader1',
+        AjaxSelectFieldWidget,
+        vocabulary='plone.principalsource.Users'
+    )
+    directives.widget(
+        'reader2',
+        AjaxSelectFieldWidget,
+        vocabulary='plone.principalsource.Users'
+    )
+    directives.widget(
+        'reader3',
+        AjaxSelectFieldWidget,
+        vocabulary='plone.principalsource.Users'
+    )
+    directives.widget(
+        'reader4',
+        AjaxSelectFieldWidget,
+        vocabulary='plone.principalsource.Users'
+    )
+    directives.widget(
+        'reader5',
+        AjaxSelectFieldWidget,
+        vocabulary='plone.principalsource.Users'
+    )
+    directives.widget(
+        'reader6',
+        AjaxSelectFieldWidget,
+        vocabulary='plone.principalsource.Users'
+    )
+    directives.widget(
+        'reader7',
+        AjaxSelectFieldWidget,
+        vocabulary='plone.principalsource.Users'
+    )
+    directives.widget(
+        'reader8',
+        AjaxSelectFieldWidget,
+        vocabulary='plone.principalsource.Users'
+    )
+    directives.widget(
+        'reader9',
+        AjaxSelectFieldWidget,
+        vocabulary='plone.principalsource.Users'
+    )
+    directives.widget(
+        'reader10',
+        AjaxSelectFieldWidget,
+        vocabulary='plone.principalsource.Users'
+    )
+    directives.widget(
+        'reader11',
+        AjaxSelectFieldWidget,
+        vocabulary='plone.principalsource.Users'
+    )                                                            
     form.fieldset(
                   'first',
                   label=_(u'The first members'),

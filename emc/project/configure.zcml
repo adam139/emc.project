@@ -17,10 +17,8 @@
     <!-- Register an extension profile to make the product installable --> 
   <include package=".behaviors" />
   <include package=".browser" />  
-<!--
+
   <subscriber
-            for="emc.project.content.team.ITeam
-                 zope.lifecycleevent.interfaces.IObjectModifiedEvent"
             handler=".subscriber.roleModified"
             />
 
@@ -29,7 +27,7 @@
                  zope.lifecycleevent.interfaces.IObjectModifiedEvent"
             handler=".subscriber.roleModified"
             />
-            -->
+
   <subscriber
             handler=".subscriber.createTodoitem"
             />                         
