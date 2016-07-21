@@ -13,9 +13,7 @@
     	    <type type_id="emc.project.doc">
             <bound-workflow workflow_id="emc_doc_workflow"/>
         </type>
-    	    <type type_id="Document">
-            <bound-workflow workflow_id="emc_doc_workflow"/>
-        </type>                
+               
     	    <type type_id="emc.bokeh.fearture">
             <bound-workflow workflow_id="emc_project_workflow"/>
         </type>

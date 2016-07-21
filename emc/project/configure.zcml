@@ -18,16 +18,28 @@
   <include package=".behaviors" />
   <include package=".browser" />  
 
+
   <subscriber
+            for="emc.project.content.team.ITeam
+            zope.lifecycleevent.interfaces.IObjectModifiedEvent"            
             handler=".subscriber.roleModified"
             />
-
   <subscriber
             for="emc.project.content.project.IProject
                  zope.lifecycleevent.interfaces.IObjectModifiedEvent"
             handler=".subscriber.roleModified"
             />
 
+  <subscriber
+            for="emc.project.content.team.ITeam
+            	zope.lifecycleevent.interfaces.IObjectAddedEvent"
+            handler=".subscriber.rolesAssianed"
+            />
+  <subscriber
+            for="emc.project.content.project.IProject
+                 zope.lifecycleevent.interfaces.IObjectAddedEvent"
+            handler=".subscriber.rolesAssianed"
+            />            
   <subscriber
             handler=".subscriber.createTodoitem"
             />                         
