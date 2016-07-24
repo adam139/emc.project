@@ -12,7 +12,7 @@
       </metal:block>
   </head>
 <body>
-	<div metal:fill-slot="main">
+	<div metal:fill-slot="content-core">
 		<div id="ajaxsearch" style="display: none" tal:attributes="data-ajax-target python:context.absolute_url() + '/@@ajaxsearch'"></div>
 		<div class="container-fluid">
 			<div class="row ajaxsearch">

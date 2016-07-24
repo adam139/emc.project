@@ -38,7 +38,12 @@
       factory=".users_sent.Send"
       marker=".users_sent.ISendable"
       />  
-
+  <plone:behavior
+    title="Dynamic users role"
+    description="The file's value will be userid,expect the userid will be assigned local role on the fly"
+    provides=".dynamic_role_users.IDynamicUsers"
+    for="plone.dexterity.interfaces.IDexterityContent"
+    />
   <plone:behavior
     title="Attach File"
     description="Adds file field"

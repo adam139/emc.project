@@ -9,7 +9,6 @@ from plone.app.z3cform.widget import AjaxSelectFieldWidget
 from plone.autoform import directives
 from zope import schema
 
-from plone.formwidget.autocomplete.widget import AutocompleteMultiFieldWidget
 
 from borg.localrole.interfaces import ILocalRoleProvider
 from plone.indexer.interfaces import IIndexer
@@ -26,8 +25,6 @@ class Ilocalroles(form.Schema):
     emc_designer = schema.Tuple(
         title=_(u"EMC Designer"),
         value_type=schema.TextLine(),
-#         value_type=schema.Choice(title=_(u"User id"),
-#                                   source=u"plone.principalsource.Users"),
         required=False,
         missing_value=(), # important!
     )
@@ -59,14 +56,14 @@ class Ilocalroles(form.Schema):
         required=False,
         missing_value=(), # important!
     )
-    form.widget(reader3=AutocompleteMultiFieldWidget)    
+#     form.widget(reader3=AutocompleteMultiFieldWidget)    
     reader3 = schema.Tuple(
         title=_(u"Chief Designer"),
         value_type=schema.TextLine(),
         required=False,
         missing_value=(), # important!
     )     
-    form.widget(reader4=AutocompleteMultiFieldWidget)    
+#     form.widget(reader4=AutocompleteMultiFieldWidget)    
     reader4 = schema.Tuple(
         title=_(u"Deputy Chief Designer"),
         value_type=schema.TextLine(),
@@ -256,13 +253,13 @@ class AddLocalRoles(grok.Adapter):
             
 # the product designer will be assigned Contributor and Editor roles
         if principal_id in localrole.designer:
-            roles.add('Manager')
+            roles.add('Editor')
 #             roles.add('Editor')
           
-# the first members will be assigned Reader role            
+# the first group members will be assigned Reader role            
         if principal_id in self.getreaders(1,8):
             roles.add('Reader')
-# the third members will be assigned EMCExpert role            
+# the third group members will be assigned EMCExpert role            
 
         if principal_id in self.getreaders(8,12):
             roles.add('Reader')            

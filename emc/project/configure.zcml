@@ -39,10 +39,19 @@
             for="emc.project.content.project.IProject
                  zope.lifecycleevent.interfaces.IObjectAddedEvent"
             handler=".subscriber.rolesAssianed"
-            />            
+            />
+<!--                        
   <subscriber
-            handler=".subscriber.createTodoitem"
-            />                         
+            handler=".subscriber.AssignCreate"
+            />
+-->
+  <subscriber
+            handler=".subscriber.Review"
+            />
+             
+  <subscriber
+            handler=".subscriber.AssignCreate"
+            />                                                 
   <genericsetup:registerProfile
       name="default"
       title="a project management system for emc project"

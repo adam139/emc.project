@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-03-27 04:02+0000\n"
+"POT-Creation-Date: 2016-07-24 01:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,19 +18,19 @@ msgstr ""
 msgid "Brief Report"
 msgstr ""
 
-#: ./behaviors/localroles.py:57
+#: ./behaviors/localroles.py:61
 msgid "Chief Designer"
 msgstr ""
 
-#: ./behaviors/localroles.py:73
+#: ./behaviors/localroles.py:75
 msgid "Chief quality engineer"
 msgstr ""
 
-#: ./behaviors/localroles.py:41
+#: ./behaviors/localroles.py:43
 msgid "Commander"
 msgstr ""
 
-#: ./behaviors/localroles.py:65
+#: ./behaviors/localroles.py:68
 msgid "Deputy Chief Designer"
 msgstr ""
 
@@ -38,11 +38,11 @@ msgstr ""
 msgid "Deputy Chief Process"
 msgstr ""
 
-#: ./behaviors/localroles.py:81
+#: ./behaviors/localroles.py:82
 msgid "Deputy Chief quality engineer"
 msgstr ""
 
-#: ./behaviors/localroles.py:49
+#: ./behaviors/localroles.py:52
 msgid "Deputy Commander"
 msgstr ""
 
@@ -54,11 +54,11 @@ msgstr ""
 msgid "Document types settings"
 msgstr ""
 
-#: ./behaviors/localroles.py:25
+#: ./behaviors/localroles.py:26
 msgid "EMC Designer"
 msgstr ""
 
-#: ./behaviors/localroles.py:122
+#: ./behaviors/localroles.py:118
 msgid "EMC expert"
 msgstr ""
 
@@ -70,7 +70,7 @@ msgstr ""
 msgid "List project folder allow add document types."
 msgstr ""
 
-#: ./browser/workflow_ajax.py:110
+#: ./browser/workflow_ajax.py:123
 msgid "Not able to send notifications"
 msgstr ""
 
@@ -78,19 +78,19 @@ msgstr ""
 msgid "Please enter details of available types"
 msgstr ""
 
-#: ./behaviors/localroles.py:33
+#: ./behaviors/localroles.py:34
 msgid "Product Designer"
 msgstr ""
 
-#: ./behaviors/localroles.py:130
+#: ./behaviors/localroles.py:190
 msgid "The first members"
 msgstr ""
 
-#: ./behaviors/localroles.py:135
+#: ./behaviors/localroles.py:195
 msgid "The second members"
 msgstr ""
 
-#: ./behaviors/localroles.py:141
+#: ./behaviors/localroles.py:201
 msgid "The third members"
 msgstr ""
 
@@ -98,11 +98,19 @@ msgstr ""
 msgid "Type"
 msgstr ""
 
-#: ./behaviors/localroles.py:26
-msgid "User id"
+#: ./behaviors/dynamic_role_users.py:19
+msgid "Workflow next processor"
 msgstr ""
 
-#: ./behaviors/localroles.py:113
+#: ./vocabulary.py:11
+msgid "analysis"
+msgstr ""
+
+#: ./vocabulary.py:12
+msgid "design"
+msgstr ""
+
+#: ./behaviors/localroles.py:110
 msgid "dispatch staff"
 msgstr ""
 
@@ -115,13 +123,16 @@ msgstr ""
 msgid "document types"
 msgstr ""
 
+#: ./vocabulary.py:15
+msgid "experiment"
+msgstr ""
+
 #: ./behaviors/belowcontentfile.py:18
 msgid "help_attachfile"
 msgstr ""
 
-#. Default: "Used in item listings and search results."
-#: ./content/document.py:29
-msgid "help_description"
+#: ./vocabulary.py:29
+msgid "inner"
 msgstr ""
 
 #. Default: "attach file below content body"
@@ -129,7 +140,7 @@ msgstr ""
 msgid "label_attachfile"
 msgstr ""
 
-#: ./behaviors/localroles.py:97
+#: ./behaviors/localroles.py:96
 msgid "process staff"
 msgstr ""
 
@@ -153,12 +164,24 @@ msgstr ""
 msgid "projetFolder"
 msgstr ""
 
-#: ./behaviors/localroles.py:105
+#: ./vocabulary.py:28
+msgid "public"
+msgstr ""
+
+#: ./behaviors/localroles.py:103
 msgid "quality manage staff"
+msgstr ""
+
+#: ./vocabulary.py:30
+msgid "secret"
 msgstr ""
 
 #: ./behaviors/security_level.py:18
 msgid "security level"
+msgstr ""
+
+#: ./vocabulary.py:14
+msgid "simulation"
 msgstr ""
 
 #: ./browser/templates/project_view.pt:43
@@ -215,5 +238,9 @@ msgstr ""
 
 #: ./profiles/default/types/emc.project.team.xml
 msgid "team content type"
+msgstr ""
+
+#: ./vocabulary.py:13
+msgid "train"
 msgstr ""
 

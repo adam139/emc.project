@@ -4,6 +4,8 @@ from borg.localrole.interfaces import ILocalRoleProvider
 
 from emc.project.testing import FUNCTIONAL_TESTING
 from emc.project.behaviors.localroles import Ilocalroles,IlocalrolesMarker
+from emc.project.behaviors.users_sent import ISending
+from emc.project.behaviors.dynamic_role_users import IDynamicUsers
 
 
 from zope.component import createObject
@@ -16,6 +18,7 @@ from Products.CMFCore.utils import getToolByName
 # from plone.app.contenttypes.interfaces import IFolder,IDocument
 from emc.project.content.projectfolder import IProjectFolder
 from emc.project.content.project import IProject
+from emc.project.content.document import IDocument
 from emc.project.content.team import ITeam
 
 from plone.behavior.interfaces import IBehaviorAssignable,IBehavior
@@ -43,6 +46,23 @@ class AssignRoles(object):
         for e in self.enabled:
             yield queryUtility(IBehavior, name=e.__identifier__)
 
+class AssignUsers(object):
+    
+    implements(IBehaviorAssignable)
+    adapts(IDocument)
+#     adapts(IFolder)    
+#     adapts(IProject)    
+    enabled = [IDynamicUsers]
+
+    def __init__(self, context):
+        self.context = context
+    
+    def supports(self, behavior_interface):
+        return behavior_interface in self.enabled
+
+    def enumerateBehaviors(self):
+        for e in self.enabled:
+            yield queryUtility(IBehavior, name=e.__identifier__)
   
 
 

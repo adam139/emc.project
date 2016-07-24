@@ -16,6 +16,27 @@
         for="*"
         permission="zope2.View"
         class=".macros.Macros"/>
+        
+<!-- borrow 'Saving users list' behavior 's mark interface -->        
+   <!--
+   <browser:viewlet
+     name="noderoles"
+     for="emc.project.behaviors.users_sent.ISendable"
+     view="emc.project.interface.IUsersrolesProvider"
+     manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+     class=".viewlets.UsersRoles"
+     template="templates/users_roles.pt"
+     permission="emc.project.view_projectsummary"
+     />
+     -->
+  <browser:viewlet
+    name="emc.project.reviewhistory"
+    for=" emc.project.indexer.IProjectContent" 
+    manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+    class=".review_history.ReviewViewlet"
+    layer="emc.theme.interfaces.IThemeSpecific"
+    permission="zope2.View"
+	/>             
 
   <!-- VIEWS FOR PROJECT -->
   <browser:pages
@@ -177,16 +198,7 @@
         menu="plone_displayviews"
         title="Album view"
         />
-  </browser:pages>        
-
-  <browser:viewlet
-    name="emc.project.reviewhistory"
-    for=" emc.project.indexer.IProjectContent" 
-    manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
-    class=".review_history.ReviewViewlet"
-    layer="emc.theme.interfaces.IThemeSpecific"
-    permission="zope2.View"
-	/>
+  </browser:pages>       
 	
     <!-- Control panel form -->
     <browser:page 

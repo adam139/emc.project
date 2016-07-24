@@ -13,7 +13,7 @@ import unittest
 
 from Products.CMFCore.utils import getToolByName
 from emc.memberArea.events import BackMessageCreatedEvent
-from emc.project.tests.test_localroles import AssignRoles
+from emc.project.tests.test_localroles import AssignRoles,AssignUsers
 
 class TestView(unittest.TestCase):
     
@@ -39,7 +39,8 @@ class TestView(unittest.TestCase):
             pm.createMemberarea(member_id= username)
             notify(BackMessageCreatedEvent(user))
         
-        provideAdapter(AssignRoles)          
+        provideAdapter(AssignRoles)
+        provideAdapter(AssignUsers)        
         
 
         portal.invokeFactory('emc.project.projectFolder', 'folder1',
@@ -72,7 +73,8 @@ class TestView(unittest.TestCase):
 # the third members        
         Ilocalroles(portal['folder1']['project1']).reader8 = ('member5',)
          #child will  inherit parents sets.
-        Ilocalroles(portal['folder1']['project1']['team1']).designer = ('member2',)          
+        Ilocalroles(portal['folder1']['project1']['team1']).designer = ('member2',)
+        portal['folder1']['project1']['team1']['doc1'].users = ('member2',)           
         
         self.portal = portal                               
     
@@ -176,6 +178,8 @@ class TestView(unittest.TestCase):
         wf = getToolByName(portal, 'portal_workflow')
 
         wt = wf.emc_doc_workflow
+        import pdb
+        pdb.set_trace()
         dummy = portal['folder1']['project1']['team1']['doc1']
 
         wf.notifyCreated(dummy)

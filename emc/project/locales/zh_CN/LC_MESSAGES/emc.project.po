@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: emc bokeh\n"
-"POT-Creation-Date: 2016-03-27 04:02+0000\n"
+"Project-Id-Version: emc project\n"
+"POT-Creation-Date: 2016-07-24 01:11+0000\n"
 "PO-Revision-Date: 2016-01-11 11:11+0800\n"
 "Last-Translator: adam <yuejun.tang@gmail.com>\n"
 "Language-Team: LANGUAGE <yuejun.tang@gmail.com>\n"
@@ -19,19 +19,19 @@ msgstr ""
 msgid "Brief Report"
 msgstr "简报"
 
-#: ./behaviors/localroles.py:57
+#: ./behaviors/localroles.py:61
 msgid "Chief Designer"
 msgstr "总设计师"
 
-#: ./behaviors/localroles.py:73
+#: ./behaviors/localroles.py:75
 msgid "Chief quality engineer"
 msgstr "总质量师"
 
-#: ./behaviors/localroles.py:41
+#: ./behaviors/localroles.py:43
 msgid "Commander"
 msgstr "总指挥"
 
-#: ./behaviors/localroles.py:65
+#: ./behaviors/localroles.py:68
 msgid "Deputy Chief Designer"
 msgstr "副总设计师"
 
@@ -39,11 +39,11 @@ msgstr "副总设计师"
 msgid "Deputy Chief Process"
 msgstr "副总工艺师"
 
-#: ./behaviors/localroles.py:81
+#: ./behaviors/localroles.py:82
 msgid "Deputy Chief quality engineer"
 msgstr "副总质量师"
 
-#: ./behaviors/localroles.py:49
+#: ./behaviors/localroles.py:52
 msgid "Deputy Commander"
 msgstr "副总指挥"
 
@@ -55,11 +55,11 @@ msgstr "项目文档类型"
 msgid "Document types settings"
 msgstr "项目设置"
 
-#: ./behaviors/localroles.py:25
+#: ./behaviors/localroles.py:26
 msgid "EMC Designer"
 msgstr "电磁兼容设计师"
 
-#: ./behaviors/localroles.py:122
+#: ./behaviors/localroles.py:118
 msgid "EMC expert"
 msgstr "电磁兼容专家"
 
@@ -71,27 +71,27 @@ msgstr "在下面列出可以添加到项目或项目组的文档类型"
 msgid "List project folder allow add document types."
 msgstr "在下面列出可以添加到项目或项目组的文档类型，每行一个"
 
-#: ./browser/workflow_ajax.py:110
+#: ./browser/workflow_ajax.py:123
 msgid "Not able to send notifications"
-msgstr ""
+msgstr "不能发送通知"
 
 #: ./browser/controlpanel.py:16
 msgid "Please enter details of available types"
 msgstr "设置可以添加到项目或项目组的文档类型"
 
-#: ./behaviors/localroles.py:33
+#: ./behaviors/localroles.py:34
 msgid "Product Designer"
 msgstr "产品设计师"
 
-#: ./behaviors/localroles.py:130
+#: ./behaviors/localroles.py:190
 msgid "The first members"
 msgstr "第一类人员"
 
-#: ./behaviors/localroles.py:135
+#: ./behaviors/localroles.py:195
 msgid "The second members"
 msgstr "第二类人员"
 
-#: ./behaviors/localroles.py:141
+#: ./behaviors/localroles.py:201
 msgid "The third members"
 msgstr "第三类人员"
 
@@ -99,11 +99,19 @@ msgstr "第三类人员"
 msgid "Type"
 msgstr "类型"
 
-#: ./behaviors/localroles.py:26
-msgid "User id"
-msgstr "用户id"
+#: ./behaviors/dynamic_role_users.py:19
+msgid "Workflow next processor"
+msgstr "工作流下一处理人"
 
-#: ./behaviors/localroles.py:113
+#: ./vocabulary.py:11
+msgid "analysis"
+msgstr ""
+
+#: ./vocabulary.py:12
+msgid "design"
+msgstr ""
+
+#: ./behaviors/localroles.py:110
 msgid "dispatch staff"
 msgstr "计划调度人员"
 
@@ -116,13 +124,16 @@ msgstr "文档类型"
 msgid "document types"
 msgstr "文档类型"
 
+#: ./vocabulary.py:15
+msgid "experiment"
+msgstr ""
+
 #: ./behaviors/belowcontentfile.py:18
 msgid "help_attachfile"
 msgstr "追加文件在主内容下面"
 
-#. Default: "Used in item listings and search results."
-#: ./content/document.py:29
-msgid "help_description"
+#: ./vocabulary.py:29
+msgid "inner"
 msgstr ""
 
 #. Default: "attach file below content body"
@@ -130,7 +141,7 @@ msgstr ""
 msgid "label_attachfile"
 msgstr "附件"
 
-#: ./behaviors/localroles.py:97
+#: ./behaviors/localroles.py:96
 msgid "process staff"
 msgstr "工艺师"
 
@@ -154,13 +165,25 @@ msgstr "项目容器类型"
 msgid "projetFolder"
 msgstr "项目容器"
 
-#: ./behaviors/localroles.py:105
+#: ./vocabulary.py:28
+msgid "public"
+msgstr ""
+
+#: ./behaviors/localroles.py:103
 msgid "quality manage staff"
 msgstr "质量管理人员"
+
+#: ./vocabulary.py:30
+msgid "secret"
+msgstr ""
 
 #: ./behaviors/security_level.py:18
 msgid "security level"
 msgstr "安全级别"
+
+#: ./vocabulary.py:14
+msgid "simulation"
+msgstr ""
 
 #: ./browser/templates/project_view.pt:43
 msgid "submit comments"
@@ -217,4 +240,8 @@ msgstr "项目组"
 #: ./profiles/default/types/emc.project.team.xml
 msgid "team content type"
 msgstr "项目组类型"
+
+#: ./vocabulary.py:13
+msgid "train"
+msgstr ""
 

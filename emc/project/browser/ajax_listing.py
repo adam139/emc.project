@@ -21,19 +21,18 @@ from zope.component import getUtility
 from plone.registry.interfaces import IRegistry
 from collective.gtags.interfaces import ITagSettings
 from emc.project import viewReport
-grok.templatedir('templates') 
+from emc.project.interface import IUsersrolesProvider
+from zope.interface import implementer
 
-       
+grok.templatedir('templates')     
 
-
+@implementer(IUsersrolesProvider)
 class ajaxListingView(BrowserView):
     """
     AJAX 查询，返回分页结果
     """
    
-#     def update(self):
-#         # Hide the editable-object border
-#         self.request.set('disable_border', True)                
+               
     @memoize    
     def catalog(self):
         context = aq_inner(self.context)

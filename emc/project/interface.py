@@ -4,6 +4,11 @@ from zope import schema
 from plone.directives import form
 from emc.project import _
 
+
+class IUsersrolesProvider(Interface):
+    """Marker interface which specifies that the view  will provide Usersroles viewlet.
+    """
+
 class IProjectContent(form.Schema):
     """
     emc project  content type base interface

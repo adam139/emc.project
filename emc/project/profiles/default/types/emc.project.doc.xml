@@ -27,6 +27,7 @@
      <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>        
      <element value="plone.app.contenttypes.behaviors.richtext.IRichText"/>               
      <element value="emc.project.behaviors.richtext.IRichText"/>
+     <element value="emc.project.behaviors.dynamic_role_users.IDynamicUsers"/>
      <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
 	 <element value="plone.app.contenttypes.behaviors.tableofcontents.ITableOfContents"/>     
      <element value="plone.app.lockingbehavior.behaviors.ILocking" />
