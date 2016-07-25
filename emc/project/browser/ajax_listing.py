@@ -1,6 +1,10 @@
 #-*- coding: UTF-8 -*-
 from zope.interface import Interface
+from zope.interface import implementer
 from zope.component import getMultiAdapter
+from zope.component import getUtility
+from zope.component import queryUtility
+from plone.registry.interfaces import IRegistry
 from five import grok
 import json
 import datetime
@@ -8,7 +12,7 @@ from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore import permissions
 from Products.CMFCore.interfaces import ISiteRoot
-from plone.directives import dexterity
+# from plone.directives import dexterity
 from plone.memoize.instance import memoize
 from emc.project import _
 from emc.project.content.projectfolder import IProjectFolder
@@ -16,20 +20,17 @@ from emc.project.content.project import IProject
 from emc.project.content.team import ITeam
 from Products.Five.browser import BrowserView
 
-# from collective.gtags.source import TagsSourceBinder
-from zope.component import getUtility
-from plone.registry.interfaces import IRegistry
 from collective.gtags.interfaces import ITagSettings
 from emc.project import viewReport
 from emc.project.interface import IUsersrolesProvider
-from zope.interface import implementer
+
 
 grok.templatedir('templates')     
 
-@implementer(IUsersrolesProvider)
-class ajaxListingView(BrowserView):
+
+class sysAjaxListingView(BrowserView):
     """
-    AJAX 查询，返回分页结果
+    AJAX 查询，返回分页结果,for some contenttypes relative to project
     """
    
                
@@ -64,8 +65,17 @@ class ajaxListingView(BrowserView):
             
     @memoize
     def getTagregistryProxy(self):
-        settings = getUtility(IRegistry).forInterface(ITagSettings)
-        return settings.tags
+        "input keywords vocabulary,\
+        output all tags,compose a list,member of the list is unicode"
+        factory = queryUtility(IVocabularyFactory, 'plone.app.vocabularies.Keywords')
+        if not factory:
+            raise VocabLookupException(
+                'No factory with name "%s" exists.' % factory_name)
+
+        vocabulary = factory(self.context)
+        tags = [ term.title for term in vocabulary]
+#         settings = getUtility(IRegistry).forInterface(ITagSettings)
+        return tags
     
     @memoize
     def getTagGroups(self):
@@ -74,6 +84,7 @@ class ajaxListingView(BrowserView):
         if tagsets ==None:return None
 #         import pdb
 #         pdb.set_trace()
+        # get rid of duplicate
         groups = set(self.splitTag(value)['category'] for value in tagsets if value != "")
         groups = list(groups)
         groups.sort()
@@ -102,6 +113,7 @@ class ajaxListingView(BrowserView):
                         <span data-name="2"><a href="javascript:void(0)">设计</a></span>
 
         """
+
         out = ""
         i = 1
         tags = self.getAllTags(category)
@@ -134,9 +146,35 @@ class ajaxListingView(BrowserView):
         """
         postfix = "</li></ul>"
         for group in groups:
-#             import pdb
-#             pdb.set_trace()
-            prefixing = prefix % (group,group)
+
+            if group != "":
+                prefix = """
+                    <ul class="row tagSelectSearch list-inline">                    
+                    <li class="title">按%s：</li>
+                    <li class="hidden">
+                        <input type="hidden" value="0" class="taggroup" data-category="%s-">                            
+                    </li>                    
+                    <li class="all">
+                        <span class="over" data-name="0"><a class="btn btn-default" href="javascript:void(0)" role="button">所有</a></span><!-- 所有 -->
+                    </li>
+                    <li class="tag_list_div fenlei_a">
+        """                
+                prefixing = prefix % (group,group)
+            else:
+                group = u"未分类".encode('utf-8')
+                prefix = """
+                    <ul class="row tagSelectSearch list-inline">                    
+                    <li class="title">%s：</li>
+                    <li class="hidden">
+                        <input type="hidden" value="0" class="taggroup" data-category="%s-">                            
+                    </li>                    
+                    <li class="all">
+                        <span class="over" data-name="0"><a class="btn btn-default" href="javascript:void(0)" role="button">所有</a></span><!-- 所有 -->
+                    </li>
+                    <li class="tag_list_div fenlei_a">
+        """
+                prefixing = prefix % (group,group)
+                group = ""
             loopitem = self.getTagHtml(group)
             loopitem = "%s%s%s" % (prefixing,loopitem,postfix)
             out = "%s%s" % (out,loopitem)
@@ -202,6 +240,116 @@ class ajaxListingView(BrowserView):
     def search_multicondition(self,query):  
         return self.catalog()(query)
 
+# for render userslist viewlet
+@implementer(IUsersrolesProvider)
+class  ajaxListingView(sysAjaxListingView):
+    """
+    ajax listing view for system content types
+    """
+    @memoize
+    def getTagregistryProxy(self):
+        settings = getUtility(IRegistry).forInterface(ITagSettings)
+        return settings.tags    
+    
+#     def splitTag(self,value):
+#             """Split a tag into (category, tag) parts. category may be None.
+#             input: value like abc-a1 or a1
+#             output:dict like  {'category':abc,'value':a1}
+#             """
+#             parts = value.split("-")
+#             output = {'category':'','value':''}        
+#     
+#             if len(parts) == 1:
+#                 output['value'] = value
+#                 return output
+#             else:
+#                 output['category'] = parts[0]
+#                 output['value'] = parts[1]
+#                 return output
+#             
+# 
+#     
+#     @memoize
+#     def getTagGroups(self):
+#         "fetch all tag groups ,it is category part of 'category-value'" 
+#         tagsets = self.getTagregistryProxy()
+#         if tagsets ==None:return None
+# #         import pdb
+# #         pdb.set_trace()
+#         groups = set(self.splitTag(value)['category'] for value in tagsets if value != "")
+#         groups = list(groups)
+#         groups.sort()
+#         return groups           
+#     
+#     def getAllTags(self,category):
+#         """fetch all predefine  tags under the specify category"""
+#         tagsets = self.getTagregistryProxy()
+# #         import pdb
+# #         pdb.set_trace()
+#         out = []
+#         if tagsets ==None:return None
+#         for value in tagsets:
+#             if value == '':continue
+#             if self.splitTag(value)['category'] != category:
+#                 continue
+#             else:
+#               out.append(self.splitTag(value)['value']) 
+#         out.sort()              
+#         return out
+#             
+# 
+#     def getTagHtml(self,category):
+#         """
+#                         <span data-name="1"><a href="javascript:void(0)">分析</a></span>
+#                         <span data-name="2"><a href="javascript:void(0)">设计</a></span>
+# 
+#         """
+#         out = ""
+#         i = 1
+#         tags = self.getAllTags(category)
+# #         import pdb
+# #         pdb.set_trace()
+#         if tags == None: return "no any tag"
+#         for tag in tags:
+#             num = str(i)                       
+#             out2 = """<span data-name="%s"><a class="btn btn-default" href="javascript:void(0)" role="button">%s</a></span>""" % (num,tag)
+#             out = "%s%s" %(out,out2)
+#             i = i + 1
+#         return out    
+#     
+#     @memoize
+#     def getAllTagsHtml(self):
+#         "output all tag groups html"
+#         groups = self.getTagGroups()
+# #         i= 0
+#         out = ""
+#         prefix = """
+#                     <ul class="row tagSelectSearch list-inline">                    
+#                     <li class="title">按%s：</li>
+#                     <li class="hidden">
+#                         <input type="hidden" value="0" class="taggroup" data-category="%s-">                            
+#                     </li>                    
+#                     <li class="all">
+#                         <span class="over" data-name="0"><a class="btn btn-default" href="javascript:void(0)" role="button">所有</a></span><!-- 所有 -->
+#                     </li>
+#                     <li class="tag_list_div fenlei_a">
+#         """
+#         postfix = "</li></ul>"
+#         for group in groups:
+# #             import pdb
+# #             pdb.set_trace()
+#             if group != "":
+#                 prefixing = prefix % (group,group)
+#             else:
+#                 group = u"未分类".encode('utf-8')
+#                 prefixing = prefix % (group,group)
+#                 
+#             loopitem = self.getTagHtml(group)
+#             loopitem = "%s%s%s" % (prefixing,loopitem,postfix)
+#             out = "%s%s" % (out,loopitem)
+#         return out 
+
+ 
  # ajax multi-condition search       
 class ajaxsearch(grok.View):
     """AJAX action for search.
@@ -268,13 +416,21 @@ class ajaxsearch(grok.View):
             origquery['created'] = self.Datecondition(datekey)           
 #         if tasktypekey != 0:
 #             origquery['task_type'] = searchview.getTaskType(tasktypekey)
-        all = u"所有".encode("utf-8")
+
         # remove repeat values 
         tag = tag.split(',')
         tag = set(tag)
         tag = list(tag)
+        all = u"所有".encode("utf-8")
+        unclass = u"未分类".encode("utf-8")        
 # filter contain "u'所有'"
         tag = filter(lambda x: all not in x, tag)
+# recover un-category tag (remove:u"未分类-")
+        def recovery(value):
+            if unclass not in value:return value
+            return value.split('-')[1]
+            
+        tag = map(recovery,tag)        
         if '0' in tag and len(tag) > 1:
             tag.remove('0')
             rule = {"query":tag,"operator":"and"}
