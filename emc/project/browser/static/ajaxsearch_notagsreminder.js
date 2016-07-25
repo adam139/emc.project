@@ -343,7 +343,7 @@ $(document).ready(function(){
       if ($(this).attr("class") == "title" || $(this).attr("class") == "more") {} else 
                     {
                     $(this).parent().parent().find(".over").removeClass("over");
-                    var newval = $(this).find("a").html();
+                    var newval = $(this).parent().parent().find("input").attr("data-category") + $(this).find("a").html();
                     $(this).parent().parent().find("input").attr("value",newval);
                     $(this).addClass("over");
                     //var old = $("#tagSearch").val();

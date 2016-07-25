@@ -125,7 +125,7 @@ class ajaxListingView(BrowserView):
                     <ul class="row tagSelectSearch list-inline">                    
                     <li class="title">按%s：</li>
                     <li class="hidden">
-                        <input type="hidden" value="0" class="taggroup">                            
+                        <input type="hidden" value="0" class="taggroup" data-category="%s-">                            
                     </li>                    
                     <li class="all">
                         <span class="over" data-name="0"><a class="btn btn-default" href="javascript:void(0)" role="button">所有</a></span><!-- 所有 -->
@@ -134,8 +134,9 @@ class ajaxListingView(BrowserView):
         """
         postfix = "</li></ul>"
         for group in groups:
-
-            prefixing = prefix % (group)
+#             import pdb
+#             pdb.set_trace()
+            prefixing = prefix % (group,group)
             loopitem = self.getTagHtml(group)
             loopitem = "%s%s%s" % (prefixing,loopitem,postfix)
             out = "%s%s" % (out,loopitem)
@@ -232,6 +233,10 @@ class ajaxsearch(grok.View):
         datecondition = { "query": [start, end],"range": "minmax" }
         return datecondition  
           
+    def filter_category(self,value):
+        if "-" not in value:return value
+        return value.split('-')[1]    
+    
     def render(self):    
 #        self.portal_state = getMultiAdapter((self.context, self.request), name=u"plone_portal_state")
         searchview = getMultiAdapter((self.context, self.request),name=u"ajax_listings")        
@@ -264,20 +269,16 @@ class ajaxsearch(grok.View):
 #         if tasktypekey != 0:
 #             origquery['task_type'] = searchview.getTaskType(tasktypekey)
         all = u"所有".encode("utf-8")
-#         import pdb
-#         pdb.set_trace()
-        if tag !=all and tag !="0":
-#             import pdb
-#             pdb.set_trace()
-            tag = tag.split(',')
-            # remove repeat values            
-            tag = set(tag)            
-            tag = list(tag)
-            if all in tag:tag.remove(all)
-            if '0' in tag and len(tag) > 1:
-                tag.remove('0')
-                rule = {"query":tag,"operator":"and"}
-                origquery['Subject'] = rule
+        # remove repeat values 
+        tag = tag.split(',')
+        tag = set(tag)
+        tag = list(tag)
+# filter contain "u'所有'"
+        tag = filter(lambda x: all not in x, tag)
+        if '0' in tag and len(tag) > 1:
+            tag.remove('0')
+            rule = {"query":tag,"operator":"and"}
+            origquery['Subject'] = rule
                       
 #totalquery  search all 
         totalquery = origquery.copy()
