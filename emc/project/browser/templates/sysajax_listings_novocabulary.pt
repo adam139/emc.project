@@ -12,11 +12,9 @@
       </metal:block>
   </head>
 <body>
-	<metal:block fill-slot="content-title" />
-	<metal:block fill-slot="content-description" />
-	<div metal:fill-slot="content-core">
+	<div metal:fill-slot="main">
 		<div id="ajaxsearch" style="display: none" tal:attributes="data-ajax-target python:context.absolute_url() + '/@@ajaxsearch'"></div>
-		<div id="ajaxmore" style="display: none" tal:attributes="data-ajax-target python:context.absolute_url() + '/@@loadmore_tags'"></div>
+		<div id="ajaxmore" style="display: none" tal:attributes="data-ajax-target python:context.absolute_url() + '/@@sysloadmore_tags'"></div>
 		<div class="container-fluid">
 			<div class="row ajaxsearch">
 				<div class="form-group col-xs-9 col-sm-6 col-sm-offset-3">

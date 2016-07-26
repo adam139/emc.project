@@ -94,12 +94,20 @@
         class=".project_view.ProjectView"
         menu="plone_displayviews"
         title="Status view"/>
-     
+        
+    <browser:page
+        name="sysajax_listings"
+        template="templates/sysajax_listings_novocabulary.pt"
+        for="*"
+        permission="emc.project.view_projectsummary"
+        class=".ajax_listing.sysAjaxListingView"
+        menu="plone_displayviews"
+        title="system Ajax view"/>      
     
     <browser:page
         name="ajax_listings"
         template="templates/ajax_listings_novocabulary.pt"
-        for="*"
+        for="emc.project.indexer.IProjectContent"
         permission="emc.project.view_projectsummary"
         class=".ajax_listing.ajaxListingView"
         menu="plone_displayviews"

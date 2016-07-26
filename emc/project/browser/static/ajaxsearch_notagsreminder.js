@@ -89,6 +89,7 @@ var searchEvent = function(jumpPage, rows, initKeyword) {
        var action = $("#ajaxsearch").attr('data-ajax-target');
        // tag selected item's data-name value
        var taged = $(".tagSelectSearch li span.over").first().attr("data-name");
+     
        $.post(action, 
            data,
            function(resp) {
@@ -276,13 +277,15 @@ function createStringSearch(d, a, c, g,m) {
         b += "<div class='select' onclick=\"closeSearchEventsDiv(3)\">任务类别：<button type='button' class='close' aria-label='Close'><span aria-hidden='true'>" + e + "&times;</span></button></div>";
     }
     //tag
-    var n = "";
+    var n = "当前标签";
     if (m == "0") {
         n = "所有";
     } else {
-        n = $(".tagSelectSearch").first().find("span[data-name='" + m + "'] a").html();
-        b += "<div class='select' onclick=\"closeSearchEventsDiv(4)\">标签：<button type='button' class='close' aria-label='Close'><span aria-hidden='true'>" + n + "&times;</span></button></div>";
-    }    
+    	//n = $(".tagSelectSearch").first().find("span[data-name='" + m + "'] a").html();
+		n = "当前标签";
+
+     b += "<div class='select' onclick=\"closeSearchEventsDiv(4)\">标签：<button type='button' class='close' aria-label='Close'><span aria-hidden='true'>" + n + "&times;</span></button></div>";
+ }   
     
     // keyword
     if (d === "") {
@@ -340,19 +343,43 @@ $(document).ready(function(){
     });                 
    // tag area 
    $(".tagSelectSearch li").on("click","span",function() {    
-      if ($(this).attr("class") == "title" || $(this).attr("class") == "more") {} else 
-                    {
+      //if ($(this).attr("class") == "title" || $(this).attr("class") == "more") {} else
+      if ($(this).attr("class") == "more") {
+		// loadmore       	
+   		var start = $(this).attr('data-start');
+   		var category = $(this).attr('data-group');
+    	var action = $("#ajaxmore").attr('data-ajax-target');
+    	var senddata = {'start':start,'category':category};
+    	$(this).addClass("running");
+    	$.post(action, 
+           senddata,
+           function(data) {
+           	try {
+                $(".running").hide();
+                var str = data;
+                $(str).appendTo($(".running").parent());
+                $(".running").remove();            
+            	} 
+            catch (e) {
+                alert(e);
+            	}
+           },
+           'json');
+    	return false;       	
+      	
+      } else  {
                     $(this).parent().parent().find(".over").removeClass("over");
                     var newval = $(this).parent().parent().find("input").attr("data-category") + $(this).find("a").html();
                     $(this).parent().parent().find("input").attr("value",newval);
-                    $(this).addClass("over");
-                    //var old = $("#tagSearch").val();
-                    
+                    $(this).addClass("over");                    
                     $("#tagSearch").attr("value",newval );
+                    //$(this).parent().parent().addClass('running');
                     searchEvent();
+                    //$(".running").removeClass('running');
                 }
        return false; 
-    });   
+    });  	     
+       
    // sort operation
    $("#eventListSort").on("click","a",function() {             
                 $("#solrSortColumn").attr("value", $(this).attr("data-name"));
