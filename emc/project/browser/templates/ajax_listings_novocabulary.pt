@@ -12,9 +12,9 @@
       </metal:block>
   </head>
 <body>
-	<metal:block fill-slot="content-title" />
-	<metal:block fill-slot="content-description" />
-	<div metal:fill-slot="content-core">
+	<div metal:fill-slot="main">
+          <section id="viewlet-above-content-body" tal:content="structure provider:plone.abovecontentbody" />
+          <section id="content-core">
 		<div id="ajaxsearch" style="display: none" tal:attributes="data-ajax-target python:context.absolute_url() + '/@@ajaxsearch'"></div>
 		<div id="ajaxmore" style="display: none" tal:attributes="data-ajax-target python:context.absolute_url() + '/@@loadmore_tags'"></div>
 		<div class="container-fluid">
@@ -73,7 +73,9 @@
                     	<span data-name="5"><a class="btn btn-default" href="javascript:void(0)" role="button">培训</a></span>                     	                   	
                     </li>                   
                 </ul>
-              </div><!--搜索框、搜索条件选择 End--><!--搜索选择结果start-->
+              </div>
+              <!--搜索框、搜索条件选择 End-->
+              <!--搜索选择结果start-->
               <div class="row">
               	<ul id="all_result_recordinfo" class="list-inline col-xs-12 col-sm-4 col-sm-offset-4">
                 	<li class="a">已选择：</li>
@@ -103,8 +105,10 @@
                 	<li><a class="btn btn-default" href="javascript:searchEvent(2,10)" role="button"></a>
                 	</li>
                 </ul>
-               </div>
+               	</div>
             </div>
+            <!--end of sort -->
+            <!-- search result start-->
             <table class="row table table-striped table-bordered table-condensed listing">
             	<thead>
             		<tr data-toggle="tooltip" title="点击排序">
@@ -138,8 +142,11 @@
             </ul>
            </nav>
 		</div>
-        <!--左边内容 End-->		
-	</div>
+        <!--container fluid End-->	
+          </section>
+          <section id="viewlet-below-content-body" tal:content="structure provider:plone.belowcontentbody" />
+		
+</div>
   <metal:js fill-slot="javascript_bottom_slot">
 	<script type="text/javascript"
 		tal:define="navroot context/@@plone_portal_state/navigation_root_url"

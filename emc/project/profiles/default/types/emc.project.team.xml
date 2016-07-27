@@ -17,11 +17,7 @@
   	 <element value="File" />  
   	 <element value="Document" />  	   	
   	 <element value="emc.project.team" />
-  	 <element value="emc.project.doc" />
-  	 <element value="emc.project.analysisDoc" />
-  	 <element value="emc.project.auditDoc" />
-  	 <element value="emc.project.designDoc" />
-  	 <element value="emc.project.diagnoseDoc" />  	   	   	   
+  	 <element value="emc.project.doc" />  	   	   	   
   </property>
   <property name="allow_discussion">False</property>
 

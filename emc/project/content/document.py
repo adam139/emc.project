@@ -17,11 +17,7 @@ class IDocument(IProjectContent):
     """
     emc project  document content type
     """
-    # self-defined title and description
-#     title = schema.TextLine(
-#         title=_(u'label_title', default=u'Title'),
-#         required=True
-#     )
+
 
     title = schema.Choice(
         title=_p(u'label_title'),

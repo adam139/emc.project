@@ -1,7 +1,7 @@
 #-*- coding: UTF-8 -*-
 from plone.directives import form, dexterity
-
-class IProjectFolder(form.Schema):
+from emc.project.indexer import IProjectContent
+class IProjectFolder(IProjectContent):
     """
     emc project folder content type
     """
