@@ -16,7 +16,23 @@
         for="*"
         permission="zope2.View"
         class=".macros.Macros"/>
+<!-- custom form -->
+    <adapter
+        for="Products.CMFCore.interfaces.IFolderish
+             plone.dexterity.interfaces.IDexterityFTI"
+        provides="zope.publisher.interfaces.browser.IBrowserPage"
+        factory=".custom_form.AddView"
+        name="emc.project.doc"
+        />
         
+    <browser:page
+        for="emc.project.content.document.IDocument"
+        class=".custom_form.DocEditForm"
+        permission="emc.project.modify_doc"
+        name="edit"
+        />        
+
+
 <!-- borrow 'Saving users list' behavior 's mark interface -->        
    <!--
    <browser:viewlet
@@ -214,5 +230,7 @@
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         class=".controlpanel.DocTypeSettingsControlPanel"
         permission="cmf.ManagePortal"
-        />	                   
+        />
+ 
+
 </configure>
