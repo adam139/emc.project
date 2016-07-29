@@ -29,15 +29,11 @@ def roleModified(obj,event):
     """Project team has been modified subscriber's handler.
     obj: team instance,a project node
     event:objectModifiedevent
-    todo:build a receivers list to avoid send repeat  """
-    
-
+    todo:build a receivers list to avoid send repeat  """   
 
     if IContainerModifiedEvent.providedBy(event):
         return    
     filteAndSend(obj)
-
-
 
 def filteAndSend(obj):
     "Those users been sent before this action should be filter"    
@@ -88,15 +84,15 @@ def getDesigners(node):
         dl = node.designer
     return dl
 
-## workflow event handler from status:pendingview to public 
+## workflow event handler from status:pendingview to published  or pendingprocess to review
 @adapter(IDocument, IAfterTransitionEvent)
 def Review(doc, event):
-    "handler from status:pendingview to public or pendingprocess to public"
+    "handler from status:pendingview to published or pendingprocess to review"
 
     state = event.new_state.getId()
 #     import pdb
 #     pdb.set_trace()   
-    if state == "public":
+    if state == "pendingview":
         old = event.old_state.getId()
         id = doc.creators[0]
         sender = api.user.get_current().id
@@ -107,7 +103,14 @@ def Review(doc, event):
             name = u"我已阅读了文档：%s" % name
             title = name.encode("utf-8")
             notify(TodoitemWillCreateEvent(title=title,userid=id,sender=sender,text=text))
-        else:
+    if state == "review":
+        old = event.old_state.getId()
+        id = doc.creators[0]
+        sender = api.user.get_current().id
+        name = safe_unicode(doc.title)
+        url = doc.absolute_url()
+        text = u"""<p>详细情况请点击查看：<a href="%s"><strong>%s</strong></a></p>""" %(url,name)
+        if old =="pendingprocess":       
             name = u"我已编辑了文档：%s" % name
             title = name.encode("utf-8")
             notify(TodoitemWillCreateEvent(title=title,userid=id,sender=sender,text=text))
@@ -115,6 +118,7 @@ def Review(doc, event):
             
 
 ## workflow event handler receive front end select next processor 
+#handler for draft to pendingview or draft to pendingprocess
 @adapter(IDocument, IAfterTransitionEvent)
 def AssignCreate(doc, event):
     "assign the selected user to a local roles and send todoitem notify"
@@ -140,12 +144,16 @@ def AssignCreate(doc, event):
         doc.reindexObject()        
                            
     elif state == "pendingprocess":
+        old = event.old_state.getId()
         users = doc.users
         creator = doc.creators[0]
         name = safe_unicode(doc.title)
         url = doc.absolute_url()
         text = u"""<p>详细情况请点击查看：<a href="%s"><strong>%s</strong></a></p>""" %(url,name)        
-        title = u"请查阅下发的文档资料：%s，并反馈" % name
+        if old != "review":        
+            title = u"请查阅下发的文档资料：%s，及时填写并反馈" % name
+        else:
+            title = u"请再次查阅下发的文档资料：%s，参考审阅意见，及时完善并反馈" % name
         title = title.encode("utf-8")
         for id in users:
             # assign Reader to users

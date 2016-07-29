@@ -8,8 +8,6 @@ from plone.directives import form
 from plone.app.z3cform.widget import AjaxSelectFieldWidget
 from plone.autoform import directives
 from zope import schema
-
-
 from borg.localrole.interfaces import ILocalRoleProvider
 from plone.indexer.interfaces import IIndexer
 from Products.ZCatalog.interfaces import IZCatalog
@@ -21,7 +19,7 @@ class Ilocalroles(form.Schema):
     Description of the localroles
     source 字段不能有缺省值的
     """
-#     form.widget(emc_designer=AutocompleteMultiFieldWidget)    
+   
     emc_designer = schema.Tuple(
         title=_(u"EMC Designer"),
         value_type=schema.TextLine(),
@@ -29,91 +27,84 @@ class Ilocalroles(form.Schema):
         missing_value=(), # important!
     )
         
-#     form.widget(designer=AutocompleteMultiFieldWidget)
+
     designer = schema.Tuple(
         title=_(u"Product Designer"),
         value_type=schema.TextLine(),
-#         value_type=schema.Choice(title=_(u"User id"),
-#                                   source=u"plone.principalsource.Users"),
         required=False,
         missing_value=(), # important!
     )
-#     form.widget(reader1=AutocompleteMultiFieldWidget)    
+    
     reader1 = schema.Tuple(
         title=_(u"Commander"),
         value_type=schema.TextLine(),
-#         value_type=schema.Choice(title=_(u"User id"),
-#                                   source=u"plone.principalsource.Users"),
         required=False,
         missing_value=(), # important!
     )
-#     form.widget(reader2=AutocompleteMultiFieldWidget)    
+    
     reader2 = schema.Tuple(
         title=_(u"Deputy Commander"),
         value_type=schema.TextLine(),
-#         value_type=schema.Choice(title=_(u"User id"),
-#                                   source=u"plone.principalsource.Users"),
         required=False,
         missing_value=(), # important!
     )
-#     form.widget(reader3=AutocompleteMultiFieldWidget)    
+    
     reader3 = schema.Tuple(
         title=_(u"Chief Designer"),
         value_type=schema.TextLine(),
         required=False,
         missing_value=(), # important!
     )     
-#     form.widget(reader4=AutocompleteMultiFieldWidget)    
+    
     reader4 = schema.Tuple(
         title=_(u"Deputy Chief Designer"),
         value_type=schema.TextLine(),
         required=False,
         missing_value=(), # important!
     )    
-#     form.widget(reader5=AutocompleteMultiFieldWidget)    
+    
     reader5 = schema.Tuple(
         title=_(u"Chief quality engineer"),
         value_type=schema.TextLine(),
         required=False,
         missing_value=(), # important!
     ) 
-#     form.widget(reader6=AutocompleteMultiFieldWidget)    
+    
     reader6 = schema.Tuple(
         title=_(u"Deputy Chief quality engineer"),
         value_type=schema.TextLine(),
         required=False,
         missing_value=(), # important!
     )
-#     form.widget(reader7=AutocompleteMultiFieldWidget)    
+    
     reader7 = schema.Tuple(
         title=_(u"Deputy Chief Process"),
         value_type=schema.TextLine(),
         required=False,
         missing_value=(), # important!
     )       
-#     form.widget(reader8=AutocompleteMultiFieldWidget)    
+    
     reader8 = schema.Tuple(
         title=_(u"process staff"),
         value_type=schema.TextLine(),
         required=False,
         missing_value=(), # important!
     )   
-#     form.widget(reader9=AutocompleteMultiFieldWidget)    
+    
     reader9 = schema.Tuple(
         title=_(u"quality manage staff"),
         value_type=schema.TextLine(),   
         required=False,
         missing_value=(), # important!
     )   
-#     form.widget(reader10=AutocompleteMultiFieldWidget)    
+    
     reader10 = schema.Tuple(
         title=_(u"dispatch staff"),
         value_type=schema.TextLine(),
         required=False,
         missing_value=(), # important!
     )                               
- 
-#     form.widget(reader11=AutocompleteMultiFieldWidget)    
+    
     reader11 = schema.Tuple(
         title=_(u"EMC expert"),
         value_type=schema.TextLine(),
@@ -249,11 +240,11 @@ class AddLocalRoles(grok.Adapter):
         roles = set()
 # the EMC designer will be assigned Manager role  
         if principal_id in localrole.emc_designer:
-            roles.add('Manager')
+            roles.add('EMCDesigner')
             
 # the product designer will be assigned Contributor and Editor roles
         if principal_id in localrole.designer:
-            roles.add('Editor')
+            roles.add('Designer')
 #             roles.add('Editor')
           
 # the first group members will be assigned Reader role            
@@ -278,10 +269,10 @@ class AddLocalRoles(grok.Adapter):
 
 
         for principal_id in localrole.emc_designer:
-            yield (principal_id, ('Manager',),)
+            yield (principal_id, ('EMCDesigner',),)
 
         for principal_id in localrole.designer:
-            yield (principal_id, ('Manager',),)
+            yield (principal_id, ('Designer',),)
         for principal_id in self.getreaders(1,8):
             yield (principal_id, ('Reader',),)
         for principal_id in self.getreaders(8,12):
