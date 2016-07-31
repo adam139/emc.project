@@ -12,9 +12,12 @@ class DocAddForm(DefaultAddForm):
 
     def updateWidgets(self):
         """ """
+
         DefaultAddForm.updateWidgets(self)
         self.widgets['IRichText.report'].rows = 3
         self.widgets['IRichText.report'].addClass('report')
+        
+     
         
 
 

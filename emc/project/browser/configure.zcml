@@ -24,7 +24,12 @@
         factory=".custom_form.AddView"
         name="emc.project.doc"
         />
-        
+<class class=".custom_form.AddView">
+    <require
+        permission="cmf.AddPortalContent"
+        interface="zope.publisher.interfaces.browser.IBrowserPage"
+        />
+</class>        
     <browser:page
         for="emc.project.content.document.IDocument"
         class=".custom_form.DocEditForm"

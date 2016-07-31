@@ -57,6 +57,8 @@ class ProjectView(BrowserView):
     
     @memoize       
     def getAllTeams(self):
+#         import pdb
+#         pdb.set_trace()
         query = {"object_provides":ITeam.__identifier__,
                  'path': '/'.join(self.context.getPhysicalPath())}
         brains = self.catalog()(query)

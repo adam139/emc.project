@@ -1,5 +1,6 @@
 #-*- coding: UTF-8 -*-
 from five import grok
+from plone import api
 from zope.interface import implements
 from zope.component import adapts
 from Products.CMFCore.utils import getToolByName
@@ -12,6 +13,8 @@ from borg.localrole.interfaces import ILocalRoleProvider
 from plone.indexer.interfaces import IIndexer
 from Products.ZCatalog.interfaces import IZCatalog
 
+from emc.project.content.project import IProject
+
 from emc.project import  _
 
 class Ilocalroles(form.Schema):
@@ -20,6 +23,7 @@ class Ilocalroles(form.Schema):
     source 字段不能有缺省值的
     """
    
+    directives.write_permission(emc_designer='emc.project.manage_project')
     emc_designer = schema.Tuple(
         title=_(u"EMC Designer"),
         value_type=schema.TextLine(),
@@ -27,7 +31,7 @@ class Ilocalroles(form.Schema):
         missing_value=(), # important!
     )
         
-
+    directives.write_permission(designer='emc.project.add_team')
     designer = schema.Tuple(
         title=_(u"Product Designer"),
         value_type=schema.TextLine(),
@@ -240,19 +244,26 @@ class AddLocalRoles(grok.Adapter):
         roles = set()
 # the EMC designer will be assigned Manager role  
         if principal_id in localrole.emc_designer:
-            roles.add('EMCDesigner')
+            api.user.grant_roles(username=principal_id,roles=['Reader'])
+            roles.add('Site Administrator')
             
 # the product designer will be assigned Contributor and Editor roles
         if principal_id in localrole.designer:
-            roles.add('Designer')
-#             roles.add('Editor')
+            api.user.grant_roles(username=principal_id,roles=['Reader'])
+            if IProject.providedBy(self.context):
+                roles.add('Contributor')
+                roles.add('Editor')
+            else:
+                roles.add('Site Administrator')
           
 # the first group members will be assigned Reader role            
         if principal_id in self.getreaders(1,8):
+            api.user.grant_roles(username=principal_id,roles=['Reader'])
             roles.add('Reader')
 # the third group members will be assigned EMCExpert role            
 
         if principal_id in self.getreaders(8,12):
+            api.user.grant_roles(username=principal_id,roles=['Reader'])
             roles.add('Reader')            
         return roles
         
@@ -269,10 +280,14 @@ class AddLocalRoles(grok.Adapter):
 
 
         for principal_id in localrole.emc_designer:
-            yield (principal_id, ('EMCDesigner',),)
+            yield (principal_id, ('Site Administrator',),)
 
         for principal_id in localrole.designer:
-            yield (principal_id, ('Designer',),)
+            if IProject.providedBy(self.context):
+                yield (principal_id, ('Contributor','Editor'),)
+            else:
+                yield (principal_id, ('Site Administrator',),)                
+                
         for principal_id in self.getreaders(1,8):
             yield (principal_id, ('Reader',),)
         for principal_id in self.getreaders(8,12):

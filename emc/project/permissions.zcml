@@ -4,6 +4,10 @@
     i18n_domain="emc.project">
 
     <!-- Define new permissions -->
+	<permission
+        id="emc.project.manage_project"
+		title="emc.project:Manage project"
+        />
 
 	<permission
         id="emc.project.add_projectfolder"
