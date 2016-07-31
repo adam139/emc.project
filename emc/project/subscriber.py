@@ -158,6 +158,7 @@ def AssignCreate(doc, event):
         for id in users:
             # assign Reader to users
             doc.manage_setLocalRoles(id, ['Editor'])
+            api.user.grant_roles(username=id,roles=['Reader'])
             # send create todoitem event
             notify(TodoitemWillCreateEvent(title=title,userid=id,sender=creator,text=text))
     else:
