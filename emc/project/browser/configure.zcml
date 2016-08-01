@@ -39,7 +39,7 @@
 
 
 <!-- borrow 'Saving users list' behavior 's mark interface -->        
-   <!--
+
    <browser:viewlet
      name="noderoles"
      for="emc.project.behaviors.users_sent.ISendable"
@@ -49,7 +49,7 @@
      template="templates/users_roles.pt"
      permission="emc.project.view_projectsummary"
      />
-     -->
+
   <browser:viewlet
     name="emc.project.reviewhistory"
     for=" emc.project.indexer.IProjectContent" 

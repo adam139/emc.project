@@ -177,7 +177,11 @@
 		<role name="Owner"/>
 		<role name="Manager"/>		
 	</permission>	
-	
+	<permission name="emc.project:Manage designer" acquire="True">
+		<role name="Owner"/>
+		<role name="Manager"/>
+		<role name="Site Administrator"/>				
+	</permission>	
 									
 	<permission name="emc.project:Add projectfolder" acquire="True">
 		<role name="Site Administrator"/>
@@ -192,8 +196,7 @@
 	<permission name="emc.project:Add team" acquire="True">
 		<role name="Site Administrator"/>
 		<role name="Manager"/>
-		
- 
+		<role name="Contributor"/>	 
 	</permission>
 	<permission name="emc.project:Add document" acquire="True">
 		<role name="Site Administrator"/>

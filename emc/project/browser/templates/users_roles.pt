@@ -1,22 +1,21 @@
 <tal:snippet omit-tag="" tal:define="hastable python:view.can_view and view.hasRoles">
-<div omit-tag="" tal:condition="hastable">
+<div tal:omit-tag="" tal:condition="hastable">
 <a class="btn btn-primary" role="button" data-toggle="collapse" 
 	href="#collapseUserslist" aria-expanded="false" aria-controls="collapseUserslist">用户权限</a>
 <div class="collapse" id="collapseUserslist">
-<table 	class="table table-striped table-bordered table-condensed listing">
-            	<thead>
-            		<tr class="row" data-toggle="tooltip" title="点击排序">
-            			<th class="col-md-2 text-center">用户</th>
-            			<th class="col-md-10 text-left">当前角色</th>
-            		</tr>
-            	</thead>
-            	<tbody id="ResultDiv" tal:content="structure python:view.output()">
-            		<tr>
-            			<td class="col-md-2">管理员</td>
-            			<td class="col-md-10">管理者</td>
-            		</tr>
+	<table 	class="table table-striped table-bordered table-condensed listing">
+		<thead><tr class="row" data-toggle="tooltip" title="点击排序">
+			<th class="col-md-2 text-center">用户</th>
+			<th class="col-md-10 text-left">当前角色</th>
+			</tr>
+		</thead>
+			<tbody id="ResultDiv" tal:content="structure python:view.output()">
+				<tr class="row">
+					<td class="col-md-2">管理员</td>
+					<td class="col-md-10">管理者</td>
+            	</tr>
             	</tbody>
-            </table>
+     </table>
 </div>
 </div>
 </tal:snippet>

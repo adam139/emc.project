@@ -3,6 +3,8 @@ from plone import api
 from plone.app.layout.viewlets import common as base
 from Products.CMFCore.permissions import ViewManagementScreens
 from Products.CMFCore.utils import getToolByName
+from emc.project.behaviors.localroles import Ilocalroles
+from borg.localrole.interfaces import ILocalRoleProvider
 from emc.memberArea import DoFavorite
 
 viewUsersRoles = "emc.project:View projectsummary"
@@ -47,26 +49,46 @@ class UsersRoles(base.ViewletBase):
                                               default='')
         return title
 
-    def output(self):
+    def node_users(self):
+        "get current note local roles that come from Ilocalroles behavior"
+        context = self.context
+
+        allroles = ILocalRoleProvider(context).getAllRoles()
+        return allroles
         
+    
+    def output(self):        
         
         if not self.hasRoles: return ""
         lr = self.context.__ac_local_roles__
-        out = ""
-        import pdb
-        pdb.set_trace()
-        for i in lr.keys():
-            user = api.user.get(userid=i).fullname or i
-            rolelist = lr[i]
+        roles = list(self.node_users())
+        result = []
+        for j in roles:
+            user = j[0]
+            rl = list(j[1])
+            loop = dict()
+            loop[user] = rl
+            result.append(loop) 
+
+        result.append(lr)
+        out = ""        
+        for i in result:
+#             if i in result.keys():
+            item = i.keys()
+            user = api.user.get(userid=item[0]).fullname or item[0]
+            rolelist = i.values()[0]
             if len(rolelist) == 0:
                 rlist = ""
             else:
-                startstr =""
-                for j in rolelist:
-                    rl = self.tranVoc(j)
-                    tmp = u"%s%s，" % (startstr,rl)
-                    startstr = tmp
-                rlist = startstr.rsplit(u"，")[0]                                       
+#                 startstr =""
+                def tran(value):
+                    if "Site Administrator" in value:value= "EMCDesigner"
+                    elif "Contributor" in value:value ="Designer"
+                    return self.tranVoc(value)
+                outtran = map(tran,rolelist)
+                div = u"，"
+                rlist = div.join(outtran)
+                                    
             
             op = """<tr class="row">
                   <td class="col-md-2 text-center">%(name)s</td>                

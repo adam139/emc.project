@@ -8,6 +8,10 @@
         id="emc.project.manage_project"
 		title="emc.project:Manage project"
         />
+	<permission
+        id="emc.project.manage_designer"
+		title="emc.project:Manage designer"
+        />        
 
 	<permission
         id="emc.project.add_projectfolder"

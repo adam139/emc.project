@@ -31,7 +31,7 @@ class Ilocalroles(form.Schema):
         missing_value=(), # important!
     )
         
-    directives.write_permission(designer='emc.project.add_team')
+    directives.write_permission(designer='emc.project.manage_designer')
     designer = schema.Tuple(
         title=_(u"Product Designer"),
         value_type=schema.TextLine(),
@@ -250,11 +250,13 @@ class AddLocalRoles(grok.Adapter):
 # the product designer will be assigned Contributor and Editor roles
         if principal_id in localrole.designer:
             api.user.grant_roles(username=principal_id,roles=['Reader'])
-            if IProject.providedBy(self.context):
-                roles.add('Contributor')
-                roles.add('Editor')
-            else:
-                roles.add('Site Administrator')
+            roles.add('Contributor')
+            roles.add('Editor')
+#             if IProject.providedBy(self.context):
+#                 roles.add('Contributor')
+#                 roles.add('Editor')
+#             else:
+#                 roles.add('Site Administrator')
           
 # the first group members will be assigned Reader role            
         if principal_id in self.getreaders(1,8):
@@ -283,10 +285,11 @@ class AddLocalRoles(grok.Adapter):
             yield (principal_id, ('Site Administrator',),)
 
         for principal_id in localrole.designer:
-            if IProject.providedBy(self.context):
-                yield (principal_id, ('Contributor','Editor'),)
-            else:
-                yield (principal_id, ('Site Administrator',),)                
+            yield (principal_id, ('Contributor','Editor'),)            
+#             if IProject.providedBy(self.context):
+#                 yield (principal_id, ('Contributor','Editor'),)
+#             else:
+#                 yield (principal_id, ('Site Administrator',),)                
                 
         for principal_id in self.getreaders(1,8):
             yield (principal_id, ('Reader',),)
