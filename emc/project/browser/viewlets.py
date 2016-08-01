@@ -50,7 +50,7 @@ class UsersRoles(base.ViewletBase):
         return title
 
     def node_users(self):
-        "get current note local roles that come from Ilocalroles behavior"
+        "get current node local roles that come from Ilocalroles behavior"
         context = self.context
 
         allroles = ILocalRoleProvider(context).getAllRoles()
@@ -62,20 +62,29 @@ class UsersRoles(base.ViewletBase):
         if not self.hasRoles: return ""
         lr = self.context.__ac_local_roles__
         roles = list(self.node_users())
-        result = []
-        for j in roles:
-            user = j[0]
-            rl = list(j[1])
-            loop = dict()
-            loop[user] = rl
-            result.append(loop) 
 
+        def lst2dic(lt):
+            loop = dict()
+            user = lt[0]
+            rl = list(lt[1])
+            loop[user] = rl
+            return loop
+        
+#         for j in roles:
+#             user = j[0]
+#             rl = list(j[1])
+#             loop = dict()
+#             loop[user] = rl
+#             result.append(loop) 
+
+        result = map(lst2dic,roles)
         result.append(lr)
         out = ""        
         for i in result:
-#             if i in result.keys():
             item = i.keys()
-            user = api.user.get(userid=item[0]).fullname or item[0]
+            user = api.user.get(userid=item[0]).getProperty('fullname') or item[0]
+#             import pdb
+#             pdb.set_trace()
             rolelist = i.values()[0]
             if len(rolelist) == 0:
                 rlist = ""
@@ -86,6 +95,7 @@ class UsersRoles(base.ViewletBase):
                     elif "Contributor" in value:value ="Designer"
                     return self.tranVoc(value)
                 outtran = map(tran,rolelist)
+                #join all roles
                 div = u"，"
                 rlist = div.join(outtran)
                                     
