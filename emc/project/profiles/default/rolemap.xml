@@ -10,7 +10,8 @@
     <role name="ChiefQE" />
     <role name="DeputyChiefQE" />
     <role name="DeputyChiefProcess" />     
-    <role name="ProcessStaff" /> 
+    <role name="ProcessStaff" />
+    <role name="ProjectReader" />     
     <role name="QualityManageStaff" />
     <role name="DispatchStaff" /> 
     <role name="EMCExpert" />                
@@ -33,7 +34,8 @@
 		<role name="Member"/>		
 		<role name="Site Administrator"/>		
 		<role name="EMCDesigner"/>
-		<role name="Designer"/>		
+		<role name="Designer"/>
+		<role name="ProjectReader"/>		
     </permission>
     
 	<permission name="Add portal content" acquire="True">
@@ -75,7 +77,8 @@
 		<role name="Member"/>		
 		<role name="Site Administrator"/>		
 		<role name="EMCDesigner"/>
-		<role name="Designer"/>			  
+		<role name="Designer"/>
+		<role name="ProjectReader"/>					  
     </permission>
 	<permission name="CMFEditions: Access previous versions" acquire="True">
 		<role name="Contributor"/>
@@ -222,24 +225,27 @@
     	<role name="Owner" />			
     	<role name="Editor" /> 
 	</permission>						
-		
+	<permission name="emc.project:Read project" acquire="True">
+		<role name="Site Administrator"/>
+		<role name="Manager"/>
+		<role name="ProjectReader"/>		
+	</permission>		
 	<permission name="emc.project:View projectsummary" acquire="True">
 		<role name="Site Administrator"/>
 		<role name="Manager"/>
-    	<role name="Reader"/>	
-		
+		<role name="ProjectReader"/>		
 	</permission>
 	<permission name="emc.project:View project" acquire="True">
 		<role name="Site Administrator"/>
 		<role name="Manager"/>
-    	<role name="Reader"/>		
+		<role name="ProjectReader"/>		
     	<role name="Owner" />			
     	<role name="EMCDesigner" />
     	<role name="Designer" />		
 	</permission>
 	<permission name="emc.project:View team" acquire="True">
 		<role name="Site Administrator"/>
-    	<role name="Reader"/>		
+		<role name="ProjectReader"/>		
 		<role name="Manager"/>
     	<role name="Owner" />			
     	<role name="EMCDesigner" />
@@ -248,7 +254,7 @@
 	<permission name="emc.project:View document" acquire="True">
 		<role name="Site Administrator"/>
 		<role name="Manager"/>
-    	<role name="Reader"/>		
+		<role name="ProjectReader"/>		
     	<role name="Owner" />			
     	<role name="EMCDesigner" />
     	<role name="Designer" /> 		

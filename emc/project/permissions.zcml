@@ -11,7 +11,11 @@
 	<permission
         id="emc.project.manage_designer"
 		title="emc.project:Manage designer"
-        />        
+        />
+	<permission
+        id="emc.project.read_project"
+		title="emc.project:Read project"
+        />                
 
 	<permission
         id="emc.project.add_projectfolder"

@@ -10,6 +10,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import safe_unicode
 from zope.lifecycleevent.interfaces import IObjectAddedEvent
 from zope.lifecycleevent.interfaces import IObjectModifiedEvent
+from emc.project.content.project import IProject
 from emc.project.content.team import ITeam
 from emc.project.content.document import IDocument
 from emc.project.behaviors.localroles import Ilocalroles
@@ -84,10 +85,16 @@ def getDesigners(node):
         dl = node.designer
     return dl
 
+def getProject(obj):
+    "obj is a object of the project path"
+    while not IProject.providedBy(obj):
+        obj = aq_parent(obj)
+    return obj
+
 ## workflow event handler from status:pendingview to published  or pendingprocess to review
 @adapter(IDocument, IAfterTransitionEvent)
 def Review(doc, event):
-    "handler from status:pendingview to published or pendingprocess to review"
+    "handler from status:pendingview to published(owner action) or pendingprocess to review"
 
     state = event.new_state.getId()
 #     import pdb
@@ -136,9 +143,11 @@ def AssignCreate(doc, event):
         text = u"""<p>详细情况请点击查看：<a href="%s"><strong>%s</strong></a></p>""" %(url,name)         
         title = u"请查阅下发的文档资料：%s" % name
         title = title.encode("utf-8")
+        pjt = getProject(doc) 
         for id in users:
             # assign Reader to users
-            doc.manage_setLocalRoles(id, ['Reader'])
+            pjt.manage_setLocalRoles(id, ['ProjectReader'])
+#             doc.manage_setLocalRoles(id, ['ProjectReader'])
             # send create todoitem event
             notify(TodoitemWillCreateEvent(title=title,userid=id,sender=creator,text=text))
         doc.reindexObject()        
@@ -155,9 +164,11 @@ def AssignCreate(doc, event):
         else:
             title = u"请再次查阅下发的文档资料：%s，参考审阅意见，及时完善并反馈" % name
         title = title.encode("utf-8")
+        pjt = getProject(doc)
         for id in users:
             # assign Reader to users
-            doc.manage_setLocalRoles(id, ['Editor'])
+            pjt.manage_setLocalRoles(id, ['Editor','ProjectReader'])
+#             doc.manage_setLocalRoles(id, ['Editor','ProjectReader'])
             api.user.grant_roles(username=id,roles=['Reader'])
             # send create todoitem event
             notify(TodoitemWillCreateEvent(title=title,userid=id,sender=creator,text=text))

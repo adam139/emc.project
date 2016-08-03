@@ -9,7 +9,7 @@ Id:,fangan,,,,,,,,,,,,,,,,,,,,,,,
 Title:,FangAn,,,,,,,,,,,,,,,,,,,,,,,
 Description:,The project begining status.,,,,,,,,,,,,,,,,,,,,,,,
 Transitions,"submit2chuyang, submit2shiyang, submit2zhengyang,submit2chuyang1",,,,,,,,,,,,,,,,,,,,,,,
-Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,Reader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
+Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,ProjectReader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
 View,N,,,,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,,,,
 Access contents information,N,,,,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,,,,
 Modify portal content,N,,,,Y,Y,Y,Y,,,Y,Y,,,,,,,,,,,,
@@ -32,7 +32,7 @@ Id:,chuyang,,,,,,,,,,,,,,,,,,,,,,,
 Title:,ChuYang,,,,,,,,,,,,,,,,,,,,,,,
 Description:,The project chu yang status.,,,,,,,,,,,,,,,,,,,,,,,
 Transitions,"submit2shiyang, submit2shiyang1, submit2zhengyang,submit2zhengyang1,retract2fangan",,,,,,,,,,,,,,,,,,,,,,,
-Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,Reader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
+Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,ProjectReader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
 View,N,,,,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,,,,
 Access contents information,N,,,,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,,,,
 Modify portal content,N,,,,Y,Y,Y,Y,,,Y,Y,,,,,,,,,,,,
@@ -55,7 +55,7 @@ Id:,shiyang,,,,,,,,,,,,,,,,,,,,,,,
 Title:,ShiYang,,,,,,,,,,,,,,,,,,,,,,,
 Description:,The project shi yang status.,,,,,,,,,,,,,,,,,,,,,,,
 Transitions,"submit2dingxing,retract2chuyang,retract2fangan,retract2chuyang2",,,,,,,,,,,,,,,,,,,,,,,
-Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,Reader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
+Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,ProjectReader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
 View,N,,,,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,,,,
 Access contents information,N,,,,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,,,,
 Modify portal content,N,,,,Y,Y,Y,Y,,,Y,Y,,,,,,,,,,,,
@@ -78,7 +78,7 @@ Id:,shiyang1,,,,,,,,,,,,,,,,,,,,,,,
 Title:,ShiYang1,,,,,,,,,,,,,,,,,,,,,,,
 Description:,The project stay shi yang 1 status.,,,,,,,,,,,,,,,,,,,,,,,
 Transitions,"submit2shiyang2,retract2chuyang2,retract2chuyang",,,,,,,,,,,,,,,,,,,,,,,
-Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,Reader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
+Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,ProjectReader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
 View,N,,,,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,,,,
 Access contents information,N,,,,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,,,,
 Modify portal content,N,,,,Y,Y,Y,Y,,,Y,Y,,,,,,,,,,,,
@@ -101,7 +101,7 @@ Id:,shiyang2,,,,,,,,,,,,,,,,,,,,,,,
 Title:,"ShiYang2,retract2shiyang1",,,,,,,,,,,,,,,,,,,,,,,
 Description:,The project stay shi yang 2 status.,,,,,,,,,,,,,,,,,,,,,,,
 Transitions,submit2dingxing,,,,,,,,,,,,,,,,,,,,,,,
-Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,Reader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
+Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,ProjectReader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
 View,N,,,,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,,,,
 Access contents information,N,,,,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,,,,
 Modify portal content,N,,,,Y,Y,Y,Y,,,Y,Y,,,,,,,,,,,,
@@ -124,7 +124,7 @@ Id:,chuyang1,,,,,,,,,,,,,,,,,,,,,,,
 Title:,ChuYang1,,,,,,,,,,,,,,,,,,,,,,,
 Description:,The project stay chu yang 1 status.,,,,,,,,,,,,,,,,,,,,,,,
 Transitions,"submit2chuyang2,retract2fangan",,,,,,,,,,,,,,,,,,,,,,,
-Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,Reader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
+Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,ProjectReader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
 View,N,,,,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,,,,
 Access contents information,N,,,,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,,,,
 Modify portal content,N,,,,Y,Y,Y,Y,,,Y,Y,,,,,,,,,,,,
@@ -147,7 +147,7 @@ Id:,chuyang2,,,,,,,,,,,,,,,,,,,,,,,
 Title:,ChuYang2,,,,,,,,,,,,,,,,,,,,,,,
 Description:,The project stay chu yang 2 status.,,,,,,,,,,,,,,,,,,,,,,,
 Transitions,"submit2shiyang, submit2shiyang1, submit2zhengyang1,submit2zhengyang,retract2chuyang1",,,,,,,,,,,,,,,,,,,,,,,
-Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,Reader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
+Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,ProjectReader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
 View,N,,,,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,,,,
 Access contents information,N,,,,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,,,,
 Modify portal content,N,,,,Y,Y,Y,Y,,,Y,Y,,,,,,,,,,,,
@@ -170,7 +170,7 @@ Id:,zhengyang,,,,,,,,,,,,,,,,,,,,,,,
 Title:,ZhengYang,,,,,,,,,,,,,,,,,,,,,,,
 Description:,The project stay zheng yang status.,,,,,,,,,,,,,,,,,,,,,,,
 Transitions,"submit2dingxing,retract2chuyang",,,,,,,,,,,,,,,,,,,,,,,
-Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,Reader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
+Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,ProjectReader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
 View,N,,,,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,,,,
 Access contents information,N,,,,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,,,,
 Modify portal content,N,,,,Y,Y,Y,Y,,,Y,Y,,,,,,,,,,,,
@@ -193,7 +193,7 @@ Id:,dingxing,,,,,,,,,,,,,,,,,,,,,,,
 Title:,DingXing,,,,,,,,,,,,,,,,,,,,,,,
 Description:,The project stay ding xing status.,,,,,,,,,,,,,,,,,,,,,,,
 Transitions,"retract2shiyang,retract2zhengyang,retract2shiyang2,retract2zhengyang2",,,,,,,,,,,,,,,,,,,,,,,
-Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,Reader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
+Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,ProjectReader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
 View,N,,,,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,,,,
 Access contents information,N,,,,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,,,,
 Modify portal content,N,,,,Y,Y,Y,Y,,,Y,Y,,,,,,,,,,,,
@@ -216,7 +216,7 @@ Id:,zhengyang1,,,,,,,,,,,,,,,,,,,,,,,
 Title:,ZhengYang1,,,,,,,,,,,,,,,,,,,,,,,
 Description:,The project stay zheng yang 1 status.,,,,,,,,,,,,,,,,,,,,,,,
 Transitions,"submit2zhengyang2,retracet2chuyang,retract2chuyang2",,,,,,,,,,,,,,,,,,,,,,,
-Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,Reader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
+Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,ProjectReader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
 View,N,,,,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,,,,
 Access contents information,N,,,,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,,,,
 Modify portal content,N,,,,Y,Y,Y,Y,,,Y,Y,,,,,,,,,,,,
@@ -239,7 +239,7 @@ Id:,zhengyang2,,,,,,,,,,,,,,,,,,,,,,,
 Title:,ZhengYang2,,,,,,,,,,,,,,,,,,,,,,,
 Description:,The project stay zheng yang 2 status.,,,,,,,,,,,,,,,,,,,,,,,
 Transitions,"submit2dingxing,retract2zhengyang1",,,,,,,,,,,,,,,,,,,,,,,
-Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,Reader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
+Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,ProjectReader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
 View,N,,,,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,,,,
 Access contents information,N,,,,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,Y,,,,
 Modify portal content,N,,,,Y,Y,Y,Y,,,Y,Y,,,,,,,,,,,,

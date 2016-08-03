@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: xtshzz.policy\n"
+"Project-Id-Version: emc.project\n"
 "POT-Creation-Date: 2015-02-14 00:52+0000\n"
 "PO-Revision-Date: 2015-02-14 09:20+0800\n"
 "Last-Translator: adam <yuejun.tang@gmail.com>\n"
@@ -68,6 +68,9 @@ msgstr "工艺师"
 
 msgid "QualityManageStaff"
 msgstr "质量管理人员"
+
+msgid "ProjectReader"
+msgstr "项目阅读者"
 
 msgid "Retract to chuyang"
 msgstr "回退到C"

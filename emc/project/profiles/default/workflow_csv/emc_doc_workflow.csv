@@ -9,7 +9,7 @@ Id:,draft,,,,,,,,,,,,,,,,,,,,,,,
 Title:,Draft,,,,,,,,,,,,,,,,,,,,,,,
 Description:,The document begining status.,,,,,,,,,,,,,,,,,,,,,,,
 Transitions,"submit2designer4view, submit2designer4feedback, publish",,,,,,,,,,,,,,,,,,,,,,,
-Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,Reader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
+Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,ProjectReader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
 View,N,,,,Y,Y,Y,,,,,,,,,,,,,,,,,
 Access contents information,N,,,,Y,Y,Y,,,,,,,,,,,,,,,,,
 Modify portal content,N,,,,Y,Y,Y,,,,,,,,,,,,,,,,,
@@ -21,7 +21,7 @@ Id:,pendingview,,,,,,,,,,,,,,,,,,,,,,,
 Title:,pendingview,,,,,,,,,,,,,,,,,,,,,,,
 Description:,Wait for product designer view and stay at pending view status,,,,,,,,,,,,,,,,,,,,,,,
 Transitions,"read4feedback, publish",,,,,,,,,,,,,,,,,,,,,,,
-Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,Reader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
+Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,ProjectReader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
 View,N,,,,Y,Y,Y,,Y,,,Y,Y,,,,,,,,,,,
 Access contents information,N,,,,Y,Y,Y,,Y,,,Y,Y,,,,,,,,,,,
 Modify portal content,N,,,,Y,Y,Y,,,,,,,,,,,,,,,,,
@@ -33,7 +33,7 @@ Id:,review,,,,,,,,,,,,,,,,,,,,,,,
 Title:,Review,,,,,,,,,,,,,,,,,,,,,,,
 Description:,the document stay at review status,,,,,,,,,,,,,,,,,,,,,,,
 Transitions,"submit2designer4feedback, publish",,,,,,,,,,,,,,,,,,,,,,,
-Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,Reader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
+Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,ProjectReader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
 View,N,,,,Y,Y,Y,Y,,,,Y,Y,,,,,,,,,,,
 Access contents information,N,,,,Y,Y,Y,Y,,,,Y,Y,,,,,,,,,,,
 Modify portal content,N,,,,Y,Y,Y,,,,,,,,,,,,,,,,,
@@ -45,7 +45,7 @@ Id:,published,,,,,,,,,,,,,,,,,,,,,,,
 Title:,Published,,,,,,,,,,,,,,,,,,,,,,,
 Description:,stay at published status,,,,,,,,,,,,,,,,,,,,,,,
 Transitions,retract,,,,,,,,,,,,,,,,,,,,,,,
-Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,Reader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
+Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,ProjectReader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
 View,N,,,,Y,Y,Y,Y,Y,,,Y,Y,,,,,,,,,,,
 Access contents information,N,,,,Y,Y,Y,Y,Y,,,Y,Y,,,,,,,,,,,
 Modify portal content,N,,,,Y,Y,Y,,,,,,,,,,,,,,,,,
@@ -57,7 +57,7 @@ Id:,pendingprocess,,,,,,,,,,,,,,,,,,,,,,,
 Title:,pendingprocess,,,,,,,,,,,,,,,,,,,,,,,
 Description:,"The object wait for designer edit and feedback ,stay at pending process status.",,,,,,,,,,,,,,,,,,,,,,,
 Transitions,edit4feedback,,,,,,,,,,,,,,,,,,,,,,,
-Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,Reader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
+Permissions,Acquire,Anonymous,Authenticated,Member,Site Administrator,Manager,Owner,Editor,ProjectReader,Contributor,Reviewer,EMCDesigner,Designer,Commander,DeputyCommander,ChiefDesigner,DeputyChiefDesigner,ChiefQE,DeputyChiefQE,DeputyChiefProcess,ProcessStaff,QualityManageStaff,DispatchStaff,EMCExpert
 View,N,,,,Y,Y,Y,Y,,,,Y,,,,,,,,,,,,
 Access contents information,N,,,,Y,Y,Y,Y,,,,Y,,,,,,,,,,,,
 Modify portal content,N,,,,Y,Y,Y,Y,,,,,,,,,,,,,,,,

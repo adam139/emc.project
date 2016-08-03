@@ -246,12 +246,15 @@ class AddLocalRoles(grok.Adapter):
         if principal_id in localrole.emc_designer:
             api.user.grant_roles(username=principal_id,roles=['Reader'])
             roles.add('Site Administrator')
+            roles.add('Reader')            
             
 # the product designer will be assigned Contributor and Editor roles
         if principal_id in localrole.designer:
             api.user.grant_roles(username=principal_id,roles=['Reader'])
             roles.add('Contributor')
             roles.add('Editor')
+            roles.add('ProjectReader')
+            roles.add('Reader')
 #             if IProject.providedBy(self.context):
 #                 roles.add('Contributor')
 #                 roles.add('Editor')
@@ -261,12 +264,12 @@ class AddLocalRoles(grok.Adapter):
 # the first group members will be assigned Reader role            
         if principal_id in self.getreaders(1,8):
             api.user.grant_roles(username=principal_id,roles=['Reader'])
-            roles.add('Reader')
+            roles.add('ProjectReader')
 # the third group members will be assigned EMCExpert role            
 
         if principal_id in self.getreaders(8,12):
             api.user.grant_roles(username=principal_id,roles=['Reader'])
-            roles.add('Reader')            
+            roles.add('ProjectReader')            
         return roles
         
     def getAllRoles(self):
@@ -285,16 +288,16 @@ class AddLocalRoles(grok.Adapter):
             yield (principal_id, ('Site Administrator',),)
 
         for principal_id in localrole.designer:
-            yield (principal_id, ('Contributor','Editor'),)            
+            yield (principal_id, ('Contributor','Editor','ProjectReader'),)            
 #             if IProject.providedBy(self.context):
 #                 yield (principal_id, ('Contributor','Editor'),)
 #             else:
 #                 yield (principal_id, ('Site Administrator',),)                
                 
         for principal_id in self.getreaders(1,8):
-            yield (principal_id, ('Reader',),)
+            yield (principal_id, ('ProjectReader',),)
         for principal_id in self.getreaders(8,12):
-            yield (principal_id, ('Reader',),)            
+            yield (principal_id, ('ProjectReader',),)            
 
             
 # class localrolesIndexer(grok.MultiAdapter):
