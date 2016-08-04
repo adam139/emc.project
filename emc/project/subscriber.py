@@ -125,8 +125,6 @@ def AssignCreate(doc, event):
 
     state = event.new_state.getId()  
     # notify designer to view the doc
-#     import pdb
-#     pdb.set_trace()
 
     if state == "pendingview":
         users = doc.users
@@ -135,7 +133,7 @@ def AssignCreate(doc, event):
         url = doc.absolute_url()
         text = u"""<p>详细情况请点击查看：<a href="%s"><strong>%s</strong></a></p>""" %(url,name)         
         title = u"请查阅下发的文档资料：%s" % name
-        title = title.encode("utf-8")
+        title = title.encode("utf-8")      
         for id in users:
             # assign Reader to users
             doc.manage_setLocalRoles(id, ['Reader'])
@@ -152,15 +150,25 @@ def AssignCreate(doc, event):
         text = u"""<p>详细情况请点击查看：<a href="%s"><strong>%s</strong></a></p>""" %(url,name)        
         if old != "review":        
             title = u"请查阅下发的文档资料：%s，及时填写并反馈" % name
+                      
         else:
             title = u"请再次查阅下发的文档资料：%s，参考审阅意见，及时完善并反馈" % name
         title = title.encode("utf-8")
         for id in users:
             # assign Reader to users
-            doc.manage_setLocalRoles(id, ['Editor'])
+            doc.manage_setLocalRoles(id, ['Editor','Reader'])
             api.user.grant_roles(username=id,roles=['Reader'])
             # send create todoitem event
             notify(TodoitemWillCreateEvent(title=title,userid=id,sender=creator,text=text))
+        doc.reindexObject()
+    elif state == "published":
+        old = event.old_state.getId()
+        users = doc.users
+        if old == "review":
+            for id in users:
+            # assign Reader to users
+                api.user.revoke_roles(username=id,roles=['Reader'])
+     
     else:
         pass     
 
