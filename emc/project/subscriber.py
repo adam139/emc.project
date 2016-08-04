@@ -132,8 +132,6 @@ def AssignCreate(doc, event):
 
     state = event.new_state.getId()  
     # notify designer to view the doc
-#     import pdb
-#     pdb.set_trace()
 
     if state == "pendingview":
         users = doc.users
