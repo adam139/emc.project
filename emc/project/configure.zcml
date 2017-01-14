@@ -62,9 +62,8 @@
 
   <!-- -*- extra stuff goes here -*- -->
 <!-- register indexer -->
-   <adapter name="SearchableText" factory=".indexer.SearchableText_projectcontent" />
-   <!--
-   <adapter name="security_level" factory=".indexer.indexer_security_level"/>
-   <adapter name="task_type" factory=".indexer.indexer_task_type"/>  -->
+   <adapter name="SearchableText" factory=".indexer.SearchableText_project" />
+   <adapter name="SearchableText" factory=".indexer.SearchableText_team" />
+   <adapter name="SearchableText" factory=".indexer.SearchableText_document" />
 
 </configure>

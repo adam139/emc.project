@@ -1,5 +1,5 @@
 #-*- coding: UTF-8 -*-
-from emc.project.indexer import IProjectContent
+from emc.project.interface import IProjectContent
 
 class IAnalysisDoc(IProjectContent):
     """

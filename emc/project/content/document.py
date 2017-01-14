@@ -4,7 +4,7 @@ from plone.autoform import directives
 from z3c.form.interfaces import IAddForm
 from z3c.form.interfaces import IEditForm
 
-from emc.project.indexer import IProjectContent
+from emc.project.interface import IProjectContent
 from emc.project.browser.vocabulary import DocTitle
 
 try:
