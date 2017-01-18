@@ -16,5 +16,15 @@
         i18n:attributes="title">
             <permission>Manage portal</permission>
     </configlet>
-
+    <configlet
+        title="Device settings"
+        action_id="devicesettings"
+        appId="devicesettings"
+        category="Products"
+        condition_expr=""
+        url_expr="string:${portal_url}/@@device-settings"
+        visible="True"
+        i18n:attributes="title">
+            <permission>Manage portal</permission>
+    </configlet>
 </object>

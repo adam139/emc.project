@@ -17,7 +17,8 @@
   	 <element value="File" />  
   	 <element value="Document" />  	   	
   	 <element value="emc.project.team" />
-  	 <element value="emc.project.doc" />  	   	   	   
+  	 <element value="emc.project.doc" />
+  	 <element value="emc.project.making" />   	   	   	   	   
   </property>
   <property name="allow_discussion">False</property>
 
