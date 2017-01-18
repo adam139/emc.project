@@ -22,4 +22,20 @@ def DocTitle(context):
         terms.append(SimpleVocabulary.createTerm(docttl, asciittl, docttl))
     return SimpleVocabulary(terms)
     
-directlyProvides(DocTitle, IContextSourceBinder)    
+directlyProvides(DocTitle, IContextSourceBinder)
+
+def makingDocTitle(context):
+    """Context source binder to provide a vocabulary of document's title.
+    """
+
+    settings = getUtility(IRegistry).forInterface(IMaking)
+
+    terms = []
+    pttl = context.title        
+    for item in settings.types:
+        docttl = "%s%s" %(pttl,item)
+        asciittl = normalizer.normalize(docttl)           
+        terms.append(SimpleVocabulary.createTerm(docttl, asciittl, docttl))
+    return SimpleVocabulary(terms)
+    
+directlyProvides(makingDocTitle, IContextSourceBinder)    

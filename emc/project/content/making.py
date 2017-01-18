@@ -5,7 +5,7 @@ from z3c.form.interfaces import IAddForm
 from z3c.form.interfaces import IEditForm
 
 from emc.project.interface import IProjectContent
-from emc.project.browser.vocabulary import DocTitle
+from emc.project.browser.vocabulary import DocTitle,makingDocTitle
 
 try:
     from plone.app.dexterity import _ as _p
@@ -21,7 +21,7 @@ class IMaking(IProjectContent):
 
     title = schema.Choice(
         title=_p(u'label_title'),
-        source=DocTitle,
+        source=makingDocTitle,
         required=True,
     )
     
