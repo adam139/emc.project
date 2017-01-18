@@ -9,7 +9,8 @@
 <object name="portal_types" meta_type="Plone Types Tool">
   <object name="emc.project.projectFolder" meta_type="Dexterity FTI" />	
   <object name="emc.project.project"  meta_type="Dexterity FTI" />	 
-  <object name="emc.project.team"  meta_type="Dexterity FTI" />  
+  <object name="emc.project.team"  meta_type="Dexterity FTI" />
+  <object name="emc.project.team2"  meta_type="Dexterity FTI" />    
   <object name="emc.project.doc" meta_type="Dexterity FTI" />
   <object name="emc.project.making" meta_type="Dexterity FTI" />  	  
 </object>

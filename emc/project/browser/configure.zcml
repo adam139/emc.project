@@ -169,10 +169,47 @@
         template="templates/listing_album.pt"
         menu="plone_displayviews"
         title="Album view"
-        />
- 
-                
+        />                
   </browser:pages>
+  
+    <!-- VIEWS FOR TEAM2 -->
+  <browser:pages
+      for="emc.project.content.team2.ITeam2"
+      class="plone.app.contenttypes.browser.folder.FolderView"
+      layer="plone.app.contenttypes.interfaces.IPloneAppContenttypesLayer"
+      permission="emc.project.view_team">
+    <browser:page
+        name="listing_view"
+        template="templates/listing.pt"
+        menu="plone_displayviews"
+        title="Standard view"
+        />
+    <browser:page
+        name="summary_view"
+        template="templates/listing_summary.pt"
+        menu="plone_displayviews"
+        title="Summary view"
+        />
+    <browser:page
+        name="tabular_view"
+        template="templates/listing_tabular.pt"
+        menu="plone_displayviews"
+        title="Tabular view"
+        />
+    <browser:page
+        name="full_view"
+        template="templates/full_view.pt"
+        menu="plone_displayviews"
+        title="All content"
+        />
+    <browser:page
+        name="album_view"
+        template="templates/listing_album.pt"
+        menu="plone_displayviews"
+        title="Album view"
+        />                
+  </browser:pages>
+  
     <browser:page
         name="listing_report"
         for="emc.project.content.team.ITeam"
