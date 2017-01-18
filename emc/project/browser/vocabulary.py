@@ -6,7 +6,7 @@ from zope.component import getUtility
 from zope.interface import directlyProvides
 
 from emc.policy.patch.zh import normalizer
-from emc.project.interface import IDocTypeSettings
+from emc.project.interface import IDocTypeSettings,IMaking
 
 def DocTitle(context):
     """Context source binder to provide a vocabulary of document's title.
