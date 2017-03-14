@@ -39,22 +39,22 @@ class TestView(unittest.TestCase):
         portal['folder1']['project1'].invokeFactory('emc.project.team', 'team1',
                                                     title=u"this is team",
                                                     description="team is permission defense container")
-        portal['folder1']['project1']['team1'].invokeFactory('emc.project.auditDoc', 'audit1',
-                                                             text=u"here is rich text",
-                                                             title="analysis document",
-                                                             report="this is report")  
-        portal['folder1']['project1']['team1'].invokeFactory('emc.project.analysisDoc', 'analysis1',
-                                                             text=u"here is rich text",
-                                                             title="analysis document",
-                                                             report="this is report") 
-        portal['folder1']['project1']['team1'].invokeFactory('emc.project.designDoc', 'design1',
-                                                             text=u"here is rich text",
-                                                             title="analysis document",
-                                                             report="this is report")  
-        portal['folder1']['project1']['team1'].invokeFactory('emc.project.diagnoseDoc', 'diagnose1',
-                                                             text=u"here is rich text",
-                                                             title="analysis document",
-                                                             report="this is report")       
+#         portal['folder1']['project1']['team1'].invokeFactory('emc.project.auditDoc', 'audit1',
+#                                                              text=u"here is rich text",
+#                                                              title="analysis document",
+#                                                              report="this is report")  
+#         portal['folder1']['project1']['team1'].invokeFactory('emc.project.analysisDoc', 'analysis1',
+#                                                              text=u"here is rich text",
+#                                                              title="analysis document",
+#                                                              report="this is report") 
+#         portal['folder1']['project1']['team1'].invokeFactory('emc.project.designDoc', 'design1',
+#                                                              text=u"here is rich text",
+#                                                              title="analysis document",
+#                                                              report="this is report")  
+#         portal['folder1']['project1']['team1'].invokeFactory('emc.project.diagnoseDoc', 'diagnose1',
+#                                                              text=u"here is rich text",
+#                                                              title="analysis document",
+#                                                              report="this is report")       
         portal['folder1']['project1']['team1'].invokeFactory('emc.bokeh.fearture', 'fearture1',
                                                              text=u"here is rich text",
                                                              title="analysis document")            

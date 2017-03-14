@@ -61,7 +61,7 @@ var searchEvent = function(jumpPage, rows, initKeyword) {
     var dateSearchType = $("#dateSearch").val();
     var level = $("#securityLevelSearch").val();
     var categoryId = $("#categorySearch").val();
-    
+    var objid = $("#objid").val();
     // this is list value
     var tagId = "0";   
     var tagvalues = $("#taggroups input").each(function(){
@@ -70,6 +70,7 @@ var searchEvent = function(jumpPage, rows, initKeyword) {
     var sortDirection = $("#solrSortDirection").val();
         
     var data = {'datetype':dateSearchType,'security':level,'type':categoryId,'tag':tagId};
+    data['objid'] = objid;
     data['sortcolumn'] = sortColumn;
     data['sortdirection'] = sortDirection;    
     

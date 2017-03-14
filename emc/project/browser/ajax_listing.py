@@ -232,12 +232,24 @@ class sysAjaxListingView(BrowserView):
         if ISiteRoot.providedBy(context):return "oajaxsearch"
         else:return "xiangtanshisearch"        
         
-    def getPathQuery(self):
+    def getPathQuery(self,objid=None):
  
         """返回 all organizations
         """
         query = {}
-        query['path'] = "/".join(self.context.getPhysicalPath())
+#         import pdb
+#         pdb.set_trace()        
+        path = "/".join(self.context.getPhysicalPath())
+        if objid == None or objid == '':            
+            query['path'] = path
+        else:
+            query2 = {}
+            query2['id'] = objid
+            bn = self.catalog()(query2)
+            if len(bn) >=1:
+                path = bn[0].getPath()
+                query['path'] = path                       
+        
         return query
 #任务类型属性：分析/设计/实验/仿真/培训          
     def getTaskType(self,typekey):
@@ -363,9 +375,13 @@ class ajaxsearch(grok.View):
         tag = datadic['tag'].strip()
         sortcolumn = datadic['sortcolumn']
         sortdirection = datadic['sortdirection']
-        keyword = (datadic['searchabletext']).strip()     
+        keyword = (datadic['searchabletext']).strip()
 
-        origquery = searchview.getPathQuery()
+        objid =  (datadic['objid']).strip()
+        if objid == "":   
+            origquery = searchview.getPathQuery()
+        else:
+            origquery = searchview.getPathQuery(objid = objid)
         origquery['sort_on'] = sortcolumn  
         origquery['sort_order'] = sortdirection
                 
