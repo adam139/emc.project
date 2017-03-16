@@ -10,12 +10,15 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import safe_unicode
 from zope.lifecycleevent.interfaces import IObjectAddedEvent
 from zope.lifecycleevent.interfaces import IObjectModifiedEvent
+from emc.project.content.projectfolder import IProjectFolder
 from emc.project.content.project import IProject
 from emc.project.content.team import ITeam
 from emc.project.content.document import IDocument
 from emc.project.behaviors.localroles import Ilocalroles
 from emc.project.behaviors.dynamic_role_users import IDynamicUsers
 from emc.project.behaviors.users_sent import ISending
+
+from emc.policy.portlets import navigation
 
 from emc.memberArea.events import TodoitemWillCreateEvent
 from zope.container.interfaces import IContainerModifiedEvent
@@ -204,4 +207,27 @@ def createTodoitem(doc, event):
             notify(TodoitemWillCreateEvent(title=title,userid=id,sender=sender,text=text))
     else:
         pass                
-        
+
+
+# @grok.subscribe(IProject, IObjectAddedEvent)
+def addProjectNavPortlet(obj, event):
+    """Event handler triggered when adding a project folder. This will add
+    the project navigator portlet automatically.
+    """
+     
+    parent = aq_parent(obj)
+    if IProjectFolder.providedBy(parent):
+        return
+    
+    # A portlet manager is akin to a column
+    column = getUtility(IPortletManager, name=u"plone.leftcolumn")
+    
+    # We multi-adapt the object and the column to an assignment mapping,
+    # which acts like a dict where we can put portlet assignments
+    manager = getMultiAdapter((obj, column,), IPortletAssignmentMapping)
+    
+    # We then create the assignment and put it in the assignment manager,
+    # using the default name-chooser to pick a suitable name for us.
+    assignment = navigation.Assignment()
+    chooser = INameChooser(manager)
+    manager[chooser.chooseName(None, assignment)] = assignment        
