@@ -4,7 +4,9 @@ from zope.event import notify
 from zope.component import adapter
 from Products.DCWorkflow.interfaces import IAfterTransitionEvent
 from Acquisition import aq_parent
+from zope.component import getUtility
 from zope.component import getMultiAdapter
+from zope.container.interfaces import INameChooser
 from zope.site.hooks import getSite
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import safe_unicode
@@ -18,6 +20,8 @@ from emc.project.behaviors.localroles import Ilocalroles
 from emc.project.behaviors.dynamic_role_users import IDynamicUsers
 from emc.project.behaviors.users_sent import ISending
 
+from plone.portlets.interfaces import IPortletManager
+from plone.portlets.interfaces import IPortletAssignmentMapping
 from emc.policy.portlets import navigation
 
 from emc.memberArea.events import TodoitemWillCreateEvent
