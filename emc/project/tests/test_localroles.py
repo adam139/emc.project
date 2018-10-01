@@ -7,7 +7,7 @@ from emc.project.behaviors.localroles import Ilocalroles,IlocalrolesMarker
 from emc.project.behaviors.users_sent import ISending
 from emc.project.behaviors.dynamic_role_users import IDynamicUsers
 
-
+from zope.component import provideAdapter,adapts,queryUtility
 from zope.component import createObject
 from zope.interface import alsoProvides
 from zope.component import provideUtility 

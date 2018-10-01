@@ -21,7 +21,6 @@ class Fixture(PloneSandboxLayer):
         import emc.theme
         
         import plone.app.contenttypes
-#        import xtshzz.policy
 #        self.loadZCML(package=xtshzz.policy)
   
         xmlconfig.file('configure.zcml', emc.memberArea, context=configurationContext)
