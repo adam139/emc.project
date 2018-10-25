@@ -178,7 +178,8 @@
 	</permission>
 	<permission name="emc.project:Manage project" acquire="True">
 		<role name="Owner"/>
-		<role name="Manager"/>		
+		<role name="Manager"/>
+		<role name="Site Administrator"/>		
 	</permission>	
 	<permission name="emc.project:Manage designer" acquire="True">
 		<role name="Owner"/>
