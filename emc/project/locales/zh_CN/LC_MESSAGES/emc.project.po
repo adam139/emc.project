@@ -139,7 +139,7 @@ msgstr "追加文件在主内容下面"
 
 #: ./vocabulary.py:29
 msgid "inner"
-msgstr ""
+msgstr "内部"
 
 #. Default: "attach file below content body"
 #: ./behaviors/belowcontentfile.py:17
@@ -172,15 +172,25 @@ msgstr "项目容器"
 
 #: ./vocabulary.py:28
 msgid "public"
-msgstr ""
+msgstr "公开"
+
+msgid "inner"
+msgstr "内部"
 
 #: ./behaviors/localroles.py:103
 msgid "quality manage staff"
 msgstr "质量管理人员"
 
 #: ./vocabulary.py:30
-msgid "secret"
-msgstr ""
+msgid "normal business secret"
+msgstr "普通商业秘密"
+
+msgid "high business secret"
+msgstr "核心商业秘密"
+
+msgid "highest secret"
+msgstr "机密"
+
 
 #: ./behaviors/security_level.py:18
 msgid "security level"

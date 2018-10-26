@@ -25,10 +25,14 @@ grok.global_utility(taskType, IVocabularyFactory,
         name="emc.project.vocabulary.tasktype")
 
 #密级属性：内部/秘密/机密/绝密
-security_level=[  ('inner','inner',_(u'inner')),
-                  ('low','low',_(u'secret')),
-                  ('mid','mid',_(u'more secret')),
-                  ('height','height',_(u'most secret')),
+# 公开/内部/普通商业秘密/秘密/核心商业秘密/机密
+security_level=[  
+                  ('public','public',_(u'public')),
+                  ('inner','inner',_(u'inner')),                              
+                  ('low','low',_(u'normal business secret')),
+                  ('secret','secret',_(u'secret')),
+                  ('high','high',_(u'high business secret')),
+                  ('highest','highest',_(u'highest secret')),
                         ]
 security_level_terms = [SimpleTerm(value, token, title) for value, token, title in security_level ]
 
