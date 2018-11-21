@@ -8,13 +8,13 @@ from plone.app.testing import SITE_OWNER_PASSWORD
 from plone.testing.z2 import Browser
 from plone.dexterity.fti import DexterityFTI
 
-from plone.app.contenttypes.behaviors.richtext import IRichText
+
 from emc.project.behaviors.security_level import ISecurityLevel
 from emc.project.testing import FUNCTIONAL_TESTING
 
 
 
-class RichTextBase:
+class TextBase:
     # subclass here
     _behaviors = None
     _portal_type = None
@@ -26,8 +26,8 @@ class RichTextBase:
         fti.behaviors = self._behaviors
 
 
-class RichTextBehaviorFunctionalTest(RichTextBase, unittest.TestCase):
-    """ basic use cases and tests for richtext behavior"""
+class SecurityLevelBehaviorFunctionalTest(TextBase, unittest.TestCase):
+    """ basic use cases and tests for securitylevel behavior"""
 
     layer = FUNCTIONAL_TESTING
 
@@ -55,9 +55,15 @@ class RichTextBehaviorFunctionalTest(RichTextBase, unittest.TestCase):
             'Basic %s:%s' % (SITE_OWNER_NAME, SITE_OWNER_PASSWORD,)
         )
 
-#     def test_richtext_in_edit_form(self):
-#         self.browser.open(self.portal_url + '/doc1/edit')
-#         self.assertTrue('pat-tinymce' in self.browser.contents)
+    def test_securitylevel_in_edit_form(self):
+        self.browser.open(self.portal_url + '/doc1/edit')
+        self.assertTrue('security level' in self.browser.contents)
+    def test_securitylevel_in_default_view(self):
+        self.browser.open(self.portal_url + '/doc1/@@view')
+        self.assertTrue("SecurityResult" in self.browser.contents)        
 
-    def test_richtext_behavior(self):
-        ISecurityLevel.providedBy(self.portal.doc1)
+    def test_securitylevel_behavior(self):
+        has = ISecurityLevel.providedBy(self.portal.doc1)
+
+        self.assertEqual(has,True)
+        

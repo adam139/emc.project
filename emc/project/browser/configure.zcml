@@ -37,7 +37,15 @@
         name="edit"
         />        
 
-
+   <browser:viewlet
+     name="securitylevel"
+     for="*"
+     view="plone.app.layout.globals.interfaces.IViewView"
+     manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+     class=".viewlets.SecurityLevel"
+     template="templates/security_level_viewlet.pt"
+     permission="zope2.View"
+     />
 <!-- borrow 'Saving users list' behavior 's mark interface -->        
 
    <browser:viewlet

@@ -1,0 +1,23 @@
+<tal:snippet omit-tag="" tal:define="hastable python:view.isEnabled()">
+<div tal:omit-tag="" tal:condition="hastable">
+<a class="btn btn-primary" role="button" data-toggle="collapse" 
+	href="#collapseSecurity" aria-expanded="false" aria-controls="collapseSecurity">用户和资源密级</a>
+<div class="collapse" id="collapseSecurity">
+	<table 	class="table table-striped table-bordered table-condensed listing">
+		<thead><tr class="row" data-toggle="tooltip" title="点击排序">
+			<th class="col-md-4 text-center">当前用户</th>
+			<th class="col-md-4 text-left">用户密级</th>
+			<th class="col-md-4 text-left">资源密级</th>			
+			</tr>
+		</thead>
+			<tbody id="SecurityResult" tal:content="structure python:view.output()">
+				<tr class="row">
+					<td class="col-md-4">李四</td>
+					<td class="col-md-4">重要人员</td>
+					<td class="col-md-4">秘密</td>					
+            	</tr>
+            	</tbody>
+     </table>
+</div>
+</div>
+</tal:snippet>
