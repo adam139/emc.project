@@ -41,7 +41,7 @@ class SecurityLevel(base.ViewletBase):
         translation_service = api.portal.get_tool(name='translation_service')
 
         title = translation_service.translate(value,
-                                              domain='plone',
+                                              domain='emc.project',
                                               mapping={},
                                               target_language='zh_CN',
                                               context=self.context,
