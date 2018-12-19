@@ -40,11 +40,7 @@
                  zope.lifecycleevent.interfaces.IObjectAddedEvent"
             handler=".subscriber.rolesAssianed"
             />
-<!--                        
-  <subscriber
-            handler=".subscriber.AssignCreate"
-            />
--->
+
   <subscriber
             handler=".subscriber.Review"
             />
