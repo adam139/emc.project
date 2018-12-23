@@ -195,6 +195,7 @@
 	<permission name="emc.project:Add project" acquire="True">
 		<role name="Site Administrator"/>
 		<role name="Manager"/>
+		<role name="EMCDesigner" />
 	</permission>
 	
 	<permission name="emc.project:Add team" acquire="True">
@@ -229,6 +230,7 @@
 	<permission name="emc.project:Read project" acquire="True">
 		<role name="Site Administrator"/>
 		<role name="Manager"/>
+		<role name="EMCDesigner" />
 		<role name="ProjectReader"/>		
 	</permission>		
 	<permission name="emc.project:View projectsummary" acquire="True">
