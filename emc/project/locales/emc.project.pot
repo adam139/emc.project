@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-07-29 01:47+0000\n"
+"POT-Creation-Date: 2018-12-23 05:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,15 +14,36 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
+#: ./behaviors/configure.zcml:63
+msgid "Adds Brief Report behavior"
+msgstr ""
+
+#: ./behaviors/configure.zcml:54
+msgid "Adds file field"
+msgstr ""
+
+#: ./behaviors/configure.zcml:79
+msgid "Adds security level field behavior"
+msgstr ""
+
+#: ./behaviors/configure.zcml:71
+msgid "Adds task type field behavior"
+msgstr ""
+
+#: ./behaviors/configure.zcml:54
+msgid "Attach File"
+msgstr ""
+
+#: ./behaviors/configure.zcml:63
 #: ./behaviors/richtext.py:19
 msgid "Brief Report"
 msgstr ""
 
-#: ./behaviors/localroles.py:61
+#: ./behaviors/localroles.py:57
 msgid "Chief Designer"
 msgstr ""
 
-#: ./behaviors/localroles.py:75
+#: ./behaviors/localroles.py:71
 msgid "Chief quality engineer"
 msgstr ""
 
@@ -30,20 +51,24 @@ msgstr ""
 msgid "Commander"
 msgstr ""
 
-#: ./behaviors/localroles.py:68
+#: ./behaviors/localroles.py:64
 msgid "Deputy Chief Designer"
 msgstr ""
 
-#: ./behaviors/localroles.py:89
+#: ./behaviors/localroles.py:85
 msgid "Deputy Chief Process"
 msgstr ""
 
-#: ./behaviors/localroles.py:82
+#: ./behaviors/localroles.py:78
 msgid "Deputy Chief quality engineer"
 msgstr ""
 
-#: ./behaviors/localroles.py:52
+#: ./behaviors/localroles.py:50
 msgid "Deputy Commander"
+msgstr ""
+
+#: ./profiles/default/controlpanel.xml
+msgid "Device settings"
 msgstr ""
 
 #: ./profiles/default/controlpanel.xml
@@ -54,20 +79,36 @@ msgstr ""
 msgid "Document types settings"
 msgstr ""
 
-#: ./behaviors/localroles.py:26
+#: ./behaviors/configure.zcml:46
+msgid "Dynamic users role"
+msgstr ""
+
+#: ./behaviors/localroles.py:28
 msgid "EMC Designer"
 msgstr ""
 
-#: ./behaviors/localroles.py:118
+#: ./behaviors/localroles.py:113
 msgid "EMC expert"
+msgstr ""
+
+#: ./configure.zcml:57
+msgid "Extension profile for a project management system for emc project"
 msgstr ""
 
 #: ./profiles/default/registry.xml
 msgid "List document types here."
 msgstr ""
 
-#: ./interface.py:22
+#: ./interface.py:29
 msgid "List project folder allow add document types."
+msgstr ""
+
+#: ./interface.py:40
+msgid "List project folder allow add zhi ding yu xia fa."
+msgstr ""
+
+#: ./profiles/default/registry.xml
+msgid "List zhidingyuxiafa doc here."
 msgstr ""
 
 #: ./browser/workflow_ajax.py:123
@@ -78,32 +119,60 @@ msgstr ""
 msgid "Please enter details of available types"
 msgstr ""
 
-#: ./behaviors/localroles.py:34
+#: ./browser/controlpanel.py:32
+msgid "Please enter details of available zhi ding"
+msgstr ""
+
+#: ./behaviors/localroles.py:36
 msgid "Product Designer"
 msgstr ""
 
-#: ./behaviors/localroles.py:190
+#: ./behaviors/configure.zcml:40
+msgid "Saved all id of users that had been sended todoitem create event to obj's annotation"
+msgstr ""
+
+#: ./behaviors/configure.zcml:40
+msgid "Saving users list"
+msgstr ""
+
+#: ./behaviors/configure.zcml:79
+msgid "Security Level"
+msgstr ""
+
+#: ./behaviors/configure.zcml:71
+msgid "Task type"
+msgstr ""
+
+#: ./behaviors/configure.zcml:46
+msgid "The file's value will be userid,expect the userid will be assigned local role on the fly"
+msgstr ""
+
+#: ./behaviors/localroles.py:185
 msgid "The first members"
 msgstr ""
 
-#: ./behaviors/localroles.py:195
+#: ./behaviors/localroles.py:190
 msgid "The second members"
 msgstr ""
 
-#: ./behaviors/localroles.py:201
+#: ./behaviors/localroles.py:196
 msgid "The third members"
 msgstr ""
 
-#: ./interface.py:25
+#: ./interface.py:32
 msgid "Type"
 msgstr ""
 
-#: ./behaviors/dynamic_role_users.py:28
+#: ./behaviors/dynamic_role_users.py:29
 msgid "Workflow next processor"
 msgstr ""
 
-#: ./behaviors/dynamic_role_users.py:27
+#: ./behaviors/dynamic_role_users.py:28
 msgid "Workflow setting"
+msgstr ""
+
+#: ./configure.zcml:57
+msgid "a project management system for emc project"
 msgstr ""
 
 #: ./vocabulary.py:11
@@ -114,7 +183,7 @@ msgstr ""
 msgid "design"
 msgstr ""
 
-#: ./behaviors/localroles.py:110
+#: ./behaviors/localroles.py:106
 msgid "dispatch staff"
 msgstr ""
 
@@ -122,7 +191,7 @@ msgstr ""
 msgid "document type"
 msgstr ""
 
-#: ./interface.py:21
+#: ./interface.py:28
 #: ./profiles/default/registry.xml
 msgid "document types"
 msgstr ""
@@ -135,7 +204,15 @@ msgstr ""
 msgid "help_attachfile"
 msgstr ""
 
-#: ./vocabulary.py:29
+#: ./vocabulary.py:34
+msgid "high business secret"
+msgstr ""
+
+#: ./vocabulary.py:35
+msgid "highest secret"
+msgstr ""
+
+#: ./vocabulary.py:31
 msgid "inner"
 msgstr ""
 
@@ -144,7 +221,23 @@ msgstr ""
 msgid "label_attachfile"
 msgstr ""
 
-#: ./behaviors/localroles.py:96
+#: ./behaviors/configure.zcml:86
+msgid "localroles"
+msgstr ""
+
+#: ./behaviors/configure.zcml:86
+msgid "localroles for emc project"
+msgstr ""
+
+#: ./profiles/default/types/emc.project.making.xml
+msgid "making distributing"
+msgstr ""
+
+#: ./vocabulary.py:32
+msgid "normal business secret"
+msgstr ""
+
+#: ./behaviors/localroles.py:92
 msgid "process staff"
 msgstr ""
 
@@ -168,15 +261,15 @@ msgstr ""
 msgid "projetFolder"
 msgstr ""
 
-#: ./vocabulary.py:28
+#: ./vocabulary.py:30
 msgid "public"
 msgstr ""
 
-#: ./behaviors/localroles.py:103
+#: ./behaviors/localroles.py:99
 msgid "quality manage staff"
 msgstr ""
 
-#: ./vocabulary.py:30
+#: ./vocabulary.py:33
 msgid "secret"
 msgstr ""
 
@@ -244,7 +337,27 @@ msgstr ""
 msgid "team content type"
 msgstr ""
 
+#: ./profiles/default/types/emc.project.team2.xml
+msgid "team2"
+msgstr ""
+
+#: ./profiles/default/types/emc.project.team2.xml
+msgid "team2 content type"
+msgstr ""
+
 #: ./vocabulary.py:13
 msgid "train"
 msgstr ""
 
+#: ./interface.py:43
+msgid "zhi ding"
+msgstr ""
+
+#: ./browser/controlpanel.py:31
+#: ./interface.py:39
+msgid "zhi ding yu xia fa"
+msgstr ""
+
+#: ./profiles/default/registry.xml
+msgid "zhidingyuxiafa types"
+msgstr ""

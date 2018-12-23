@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: emc project\n"
-"POT-Creation-Date: 2016-07-29 01:47+0000\n"
+"POT-Creation-Date: 2018-12-23 05:35+0000\n"
 "PO-Revision-Date: 2016-07-29 09:03+0800\n"
 "Last-Translator: adam <yuejun.tang@gmail.com>\n"
 "Language-Team: LANGUAGE <yuejun.tang@gmail.com>\n"
@@ -16,15 +16,36 @@ msgstr ""
 "Language: zh\n"
 "X-Generator: Poedit 1.8.7.1\n"
 
+#: ./behaviors/configure.zcml:63
+msgid "Adds Brief Report behavior"
+msgstr ""
+
+#: ./behaviors/configure.zcml:54
+msgid "Adds file field"
+msgstr ""
+
+#: ./behaviors/configure.zcml:79
+msgid "Adds security level field behavior"
+msgstr ""
+
+#: ./behaviors/configure.zcml:71
+msgid "Adds task type field behavior"
+msgstr ""
+
+#: ./behaviors/configure.zcml:54
+msgid "Attach File"
+msgstr ""
+
+#: ./behaviors/configure.zcml:63
 #: ./behaviors/richtext.py:19
 msgid "Brief Report"
 msgstr "简报"
 
-#: ./behaviors/localroles.py:61
+#: ./behaviors/localroles.py:57
 msgid "Chief Designer"
 msgstr "总设计师"
 
-#: ./behaviors/localroles.py:75
+#: ./behaviors/localroles.py:71
 msgid "Chief quality engineer"
 msgstr "总质量师"
 
@@ -32,21 +53,25 @@ msgstr "总质量师"
 msgid "Commander"
 msgstr "总指挥"
 
-#: ./behaviors/localroles.py:68
+#: ./behaviors/localroles.py:64
 msgid "Deputy Chief Designer"
 msgstr "副总设计师"
 
-#: ./behaviors/localroles.py:89
+#: ./behaviors/localroles.py:85
 msgid "Deputy Chief Process"
 msgstr "副总工艺师"
 
-#: ./behaviors/localroles.py:82
+#: ./behaviors/localroles.py:78
 msgid "Deputy Chief quality engineer"
 msgstr "副总质量师"
 
-#: ./behaviors/localroles.py:52
+#: ./behaviors/localroles.py:50
 msgid "Deputy Commander"
 msgstr "副总指挥"
+
+#: ./profiles/default/controlpanel.xml
+msgid "Device settings"
+msgstr ""
 
 #: ./profiles/default/controlpanel.xml
 msgid "Document Types"
@@ -56,21 +81,37 @@ msgstr "项目文档类型"
 msgid "Document types settings"
 msgstr "项目设置"
 
-#: ./behaviors/localroles.py:26
+#: ./behaviors/configure.zcml:46
+msgid "Dynamic users role"
+msgstr ""
+
+#: ./behaviors/localroles.py:28
 msgid "EMC Designer"
 msgstr "电磁兼容设计师"
 
-#: ./behaviors/localroles.py:118
+#: ./behaviors/localroles.py:113
 msgid "EMC expert"
 msgstr "电磁兼容专家"
+
+#: ./configure.zcml:57
+msgid "Extension profile for a project management system for emc project"
+msgstr ""
 
 #: ./profiles/default/registry.xml
 msgid "List document types here."
 msgstr "在下面列出可以添加到项目或项目组的文档类型"
 
-#: ./interface.py:22
+#: ./interface.py:29
 msgid "List project folder allow add document types."
 msgstr "在下面列出可以添加到项目或项目组的文档类型，每行一个"
+
+#: ./interface.py:40
+msgid "List project folder allow add zhi ding yu xia fa."
+msgstr "在下面列出可以添加到项目或项目组的指定或下发类型，每行一个"
+
+#: ./profiles/default/registry.xml
+msgid "List zhidingyuxiafa doc here."
+msgstr "在这儿列出指定与下发的文档"
 
 #: ./browser/workflow_ajax.py:123
 msgid "Not able to send notifications"
@@ -80,33 +121,61 @@ msgstr "不能发送通知"
 msgid "Please enter details of available types"
 msgstr "设置可以添加到项目或项目组的文档类型"
 
-#: ./behaviors/localroles.py:34
+#: ./browser/controlpanel.py:32
+msgid "Please enter details of available zhi ding"
+msgstr "请输入指定下发的详细资料"
+
+#: ./behaviors/localroles.py:36
 msgid "Product Designer"
 msgstr "产品设计师"
 
-#: ./behaviors/localroles.py:190
+#: ./behaviors/configure.zcml:40
+msgid "Saved all id of users that had been sended todoitem create event to obj's annotation"
+msgstr ""
+
+#: ./behaviors/configure.zcml:40
+msgid "Saving users list"
+msgstr ""
+
+#: ./behaviors/configure.zcml:79
+msgid "Security Level"
+msgstr "安全级别"
+
+#: ./behaviors/configure.zcml:71
+msgid "Task type"
+msgstr ""
+
+#: ./behaviors/configure.zcml:46
+msgid "The file's value will be userid,expect the userid will be assigned local role on the fly"
+msgstr ""
+
+#: ./behaviors/localroles.py:185
 msgid "The first members"
 msgstr "第一类人员"
 
-#: ./behaviors/localroles.py:195
+#: ./behaviors/localroles.py:190
 msgid "The second members"
 msgstr "第二类人员"
 
-#: ./behaviors/localroles.py:201
+#: ./behaviors/localroles.py:196
 msgid "The third members"
 msgstr "第三类人员"
 
-#: ./interface.py:25
+#: ./interface.py:32
 msgid "Type"
 msgstr "类型"
 
-#: ./behaviors/dynamic_role_users.py:28
+#: ./behaviors/dynamic_role_users.py:29
 msgid "Workflow next processor"
 msgstr "设定下发此文档的接收人"
 
-#: ./behaviors/dynamic_role_users.py:27
+#: ./behaviors/dynamic_role_users.py:28
 msgid "Workflow setting"
 msgstr "工作流设置"
+
+#: ./configure.zcml:57
+msgid "a project management system for emc project"
+msgstr "EMC系统的项目管理模块"
 
 #: ./vocabulary.py:11
 msgid "analysis"
@@ -116,7 +185,7 @@ msgstr ""
 msgid "design"
 msgstr ""
 
-#: ./behaviors/localroles.py:110
+#: ./behaviors/localroles.py:106
 msgid "dispatch staff"
 msgstr "计划调度人员"
 
@@ -124,7 +193,7 @@ msgstr "计划调度人员"
 msgid "document type"
 msgstr "文档类型"
 
-#: ./interface.py:21
+#: ./interface.py:28
 #: ./profiles/default/registry.xml
 msgid "document types"
 msgstr "文档类型"
@@ -137,7 +206,15 @@ msgstr ""
 msgid "help_attachfile"
 msgstr "追加文件在主内容下面"
 
-#: ./vocabulary.py:29
+#: ./vocabulary.py:34
+msgid "high business secret"
+msgstr "核心商业秘密"
+
+#: ./vocabulary.py:35
+msgid "highest secret"
+msgstr "机密"
+
+#: ./vocabulary.py:31
 msgid "inner"
 msgstr "内部"
 
@@ -146,7 +223,23 @@ msgstr "内部"
 msgid "label_attachfile"
 msgstr "附件"
 
-#: ./behaviors/localroles.py:96
+#: ./behaviors/configure.zcml:86
+msgid "localroles"
+msgstr ""
+
+#: ./behaviors/configure.zcml:86
+msgid "localroles for emc project"
+msgstr ""
+
+#: ./profiles/default/types/emc.project.making.xml
+msgid "making distributing"
+msgstr "指定下发"
+
+#: ./vocabulary.py:32
+msgid "normal business secret"
+msgstr "普通商业秘密"
+
+#: ./behaviors/localroles.py:92
 msgid "process staff"
 msgstr "工艺师"
 
@@ -170,27 +263,17 @@ msgstr "项目容器类型"
 msgid "projetFolder"
 msgstr "项目容器"
 
-#: ./vocabulary.py:28
+#: ./vocabulary.py:30
 msgid "public"
 msgstr "公开"
 
-msgid "inner"
-msgstr "内部"
-
-#: ./behaviors/localroles.py:103
+#: ./behaviors/localroles.py:99
 msgid "quality manage staff"
 msgstr "质量管理人员"
 
-#: ./vocabulary.py:30
-msgid "normal business secret"
-msgstr "普通商业秘密"
-
-msgid "high business secret"
-msgstr "核心商业秘密"
-
-msgid "highest secret"
-msgstr "机密"
-
+#: ./vocabulary.py:33
+msgid "secret"
+msgstr ""
 
 #: ./behaviors/security_level.py:18
 msgid "security level"
@@ -256,7 +339,27 @@ msgstr "项目组"
 msgid "team content type"
 msgstr "项目组类型"
 
+#: ./profiles/default/types/emc.project.team2.xml
+msgid "team2"
+msgstr ""
+
+#: ./profiles/default/types/emc.project.team2.xml
+msgid "team2 content type"
+msgstr ""
+
 #: ./vocabulary.py:13
 msgid "train"
 msgstr ""
 
+#: ./interface.py:43
+msgid "zhi ding"
+msgstr "指定"
+
+#: ./browser/controlpanel.py:31
+#: ./interface.py:39
+msgid "zhi ding yu xia fa"
+msgstr "指定与下发"
+
+#: ./profiles/default/registry.xml
+msgid "zhidingyuxiafa types"
+msgstr "指定下发的类型"
