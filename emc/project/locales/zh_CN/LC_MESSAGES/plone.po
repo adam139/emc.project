@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: emc.project\n"
-"POT-Creation-Date: 2015-02-14 00:52+0000\n"
+"POT-Creation-Date: 2018-12-25 03:12+0000\n"
 "PO-Revision-Date: 2015-02-14 09:20+0800\n"
 "Last-Translator: adam <yuejun.tang@gmail.com>\n"
 "Language-Team: 315ok.org <LL@li.org>\n"
@@ -13,6 +13,9 @@ msgstr ""
 "Language-Name: Chinese\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
+
+msgid "Ajax view"
+msgstr "Ajax视图"
 
 msgid "ChiefDesigner"
 msgstr "总设计师"
@@ -63,14 +66,27 @@ msgstr "电磁兼容专家"
 msgid "FangAn"
 msgstr "M"
 
+msgid "Folder view"
+msgstr "文件夹视图"
+
+msgid "ModificationDate"
+msgstr "修改时间"
+
 msgid "ProcessStaff"
 msgstr "工艺师"
+
+#: rolemap.xml
+msgid "ProjectManager"
+msgstr "项目师"
+
+msgid "ProjectReader"
+msgstr "项目阅读者"
 
 msgid "QualityManageStaff"
 msgstr "质量管理人员"
 
-msgid "ProjectReader"
-msgstr "项目阅读者"
+msgid "Report view"
+msgstr "简报视图"
 
 msgid "Retract to chuyang"
 msgstr "回退到C"
@@ -110,6 +126,9 @@ msgstr "S1"
 
 msgid "ShiYang2"
 msgstr "S2"
+
+msgid "Status view"
+msgstr "状态视图"
 
 msgid "Submit to chuyang"
 msgstr "提交到C"
@@ -186,20 +205,3 @@ msgstr "Z1"
 
 msgid "zhengyang2"
 msgstr "Z2"
-
-msgid "Status view"
-msgstr "状态视图"
-
-msgid "Ajax view"
-msgstr "Ajax视图"
-
-msgid "ModificationDate"
-msgstr "修改时间"
-
-msgid "Folder view"
-msgstr "文件夹视图"
-
-msgid "Report view"
-msgstr "简报视图"
-
-

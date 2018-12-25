@@ -15,6 +15,12 @@ msgstr ""
 "Domain: plone\n"
 
 #: rolemap.xml
+msgid "ProjectManager"
+msgstr ""
+
+msgid "ProjectReader"
+msgstr ""
+
 msgid "ChiefQE"
 msgstr ""
 

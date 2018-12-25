@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: emc.project\n"
-"POT-Creation-Date: 2015-02-14 00:52+0000\n"
+"POT-Creation-Date: 2018-12-25 03:12+0000\n"
 "PO-Revision-Date: 2015-02-14 09:20+0800\n"
 "Last-Translator: adam <yuejun.tang@gmail.com>\n"
 "Language-Team: 315ok.org <LL@li.org>\n"
@@ -14,137 +14,196 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 
-#: rolemap.xml
-msgid "ChiefQE"
-msgstr ""
-
-msgid "DeputyChiefQE"
-msgstr ""
-
-msgid "DeputyChiefProcess"
-msgstr ""
-
-msgid "ProcessStaff"
-msgstr ""
-
-msgid "QualityManageStaff"
-msgstr ""
-
-msgid "DispatchStaff"
-msgstr ""
- 
-msgid "EMCExpert"
-msgstr "" 
-
-msgid "EMCDesigner"
-msgstr ""
-
-msgid "Designer"
-msgstr ""
-
-msgid "Commander"
-msgstr ""
-
-msgid "DeputyCommander"
+msgid "Ajax view"
 msgstr ""
 
 msgid "ChiefDesigner"
 msgstr ""
 
+#: rolemap.xml
+msgid "ChiefQE"
+msgstr ""
+
+msgid "ChuYang"
+msgstr ""
+
+msgid "ChuYang1"
+msgstr ""
+
+msgid "ChuYang2"
+msgstr ""
+
+msgid "Commander"
+msgstr ""
+
 msgid "DeputyChiefDesigner"
+msgstr ""
+
+msgid "DeputyChiefProcess"
+msgstr ""
+
+msgid "DeputyChiefQE"
+msgstr ""
+
+msgid "DeputyCommander"
+msgstr ""
+
+msgid "Designer"
+msgstr ""
+
+msgid "DingXing"
+msgstr ""
+
+msgid "DispatchStaff"
+msgstr ""
+
+msgid "EMCDesigner"
+msgstr ""
+
+msgid "EMCExpert"
+msgstr ""
+
+# workflow  status
+msgid "FangAn"
+msgstr ""
+
+msgid "Folder view"
+msgstr ""
+
+msgid "ModificationDate"
+msgstr ""
+
+msgid "ProcessStaff"
+msgstr ""
+
+#: rolemap.xml
+msgid "ProjectManager"
 msgstr ""
 
 msgid "ProjectReader"
 msgstr ""
 
-#workflow  transition
-msgid "Submit to dingxing"
+msgid "QualityManageStaff"
 msgstr ""
-msgid "Submit to zhengyang2"
+
+msgid "Report view"
 msgstr ""
-msgid "Submit to zhengyang1"
+
+msgid "Retract to chuyang"
 msgstr ""
-msgid "Submit to zhengyang"
+
+msgid "Retract to chuyang1"
 msgstr ""
-msgid "Submit to shiyang2"
+
+msgid "Retract to chuyang2"
 msgstr ""
-msgid "Submit to shiyang1"
+
+msgid "Retract to fangan"
 msgstr ""
-msgid "Submit to shiyang"
+
+msgid "Retract to shiyang"
 msgstr ""
-msgid "Submit to chuyang"
+
+msgid "Retract to shiyang1"
 msgstr ""
-msgid "Submit to chuyang1"
+
+msgid "Retract to shiyang2"
 msgstr ""
-msgid "Submit to chuyang2"
+
+msgid "Retract to zhengyang"
 msgstr ""
-msgid "Submit to fangan"
+
+msgid "Retract to zhengyang1"
 msgstr ""
 
 msgid "Retract to zhengyang2"
 msgstr ""
-msgid "Retract to zhengyang1"
-msgstr ""
-msgid "Retract to zhengyang"
-msgstr ""
-msgid "Retract to shiyang2"
-msgstr ""
-msgid "Retract to shiyang1"
-msgstr ""
-msgid "Retract to shiyang"
-msgstr ""
-msgid "Retract to chuyang"
-msgstr ""
-msgid "Retract to chuyang1"
-msgstr ""
-msgid "Retract to chuyang2"
-msgstr ""
-msgid "Retract to fangan"
-msgstr ""
 
-#workflow  status
-msgid "FangAn"
-msgstr ""
-msgid "ChuYang"
-msgstr ""
-msgid "ChuYang1"
-msgstr ""
-msgid "ChuYang2"
-msgstr ""
 msgid "ShiYang"
 msgstr ""
+
 msgid "ShiYang1"
 msgstr ""
+
 msgid "ShiYang2"
 msgstr ""
+
+# menu item
+msgid "Status view"
+msgstr ""
+
+msgid "Submit to chuyang"
+msgstr ""
+
+msgid "Submit to chuyang1"
+msgstr ""
+
+msgid "Submit to chuyang2"
+msgstr ""
+
+# workflow  transition
+msgid "Submit to dingxing"
+msgstr ""
+
+msgid "Submit to fangan"
+msgstr ""
+
+msgid "Submit to shiyang"
+msgstr ""
+
+msgid "Submit to shiyang1"
+msgstr ""
+
+msgid "Submit to shiyang2"
+msgstr ""
+
+msgid "Submit to zhengyang"
+msgstr ""
+
+msgid "Submit to zhengyang1"
+msgstr ""
+
+msgid "Submit to zhengyang2"
+msgstr ""
+
 msgid "ZhengYang"
 msgstr ""
+
 msgid "ZhengYang1"
 msgstr ""
+
 msgid "ZhengYang2"
 msgstr ""
-msgid "DingXing"
+
+msgid "chuyang"
+msgstr ""
+
+msgid "chuyang1"
+msgstr ""
+
+msgid "chuyang2"
+msgstr ""
+
+msgid "dingxing"
 msgstr ""
 
 msgid "fangan"
 msgstr ""
-msgid "chuyang"
-msgstr ""
-msgid "chuyang1"
-msgstr ""
-msgid "chuyang2"
-msgstr ""
+
 msgid "shiyang"
 msgstr ""
+
 msgid "shiyang1"
 msgstr ""
+
 msgid "shiyang2"
 msgstr ""
+
 msgid "zhengyang"
 msgstr ""
+
 msgid "zhengyang1"
 msgstr ""
+
 msgid "zhengyang2"
-msgstr ""
-msgid "dingxing"
 msgstr ""

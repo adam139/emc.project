@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <rolemap>
   <roles>
+    <role name="ProjectManager" />  	
     <role name="EMCDesigner" />
     <role name="Designer" /> 
     <role name="Commander" />
@@ -25,57 +26,61 @@
          can add them.
       -->
 	<permission name="View" acquire="True">
-    <role name="Owner" />		
-    <role name="Contributor"/>
-    <role name="Editor"/>
-    <role name="Reader"/>
-    <role name="Reviewer"/>
+    	<role name="Owner" />		
+    	<role name="Contributor"/>
+    	<role name="Editor"/>
+    	<role name="Reader"/>
+    	<role name="Reviewer"/>
 		<role name="Manager"/>
 		<role name="Member"/>		
-		<role name="Site Administrator"/>		
+		<role name="Site Administrator"/>
+		<role name="ProjectManager"/>		
 		<role name="EMCDesigner"/>
 		<role name="Designer"/>
 		<role name="ProjectReader"/>		
     </permission>
     
 	<permission name="Add portal content" acquire="True">
-    <role name="Owner" />		
-    <role name="Contributor"/>
-    <role name="Editor"/>
-    <role name="Reviewer"/>
+    	<role name="Owner" />		
+    	<role name="Contributor"/>
+    	<role name="Editor"/>
+    	<role name="Reviewer"/>
 		<role name="Manager"/>
 		<role name="Member"/>		
-		<role name="Site Administrator"/>		
+		<role name="Site Administrator"/>
+		<role name="ProjectManager"/>		
 		<role name="EMCDesigner"/>
 		<role name="Designer"/>		
     </permission>
 	<permission name="Modify portal content" acquire="True">
-    <role name="Owner" />		
-    <role name="Contributor"/>
-    <role name="Editor"/>
-    <role name="Reviewer"/>
+    	<role name="Owner" />		
+    	<role name="Contributor"/>
+    	<role name="Editor"/>
+    	<role name="Reviewer"/>
 		<role name="Manager"/>
 		<role name="Member"/>		
-		<role name="Site Administrator"/>		
+		<role name="Site Administrator"/>
+		<role name="ProjectManager"/>
 		<role name="EMCDesigner"/>
 		<role name="Designer"/>		
     </permission>    
 
 	<permission name="Delete objects" acquire="True">
-    <role name="Owner" />		
-    <role name="Contributor"/>
+    	<role name="Owner" />		
+    	<role name="Contributor"/>
 		<role name="Manager"/>	
 		<role name="Site Administrator"/>		
     </permission>        
 	
     <permission name="Access contents information" acquire="True">
-    <role name="Contributor"/>
-    <role name="Editor"/>
-    <role name="Reader"/>
-    <role name="Reviewer"/>
+    	<role name="Contributor"/>
+    	<role name="Editor"/>
+    	<role name="Reader"/>
+    	<role name="Reviewer"/>
 		<role name="Manager"/>
 		<role name="Member"/>		
-		<role name="Site Administrator"/>		
+		<role name="Site Administrator"/>
+		<role name="ProjectManager"/>		
 		<role name="EMCDesigner"/>
 		<role name="Designer"/>
 		<role name="ProjectReader"/>					  
@@ -179,12 +184,14 @@
 	<permission name="emc.project:Manage project" acquire="True">
 		<role name="Owner"/>
 		<role name="Manager"/>
-		<role name="Site Administrator"/>		
+		<role name="Site Administrator"/>
+		<role name="ProjectManager"/>
 	</permission>	
 	<permission name="emc.project:Manage designer" acquire="True">
 		<role name="Owner"/>
 		<role name="Manager"/>
-		<role name="Site Administrator"/>				
+		<role name="Site Administrator"/>
+		<role name="ProjectManager"/>				
 	</permission>	
 									
 	<permission name="emc.project:Add projectfolder" acquire="True">
@@ -195,7 +202,7 @@
 	<permission name="emc.project:Add project" acquire="True">
 		<role name="Site Administrator"/>
 		<role name="Manager"/>
-		<role name="EMCDesigner" />
+		<role name="ProjectManager"/>
 	</permission>
 	
 	<permission name="emc.project:Add team" acquire="True">
@@ -212,6 +219,7 @@
 	<permission name="emc.project:Modify project" acquire="True">
 		<role name="Site Administrator"/>
 		<role name="Manager"/>
+		<role name="ProjectManager"/>
     	<role name="Owner" />			
 		<role name="Editor"/>
 	</permission>	
@@ -230,17 +238,19 @@
 	<permission name="emc.project:Read project" acquire="True">
 		<role name="Site Administrator"/>
 		<role name="Manager"/>
-		<role name="EMCDesigner" />
+		<role name="ProjectManager"/>
 		<role name="ProjectReader"/>		
 	</permission>		
 	<permission name="emc.project:View projectsummary" acquire="True">
 		<role name="Site Administrator"/>
 		<role name="Manager"/>
+		<role name="ProjectManager"/>
 		<role name="ProjectReader"/>		
 	</permission>
 	<permission name="emc.project:View project" acquire="True">
 		<role name="Site Administrator"/>
 		<role name="Manager"/>
+		<role name="ProjectManager"/>
 		<role name="ProjectReader"/>		
     	<role name="Owner" />			
     	<role name="EMCDesigner" />
