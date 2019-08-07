@@ -1,8 +1,14 @@
 Changelog
 =========
+
+master
+-------------------
+2019-08-07 merge dev1.2 to master
+
 dev1.2
 -------------------
 2018-09-26 create and switch to dev1.2
+
 1.0dev (unreleased)
 -------------------
 
