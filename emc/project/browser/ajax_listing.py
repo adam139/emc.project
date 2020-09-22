@@ -13,28 +13,23 @@ from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore import permissions
 from Products.CMFCore.interfaces import ISiteRoot
-# from plone.directives import dexterity
 from plone.memoize.instance import memoize
 from emc.project import _
 from emc.project.content.projectfolder import IProjectFolder
 from emc.project.content.project import IProject
 from emc.project.content.team import ITeam
 from Products.Five.browser import BrowserView
-
 from collective.gtags.interfaces import ITagSettings
 from emc.project import viewReport
 from emc.project.interface import IUsersrolesProvider
 
-
-grok.templatedir('templates')     
-
+grok.templatedir('templates')
 
 class sysAjaxListingView(BrowserView):
     """
     AJAX 查询，返回分页结果,for some contenttypes relative to project
     """
-   
-               
+
     @memoize    
     def catalog(self):
         context = aq_inner(self.context)
@@ -69,15 +64,12 @@ class sysAjaxListingView(BrowserView):
         "input keywords vocabulary,\
         output all tags,compose a list,member of the list is unicode"
         factory = queryUtility(IVocabularyFactory, 'plone.app.vocabularies.Keywords')
-#         import pdb
-#         pdb.set_trace()
         if not factory:
             raise VocabLookupException(
                 'No factory with name "%s" exists.' % factory_name)
 
         vocabulary = factory(self.context)
         tags = [ term.title for term in vocabulary]
-#         settings = getUtility(IRegistry).forInterface(ITagSettings)
         return tags
     
     @memoize
@@ -85,20 +77,16 @@ class sysAjaxListingView(BrowserView):
         "fetch all tag groups ,it is category part of 'category-value'" 
         tagsets = self.getTagregistryProxy()
         if tagsets ==None:return None
-#         import pdb
-#         pdb.set_trace()
         # get rid of duplicate
         groups = set(self.splitTag(value)['category'] for value in tagsets if value != "")
         groups = list(groups)
         groups.sort(reverse=True)
-        return groups           
+        return groups
     
     def getAllTags(self,category,start=0,size=None):
         """fetch all predefine  tags under the specify category"""
         tagsets = self.getTagregistryProxy()
-#         import pdb
-#         pdb.set_trace()
-#         out = []
+
         if tagsets ==None:return None
         def cfilter(tag):
             loopc = self.splitTag(tag)
@@ -107,29 +95,26 @@ class sysAjaxListingView(BrowserView):
         def mapf(tag):
             loopc = self.splitTag(tag)
             return loopc['value']
-        
-#         import pdb
-#         pdb.set_trace()
+
         out = filter(cfilter,tagsets)
         out = map(mapf,out)
-
         out.sort()
-        lth = len(out)        
+        lth = len(out)
 
         if size == None:
             if start == 0:
                 tags = out
-            else:                                
+            else:
                 tags = out[start:]
         else:
             size = min(size,lth)
-            tags = out[start:size]            
+            tags = out[start:size]
         #set output dic
         o = dict()
         # this is total
         o['t'] = lth
         # this is output html
-        o['h'] = tags                      
+        o['h'] = tags
         return  o
             
 
@@ -167,7 +152,6 @@ class sysAjaxListingView(BrowserView):
     def getAllTagsHtml(self):
         "output all tag groups html"
         groups = self.getTagGroups()
-#         i= 0
         out = ""
         prefix = """
                     <ul class="row tagSelectSearch list-inline">                    
@@ -182,8 +166,7 @@ class sysAjaxListingView(BrowserView):
         """
         postfix = "</li></ul>"
         for group in groups:
-
-            if group != "":                
+            if group != "":
                 prefixing = prefix % (group,group)
             else:
                 fixgroup = u"未分类".encode('utf-8')
@@ -202,14 +185,11 @@ class sysAjaxListingView(BrowserView):
             loopitem = self.getTagHtml(group,0,5)
             loopitem = "%s%s%s" % (prefixing,loopitem,postfix)
             out = "%s%s" % (out,loopitem)
-        return out                                  
-        
+        return out
          
     def canbeRead(self):
-#        status = self.workflow_state()
-# checkPermission function must be use Title style permission
+        # checkPermission function must be use Title style permission
         canbe = self.pm().checkPermission(viewReport,self.context)
-
         return canbe is not None
 
     def hasSummaryView(self):
@@ -237,8 +217,6 @@ class sysAjaxListingView(BrowserView):
         """返回 all organizations
         """
         query = {}
-#         import pdb
-#         pdb.set_trace()        
         path = "/".join(self.context.getPhysicalPath())
         if objid == None or objid == '':            
             query['path'] = path
@@ -248,9 +226,9 @@ class sysAjaxListingView(BrowserView):
             bn = self.catalog()(query2)
             if len(bn) >=1:
                 path = bn[0].getPath()
-                query['path'] = path                       
-        
+                query['path'] = path        
         return query
+    
 #任务类型属性：分析/设计/实验/仿真/培训          
     def getTaskType(self,typekey):
         if typekey == 1:
@@ -286,7 +264,7 @@ class  ajaxListingView(sysAjaxListingView):
     def getTagregistryProxy(self):
         settings = getUtility(IRegistry).forInterface(ITagSettings)
         return settings.tags    
-    
+
 
  # ajax load more tags       
 class sysloadMore(grok.View):
@@ -302,17 +280,11 @@ class sysloadMore(grok.View):
         
     def render(self):
         searchview = self.queryview()    
-#        self.portal_state = getMultiAdapter((self.context, self.request), name=u"plone_portal_state")
-                
- # datadic receive front ajax post data       
+        # datadic receive front ajax post data       
         datadic = self.request.form
         start = int(datadic['start']) # batch search start position
         group = datadic['category']  # 对应 tag category
-#         import pdb
-#         pdb.set_trace()
         out = searchview.getTagHtml(group,start,None)
-#         getTagHtml(self,category,start=0,size=None)
-
         self.request.response.setHeader('Content-Type', 'application/json')
         return json.dumps(out)   
 
@@ -327,6 +299,7 @@ class loadMore(sysloadMore):
         searchview = getMultiAdapter((self.context, self.request),name=u"ajax_listings")
         return searchview
 
+
  # ajax multi-condition search       
 class ajaxsearch(grok.View):
     """AJAX action for search.
@@ -334,7 +307,6 @@ class ajaxsearch(grok.View):
     grok.context(Interface)
     grok.name('ajaxsearch')
     grok.require('zope2.View')    
-#     grok.require('emc.project.view_projectsummary')
 
     def Datecondition(self,key):        
         "构造日期搜索条件"
@@ -354,7 +326,6 @@ class ajaxsearch(grok.View):
 #最近五年               
         else:
             start = end - datetime.timedelta(365*5) 
-#            return    { "query": [start,],"range": "min" }                                                             
         datecondition = { "query": [start, end],"range": "minmax" }
         return datecondition  
           
@@ -363,9 +334,8 @@ class ajaxsearch(grok.View):
         return value.split('-')[1]    
     
     def render(self):    
-#        self.portal_state = getMultiAdapter((self.context, self.request), name=u"plone_portal_state")
         searchview = getMultiAdapter((self.context, self.request),name=u"sysajax_listings")        
- # datadic receive front ajax post data       
+        # datadic receive front ajax post data       
         datadic = self.request.form
         start = int(datadic['start']) # batch search start position
         datekey = int(datadic['datetype'])  # 对应 最近一周，一月，一年……
@@ -387,7 +357,7 @@ class ajaxsearch(grok.View):
                 
  #模糊搜索       
         if keyword != "":
-            origquery['SearchableText'] = '*'+keyword+'*'        
+            origquery['SearchableText'] = '*'+keyword+'*'
 
 #         if securitykey != 0:
 #             origquery['security_level'] = searchview.getSecurityLevel(securitykey)
@@ -437,8 +407,7 @@ class ajaxsearch(grok.View):
         "根据参数total,braindata,返回jason 输出"
         outhtml = ""      
         k = 0
-        for i in braindata:
-          
+        for i in braindata:          
             out = """<tr class="text-left">
                                 <td class="col-md-1 text-center">%(num)s</td>
                                 <td class="col-md-3 text-left"><a href="%(objurl)s">%(title)s</a></td>
@@ -453,6 +422,4 @@ class ajaxsearch(grok.View):
             k = k + 1 
            
         data = {'searchresult': outhtml,'start':start,'size':size,'total':totalnum}
-        return data        
-
-
+        return data
