@@ -84,8 +84,6 @@ def getDesigners(node):
     
     dl = Ilocalroles(node).designer
     portal = api.portal.get()
-#     import pdb
-#     pdb.set_trace()
     while dl == None:
         node = aq_parent(node)
         if node == portal:return ()
@@ -104,8 +102,6 @@ def Review(doc, event):
     "handler from status:pendingview to published(owner action) or pendingprocess to review"
 
     state = event.new_state.getId()
-#     import pdb
-#     pdb.set_trace()   
     if state == "pendingview":
         old = event.old_state.getId()
         id = doc.creators[0]
@@ -199,8 +195,6 @@ def createTodoitem(doc, event):
         title = title.encode("utf-8")
 
         for id in getDesigners(node):
-#             import pdb
-#             pdb.set_trace()            
             notify(TodoitemWillCreateEvent(title=title,userid=id,sender=sender,text=text))
             
     elif state == "pendingprocess":
@@ -223,7 +217,7 @@ def addProjectNavPortlet(obj, event):
     if IProjectFolder.providedBy(parent):
         return
     
-    # A portlet manager is akin to a column
+    # A portlet manager is a plugin to a column
     column = getUtility(IPortletManager, name=u"plone.leftcolumn")
     
     # We multi-adapt the object and the column to an assignment mapping,
