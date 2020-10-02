@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<object
+    name="portal_controlpanel"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="emc.project">
+    
+    <configlet
+        title="Document Types"
+        action_id="documenttypes"
+        appId="documenttypes" 
+        remove="True">
+    </configlet>
+    
+    <configlet
+        title="Device settings"
+        action_id="devicesettings"
+        appId="devicesettings"
+        remove="True">
+    </configlet>
+</object>
