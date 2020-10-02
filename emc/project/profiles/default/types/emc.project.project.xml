@@ -17,9 +17,8 @@
   	 <element value="File" />  
   	 <element value="Document" />
   	 <element value="emc.bokeh.fearture" />
-  	 <element value="emc.bokeh.codefile" />
   	 <element value="emc.project.doc" />
-  	 <element value="emc.project.making" />  	  	  	     	 
+  	 <element value="emc.project.making" />
   </property>
   <property name="allow_discussion">False</property>
 
