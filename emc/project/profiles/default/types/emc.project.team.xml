@@ -43,7 +43,7 @@
   <property name="default_view_fallback">False</property>
   <property name="view_methods">
     <element value="ajax_listings" />
-    <element value="folder_contents" />
+    <element value="project_contents" />
   	<element value="listing_view"/>
   	<element value="listing_report"/>
   	<element value="summary_view"/>
