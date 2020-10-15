@@ -39,7 +39,7 @@
  </property>
 
   <!-- View information -->
-  <property name="default_view">ajax_listings</property>
+  <property name="default_view">project_contents</property>
   <property name="default_view_fallback">False</property>
   <property name="view_methods">
     <element value="ajax_listings" />
