@@ -10,24 +10,17 @@ from emc.project.content.document import IDocument
 
 @indexer(IProject)
 def SearchableText_project(obj):
-    return u" ".join((
-        safe_unicode(obj.id),
-        safe_unicode(obj.title) or u"",
-        safe_unicode(obj.description) or u"",
-    ))
+    return _unicode_save_string_concat(SearchableText(obj))
+
 
 @indexer(ITeam)
 def SearchableText_team(obj):
-    return u" ".join((
-        safe_unicode(obj.id),
-        safe_unicode(obj.title) or u"",
-        safe_unicode(obj.description) or u"",
-    ))
+    return _unicode_save_string_concat(SearchableText(obj))
 
 @indexer(IDocument)
 def SearchableText_document(obj):
-    if obj.text is None or obj.text.output is None:
-        return SearchableText(obj)
+#     if obj.text is None or obj.text.output is None:
+#             return _unicode_save_string_concat(SearchableText(obj))
     return _unicode_save_string_concat(SearchableText(obj), obj.text.output)
 
 # @indexer(IProjectContent)
