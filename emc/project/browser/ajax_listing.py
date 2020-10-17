@@ -63,7 +63,7 @@ class sysAjaxListingView(BrowserView):
     def getTagregistryProxy(self):
         "input keywords vocabulary,\
         output all tags,compose a list,member of the list is unicode"
-        factory = queryUtility(IVocabularyFactory, 'plone.app.vocabularies.Keywords')
+        factory = queryUtility(IVocabularyFactory, 'plone.app.vocabularies.ExcludeProjectKeywords')
         if not factory:
             raise VocabLookupException(
                 'No factory with name "%s" exists.' % factory_name)
