@@ -24,7 +24,7 @@
  <property name="add_permission">emc.project.add_doc</property>
  <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
-     <element value="collective.gtags.behaviors.ITags"/>
+     <element value="collective.gtags.behaviors.IProjectTags"/>
      <element value="plone.app.contenttypes.behaviors.richtext.IRichText"/>
      <element value="emc.project.behaviors.richtext.IRichText"/>
      <element value="emc.project.behaviors.dynamic_role_users.IDynamicUsers"/>
