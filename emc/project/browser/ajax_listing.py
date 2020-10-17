@@ -263,7 +263,7 @@ class  ajaxListingView(sysAjaxListingView):
     @memoize
     def getTagregistryProxy(self):
         settings = getUtility(IRegistry).forInterface(ITagSettings)
-        return settings.tags    
+        return settings.project_tags    
 
 
  # ajax load more tags       
