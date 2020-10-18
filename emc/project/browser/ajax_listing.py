@@ -1,4 +1,5 @@
 #-*- coding: UTF-8 -*-
+from plone.protect.utils import addTokenToUrl
 from zope.interface import Interface
 from zope.interface import implementer
 from zope.component import getMultiAdapter
@@ -218,7 +219,7 @@ class sysAjaxListingView(BrowserView):
         """
         query = {}
         path = "/".join(self.context.getPhysicalPath())
-        if objid == None or objid == '':            
+        if objid == None or objid == '':
             query['path'] = path
         else:
             query2 = {}
@@ -226,7 +227,7 @@ class sysAjaxListingView(BrowserView):
             bn = self.catalog()(query2)
             if len(bn) >=1:
                 path = bn[0].getPath()
-                query['path'] = path        
+                query['path'] = path
         return query
     
 #任务类型属性：分析/设计/实验/仿真/培训          
@@ -412,12 +413,12 @@ class ajaxsearch(grok.View):
                                 <td class="col-md-1 text-center">%(num)s</td>
                                 <td class="col-md-3 text-left"><a href="%(objurl)s">%(title)s</a></td>
                                 <td class="col-md-7">%(description)s</td>
-                                <td class="col-md-1 text-center">%(date)s</td>                                
-                            </tr> """% dict(objurl="%s/view" % i.getURL(),
+                                <td class="col-md-1 text-center">%(date)s</td>
+                            </tr> """% dict(objurl=addTokenToUrl(i.getURL()) ,
                                             num=str(k + 1),
                                             title=i.Title,
                                             description= i.Description,
-                                            date = i.created.strftime('%Y-%m-%d'))           
+                                            date = i.created.strftime('%Y-%m-%d'))
             outhtml = "%s%s" %(outhtml ,out)
             k = k + 1 
            
