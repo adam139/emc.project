@@ -7,11 +7,21 @@ from emc.project.interface import IProjectContent
 from emc.project.content.project import IProject
 from emc.project.content.team import ITeam
 from emc.project.content.document import IDocument
+from emc.project.content.file import IFile
+from emc.project.content.image import IImage
+
 
 @indexer(IProject)
 def SearchableText_project(obj):
     return _unicode_save_string_concat(SearchableText(obj))
 
+@indexer(IFile)
+def SearchableText_file(obj):
+    return _unicode_save_string_concat(SearchableText(obj))
+
+@indexer(IImage)
+def SearchableText_image(obj):
+    return _unicode_save_string_concat(SearchableText(obj))
 
 @indexer(ITeam)
 def SearchableText_team(obj):

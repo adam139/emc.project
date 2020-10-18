@@ -10,12 +10,11 @@
   <property name="content_icon">++resource++emc.project/folder.png</property>
   <property name="global_allow">False</property>
   <property name="filter_content_types">True</property>  
-  <property name="allowed_content_types">
+  <property name="allowed_content_types" purge="true">
   	 <element value="emc.project.team" />
   	 <element value="emc.project.team2" />  	 
-  	 <element value="Image" />
-  	 <element value="File" />  
-  	 <element value="Document" />
+  	 <element value="emc.project.image" />
+  	 <element value="emc.project.file" />
   	 <element value="emc.bokeh.fearture" />
   	 <element value="emc.project.doc" />
   	 <element value="emc.project.making" />

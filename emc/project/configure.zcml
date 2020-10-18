@@ -61,5 +61,7 @@
    <adapter name="SearchableText" factory=".indexer.SearchableText_project" />
    <adapter name="SearchableText" factory=".indexer.SearchableText_team" />
    <adapter name="SearchableText" factory=".indexer.SearchableText_document" />
-
+   <adapter name="SearchableText" factory=".indexer.SearchableText_file" />
+   <adapter name="SearchableText" factory=".indexer.SearchableText_image" />
+   
 </configure>

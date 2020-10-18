@@ -7,10 +7,19 @@
      which supports Plone's "display" menu.
   -->
 <object name="portal_types" meta_type="Plone Types Tool">
-  <object name="emc.project.projectFolder" meta_type="Dexterity FTI" />	
-  <object name="emc.project.project"  meta_type="Dexterity FTI" />	 
+ <object name="emc.project.file" remove="True"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="emc.project.image" remove="True"
+    meta_type="Factory-based Type Information with dynamic views"/>
+  <object name="emc.project.doc" remove="True"
+    meta_type="Factory-based Type Information with dynamic views"/>   
+
+  <object name="emc.project.projectFolder" meta_type="Dexterity FTI" />
+  <object name="emc.project.project"  meta_type="Dexterity FTI" />
   <object name="emc.project.team"  meta_type="Dexterity FTI" />
-  <object name="emc.project.team2"  meta_type="Dexterity FTI" />    
+  <object name="emc.project.team2"  meta_type="Dexterity FTI" />
   <object name="emc.project.doc" meta_type="Dexterity FTI" />
-  <object name="emc.project.making" meta_type="Dexterity FTI" />  	  
+  <object name="emc.project.making" meta_type="Dexterity FTI" />
+  <object name="emc.project.file" meta_type="Dexterity FTI" />
+  <object name="emc.project.image" meta_type="Dexterity FTI" />
 </object>
