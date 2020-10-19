@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <object
-    i18n:domain="plone"
+    i18n:domain="emc.project"
     meta_type="Dexterity FTI"
     name="emc.project.file"
     xmlns:i18n="http://xml.zope.org/namespaces/i18n">
@@ -8,10 +8,10 @@
   <!-- Basic properties -->
   <property
       i18n:translate=""
-      name="title">File</property>
+      name="title">Project File</property>
   <property
       i18n:translate=""
-      name="description">Lets you upload a file to the site.</property>
+      name="description">Lets you upload a file to project folder.</property>
 
   <property name="allow_discussion">False</property>
   <property name="factory">emc.project.file</property>

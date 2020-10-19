@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <object
-    i18n:domain="plone"
+    i18n:domain="emc.project"
     meta_type="Dexterity FTI"
     name="emc.project.image"
     xmlns:i18n="http://xml.zope.org/namespaces/i18n">
@@ -8,7 +8,7 @@
   <!-- Basic properties -->
   <property
       i18n:translate=""
-      name="title">Image</property>
+      name="title">Project Image</property>
   <property
       i18n:translate=""
       name="description">Images can be referenced in pages or displayed in an album.</property>

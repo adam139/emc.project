@@ -4,9 +4,9 @@
    i18n:domain="emc.project" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
   <!-- Basic metadata -->
-  <property name="title" i18n:translate="">team2</property>
+  <property name="title" i18n:translate="">Combination with cabinet</property>
   <property name="description"
-    i18n:translate="">team2 content type</property>
+    i18n:translate="">Combination with cabinet</property>
   <property name="content_icon">++resource++emc.project/folder.png</property>
   <property name="global_allow">False</property>
   <property name="filter_content_types">True</property>  

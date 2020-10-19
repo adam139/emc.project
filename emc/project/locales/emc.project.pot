@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-12-23 05:35+0000\n"
+"POT-Creation-Date: 2020-10-19 01:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,6 +45,10 @@ msgstr ""
 
 #: ./behaviors/localroles.py:71
 msgid "Chief quality engineer"
+msgstr ""
+
+#: ./profiles/default/types/emc.project.team2.xml
+msgid "Combination with cabinet"
 msgstr ""
 
 #: ./behaviors/localroles.py:43
@@ -91,8 +95,21 @@ msgstr ""
 msgid "EMC expert"
 msgstr ""
 
+#: ./profiles/default/types/emc.project.file.xml
+#: ./profiles/default/types/emc.project.image.xml
+msgid "Edit"
+msgstr ""
+
 #: ./configure.zcml:57
 msgid "Extension profile for a project management system for emc project"
+msgstr ""
+
+#: ./profiles/default/types/emc.project.image.xml
+msgid "Images can be referenced in pages or displayed in an album."
+msgstr ""
+
+#: ./profiles/default/types/emc.project.file.xml
+msgid "Lets you upload a file to project folder."
 msgstr ""
 
 #: ./profiles/default/registry.xml
@@ -125,6 +142,14 @@ msgstr ""
 
 #: ./behaviors/localroles.py:36
 msgid "Product Designer"
+msgstr ""
+
+#: ./profiles/default/types/emc.project.file.xml
+msgid "Project File"
+msgstr ""
+
+#: ./profiles/default/types/emc.project.image.xml
+msgid "Project Image"
 msgstr ""
 
 #: ./behaviors/configure.zcml:40
@@ -161,6 +186,11 @@ msgstr ""
 
 #: ./interface.py:32
 msgid "Type"
+msgstr ""
+
+#: ./profiles/default/types/emc.project.file.xml
+#: ./profiles/default/types/emc.project.image.xml
+msgid "View"
 msgstr ""
 
 #: ./behaviors/dynamic_role_users.py:29
@@ -249,10 +279,6 @@ msgstr ""
 msgid "project content type"
 msgstr ""
 
-#: ./profiles/default/types/emc.project.doc.xml
-msgid "project document"
-msgstr ""
-
 #: ./profiles/default/types/emc.project.projectFolder.xml
 msgid "project folder content type"
 msgstr ""
@@ -269,6 +295,10 @@ msgstr ""
 msgid "quality manage staff"
 msgstr ""
 
+#: ./profiles/default/types/emc.project.doc.xml
+msgid "report page"
+msgstr ""
+
 #: ./vocabulary.py:33
 msgid "secret"
 msgstr ""
@@ -277,8 +307,16 @@ msgstr ""
 msgid "security level"
 msgstr ""
 
+#: ./profiles/default/types/emc.project.doc.xml
+msgid "simple report page"
+msgstr ""
+
 #: ./vocabulary.py:14
 msgid "simulation"
+msgstr ""
+
+#: ./profiles/default/types/emc.project.team.xml
+msgid "sub-systems and equipment"
 msgstr ""
 
 #: ./browser/templates/project_view.pt:43
@@ -327,22 +365,6 @@ msgstr ""
 
 #: ./behaviors/task_type.py:18
 msgid "task type"
-msgstr ""
-
-#: ./profiles/default/types/emc.project.team.xml
-msgid "team"
-msgstr ""
-
-#: ./profiles/default/types/emc.project.team.xml
-msgid "team content type"
-msgstr ""
-
-#: ./profiles/default/types/emc.project.team2.xml
-msgid "team2"
-msgstr ""
-
-#: ./profiles/default/types/emc.project.team2.xml
-msgid "team2 content type"
 msgstr ""
 
 #: ./vocabulary.py:13

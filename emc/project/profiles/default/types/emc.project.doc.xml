@@ -4,9 +4,9 @@
    i18n:domain="emc.project" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
   <!-- Basic metadata -->
-  <property name="title" i18n:translate="">project document</property>
+  <property name="title" i18n:translate="">report page</property>
   <property name="description"
-    i18n:translate="">project document</property>
+    i18n:translate="">simple report page</property>
   <property name="content_icon">document_icon.png</property>
   <property name="global_allow">False</property>
   <property name="filter_content_types">True</property>  
